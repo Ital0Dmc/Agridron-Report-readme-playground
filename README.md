@@ -85,7 +85,7 @@
 | 1.3.0 | 06/10/2026 | Damacen Galindo, Italo Gianfranco | Ampliación del Análisis competitivo (2.1.1) y de Herramientas del proyecto (5.1.1.2). |
 | 1.4.0 | 06/10/2026 | Sayago Vidal, Sebastián Leonardo | Sprint 2 (5.2.2). |
 | 2.0.0 | 06/10/2026 | Nicho Huillcañahui, Edwin Noe | Project Report Collaboration Insights, videos de exposición y Student Outcome. Versión de entrega TB1. |
-| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, el Registro de Versiones, Project Report Collaboration Insights, Student Outcome y Startup Profile según el enunciado. |
+| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, el Registro de Versiones, Project Report Collaboration Insights, Student Outcome, Startup Profile y Antecedentes y problemática según el enunciado. |
 
 ## Project Report Collaboration Insights
 
@@ -454,75 +454,55 @@ La plataforma permite registrar fincas y parcelas, seleccionar el área de fumig
 
 ## 1.2. Solution Profile
 
-<p align="justify">
-
-<strong>AgriDron Solutions</strong> propone una plataforma que centraliza la planificación, ejecución y monitoreo de operaciones de fumigación agrícola mediante drones. El usuario podrá programar misiones, supervisar los drones y consultar información de las operaciones desde una sola plataforma.
-
-</p>
-
-<p align="justify">
-
-El usuario podrá registrar sus fincas y parcelas, seleccionar en un mapa el área que desea fumigar y crear una misión. Antes de realizar la operación podrá consultar las condiciones meteorológicas mediante una API externa. Durante la misión podrá ver el estado y ubicación del dron. Después podrá revisar el historial y los reportes de las operaciones realizadas.
-
-</p>
-
 ### 1.2.1. Antecedentes y problemática
 
-1.2.1.1. What
+**Antecedentes**
 
-<p align="justify">
+La agricultura enfrenta pérdidas recurrentes por plagas y enfermedades. Según la FAO (2023), hasta un 40 % de la producción agrícola mundial se pierde cada año por esta causa. Tradicionalmente, el control fitosanitario se realiza con fumigadoras de mochila o con tractores, métodos que demandan mucha mano de obra y tiempo, aplican producto donde no siempre es necesario y exponen a los trabajadores a agroquímicos. En los últimos años, los drones de fumigación se han convertido en una alternativa más precisa y segura. Sin embargo, su adopción por pequeños y medianos agricultores aún es limitada, y la coordinación de estos servicios se gestiona de forma manual, mediante mensajes y registros dispersos.
 
-El problema central es la presencia recurrente de plagas y parásitos en los cultivos, lo que reduce el rendimiento y la calidad de la cosecha. Los métodos tradicionales de fumigación, ya sean manuales o con tractor, pueden ser lentos, costosos e imprecisos. Además, pueden exponer a los trabajadores a productos químicos.
+**Problemática (5W + 2H)**
 
-</p>
+| Pregunta | Descripción |
+|:--|:--|
+| **Who** (¿Quién?) | Pequeños y medianos agricultores y cooperativas, que contratan o gestionan las fumigaciones, y el personal técnico (ingenieros agrónomos, técnicos de campo y operadores de drones), que planifica y ejecuta las operaciones. |
+| **What** (¿Qué?) | La presencia recurrente de plagas reduce el rendimiento y la calidad de la cosecha, y los métodos tradicionales de fumigación son lentos, costosos, imprecisos y riesgosos para los trabajadores. |
+| **Where** (¿Dónde?) | En terrenos agrícolas donde no existe una gestión ni un monitoreo formal de las operaciones, como los fundos de los valles costeros donde trabajan los entrevistados (Cañete, Huaral e Ica). |
+| **When** (¿Cuándo?) | Principalmente durante las temporadas de crecimiento de los cultivos, cuando se realizan aplicaciones preventivas o curativas ante signos de infestación. |
+| **Why** (¿Por qué?) | No existe un sistema que permita gestionar y monitorear las fumigaciones de forma centralizada. Esto provoca pérdidas económicas, desacuerdos sobre el área tratada y mayor exposición de los trabajadores a riesgos. |
+| **How** (¿Cómo?) | Mediante una plataforma web que permita gestionar fincas y parcelas, delimitar el área de fumigación en un mapa, crear misiones, consultar el clima, monitorear los drones y revisar reportes e historial. |
+| **How Much** (¿Cuánto?) | Hasta un 40 % de la producción agrícola mundial se pierde cada año por plagas y enfermedades (FAO, 2023). |
 
-1.2.1.2. Where
+**Enunciado del problema**
 
-<p align="justify">
+Los pequeños y medianos agricultores y el personal técnico que realiza fumigaciones con drones no cuentan con una herramienta que les permita planificar, coordinar y supervisar estas operaciones de forma centralizada. Como consecuencia, la información de las parcelas, las condiciones climáticas y los servicios realizados se gestiona de manera manual y dispersa, lo que genera pérdidas de tiempo, un uso ineficiente de insumos, desacuerdos sobre el área fumigada y una mayor exposición de los trabajadores a riesgos.
 
-La problemática se presenta en terrenos agrícolas donde no existe una correcta gestión y monitoreo de las operaciones. Esto puede dificultar el control de plagas y afectar la producción.
+**Puntos que debe resolver la solución**
 
-</p>
+- Centralizar la información de fincas, parcelas y misiones en una sola plataforma.
+- Permitir la delimitación precisa del área de fumigación sobre un mapa interactivo.
+- Validar las condiciones meteorológicas antes de ejecutar una misión.
+- Ofrecer el seguimiento del estado y la ubicación del dron durante la operación.
+- Conservar el historial y los reportes de las operaciones como respaldo para agricultores y operadores.
 
-1.2.1.3. When
+**Objetivos**
 
-<p align="justify">
+*Objetivo general:* Desarrollar una plataforma web responsive que permita a agricultores y personal técnico planificar, ejecutar y supervisar operaciones de fumigación con drones de forma centralizada.
 
-El problema de las plagas ocurre principalmente durante las temporadas de crecimiento de los cultivos. El monitoreo y las aplicaciones de fumigación se realizan durante todo el ciclo de cultivo, ya sea de forma preventiva o cuando aparecen signos de infestación.
+*Objetivos específicos:*
 
-</p>
+1. Implementar el registro de fincas y la delimitación de parcelas sobre un mapa interactivo.
+2. Integrar un servicio meteorológico externo para validar las condiciones antes de cada misión.
+3. Implementar el monitoreo de misiones mediante datos de telemetría simulados.
+4. Generar el historial y los reportes de las operaciones realizadas.
+5. Desarrollar una Landing Page que presente la propuesta de valor y dirija a cada segmento hacia la Web Application.
 
-1.2.1.4. Who
+**Restricciones**
 
-<p align="justify">
-
-El ecosistema de AgriDron Solutions involucra a agricultores, cooperativas agrícolas, ingenieros agrónomos, técnicos de campo y operadores de drones. Los agricultores y cooperativas serán los principales clientes, mientras que el personal técnico podrá utilizar la plataforma para supervisar y gestionar las operaciones.
-
-</p>
-
-1.2.1.5. Why
-
-<p align="justify">
-
-La causa principal es la falta de un sistema que permita gestionar y monitorear las operaciones de fumigación de forma centralizada. Esto puede generar pérdidas económicas y aumentar la exposición de los trabajadores a los riesgos de los métodos tradicionales.
-
-</p>
-
-1.2.1.6. How
-
-<p align="justify">
-
-AgriDron Solutions abordará esta problemática mediante una plataforma web que permita gestionar fincas y parcelas, seleccionar áreas de fumigación en un mapa, crear misiones con drones, consultar información meteorológica, monitorear los drones y revisar reportes e historial de operaciones.
-
-</p>
-
-1.2.1.7. How much
-
-<p align="justify">
-
-Según la FAO (2023), se estima que hasta un 40% de la producción agrícola mundial se pierde cada año debido a plagas y enfermedades. Esto muestra la importancia de contar con mejores herramientas para el monitoreo y control de plagas.
-
-</p>
+- La telemetría del dron se simula. El proyecto no incluye integración con hardware real de drones.
+- La información meteorológica depende de un servicio externo de terceros.
+- La solución se compone de una Landing Page, una Web Application responsive y un RESTful API, y no incluye una aplicación móvil nativa.
+- Se utilizan las tecnologías definidas por el curso: HTML, CSS y JavaScript para la Landing Page, Angular para la Web Application y Spring Boot para el RESTful API.
+- El alcance se limita al ciclo académico 2026-20 y a los sprints planificados.
 
 ### 1.2.2. Lean UX Process
 
