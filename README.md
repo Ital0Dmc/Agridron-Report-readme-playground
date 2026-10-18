@@ -2,21 +2,23 @@
 <img src="assets/logos/upc_logo.png" alt="UPC Logo" width="150"/>
 
 ## **Universidad Peruana de Ciencias Aplicadas**
+### Facultad de Ingeniería
 ### Carrera de Ingeniería de Software
+### Ciclo 2026-20
 <br>
 
-**Curso: Desarrollo de Aplicaciones Open Source**
+**Curso: 1ASI0729 - Desarrollo de Aplicaciones Open Source**
 
 **NRC: 7760**
 
-**Docente: FLORES MOROCCO; Juan Antonio**
+**Profesor: Flores Moroco, Juan Antonio**
 <br>
 
-### **Informe del Trabajo Final**
+### **Informe de Trabajo Final**
 
 **Nombre de la Startup:** AgriDron Solutions
 
-**Nombre del producto:** AgriDron
+**Nombre del Producto:** AgriDron
 <br>
 
 ### **Integrantes**
@@ -25,8 +27,12 @@
 
 <table align="center" style="border-collapse: collapse; border: none; margin-left: auto; margin-right: auto;">
     <tr>
-        <th style="border: none; padding: 0 18px 6px 0; text-align: center;">U202421392</th>
-        <th style="border: none; padding: 0 0 6px 0; text-align: center;">Damacen Galindo, Italo Gianfranco</th>
+        <th style="border: none; padding: 0 18px 6px 0; text-align: center;">Código</th>
+        <th style="border: none; padding: 0 0 6px 0; text-align: center;">Apellidos y Nombres</th>
+    </tr>
+    <tr>
+        <td style="border: none; padding: 0 18px 4px 0; text-align: center;">U202421392</td>
+        <td style="border: none; padding: 0 0 4px 0; text-align: center;">Damacen Galindo, Italo Gianfranco</td>
     </tr>
     <tr>
         <td style="border: none; padding: 0 18px 4px 0; text-align: center;">U20241G306</td>
@@ -34,91 +40,76 @@
     </tr>
     <tr>
         <td style="border: none; padding: 0 18px 4px 0; text-align: center;">U202416053</td>
-        <td style="border: none; padding: 0 0 4px 0; text-align: center;">Ramirez Gutierrez, Gabriel</td>
+        <td style="border: none; padding: 0 0 4px 0; text-align: center;">Ramírez Gutiérrez, Gabriel</td>
     </tr>
     <tr>
         <td style="border: none; padding: 0 18px 4px 0; text-align: center;">U202422642</td>
-        <td style="border: none; padding: 0 0 4px 0; text-align: center;">Sayago Vidal, Sebastian Leonardo</td>
+        <td style="border: none; padding: 0 0 4px 0; text-align: center;">Sayago Vidal, Sebastián Leonardo</td>
     </tr>
     <tr>
         <td style="border: none; padding: 0 18px 4px 0; text-align: center;">U202222473</td>
-        <td style="border: none; padding: 0 0 4px 0; text-align: center;">Vasquez Roncal, Alexander Felipe</td>
+        <td style="border: none; padding: 0 0 4px 0; text-align: center;">Vásquez Roncal, Alexander Felipe</td>
     </tr>
 </table>
 <br>
 <div align="center">
-<b><i>Septiembre, 2026</i></b>
+<b><i>Octubre, 2026</i></b>
 </div>
 <br>
 
----
-
-## Registro de Versiones
-
-| Versión | Fecha      | Autor              | Descripción                            |
-|:--------|:-----------|:-------------------|:---------------------------------------|
-| 0.1.0   | 05/09/2026 | Sebastián Sayago   | Creación inicial del documento.        |
-| 0.2.0   | 06/09/2026 | Sebastián Sayago   | Implementación inicial del capitulo 1  |
-| 0.3.0   | 09/09/2026 | Nicho Huillcañahui | Implementación inicial del capitulo 2  |
-| 0.3.0   | 07/09/2026 | Nicho Huillcañahui | Implementación del capitulo 2          |
-| 0.6.0   | 07/09/2026 | Nicho Huillcañahui | Implementación del capitulo 2          |
-| 0.5.0   | 08/09/2026 | Sebastián Sayago   | Implementación del capitulo 4          |
-| 0.7.0   | 08/09/2026 | Alexander Vasquez  | Implementación del capitulo 3          |
-| 0.8.0   | 08/09/2026 | Sebastián Sayago   | Implementación del capitulo 4          |
-| 0.4.0   | 12/09/2026 | Italo Damacen      | Implementación completa del capitulo 1 |
-| 0.6.0   | 12/09/2026 | Gabriel Ramirez    | Implementacion del capitulo 5          |
-| 0.4.0   | 13/09/2026 | Nicho Huillcañahui | Segunda implementación del capitulo 2  |
-| 0.5.0   | 13/09/2026 | Nicho Huillcañahui | Segunda implementación del capitulo 2  |
-| 0.6.5   | 14/09/2026 | Gabriel Ramirez    | Segunda implementacion del capitulo 2  |
-| 0.7.0   | 15/09/2026 | Agridron    | Correccion de errores  |
-| 0.8.0   | 16/09/2026 | Agridron    | Pre-release 1.0 del documento  |
-| 1.0.0   | 17/09/2026 | Agridron           | Evidencia completa de entrega AV1      |
-| 1.1.0   | 6/10/2026 | Agridron           | Evidencia completa de entrega TB1      |
-
----
-Project Report Collaboration Insights
-URL del repositorio (report): https://github.com/Opensource-UPC/1ASI0729-2620-7760-G3-Agridron-Report
-
-URL del repositorio (landing-page): https://github.com/Opensource-UPC/AgiDron-LandingPage-7760-G3
-
-URL del repositorio (front-end): https://github.com/Opensource-UPC/Agridron-frontend
-
-
-Primera entrega (AV1)
-
-Las actividades se enfocaron en la construcción estratégica y los fundamentos del proyecto dentro del Capítulo I. El equipo trabajó en la definición detallada del perfil de la startup y la presentación formal de sus integrantes, para luego abordar el planteamiento de la solución aplicando la metodología Lean UX.
-
-Posteriormente, en el Capítulo II se llevaron a cabo las dinámicas de elicitación y análisis de requerimientos. El equipo ejecutó un análisis competitivo exhaustivo, diseñó y aplicó guías de entrevista estructuradas a usuarios del segmento objetivo, y procesó los hallazgos mediante técnicas de Needfinding. Se consolidaron los User Personas, las matrices de tareas, los User Journey Maps y los Empathy Maps. Adicionalmente, se facilitaron sesiones colaborativas de Big Picture EventStorming para mapear la complejidad del dominio de negocio y consensuar el Ubiquitous Language que rige la arquitectura del sistema.
-
-En el Capítulo III, se estructuraron las historias de usuario asociadas a Impact Mapping y se organizó el Product Backlog priorizado. A la par, el Capítulo IV se enfocó en diseño de producto y arquitectura de software. En esta etapa se establecieron las guías de estilo para aplicaciones web, la arquitectura de información detallada (sistemas de organización, etiquetado, búsqueda, navegación y metadatos SEO), así como el diseño de la interfaz y experiencia de usuario a nivel de Wireframes, Mockups, Wireflows, User Flows y prototipos interactivos. Asimismo, aplicando Domain-Driven Design (DDD), se ejecutó el Design-Level EventStorming y se construyeron los diagramas C4 (Context, Container y Component), acompañados de los diagramas de clases orientados a objetos y el modelado completo de la base de datos.
-
-Por último, el Capítulo V concentró la configuración del entorno de gestión del código fuente, donde se definieron las convenciones de desarrollo, los estándares de estilo de código, la estrategia de ramificación (GitFlow) y las pautas para el despliegue de las aplicaciones y servicios, asentando las bases técnicas para el ciclo de vida del desarrollo de software.
-
-
-<p align="center">
-<img src="assets/chapter4/Web_Applications_User_Flow_Diagrams.png" alt="Contributors-AV1" width="500"/>
-  <br/><i>Contribuciones del avance 1 (AV1)</i>
-</p>
-<br>
-
 <div style="page-break-after: always;"></div>
 
-Segunda entrega (TB1)
+---
 
-Se realizaron las respectivas correcciones al documento en relación a las revisiones dadas en la primera entrega. Se empezó con la actualización del landing page. Se actualizó el capitulo 5 para definir las bases de trabajo y las actividades respectivas en relación al desarrollo del Frontend, además de presentar la evidencia respectiva del despliege de este
+## Registro de Versiones del Informe
 
+| Versión | Fecha | Autor | Descripción de modificación |
+|:--|:--|:--|:--|
+| 0.1.0 | 05/09/2026 | Sayago Vidal, Sebastián Leonardo | Creación inicial del documento y de la plantilla del informe. |
+| 0.2.0 | 06/09/2026 | Sayago Vidal, Sebastián Leonardo | Estructura del informe, carpeta de assets y avance inicial del Capítulo I. |
+| 0.3.0 | 07/09/2026 | Damacen Galindo, Italo Gianfranco | Startup Profile, Solution Profile, Segmentos objetivo y Lean UX Canvas (1.1 a 1.3). |
+| 0.4.0 | 09/09/2026 | Vásquez Roncal, Alexander Felipe | Avance inicial de los Capítulos III y IV. |
+| 0.5.0 | 10/09/2026 | Sayago Vidal, Sebastián Leonardo | Software Configuration Management (5.1). |
+| 0.6.0 | 11/09/2026 | Nicho Huillcañahui, Edwin Noe | Registro y análisis de entrevistas (2.2.2 y 2.2.3). |
+| 0.7.0 | 13/09/2026 | Vásquez Roncal, Alexander Felipe | User Journey Mapping y Mock-ups de las aplicaciones. |
+| 0.8.0 | 13/09/2026 | Sayago Vidal, Sebastián Leonardo | Database Design (4.8). |
+| 0.9.0 | 14/09/2026 | Ramírez Gutiérrez, Gabriel | Avance del Sprint 1 y Landing Page (5.2.1). |
+| 0.10.0 | 15/09/2026 | Damacen Galindo, Italo Gianfranco | Student Outcome, perfil de integrante y registro de entrevistas. |
+| 0.11.0 | 16/09/2026 | Nicho Huillcañahui, Edwin Noe | Artefactos UX, Ubiquitous Language, User Stories, Technical Stories e Impact Mapping. |
+| 0.12.0 | 16/09/2026 | Vásquez Roncal, Alexander Felipe | Nuevas User Stories, enlaces de Miro y LucidChart y descripción del User Flow. |
+| 0.13.0 | 17/09/2026 | Vásquez Roncal, Alexander Felipe | Reestructuración del Capítulo IV, enlaces de Figma y Trello y evidencia del Sprint Review. |
+| 1.0.0 | 17/09/2026 | Sayago Vidal, Sebastián Leonardo | Domain flow, User Flow Diagram y tabla de contenido. Versión de entrega AV1. |
+| 1.1.0 | 30/09/2026 | Vásquez Roncal, Alexander Felipe | Corrección y ampliación de User Stories según feedback de AV1. |
+| 1.2.0 | 30/09/2026 | Sayago Vidal, Sebastián Leonardo | Actualización de Class Diagrams y Database Diagrams. |
+| 1.2.1 | 05/10/2026 | Sayago Vidal, Sebastián Leonardo | Corrección del formato del Sprint Backlog 1. |
+| 1.3.0 | 06/10/2026 | Damacen Galindo, Italo Gianfranco | Ampliación del Análisis competitivo (2.1.1) y de Herramientas del proyecto (5.1.1.2). |
+| 1.4.0 | 06/10/2026 | Sayago Vidal, Sebastián Leonardo | Sprint 2 (5.2.2). |
+| 2.0.0 | 06/10/2026 | Nicho Huillcañahui, Edwin Noe | Project Report Collaboration Insights, videos de exposición y Student Outcome. Versión de entrega TB1. |
+| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, reorganización del Registro de Versiones y reestructuración de Project Report Collaboration Insights según el enunciado. |
 
-<p align="center">
-<img src="assets/Web_Applications_User_Flow_TB1.png" alt="Contributors-TB1" width="500"/>
-  <br/><i>Contribuciones de la entrega parcial 1 (TB1)</i>
-</p>
-<br>
+## Project Report Collaboration Insights
+
+El informe se elabora de forma colaborativa en el repositorio [1ASI0729-2620-7760-G3-Agridron-Report](https://github.com/Opensource-UPC/1ASI0729-2620-7760-G3-Agridron-Report), que pertenece a la organización Opensource-UPC en GitHub. A continuación se describe, para cada entrega, cómo se desarrollaron las actividades de elaboración del informe, junto con los analíticos de colaboración del repositorio.
+
+### Entrega AV1
+
+El informe se elaboró entre el 05/09/2026 y el 17/09/2026. Sayago Vidal, Sebastián Leonardo creó la plantilla base del README y la estructura de carpetas de assets. A partir de ella, cada integrante asumió capítulos específicos. Damacen Galindo, Italo Gianfranco elaboró el Capítulo I. Nicho Huillcañahui, Edwin Noe desarrolló el Capítulo II, con las entrevistas, el Needfinding y el Ubiquitous Language. Vásquez Roncal, Alexander Felipe trabajó los Capítulos III y IV, incluyendo las User Stories, el Impact Mapping y los Mock-ups. Sayago Vidal, Sebastián Leonardo documentó la arquitectura, el diseño de base de datos y el Software Configuration Management. Por último, Ramírez Gutiérrez, Gabriel elaboró la sección del Sprint 1 y la Landing Page.
+
+Siguiendo GitFlow, los aportes se desarrollaron en ramas feature por capítulo o sección, como feature/capitulo-3, feature/chapter4, feature/database-design y feature/software-configuration-management. Estas ramas se integraron en develop mediante pull requests y se publicaron en main a través de la rama release-1.0, como la versión 1.0.0 del informe.
+
+![Contributors del repositorio del informe en AV1](assets/collaboration/report_contributors_av1.png)
+
+*Figura: Analíticos de contribución del repositorio del informe al cierre de AV1 (Insights > Contributors, rama main). Se observa la participación de los cinco integrantes del equipo, con la mayor actividad concentrada en la semana previa a la entrega.*
+
+### Entrega TB1
+
+Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones derivadas de la retroalimentación de AV1. Vásquez Roncal, Alexander Felipe corrigió y amplió las User Stories. Sayago Vidal, Sebastián Leonardo actualizó los Class Diagrams y Database Diagrams, corrigió el formato del Sprint Backlog 1 y documentó el Sprint 2. Damacen Galindo, Italo Gianfranco amplió el Análisis competitivo y la tabla de herramientas del proyecto. Nicho Huillcañahui, Edwin Noe actualizó esta sección, los enlaces de los videos de exposición y el Student Outcome. El trabajo se integró en develop mediante pull requests y luego se publicó en main como la versión 2.0.0 del informe.
+
+![Contributors del repositorio del informe en TB1](assets/collaboration/report_contributors_tb1.png)
+
+*Figura: Analíticos de contribución del repositorio del informe durante TB1 (Insights > Contributors, rama main). Se evidencia la participación continua de los cinco integrantes en la elaboración del informe.*
 
 <div style="page-break-after: always;"></div>
-
-
-
----
 
 # Contenido
 
@@ -3998,7 +3989,7 @@ La colaboración del equipo se desarrolló con un enfoque distribuido por respon
 
 El equipo trabajó de forma complementaria en tres dimensiones: la propuesta de valor y UX, la implementación técnica del sistema y la documentación del proyecto. Esta organización permitió avanzar en paralelo, reducir tiempos de espera y mantener una cultura de colaboración abierta, donde cada integrante asumió responsabilidades claras y contribuyó a la entrega del primer ciclo incremental.
 
-![Evidencia de colaboración del Sprint](assets/chapter4/Web_Applications_User_Flow_Diagrams.png)
+![Evidencia de colaboración del Sprint](assets/collaboration/report_contributors_av1.png)
 
 
 ### 5.2.2. Sprint 2
