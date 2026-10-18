@@ -61,27 +61,31 @@
 
 ---
 
-## Registro de Versiones
+## Registro de Versiones del Informe
 
-| Versión | Fecha      | Autor              | Descripción                            |
-|:--------|:-----------|:-------------------|:---------------------------------------|
-| 0.1.0   | 05/09/2026 | Sebastián Sayago   | Creación inicial del documento.        |
-| 0.2.0   | 06/09/2026 | Sebastián Sayago   | Implementación inicial del capitulo 1  |
-| 0.3.0   | 09/09/2026 | Nicho Huillcañahui | Implementación inicial del capitulo 2  |
-| 0.3.0   | 07/09/2026 | Nicho Huillcañahui | Implementación del capitulo 2          |
-| 0.6.0   | 07/09/2026 | Nicho Huillcañahui | Implementación del capitulo 2          |
-| 0.5.0   | 08/09/2026 | Sebastián Sayago   | Implementación del capitulo 4          |
-| 0.7.0   | 08/09/2026 | Alexander Vasquez  | Implementación del capitulo 3          |
-| 0.8.0   | 08/09/2026 | Sebastián Sayago   | Implementación del capitulo 4          |
-| 0.4.0   | 12/09/2026 | Italo Damacen      | Implementación completa del capitulo 1 |
-| 0.6.0   | 12/09/2026 | Gabriel Ramirez    | Implementacion del capitulo 5          |
-| 0.4.0   | 13/09/2026 | Nicho Huillcañahui | Segunda implementación del capitulo 2  |
-| 0.5.0   | 13/09/2026 | Nicho Huillcañahui | Segunda implementación del capitulo 2  |
-| 0.6.5   | 14/09/2026 | Gabriel Ramirez    | Segunda implementacion del capitulo 2  |
-| 0.7.0   | 15/09/2026 | Agridron    | Correccion de errores  |
-| 0.8.0   | 16/09/2026 | Agridron    | Pre-release 1.0 del documento  |
-| 1.0.0   | 17/09/2026 | Agridron           | Evidencia completa de entrega AV1      |
-| 1.1.0   | 6/10/2026 | Agridron           | Evidencia completa de entrega TB1      |
+| Versión | Fecha | Autor | Descripción de modificación |
+|:--|:--|:--|:--|
+| 0.1.0 | 05/09/2026 | Sayago Vidal, Sebastián Leonardo | Creación inicial del documento y de la plantilla del informe. |
+| 0.2.0 | 06/09/2026 | Sayago Vidal, Sebastián Leonardo | Estructura del informe, carpeta de assets y avance inicial del Capítulo I. |
+| 0.3.0 | 07/09/2026 | Damacen Galindo, Italo Gianfranco | Startup Profile, Solution Profile, Segmentos objetivo y Lean UX Canvas (1.1 a 1.3). |
+| 0.4.0 | 09/09/2026 | Vásquez Roncal, Alexander Felipe | Avance inicial de los Capítulos III y IV. |
+| 0.5.0 | 10/09/2026 | Sayago Vidal, Sebastián Leonardo | Software Configuration Management (5.1). |
+| 0.6.0 | 11/09/2026 | Nicho Huillcañahui, Edwin Noe | Registro y análisis de entrevistas (2.2.2 y 2.2.3). |
+| 0.7.0 | 13/09/2026 | Vásquez Roncal, Alexander Felipe | User Journey Mapping y Mock-ups de las aplicaciones. |
+| 0.8.0 | 13/09/2026 | Sayago Vidal, Sebastián Leonardo | Database Design (4.8). |
+| 0.9.0 | 14/09/2026 | Ramírez Gutiérrez, Gabriel | Avance del Sprint 1 y Landing Page (5.2.1). |
+| 0.10.0 | 15/09/2026 | Damacen Galindo, Italo Gianfranco | Student Outcome, perfil de integrante y registro de entrevistas. |
+| 0.11.0 | 16/09/2026 | Nicho Huillcañahui, Edwin Noe | Artefactos UX, Ubiquitous Language, User Stories, Technical Stories e Impact Mapping. |
+| 0.12.0 | 16/09/2026 | Vásquez Roncal, Alexander Felipe | Nuevas User Stories, enlaces de Miro y LucidChart y descripción del User Flow. |
+| 0.13.0 | 17/09/2026 | Vásquez Roncal, Alexander Felipe | Reestructuración del Capítulo IV, enlaces de Figma y Trello y evidencia del Sprint Review. |
+| 1.0.0 | 17/09/2026 | Sayago Vidal, Sebastián Leonardo | Domain flow, User Flow Diagram y tabla de contenido. Versión de entrega AV1. |
+| 1.1.0 | 30/09/2026 | Vásquez Roncal, Alexander Felipe | Corrección y ampliación de User Stories según feedback de AV1. |
+| 1.2.0 | 30/09/2026 | Sayago Vidal, Sebastián Leonardo | Actualización de Class Diagrams y Database Diagrams. |
+| 1.2.1 | 05/10/2026 | Sayago Vidal, Sebastián Leonardo | Corrección del formato del Sprint Backlog 1. |
+| 1.3.0 | 06/10/2026 | Damacen Galindo, Italo Gianfranco | Ampliación del Análisis competitivo (2.1.1) y de Herramientas del proyecto (5.1.1.2). |
+| 1.4.0 | 06/10/2026 | Sayago Vidal, Sebastián Leonardo | Sprint 2 (5.2.2). |
+| 2.0.0 | 06/10/2026 | Nicho Huillcañahui, Edwin Noe | Project Report Collaboration Insights, videos de exposición y Student Outcome. Versión de entrega TB1. |
+| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula y reorganización del Registro de Versiones según la estructura del enunciado. |
 
 ---
 Project Report Collaboration Insights
