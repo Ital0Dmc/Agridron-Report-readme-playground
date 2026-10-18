@@ -508,21 +508,21 @@ Los pequeños y medianos agricultores y el personal técnico que realiza fumigac
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-The current state of **crop spraying management in Peru's agricultural sector** has focused mainly on **manual and tractor-based methods run by small and medium farmers and their field workers, who coordinate spraying services through phone calls, WhatsApp messages and handwritten records**.
+El estado actual de **la gestión de la fumigación de cultivos en el sector agrícola peruano** se ha centrado principalmente en **métodos manuales y con tractor, realizados por pequeños y medianos agricultores y sus trabajadores de campo, que coordinan los servicios de fumigación mediante llamadas, mensajes de WhatsApp y registros escritos a mano**.
 
-What existing products and services fail to address is **an accessible way for these farmers and for drone spraying operators to plan, coordinate and supervise drone spraying operations in one place, since current platforms such as DroneDeploy, Climate FieldView and Agrivi target large agribusinesses with high-cost, hardware-dependent solutions**.
+Lo que los productos y servicios existentes no logran abordar es **una forma accesible para que estos agricultores y los operadores de drones de fumigación planifiquen, coordinen y supervisen las operaciones con drones en un solo lugar, ya que plataformas como DroneDeploy, Climate FieldView y Agrivi están dirigidas a grandes agroindustrias, con soluciones de alto costo y dependientes de hardware**.
 
-Our product will address this gap by **offering a responsive web platform that lets users register farms and plots, delimit spraying areas on an interactive map, validate weather conditions through an external service, monitor missions in real time and consult the history and reports of each operation**.
+Nuestro producto abordará esta brecha mediante **una plataforma web responsive que permita registrar fincas y parcelas, delimitar áreas de fumigación en un mapa interactivo, validar las condiciones meteorológicas con un servicio externo, monitorear las misiones en tiempo real y consultar el historial y los reportes de cada operación**.
 
-Our initial focus will be **small and medium farmers with 5 to 50 hectares and the technical staff who operate spraying drones for them**.
+Nuestro enfoque inicial será **los pequeños y medianos agricultores con predios de 5 a 50 hectáreas y el personal técnico que opera los drones de fumigación para ellos**.
 
-We'll know we are successful when we see **farmers scheduling their spraying missions through the platform, operators arriving at the field with the plot already delimited and saving 20 to 30 minutes per service, and missions being rescheduled based on the platform's weather validation instead of after failed field visits**.
+Sabremos que hemos tenido éxito cuando veamos **a los agricultores programando sus misiones de fumigación a través de la plataforma, a los operadores llegando al campo con la parcela ya delimitada y ahorrando entre 20 y 30 minutos por servicio, y misiones reprogramadas a partir de la validación climática de la plataforma, en lugar de después de visitas fallidas al campo**.
 
 #### 1.2.2.2. Lean UX Assumptions
 
 **Business Assumptions**
 
-- Los pequeños y medianos agricultores están dispuestos a pagar una suscripción mensual accesible, de entre S/ 30 y S/ 120 según el tamaño del predio, por planificar y supervisar sus fumigaciones.
+- Los pequeños y medianos agricultores están dispuestos a pagar una suscripción mensual accesible por planificar y supervisar sus fumigaciones.
 - Los operadores de drones adoptarán la plataforma si les permite recibir las parcelas ya delimitadas y reducir el tiempo de coordinación con sus clientes.
 - Un modelo freemium, con gestión básica de parcelas gratuita, facilitará la adopción y la conversión hacia planes de pago.
 - Las alianzas con cooperativas agrarias serán un canal efectivo para llegar a nuevos agricultores.
@@ -564,38 +564,38 @@ We'll know we are successful when we see **farmers scheduling their spraying mis
 
 **Hypothesis Statement 1**
 
-We believe we will achieve a 40% reduction in spraying time and cost\
-If small and medium farmers and drone operators\
-Attain a precisely delimited spraying area before reaching the field\
-With the interactive farm and plot mapping feature.
+Creemos que lograremos una reducción del 40 % en el tiempo y el costo de fumigación\
+si los pequeños y medianos agricultores y los operadores de drones\
+obtienen un área de fumigación delimitada con precisión antes de llegar al campo\
+con la funcionalidad de mapa interactivo de fincas y parcelas.
 
 **Hypothesis Statement 2**
 
-We believe we will achieve fewer cancelled field visits and lower input waste\
-If small and medium farmers and drone operators\
-Attain a reliable decision on whether a mission is viable before scheduling it\
-With the external weather validation feature.
+Creemos que lograremos una reducción del 40 % en el tiempo y el costo de fumigación\
+si los pequeños y medianos agricultores y los operadores de drones\
+obtienen una decisión confiable sobre la viabilidad de una misión antes de programarla\
+con la funcionalidad de validación climática con un servicio externo.
 
 **Hypothesis Statement 3**
 
-We believe we will achieve a faster response time to pest infestations\
-If farmers and agricultural technical staff\
-Attain real-time visibility of each mission's progress\
-With the mission monitoring feature.
+Creemos que lograremos un menor tiempo de respuesta ante infestaciones de plagas\
+si los agricultores y el personal técnico agrícola\
+obtienen visibilidad en tiempo real del avance de cada misión\
+con la funcionalidad de monitoreo de misiones.
 
 **Hypothesis Statement 4**
 
-We believe we will achieve a 40% increase in premium feature adoption after the free trial\
-If farmers and technical staff\
-Attain ready-to-use evidence of every operation performed\
-With the automated reports and operation history feature.
+Creemos que lograremos un aumento del 40 % en la adopción de funciones premium tras el periodo de prueba gratuito\
+si los agricultores y el personal técnico\
+obtienen evidencia lista para usar de cada operación realizada\
+con la funcionalidad de reportes automáticos e historial de operaciones.
 
 **Hypothesis Statement 5**
 
-We believe we will achieve a 25% increase in customer retention after the first crop cycle\
-If farmers with low digital literacy\
-Attain an intuitive and easy-to-learn experience\
-With the responsive web platform and its guided mission creation flow.
+Creemos que lograremos un aumento del 25 % en la retención de clientes después del primer ciclo de cultivo\
+si los agricultores con baja alfabetización digital\
+obtienen una experiencia intuitiva y fácil de aprender\
+con la plataforma web responsive y su flujo guiado de creación de misiones.
 
 #### 1.2.2.4. Lean UX Canvas
 
