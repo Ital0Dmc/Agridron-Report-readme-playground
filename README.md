@@ -85,52 +85,31 @@
 | 1.3.0 | 06/10/2026 | Damacen Galindo, Italo Gianfranco | Ampliación del Análisis competitivo (2.1.1) y de Herramientas del proyecto (5.1.1.2). |
 | 1.4.0 | 06/10/2026 | Sayago Vidal, Sebastián Leonardo | Sprint 2 (5.2.2). |
 | 2.0.0 | 06/10/2026 | Nicho Huillcañahui, Edwin Noe | Project Report Collaboration Insights, videos de exposición y Student Outcome. Versión de entrega TB1. |
-| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula y reorganización del Registro de Versiones según la estructura del enunciado. |
+| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, reorganización del Registro de Versiones y reestructuración de Project Report Collaboration Insights según el enunciado. |
 
----
-Project Report Collaboration Insights
-URL del repositorio (report): https://github.com/Opensource-UPC/1ASI0729-2620-7760-G3-Agridron-Report
+## Project Report Collaboration Insights
 
-URL del repositorio (landing-page): https://github.com/Opensource-UPC/AgiDron-LandingPage-7760-G3
+URL del repositorio del informe: [Opensource-UPC/1ASI0729-2620-7760-G3-Agridron-Report](https://github.com/Opensource-UPC/1ASI0729-2620-7760-G3-Agridron-Report)
 
-URL del repositorio (front-end): https://github.com/Opensource-UPC/Agridron-frontend
+### Entrega AV1
 
+El informe se elaboró de forma colaborativa en el repositorio de la organización Opensource-UPC, entre el 05/09/2026 y el 17/09/2026. Sayago Vidal, Sebastián Leonardo creó la plantilla base del README y la estructura de carpetas de assets. A partir de ella, cada integrante asumió capítulos específicos: Damacen Galindo, Italo Gianfranco elaboró el Capítulo I; Nicho Huillcañahui, Edwin Noe desarrolló el Capítulo II (entrevistas, Needfinding y Ubiquitous Language); Vásquez Roncal, Alexander Felipe trabajó los Capítulos III y IV (User Stories, Impact Mapping y Mock-ups); Sayago Vidal, Sebastián Leonardo documentó la arquitectura, el diseño de base de datos y el Software Configuration Management; y Ramírez Gutiérrez, Gabriel elaboró la sección del Sprint 1 y la Landing Page.
 
-Primera entrega (AV1)
+Siguiendo GitFlow, los aportes se desarrollaron en ramas feature por capítulo o sección (por ejemplo, feature/capitulo-3, feature/chapter4, feature/database-design y feature/software-configuration-management), se integraron en develop mediante pull requests y se publicaron en main a través de la rama release-1.0 como la versión 1.0.0 del informe.
 
-Las actividades se enfocaron en la construcción estratégica y los fundamentos del proyecto dentro del Capítulo I. El equipo trabajó en la definición detallada del perfil de la startup y la presentación formal de sus integrantes, para luego abordar el planteamiento de la solución aplicando la metodología Lean UX.
+![Contributors del repositorio del informe en AV1](assets/collaboration/report_contributors_av1.png)
 
-Posteriormente, en el Capítulo II se llevaron a cabo las dinámicas de elicitación y análisis de requerimientos. El equipo ejecutó un análisis competitivo exhaustivo, diseñó y aplicó guías de entrevista estructuradas a usuarios del segmento objetivo, y procesó los hallazgos mediante técnicas de Needfinding. Se consolidaron los User Personas, las matrices de tareas, los User Journey Maps y los Empathy Maps. Adicionalmente, se facilitaron sesiones colaborativas de Big Picture EventStorming para mapear la complejidad del dominio de negocio y consensuar el Ubiquitous Language que rige la arquitectura del sistema.
+*Figura: Analíticos de contribución del repositorio del informe al cierre de AV1 (Insights > Contributors, rama main). Se observa la participación de los cinco integrantes del equipo, con la mayor actividad concentrada en la semana previa a la entrega.*
 
-En el Capítulo III, se estructuraron las historias de usuario asociadas a Impact Mapping y se organizó el Product Backlog priorizado. A la par, el Capítulo IV se enfocó en diseño de producto y arquitectura de software. En esta etapa se establecieron las guías de estilo para aplicaciones web, la arquitectura de información detallada (sistemas de organización, etiquetado, búsqueda, navegación y metadatos SEO), así como el diseño de la interfaz y experiencia de usuario a nivel de Wireframes, Mockups, Wireflows, User Flows y prototipos interactivos. Asimismo, aplicando Domain-Driven Design (DDD), se ejecutó el Design-Level EventStorming y se construyeron los diagramas C4 (Context, Container y Component), acompañados de los diagramas de clases orientados a objetos y el modelado completo de la base de datos.
+### Entrega TB1
 
-Por último, el Capítulo V concentró la configuración del entorno de gestión del código fuente, donde se definieron las convenciones de desarrollo, los estándares de estilo de código, la estrategia de ramificación (GitFlow) y las pautas para el despliegue de las aplicaciones y servicios, asentando las bases técnicas para el ciclo de vida del desarrollo de software.
+Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones derivadas de la retroalimentación de AV1. Vásquez Roncal, Alexander Felipe corrigió y amplió las User Stories; Sayago Vidal, Sebastián Leonardo actualizó los Class Diagrams y Database Diagrams, corrigió el formato del Sprint Backlog 1 y documentó el Sprint 2; Damacen Galindo, Italo Gianfranco amplió el Análisis competitivo y la tabla de herramientas del proyecto; y Nicho Huillcañahui, Edwin Noe actualizó esta sección, los enlaces de los videos de exposición y el Student Outcome. El trabajo se integró en develop mediante pull requests y luego se publicó en main como la versión 2.0.0 del informe.
 
+![Contributors del repositorio del informe en TB1](assets/collaboration/report_contributors_tb1.png)
 
-<p align="center">
-<img src="assets/chapter4/Web_Applications_User_Flow_Diagrams.png" alt="Contributors-AV1" width="500"/>
-  <br/><i>Contribuciones del avance 1 (AV1)</i>
-</p>
-<br>
+*Figura: Analíticos de contribución del repositorio del informe durante TB1 (Insights > Contributors, rama main). Se evidencia la participación continua de los cinco integrantes en la elaboración del informe.*
 
 <div style="page-break-after: always;"></div>
-
-Segunda entrega (TB1)
-
-Se realizaron las respectivas correcciones al documento en relación a las revisiones dadas en la primera entrega. Se empezó con la actualización del landing page. Se actualizó el capitulo 5 para definir las bases de trabajo y las actividades respectivas en relación al desarrollo del Frontend, además de presentar la evidencia respectiva del despliege de este
-
-
-<p align="center">
-<img src="assets/Web_Applications_User_Flow_TB1.png" alt="Contributors-TB1" width="500"/>
-  <br/><i>Contribuciones de la entrega parcial 1 (TB1)</i>
-</p>
-<br>
-
-<div style="page-break-after: always;"></div>
-
-
-
----
 
 # Contenido
 
@@ -4010,7 +3989,7 @@ La colaboración del equipo se desarrolló con un enfoque distribuido por respon
 
 El equipo trabajó de forma complementaria en tres dimensiones: la propuesta de valor y UX, la implementación técnica del sistema y la documentación del proyecto. Esta organización permitió avanzar en paralelo, reducir tiempos de espera y mantener una cultura de colaboración abierta, donde cada integrante asumió responsabilidades claras y contribuyó a la entrega del primer ciclo incremental.
 
-![Evidencia de colaboración del Sprint](assets/chapter4/Web_Applications_User_Flow_Diagrams.png)
+![Evidencia de colaboración del Sprint](assets/collaboration/report_contributors_av1.png)
 
 
 ### 5.2.2. Sprint 2
