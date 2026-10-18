@@ -85,7 +85,7 @@
 | 1.3.0 | 06/10/2026 | Damacen Galindo, Italo Gianfranco | Ampliación del Análisis competitivo (2.1.1) y de Herramientas del proyecto (5.1.1.2). |
 | 1.4.0 | 06/10/2026 | Sayago Vidal, Sebastián Leonardo | Sprint 2 (5.2.2). |
 | 2.0.0 | 06/10/2026 | Nicho Huillcañahui, Edwin Noe | Project Report Collaboration Insights, videos de exposición y Student Outcome. Versión de entrega TB1. |
-| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, reorganización del Registro de Versiones y reestructuración de Project Report Collaboration Insights según el enunciado. |
+| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, el Registro de Versiones, Project Report Collaboration Insights, Student Outcome, Startup Profile y Solution Profile según el enunciado. |
 
 ## Project Report Collaboration Insights
 
@@ -255,12 +255,16 @@ Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones deriv
   - [Anexo B: Videos de Exposiciones](#anexo-b-videos-de-exposiciones)
   - [Anexo C: Otros](#anexo-c-otros)
 
----
+<div style="page-break-after: always;"></div>
 
-## Student Outcome
+# Student Outcome
 
+El curso contribuye al cumplimiento del Student Outcome ABET:<br>
+ABET – EAC - Student Outcome 3
 
-> En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del Student Outcome.
+Criterio: Capacidad de comunicarse efectivamente con un rango de audiencias.
+
+En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 3.
 
 <table>
   <thead>
@@ -272,33 +276,52 @@ Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones deriv
   </thead>
   <tbody>
     <tr>
-      <td><strong>Comunica oralmente con efectividad a diferentes rangos de audiencia</strong></td>
+      <td><b>Comunica oralmente con efectividad a diferentes rangos de audiencia.</b></td>
       <td>
-        <p><b>Ramirez Gutierrez, Gabriel</b><br><em><b>AV1</b></em><br>Presenté la propuesta de valor y el funcionamiento del landing page de AgriDron Solutions, explicando de manera clara la organización de sus secciones, el uso de los recursos visuales y la experiencia planteada para los usuarios.</p>
-        <p><b>Nicho Huillcañahui Edwin Noe</b><br><em><b>AV1</b></em><br>Participé en el video de exposición explicando ante cámara los hallazgos del Capítulo II. Prioricé un lenguaje sencillo al presentar los perfiles de usuario (User Personas) y sus necesidades a una audiencia no técnica, apoyándome en las capturas de UXPressia para ilustrar el discurso en lugar de leer texto. Durante las entrevistas de Needfinding, apliqué escucha activa, dejando hablar al entrevistado antes de repreguntar, y en la sustentación grupal recibí y respondí preguntas del docente sobre el criterio usado para identificar patrones entre segmentos.</p>
-          <p><em><b>TB1</b></em><br>Expuse de manera clara y estructurada el diseño e implementación del Bounded Context 6 (Inventory & Resource Management). Identifique las entidades necesarias a modelar y de acuerdo a la logica de negoció (control de inventario de drones, agroquímicos, boquillas y mantenimiento). Implemente la arquitectura en 4 capas (Domain, Application, Infrastructure e Interfaces/Presentation),según lo trabajado en el curso ,y por ultimo integre de los endpoints relacionados al BC#6 </p>
-        <p><b></b><br><em><b></b></em><br></p>
-        <p><b>Sayago Vidal, Sebastián Leonardo</b><br><em><b>AV1</b></em><br>Participé en la presentación de las decisiones técnicas y de desarrollo relacionadas con AgriDron Solutions, explicando los aspectos de arquitectura de software, diseño y configuración del entorno de desarrollo mediante diagramas y recursos audiovisuales.</p>
-          <em><b>TB1</b></em><br>Participé en la presentación y explicación del Bounded Context Analytics & Reporting, comunicando sus responsabilidades, conceptos, operaciones y eventos, así como los componentes que lo conforman y su relación con la arquitectura de AgriDron Solutions. Para facilitar la comprensión de estos aspectos técnicos, utilicé los diagramas de diseño como apoyo durante la exposición.</p>
-        <p><b>Vasquez Roncal, Alexnader Felipe</b><br><em><b>AV1</b></em><br>Implementación del capítulo 3 y 4, además de creación de mockups de landing page y Web Application.</p>
-          <p><em><b>TB1</b></em><br>Implementación del Bounded Contex 2 FieldManamegent y revision del readme</p>
-        <p><b>Damacen Galindo, Italo Gianfranco</b><br><em><b>AV1</b></em><br>Participé en la elaboración y presentación del Capítulo I de AgriDron Solutions, comunicando de manera clara y ordenada el perfil de la startup, la descripción de la solución, los antecedentes y la problemática identificada. Durante la presentación, expliqué el proceso Lean UX y las decisiones tomadas para orientar la propuesta de solución, utilizando diapositivas y recursos visuales para facilitar la comprensión de los contenidos según el objetivo de cada sección.</p>
+        <p><b>Damacen Galindo, Italo Gianfranco</b></p>
+        <p><b><i>AV1</i></b><br>Expuse el Capítulo I, presentando el perfil de la startup, la problemática y el proceso Lean UX con un lenguaje sencillo y apoyado en diapositivas con esquemas visuales. Al cierre de mi parte respondí las preguntas del docente para confirmar que la relación entre la problemática y la propuesta de valor se había comprendido.</p>
+        <p><b><i>TB1</i></b><br>Expuse la primera parte de la presentación, que abarcó la carátula, la Landing Page y la arquitectura de la solución, y luego el Bounded Context Weather Integration. Adapté la explicación técnica al público usando los diagramas de diseño como guía y verifiqué con preguntas que se entendiera cómo la plataforma consulta el servicio meteorológico externo.</p>
+        <p><b>Nicho Huillcañahui, Edwin Noe</b></p>
+        <p><b><i>AV1</i></b><br>Participé en el video de exposición explicando los hallazgos del Capítulo II. Presenté los User Personas y sus necesidades con un lenguaje sencillo para una audiencia no técnica, apoyándome en las capturas de UXPressia en lugar de leer texto. En las entrevistas de Needfinding apliqué escucha activa, dejando hablar al entrevistado antes de repreguntar.</p>
+        <p><b><i>TB1</i></b><br>Expuse el diseño del Bounded Context Inventory & Resource Management, explicando sus entidades (drones, agroquímicos, boquillas y mantenimiento), su organización en cuatro capas y sus endpoints. Usé los diagramas como apoyo visual y respondí las preguntas del docente para validar que la lógica de negocio del contexto había quedado clara.</p>
+        <p><b>Ramírez Gutiérrez, Gabriel</b></p>
+        <p><b><i>AV1</i></b><br>Presenté la propuesta de valor y el funcionamiento de la Landing Page, explicando la organización de sus secciones, los recursos visuales y la experiencia planteada para cada segmento de usuarios.</p>
+        <p><b><i>TB1</i></b><br>Presenté la versión actualizada de la Landing Page mediante una demostración en vivo, mostrando cómo los call-to-action dirigen a cada segmento hacia la Web Application. Antes de la exposición ensayé la demostración con el equipo e incorporé sus observaciones para que el recorrido fuera claro para un público no técnico.</p>
+        <p><b>Sayago Vidal, Sebastián Leonardo</b></p>
+        <p><b><i>AV1</i></b><br>Presenté las decisiones técnicas de AgriDron Solutions, explicando la arquitectura de software, el diseño y la configuración del entorno de desarrollo mediante diagramas, y ajusté el nivel de detalle técnico según las preguntas recibidas.</p>
+        <p><b><i>TB1</i></b><br>Expliqué el Bounded Context Analytics & Reporting, comunicando sus responsabilidades, operaciones, eventos y su relación con la arquitectura general. Utilicé los diagramas de diseño para facilitar la comprensión y confirmé con las preguntas del docente que el flujo de reportes había sido entendido.</p>
+        <p><b>Vásquez Roncal, Alexander Felipe</b></p>
+        <p><b><i>AV1</i></b><br>Expuse los Capítulos III y IV, explicando las User Stories, el Impact Mapping y los Mock-ups de la Landing Page y de la Web Application, con las pantallas como apoyo visual para que la audiencia relacionara cada requisito con su diseño.</p>
+        <p><b><i>TB1</i></b><br>Expuse el Bounded Context Field Management, explicando cómo se registran fincas y parcelas, y escuché las observaciones del equipo sobre la integración de ramas antes de proponer una solución consensuada.</p>
       </td>
-      <td><p>Como equipo, durante el AV1 desarrollamos nuestra capacidad de comunicación oral mediante la presentación de los diferentes componentes de AgriDron Solutions. Cada integrante comunicó los resultados y decisiones correspondientes a su parte del proyecto, empleando recursos audiovisuales como diapositivas, diagramas, mockups y demostraciones para facilitar la comprensión de la información. Esto permitió presentar de manera organizada la propuesta, el diseño y la arquitectura de la solución, adaptando la explicación al objetivo de cada sección.</p></td>
+      <td>
+        <p><b><i>AV1</i></b><br>Como equipo, durante AV1 desarrollamos nuestra capacidad de comunicación oral mediante la presentación de los diferentes componentes de AgriDron Solutions. Cada integrante comunicó los resultados y decisiones de su parte del proyecto, empleando recursos audiovisuales como diapositivas, diagramas, mockups y demostraciones para facilitar la comprensión de la información. Esto permitió presentar de manera organizada la propuesta, el diseño y la arquitectura de la solución, adaptando la explicación al objetivo de cada sección.</p>
+        <p><b><i>TB1</i></b><br>En esta entrega cada integrante expuso el Bounded Context a su cargo con apoyo de diagramas, adaptando el lenguaje técnico para que la arquitectura fuera comprensible para el docente y el resto del equipo. A diferencia de AV1, el equipo ensayó la exposición en conjunto y usó las preguntas recibidas para comprobar que cada mensaje había llegado de forma clara, lo que fortaleció la coherencia de la presentación.</p>
+      </td>
     </tr>
     <tr>
-      <td><strong>Comunica por escrito con efectividad a diferentes rangos de audiencia</strong></td>
+      <td><b>Comunica por escrito con efectividad a diferentes rangos de audiencia.</b></td>
       <td>
-        <p><b>Ramirez Gutierrez, Gabriel</b><br><em><b>AV1</b></em><br>Diseñé y desarrollé integralmente el landing page de AgriDron Solutions, definiendo su estructura, contenido visual, distribución de secciones y propuesta de navegación para comunicar el valor de la solución de forma clara y atractiva.</p>
-        <p><b>Nicho Huillcañahui Edwin Noe</b><br><em><b>AV1</b></em><br>Redacté en el Informe de Proyecto (Markdown) las secciones de Análisis Competitivo, Diseño y Registro de Entrevistas, y Needfinding, transcribiendo de forma descriptiva las respuestas de los entrevistados y sustentando con porcentajes las características comunes de cada segmento. Cuidé la ortografía y gramática, seguí la estructura de tablas exigida (Competitive Analysis Landscape, User Task Matrix) y usé el idioma inglés para el Ubiquitous Language según lo indicado en el enunciado.</p>
-           <p><em><b>TB1</b></em><br>Redacté la documentación técnica del Bounded Context 6 (Inventory & Resource Management), especificando las entidades Drone, AgrochemicalSupply, Nozzle y MaintenanceRecord. Implementé y documenté las 4 capas de software (Domain, Application, Infrastructure y Presentation) siguiendo principios DDD, estándares en inglés facilitar la integración con el equipo</p>
-        <p><b>Sayago Vidal, Sebastián Leonardo</b><br><em><b>AV1</b></em><br>Desarrollé y estructuré documentación técnica relacionada con la arquitectura, diseño y Software Configuration Management (SCM) de AgriDron Solutions, empleando un lenguaje técnico, preciso y organizado para comunicar las decisiones y características de la solución.</p>
-                    <b>AV1</b></em><br>Desarrollé y estructuré documentación técnica correspondiente al Bounded Context Analytics & Reporting, incluyendo sus responsabilidades, conceptos, operaciones, eventos y componentes, manteniendo coherencia con los demás artefactos de arquitectura y diseño de AgriDron Solutions. Asimismo, participé en la elaboración y organización de la documentación correspondiente al presente avance, empleando un lenguaje técnico y estructurado para facilitar la comprensión de la solución.</p>
-        <p><b>Vasquez Roncal, Alexnader Felipe</b><br><em><b>AV1</b></em><br>Me encargué de crear la organización en GitHub para poder trabajar de manera colaborativa.</p>
-          <p><em><b>TB1</b></em><br>Coordinacion del proyecto para unir las ramas en una sola y revisar que el web app funcione</p>
-        <p><b>Damacen Galindo, Italo Gianfranco</b><br><em><b>AV1</b></em><br>Elaboré y estructuré el Capítulo I del informe de AgriDron Solutions, desarrollando el Startup Profile (1.1), el Solution Profile (1.2), los antecedentes, la problemática identificada y los componentes del proceso Lean UX. Organicé la información de manera clara y sintetizada, empleando un lenguaje técnico acorde con el contexto del proyecto para comunicar de forma ordenada el propósito, contexto, problemática y propuesta de valor de la solución.</p>
+        <p><b>Damacen Galindo, Italo Gianfranco</b></p>
+        <p><b><i>AV1</i></b><br>Elaboré el Capítulo I del informe, desarrollando el Startup Profile, el Solution Profile, los antecedentes, la problemática y los componentes del proceso Lean UX. Organicé la información de forma sintetizada y revisé la redacción antes de cada commit para comunicar con claridad el propósito y la propuesta de valor de la solución.</p>
+        <p><b><i>TB1</i></b><br>Amplié el Análisis competitivo (2.1.1) y la tabla de Herramientas del proyecto (5.1.1.2), siguiendo la estructura de tablas exigida por el enunciado. Verifiqué que la información fuera consistente con el resto del informe y corregí ortografía y formato antes de integrarla.</p>
+        <p><b>Nicho Huillcañahui, Edwin Noe</b></p>
+        <p><b><i>AV1</i></b><br>Redacté las secciones de Análisis competitivo, diseño y registro de entrevistas y Needfinding, describiendo las respuestas de los entrevistados y sustentando con porcentajes las características de cada segmento. Seguí la estructura de tablas exigida y revisé ortografía y gramática antes de publicar.</p>
+        <p><b><i>TB1</i></b><br>Redacté la documentación técnica del Bounded Context Inventory & Resource Management, especificando sus entidades y sus cuatro capas siguiendo los principios de DDD. Mantuve la nomenclatura en inglés para facilitar la integración con el código del equipo.</p>
+        <p><b>Ramírez Gutiérrez, Gabriel</b></p>
+        <p><b><i>AV1</i></b><br>Diseñé y desarrollé la Landing Page, definiendo su estructura, su contenido visual y la distribución de sus secciones para comunicar el valor de la solución de forma clara y atractiva.</p>
+        <p><b><i>TB1</i></b><br>Redacté los textos actualizados de la Landing Page (propuesta de valor, planes y llamados a la acción) con un lenguaje breve y orientado a cada segmento. Antes de publicarlos verifiqué su ortografía y su coherencia con la información del informe.</p>
+        <p><b>Sayago Vidal, Sebastián Leonardo</b></p>
+        <p><b><i>AV1</i></b><br>Desarrollé la documentación técnica de arquitectura, diseño y Software Configuration Management, con un lenguaje técnico, preciso y organizado para comunicar las decisiones de la solución.</p>
+        <p><b><i>TB1</i></b><br>Documenté el Bounded Context Analytics & Reporting, incluyendo responsabilidades, conceptos, operaciones, eventos y componentes, manteniendo coherencia con los demás artefactos de arquitectura. Además, organicé la documentación del Sprint 2 para esta entrega.</p>
+        <p><b>Vásquez Roncal, Alexander Felipe</b></p>
+        <p><b><i>AV1</i></b><br>Creé la organización en GitHub para el trabajo colaborativo del equipo y redacté la documentación de los Capítulos III y IV, organizando las User Stories y la descripción de los Mock-ups.</p>
+        <p><b><i>TB1</i></b><br>Coordiné la integración de las ramas del proyecto y revisé el README completo antes de la entrega, verificando que la estructura y los enlaces fueran correctos.</p>
       </td>
-      <td><p>Como equipo, durante el AV1 elaboramos y consolidamos la documentación de AgriDron Solutions, distribuyendo la redacción de los diferentes capítulos y componentes del proyecto. Se empleó un lenguaje técnico y estructurado para documentar tanto la propuesta de solución como aspectos de diseño, arquitectura, implementación y gestión del desarrollo. La integración de los aportes de los integrantes permitió mantener una estructura coherente en el informe y comunicar de forma clara las decisiones y resultados obtenidos durante este avance.</p></td>
+      <td>
+        <p><b><i>AV1</i></b><br>Como equipo, durante AV1 elaboramos y consolidamos la documentación de AgriDron Solutions, distribuyendo la redacción de los diferentes capítulos y componentes del proyecto. Se empleó un lenguaje técnico y estructurado para documentar la propuesta de solución, así como los aspectos de diseño, arquitectura, implementación y gestión del desarrollo. La integración de los aportes de los integrantes permitió mantener una estructura coherente en el informe y comunicar de forma clara las decisiones y resultados obtenidos.</p>
+        <p><b><i>TB1</i></b><br>En esta entrega el equipo corrigió el informe a partir de la retroalimentación de AV1 y documentó los Bounded Contexts con nomenclatura en inglés, manteniendo la coherencia de términos entre el informe, los diagramas y el código. Cada sección se revisó en ortografía, formato y enlaces antes de integrarse mediante pull requests, lo que permitió validar la calidad del informe antes de su presentación.</p>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -307,431 +330,282 @@ Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones deriv
 
 ## 1.1. Startup Profile
 
-<p align="justify">
+### 1.1.1. Descripción de la Startup
 
-<strong>AgriDron Solutions</strong> es una startup tecnológica orientada a mejorar la gestión de cultivos mediante el uso de drones para fumigación y monitoreo. La plataforma busca facilitar estas tareas y hacer que las operaciones sean más rápidas y fáciles de controlar.
+**AgriDron Solutions** es una startup tecnológica que busca mejorar la protección de cultivos mediante el uso de drones de fumigación y una plataforma web de monitoreo. Su propósito es que agricultores y personal técnico puedan planificar, ejecutar y supervisar sus operaciones de fumigación desde una sola aplicación, de forma más rápida y fácil de controlar.
 
-</p>
-
-<p align="justify">
-
-AgriDron Solutions ofrece una plataforma que permite planificar misiones de fumigación, monitorear el trabajo en tiempo real y consultar reportes de las operaciones realizadas. El objetivo es que agricultores y personal técnico puedan controlar estas tareas desde una sola aplicación.
-
-</p>
+La plataforma permite registrar fincas y parcelas, seleccionar el área de fumigación sobre un mapa, crear misiones, consultar las condiciones meteorológicas, monitorear los drones durante la operación y revisar el historial y los reportes de las operaciones realizadas.
 
 **Misión:** Mejorar la gestión de cultivos mediante drones y una plataforma accesible que permita reducir costos y tiempo en las operaciones de fumigación.
 
 **Visión:** Convertirnos en una solución tecnológica de confianza para el sector agrícola, ayudando a modernizar la forma en que se gestionan y supervisan las operaciones de fumigación.
 
-Valores:
+**Valores:**
 
-<ul>
-  <li><strong>Innovación:</strong> buscamos utilizar nuevas tecnologías para mejorar las operaciones agrícolas.</li>
-  <li><strong>Eficiencia:</strong> buscamos reducir el tiempo, los costos y el uso de recursos.</li>
-  <li><strong>Confiabilidad:</strong> buscamos que las operaciones y los datos mostrados en la plataforma sean claros y precisos.</li>
-  <li><strong>Compromiso:</strong> buscamos ofrecer una solución útil y accesible para agricultores y personal técnico.</li>
-</ul>
-
-### 1.1.1. Descripción de la Startup
-
-<p align="justify">
-
-<strong>AgriDron Solutions</strong> es una startup que busca mejorar la protección de cultivos mediante drones y una plataforma de monitoreo. El sistema permitirá gestionar las operaciones de fumigación desde una sola plataforma.
-
-</p>
-
-<p align="justify">
-
-La plataforma permitirá registrar fincas y parcelas, seleccionar áreas de fumigación mediante un mapa, crear misiones, consultar el clima, monitorear los drones y revisar el historial de las operaciones.
-
-</p>
-
-Pilares de valor:
-
-<ul>
-  <li><strong>Innovación tecnológica:</strong> uso de drones aplicados a la agricultura.</li>
-  <li><strong>Eficiencia operativa:</strong> reducción de costos y tiempos frente a métodos tradicionales de fumigación.</li>
-  <li><strong>Confiabilidad de datos:</strong> información clara y disponible durante y después de las operaciones.</li>
-  <li><strong>Compromiso social y ambiental:</strong> reducción de riesgos para los trabajadores y del impacto de la fumigación.</li>
-</ul>
+- **Innovación:** utilizamos nuevas tecnologías, como los drones aplicados a la agricultura, para mejorar las operaciones agrícolas.
+- **Eficiencia:** buscamos reducir el tiempo, los costos y el uso de recursos frente a los métodos tradicionales de fumigación.
+- **Confiabilidad:** buscamos que las operaciones y los datos de la plataforma sean claros, precisos y estén disponibles durante y después de cada operación.
+- **Compromiso:** ofrecemos una solución útil y accesible para agricultores y personal técnico, que además reduce los riesgos para los trabajadores y el impacto ambiental de la fumigación.
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-> Para cada integrante, colocar foto, nombre, código, carrera, descripción y aporte/rol dentro del proyecto.
-
 <table>
   <tr>
-    <td rowspan="4" align="center">
-      <img width="650"  alt="image" src="https://github.com/user-attachments/assets/4c1d03a8-ec5b-484f-9621-4cf59cc49cca" />
+    <td rowspan="4" align="center" width="200">
+      <img src="https://github.com/user-attachments/assets/4c1d03a8-ec5b-484f-9621-4cf59cc49cca" alt="Foto de Italo Damacen" width="180" />
     </td>
   </tr>
   <tr>
     <td><b>Nombre:</b> Damacen Galindo, Italo Gianfranco</td>
   </tr>
   <tr>
-    <td><b>Código:</b> U202421392 &nbsp;|&nbsp; <b>Carrera:</b> Ingeniería de Software</td>
+    <td><b>Código:</b> U202421392 | <b>Carrera:</b> Ingeniería de Software</td>
   </tr>
   <tr>
     <td>
-      <b>Descripción:</b><br/>
-      Soy Italo Damacen, estudiante de Ingeniería de Software. Me considero una persona responsable, organizada y comprometida con el trabajo. Cuento con conocimientos en C++, HTML y CSS, además de conocimientos básicos de JavaScript y Java. Me interesa el desarrollo de software y la organización de proyectos.
-      <br/><br/>
-      <b>Aporte y función dentro del equipo:</b><br/>
-      Participé principalmente en la elaboración del Capítulo I de AgriDron Solutions, incluyendo el Startup Profile, Solution Profile, antecedentes, problemática y Lean UX. También apoyé en la organización de las entrevistas, separando la información de cada entrevistado, colocando timestamps y ordenando las evidencias para facilitar su documentación y presentación.
+      <b>Descripción:</b><br>
+      Soy estudiante de Ingeniería de Software. Cuento con conocimientos en C++, HTML y CSS, además de conocimientos básicos de JavaScript y Java. Me considero una persona responsable, organizada y comprometida con el trabajo, con interés en el desarrollo de software y la organización de proyectos.
+      <br><br>
+      <b>Aporte y función dentro del equipo:</b><br>
+      Participé principalmente en la elaboración del Capítulo I de AgriDron Solutions, incluyendo el Startup Profile, el Solution Profile, los antecedentes, la problemática y el proceso Lean UX. También apoyé en la organización de las entrevistas, separando la información de cada entrevistado, colocando los timestamps y ordenando las evidencias para facilitar su documentación y presentación.
     </td>
   </tr>
   <tr>
-    <td rowspan="4" align="center">
-     <img width="650"  alt="Foto EdwinNicho" src="https://github.com/user-attachments/assets/3d3dea48-8f1b-4aa7-905d-9d25ebf87779" />
+    <td rowspan="4" align="center" width="200">
+      <img src="https://github.com/user-attachments/assets/3d3dea48-8f1b-4aa7-905d-9d25ebf87779" alt="Foto de Edwin Nicho" width="180" />
     </td>
   </tr>
   <tr>
-    <td><b>Nombre:</b> Nicho Huillcánahui, Edwin Noe</td>
+    <td><b>Nombre:</b> Nicho Huillcañahui, Edwin Noe</td>
   </tr>
   <tr>
-    <td><b>Código:</b> U20241G306 &nbsp;|&nbsp; <b>Carrera:</b> Ingenieria de Software</td>
+    <td><b>Código:</b> U20241G306 | <b>Carrera:</b> Ingeniería de Software</td>
   </tr>
   <tr>
     <td>
-      <b>Descripción:</b><br/>
-     Soy Edwin, estudiante de 5to ciclo de Ingeniería de Software. Cuento con conocimientos en C++, además de nociones de Python, HTML y CSS. Durante el desarrollo de este proyecto aprendí a manejar GitHub Web y UXPressia, herramientas que me permitieron colaborar en el control de versiones del equipo y en la elaboración de los artefactos de investigación de usuarios. Me siento especialmente cómodo realizando labores de documentación, cuidando la claridad y el orden de la información que presento. En mis ratos libres disfruto aprender nuevos idiomas y practicar lógica de programación, lo cual complementa mi interés constante por seguir desarrollando mis habilidades técnicas.
-      <br/><br/>
-      <b>Aporte y función dentro del equipo:</b><br/>
-      Como integrante del equipo, mi función principal se centró en la investigación correspondiente al Capítulo II del proyecto, encargándome del análisis de competidores, el diseño y registro de entrevistas, y el proceso de Needfinding. A partir de esta investigación, elaboré los artefactos necesarios para sustentar los hallazgos: User Personas, User Task Matrix, User Journey Maps, Empathy Maps, además del Big Picture Event Storming y el Ubiquitous Language del dominio del problema.
+      <b>Descripción:</b><br>
+      Soy estudiante de quinto ciclo de Ingeniería de Software. Cuento con conocimientos en C++ y nociones de Python, HTML y CSS. Durante el proyecto aprendí a trabajar con GitHub y UXPressia para el control de versiones y la elaboración de artefactos de investigación de usuarios. Destaco en las labores de documentación, cuidando la claridad y el orden de la información.
+      <br><br>
+      <b>Aporte y función dentro del equipo:</b><br>
+      Como integrante del equipo, mi función principal se centró en la investigación correspondiente al Capítulo II del proyecto, encargándome del análisis de competidores, el diseño y registro de entrevistas, y el proceso de Needfinding. A partir de esta investigación, elaboré los artefactos necesarios para sustentar los hallazgos: User Personas, User Task Matrix, User Journey Maps y Empathy Maps, además del Big Picture Event Storming y el Ubiquitous Language del dominio del problema.
     </td>
   </tr>
   <tr>
-    <td rowspan="4" align="center">
- <img src="assets/Chapter1/team/Gabriel_Ramirez.jpg" alt="Gabriel Ramirez" width="650" />
+    <td rowspan="4" align="center" width="200">
+      <img src="assets/Chapter1/team/Gabriel_Ramirez.jpg" alt="Foto de Gabriel Ramírez" width="180" />
     </td>
   </tr>
   <tr>
-    <td><b>Nombre:</b> Ramirez Gutierrez, Gabriel</td>
+    <td><b>Nombre:</b> Ramírez Gutiérrez, Gabriel</td>
   </tr>
   <tr>
-    <td><b>Código:</b> U202416053 &nbsp;|&nbsp; <b>Carrera:</b> Ingeniería de Software</td>
+    <td><b>Código:</b> U202416053 | <b>Carrera:</b> Ingeniería de Software</td>
   </tr>
   <tr>
     <td>
-      <b>Descripción:</b><br/>
-      Soy Gabriel Ramírez, estudiante de Ingeniería de Software con interés en el desarrollo frontend, la experiencia de usuario y la creación de interfaces claras y funcionales. Me gusta trabajar en la implementación de páginas web con enfoque en usabilidad, comunicación visual y estructura narrativa, para que la propuesta de valor del producto sea comprensible desde el primer contacto. También soy una persona organizada, responsable y comprometida con la calidad del trabajo entregado.
-      <br/><br/>
-      <b>Aporte y función dentro del equipo:</b><br/>
+      <b>Descripción:</b><br>
+      Soy estudiante de Ingeniería de Software con interés en el desarrollo frontend y la experiencia de usuario. Cuento con conocimientos en HTML, CSS y JavaScript para la implementación de páginas web responsive, con enfoque en usabilidad y comunicación visual. Me considero una persona organizada, responsable y comprometida con la calidad del trabajo entregado.
+      <br><br>
+      <b>Aporte y función dentro del equipo:</b><br>
       Me encargué principalmente del desarrollo de la Landing Page de AgriDron, definiendo la estructura visual, la propuesta de valor, los elementos de navegación y la experiencia inicial del usuario. Además, colaboré con la coordinación del contenido y la presentación del producto para asegurar que la primera impresión del sistema fuera clara, atractiva y alineada con la solución propuesta.
     </td>
   </tr>
   <tr>
-   <td rowspan="4" align="center">
- <img src="assets/Chapter1/team/SebastiánSayago_Foto.png" alt="Sebastián Sayago" width="650" />
+    <td rowspan="4" align="center" width="200">
+      <img src="assets/Chapter1/team/SebastiánSayago_Foto.png" alt="Foto de Sebastián Sayago" width="180" />
     </td>
   </tr>
   <tr>
-    <td><b>Nombre:</b> Sayago Vidal, Sebastian Leonardo</td>
+    <td><b>Nombre:</b> Sayago Vidal, Sebastián Leonardo</td>
   </tr>
   <tr>
-    <td><b>Código:</b> U202422642 &nbsp;|&nbsp; <b>Carrera:</b> Ingeniería de Software</td>
+    <td><b>Código:</b> U202422642 | <b>Carrera:</b> Ingeniería de Software</td>
   </tr>
   <tr>
     <td>
-      <b>Descripción:</b><br/>
-      Mi nombre es Sebastián Leonardo Sayago Vidal, estudio Ingeniería de Software en la UPC, estando presente en el 5to ciclo de la carrera. Me considero una persona responsable al cumplir con mi trabajo asignado en el plazo respectivo. Busco que lo que tenga que hacer, se haga de la forma correcta y tenga una buena presentación y priorizar la calidad de mis resultados.
-      <br/><br/>
-      <b>Aporte y función dentro del equipo:</b><br/>
+      <b>Descripción:</b><br>
+      Soy estudiante de quinto ciclo de Ingeniería de Software en la UPC. Cuento con conocimientos en Git y GitHub, diseño de arquitectura de software, modelado de bases de datos relacionales y documentación técnica en Markdown. Me considero una persona responsable, que cumple con el trabajo asignado en el plazo establecido y prioriza la calidad y la buena presentación de los resultados.
+      <br><br>
+      <b>Aporte y función dentro del equipo:</b><br>
       Mi participación incluyó la definición y documentación de las prácticas que utilizará el equipo para mantener la consistencia del proyecto durante su desarrollo, considerando la configuración del entorno de desarrollo, la gestión del código fuente, las convenciones de programación y el despliegue.
     </td>
   </tr>
   <tr>
-    <td rowspan="4" align="center">
- <img src="assets/Chapter1/team/Alexander_Vasquez.png" alt="Alexander Vasquez" width="650" />
+    <td rowspan="4" align="center" width="200">
+      <img src="assets/Chapter1/team/Alexander_Vasquez.png" alt="Foto de Alexander Vásquez" width="180" />
     </td>
   </tr>
   <tr>
-    <td><b>Nombre:</b> Vasquez Roncal, Alexander Felipe</td>
+    <td><b>Nombre:</b> Vásquez Roncal, Alexander Felipe</td>
   </tr>
   <tr>
-    <td><b>Código:</b> U202222473 &nbsp;|&nbsp; <b>Carrera:</b> Ingenieria de Software</td>
+    <td><b>Código:</b> U202222473 | <b>Carrera:</b> Ingeniería de Software</td>
   </tr>
   <tr>
     <td>
-      <b>Descripción:</b><br/>
-        Mi nombre es Alexander Vasquez, tengo 27 años y actualmente
-        estoy cursando el cuarto ciclo de la carrera de Ingeniería de
-        Software. Soy una persona disciplinada, con capacidad para
-        trabajar en equipo. Mis habilidades técnicas incluyen lenguajes
-        de programación como Python y C + +. Me esfuerzo por
-        contribuir activamente al desarrollo del proyecto
-      <br/><br/>
-      <b>Aporte y función dentro del equipo:</b><br/>
-      Mi participacion incluyo hacer la documentacion del capitulo 3 y 4, ademas de diseñar el mockup de la app web and landing page. Por otro lado, tambien implemente el style guie de ambos para que todo siguiera un orden especifico.
+      <b>Descripción:</b><br>
+      Soy estudiante de cuarto ciclo de Ingeniería de Software. Cuento con conocimientos en Python y C++, además de experiencia en diseño de interfaces con Figma y en la gestión de repositorios en GitHub. Me considero una persona disciplinada, con capacidad para trabajar en equipo y contribuir activamente al desarrollo del proyecto.
+      <br><br>
+      <b>Aporte y función dentro del equipo:</b><br>
+      Mi participación incluyó la documentación de los Capítulos III y IV, además del diseño de los mock-ups de la Web Application y de la Landing Page. Por otro lado, también elaboré la guía de estilos de ambos productos para mantener un orden y una presentación consistentes.
     </td>
   </tr>
 </table>
 
-<br>
-
----
-
 ## 1.2. Solution Profile
-
-<p align="justify">
-
-<strong>AgriDron Solutions</strong> propone una plataforma que centraliza la planificación, ejecución y monitoreo de operaciones de fumigación agrícola mediante drones. El usuario podrá programar misiones, supervisar los drones y consultar información de las operaciones desde una sola plataforma.
-
-</p>
-
-<p align="justify">
-
-El usuario podrá registrar sus fincas y parcelas, seleccionar en un mapa el área que desea fumigar y crear una misión. Antes de realizar la operación podrá consultar las condiciones meteorológicas mediante una API externa. Durante la misión podrá ver el estado y ubicación del dron. Después podrá revisar el historial y los reportes de las operaciones realizadas.
-
-</p>
 
 ### 1.2.1. Antecedentes y problemática
 
-1.2.1.1. What
+**Antecedentes**
 
-<p align="justify">
+La agricultura enfrenta pérdidas recurrentes por plagas y enfermedades. Según la FAO (2023), hasta un 40 % de la producción agrícola mundial se pierde cada año por esta causa. Tradicionalmente, el control fitosanitario se realiza con fumigadoras de mochila o con tractores, métodos que demandan mucha mano de obra y tiempo, aplican producto donde no siempre es necesario y exponen a los trabajadores a agroquímicos. En los últimos años, los drones de fumigación se han convertido en una alternativa más precisa y segura. Sin embargo, su adopción por pequeños y medianos agricultores aún es limitada, y la coordinación de estos servicios se gestiona de forma manual, mediante mensajes y registros dispersos.
 
-El problema central es la presencia recurrente de plagas y parásitos en los cultivos, lo que reduce el rendimiento y la calidad de la cosecha. Los métodos tradicionales de fumigación, ya sean manuales o con tractor, pueden ser lentos, costosos e imprecisos. Además, pueden exponer a los trabajadores a productos químicos.
+**Problemática (5W + 2H)**
 
-</p>
+| Pregunta | Descripción |
+|:--|:--|
+| **Who** (¿Quién?) | Pequeños y medianos agricultores y cooperativas, que contratan o gestionan las fumigaciones, y el personal técnico (ingenieros agrónomos, técnicos de campo y operadores de drones), que planifica y ejecuta las operaciones. |
+| **What** (¿Qué?) | La presencia recurrente de plagas reduce el rendimiento y la calidad de la cosecha, y los métodos tradicionales de fumigación son lentos, costosos, imprecisos y riesgosos para los trabajadores. |
+| **Where** (¿Dónde?) | En terrenos agrícolas donde no existe una gestión ni un monitoreo formal de las operaciones, como los fundos de los valles costeros donde trabajan los entrevistados (Cañete, Huaral e Ica). |
+| **When** (¿Cuándo?) | Principalmente durante las temporadas de crecimiento de los cultivos, cuando se realizan aplicaciones preventivas o curativas ante signos de infestación. |
+| **Why** (¿Por qué?) | No existe un sistema que permita gestionar y monitorear las fumigaciones de forma centralizada. Esto provoca pérdidas económicas, desacuerdos sobre el área tratada y mayor exposición de los trabajadores a riesgos. |
+| **How** (¿Cómo?) | Mediante una plataforma web que permita gestionar fincas y parcelas, delimitar el área de fumigación en un mapa, crear misiones, consultar el clima, monitorear los drones y revisar reportes e historial. |
+| **How Much** (¿Cuánto?) | Hasta un 40 % de la producción agrícola mundial se pierde cada año por plagas y enfermedades (FAO, 2023). |
 
-1.2.1.2. Where
+**Enunciado del problema**
 
-<p align="justify">
+Los pequeños y medianos agricultores y el personal técnico que realiza fumigaciones con drones no cuentan con una herramienta que les permita planificar, coordinar y supervisar estas operaciones de forma centralizada. Como consecuencia, la información de las parcelas, las condiciones climáticas y los servicios realizados se gestiona de manera manual y dispersa, lo que genera pérdidas de tiempo, un uso ineficiente de insumos, desacuerdos sobre el área fumigada y una mayor exposición de los trabajadores a riesgos.
 
-La problemática se presenta en terrenos agrícolas donde no existe una correcta gestión y monitoreo de las operaciones. Esto puede dificultar el control de plagas y afectar la producción.
+**Puntos que debe resolver la solución**
 
-</p>
+- Centralizar la información de fincas, parcelas y misiones en una sola plataforma.
+- Permitir la delimitación precisa del área de fumigación sobre un mapa interactivo.
+- Validar las condiciones meteorológicas antes de ejecutar una misión.
+- Ofrecer el seguimiento del estado y la ubicación del dron durante la operación.
+- Conservar el historial y los reportes de las operaciones como respaldo para agricultores y operadores.
 
-1.2.1.3. When
+**Objetivos**
 
-<p align="justify">
+*Objetivo general:* Desarrollar una plataforma web responsive que permita a agricultores y personal técnico planificar, ejecutar y supervisar operaciones de fumigación con drones de forma centralizada.
 
-El problema de las plagas ocurre principalmente durante las temporadas de crecimiento de los cultivos. El monitoreo y las aplicaciones de fumigación se realizan durante todo el ciclo de cultivo, ya sea de forma preventiva o cuando aparecen signos de infestación.
+*Objetivos específicos:*
 
-</p>
+1. Implementar el registro de fincas y la delimitación de parcelas sobre un mapa interactivo.
+2. Integrar un servicio meteorológico externo para validar las condiciones antes de cada misión.
+3. Implementar el monitoreo de misiones mediante datos de telemetría simulados.
+4. Generar el historial y los reportes de las operaciones realizadas.
+5. Desarrollar una Landing Page que presente la propuesta de valor y dirija a cada segmento hacia la Web Application.
 
-1.2.1.4. Who
+**Restricciones**
 
-<p align="justify">
-
-El ecosistema de AgriDron Solutions involucra a agricultores, cooperativas agrícolas, ingenieros agrónomos, técnicos de campo y operadores de drones. Los agricultores y cooperativas serán los principales clientes, mientras que el personal técnico podrá utilizar la plataforma para supervisar y gestionar las operaciones.
-
-</p>
-
-1.2.1.5. Why
-
-<p align="justify">
-
-La causa principal es la falta de un sistema que permita gestionar y monitorear las operaciones de fumigación de forma centralizada. Esto puede generar pérdidas económicas y aumentar la exposición de los trabajadores a los riesgos de los métodos tradicionales.
-
-</p>
-
-1.2.1.6. How
-
-<p align="justify">
-
-AgriDron Solutions abordará esta problemática mediante una plataforma web que permita gestionar fincas y parcelas, seleccionar áreas de fumigación en un mapa, crear misiones con drones, consultar información meteorológica, monitorear los drones y revisar reportes e historial de operaciones.
-
-</p>
-
-1.2.1.7. How much
-
-<p align="justify">
-
-Según la FAO (2023), se estima que hasta un 40% de la producción agrícola mundial se pierde cada año debido a plagas y enfermedades. Esto muestra la importancia de contar con mejores herramientas para el monitoreo y control de plagas.
-
-</p>
+- La telemetría del dron se simula. El proyecto no incluye integración con hardware real de drones.
+- La información meteorológica depende de un servicio externo de terceros.
+- La solución se compone de una Landing Page, una Web Application responsive y un RESTful API, y no incluye una aplicación móvil nativa.
+- Se utilizan las tecnologías definidas por el curso: HTML, CSS y JavaScript para la Landing Page, Angular para la Web Application y Spring Boot para el RESTful API.
+- El alcance se limita al ciclo académico 2026-20 y a los sprints planificados.
 
 ### 1.2.2. Lean UX Process
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-Problem Statement 1
+El estado actual de **la gestión de la fumigación de cultivos en el sector agrícola peruano** se ha centrado principalmente en **métodos manuales y con tractor, realizados por pequeños y medianos agricultores y sus trabajadores de campo, que coordinan los servicios de fumigación mediante llamadas, mensajes de WhatsApp y registros escritos a mano**.
 
-<p align="justify">
+Lo que los productos y servicios existentes no logran abordar es **una forma accesible para que estos agricultores y los operadores de drones de fumigación planifiquen, coordinen y supervisen las operaciones con drones en un solo lugar, ya que plataformas como DroneDeploy, Climate FieldView y Agrivi están dirigidas a grandes agroindustrias, con soluciones de alto costo y dependientes de hardware**.
 
-Los agricultores necesitan una forma centralizada de gestionar sus fincas, parcelas y áreas de fumigación, debido a que estas actividades forman parte de la planificación de sus operaciones con drones y pueden requerir coordinación manual.
+Nuestro producto abordará esta brecha mediante **una plataforma web responsive que permita registrar fincas y parcelas, delimitar áreas de fumigación en un mapa interactivo, validar las condiciones meteorológicas con un servicio externo, monitorear las misiones en tiempo real y consultar el historial y los reportes de cada operación**.
 
-</p>
+Nuestro enfoque inicial será **los pequeños y medianos agricultores con predios de 5 a 50 hectáreas y el personal técnico que opera los drones de fumigación para ellos**.
 
-Problem Statement 2
-
-<p align="justify">
-
-Los responsables de las operaciones de fumigación necesitan consultar las condiciones meteorológicas antes de realizar una misión, debido a que esta información es relevante para la planificación de la operación.
-
-</p>
-
-Problem Statement 3
-
-<p align="justify">
-
-Los responsables de una misión necesitan realizar un seguimiento del estado y ubicación del dron durante una operación, debido a que requieren conocer el progreso de la misión.
-
-</p>
-
-Problem Statement 4
-
-<p align="justify">
-
-Los usuarios necesitan consultar el historial y los reportes de las misiones realizadas, debido a que requieren mantener un registro de las operaciones de fumigación gestionadas.
-
-</p>
+Sabremos que hemos tenido éxito cuando veamos **a los agricultores programando sus misiones de fumigación a través de la plataforma, a los operadores llegando al campo con la parcela ya delimitada y ahorrando entre 20 y 30 minutos por servicio, y misiones reprogramadas a partir de la validación climática de la plataforma, en lugar de después de visitas fallidas al campo**.
 
 #### 1.2.2.2. Lean UX Assumptions
 
-**1.2.2.2.1. ¿Quién es el usuario?**
+**Business Assumptions**
 
-<p align="justify">
+- Los pequeños y medianos agricultores están dispuestos a pagar una suscripción mensual accesible por planificar y supervisar sus fumigaciones.
+- Los operadores de drones adoptarán la plataforma si les permite recibir las parcelas ya delimitadas y reducir el tiempo de coordinación con sus clientes.
+- Un modelo freemium, con gestión básica de parcelas gratuita, facilitará la adopción y la conversión hacia planes de pago.
+- Las alianzas con cooperativas agrarias serán un canal efectivo para llegar a nuevos agricultores.
+- Al no depender de hardware propietario, la plataforma podrá competir en precio con DroneDeploy, Climate FieldView y Agrivi.
 
-Los principales usuarios de la solución son agricultores, operadores y técnicos relacionados con la planificación, ejecución y supervisión de operaciones de fumigación agrícola mediante drones.
+**Business Outcome Assumptions**
 
-</p>
+- Los usuarios reducirán en un 40 % el tiempo y el costo de aplicación de pesticidas frente a los métodos tradicionales.
+- El tiempo de respuesta ante una infestación de plagas disminuirá gracias al monitoreo continuo de las operaciones.
+- La retención de clientes aumentará en un 25 % después del primer ciclo de cultivo.
+- La adopción de funciones premium aumentará en un 40 % tras el periodo de prueba gratuito.
 
-<p align="justify">
+**User Assumptions**
 
-La plataforma se utilizará como una herramienta de apoyo para gestionar las operaciones de fumigación agrícola. Permitirá centralizar actividades como el registro de parcelas, la planificación de misiones, la consulta de condiciones meteorológicas, el monitoreo de drones y la consulta de reportes.
+- Los usuarios principales son pequeños y medianos agricultores con predios de 5 a 50 hectáreas y el personal técnico: ingenieros agrónomos, técnicos de campo y operadores de drones.
+- Los agricultores priorizan las soluciones que les ahorran tiempo y reducen la incertidumbre en el manejo de plagas.
+- Los usuarios adoptarán nuevas tecnologías si la interfaz es intuitiva y requiere una capacitación mínima.
+- La falta de datos en tiempo real sobre las fumigaciones dificulta la toma de decisiones de los usuarios.
+- Agricultores y técnicos prefieren supervisar las operaciones desde el celular, debido a la distancia de las zonas de cultivo.
 
-</p>
+**User Outcome and Benefit Assumptions**
 
-**1.2.2.2.3. ¿Qué problemas tiene nuestro producto y cómo se pueden resolver?**
+- Los agricultores quieren evitar pérdidas económicas causadas por plagas.
+- Los usuarios quieren tener control sobre sus campos y parcelas desde un solo lugar.
+- Los usuarios quieren acceder a información en tiempo real sobre sus operaciones.
+- Los agricultores buscan mejorar la productividad y la rentabilidad de sus cultivos.
+- Los usuarios quieren reducir la exposición de los trabajadores a químicos peligrosos.
+- Los operadores quieren contar con un respaldo formal del trabajo realizado para evitar desacuerdos con sus clientes.
 
-<ul> 
-    <li><strong>Gestión dispersa de la información:</strong> centralizar la información de fincas, parcelas y misiones dentro de una misma plataforma.</li> 
-    <li><strong>Dificultad para definir el área de fumigación:</strong> utilizar un mapa interactivo para seleccionar el área que será fumigada.</li> 
-    <li><strong>Consulta de condiciones meteorológicas:</strong> integrar una API externa para obtener información climática.</li> 
-    <li><strong>Seguimiento de las misiones:</strong> incorporar un módulo de monitoreo con datos simulados sobre el estado y ubicación del dron.</li> 
-    <li><strong>Consulta de operaciones anteriores:</strong> almacenar el historial y generar reportes de las misiones realizadas.</li> 
-</ul>
+**Feature Assumptions**
 
-**1.2.2.2.4. ¿Cuándo y cómo es usado nuestro producto?**
-
-<p align="justify">
-
-La plataforma será utilizada antes, durante y después de una operación de fumigación. Antes de la misión, el usuario podrá gestionar la parcela, definir el área de fumigación, crear la misión y consultar las condiciones meteorológicas. Durante la operación podrá consultar el estado y ubicación del dron. Después de la misión podrá consultar el historial y los reportes generados.
-
-</p>
-
-#### 1.2.2.2. Lean UX Assumptions
-
-**1.2.2.2.1. Business Assumptions**
-
-<ul> 
-    <li>Gestión de fincas y parcelas.</li> 
-    <li>Mapa interactivo para definir áreas de fumigación.</li> 
-    <li>Creación y gestión de misiones.</li> <li>Consulta de condiciones meteorológicas mediante una API externa.</li> 
-    <li>Monitoreo del estado y ubicación de los drones.</li> <li>Historial y reportes de las operaciones.</li> 
-    <li>Gestión de roles de usuario.</li> 
-</ul>
-
-**1.2.2.2.6. ¿Cómo debe verse nuestro producto y cómo debe comportarse?**
-
-<p align="justify">
-
-La plataforma debe presentar una interfaz web clara y organizada, que permita a los usuarios acceder de manera sencilla a las principales funciones relacionadas con la gestión de sus operaciones. La información de las parcelas, misiones, condiciones meteorológicas y monitoreo deberá presentarse de manera comprensible, diferenciando las funcionalidades disponibles según el rol del usuario.
-
-<ul>
-  <li>Reducción del 40% en el tiempo y costo de la aplicación de pesticidas frente a los métodos tradicionales.</li>
-  <li>Reducción en el tiempo de respuesta ante una infestación de plagas gracias al monitoreo continuo de los cultivos.</li>
-  <li>Aumento del 25% en la retención de clientes después del primer ciclo de cultivo.</li>
-  <li>Incremento del 40% en la adopción de funciones premium tras el periodo de prueba gratuito.</li>
-</ul>
-
-**1.2.2.2.3. User Assumptions**
-
-<ul>
-  <li>Los usuarios principales son pequeños y medianos agricultores (PyMAs), así como ingenieros agrónomos y técnicos de campo.</li>
-  <li><strong>Necesidad:</strong> los agricultores priorizan soluciones que les ahorren tiempo y reduzcan la incertidumbre en el manejo de plagas.</li>
-  <li><strong>Comportamiento:</strong> los usuarios están dispuestos a adoptar nuevas tecnologías si la interfaz es intuitiva y el entrenamiento es mínimo.</li>
-  <li><strong>Dolor:</strong> la falta de datos en tiempo real sobre las operaciones de fumigación es un problema para la toma de decisiones.</li>
-  <li><strong>Contexto:</strong> los agricultores y técnicos prefieren supervisar operaciones desde dispositivos móviles debido a la distancia de las zonas de cultivo.</li>
-</ul>
-
-**1.2.2.2.4. User Outcome and Benefit Assumptions**
-
-<ul>
-  <li>Evitar pérdidas económicas por plagas.</li>
-  <li>Tener control de sus campos y parcelas.</li>
-  <li>Acceder a datos en tiempo real sobre las operaciones.</li>
-  <li>Mejorar la productividad y rentabilidad.</li>
-  <li>Reducir la exposición de los trabajadores a químicos peligrosos.</li>
-</ul>
-
-**1.2.2.2.5. Feature Assumptions**
-
-<ul>
-  <li><strong>Funcionalidad:</strong> los drones autónomos cubrirán las hectáreas de cultivo con mayor precisión y velocidad que los métodos tradicionales.</li>
-  <li><strong>Tecnología:</strong> la plataforma permitirá controlar y monitorear las operaciones de los drones desde la aplicación en tiempo real.</li>
-  <li><strong>Experiencia:</strong> la plataforma web/móvil será adoptada rápidamente incluso por usuarios con baja alfabetización digital.</li>
-  <li><strong>Integración:</strong> los reportes automáticos de fumigación, incluyendo área cubierta, insumos usados y tiempo, serán útiles para la gestión de las operaciones.</li>
-</ul>
+1. Un mapa interactivo para registrar fincas y delimitar parcelas permitirá definir con precisión el área de fumigación antes de llegar al campo.
+2. Una validación climática basada en un servicio meteorológico externo permitirá decidir si una misión es viable antes de programarla.
+3. Un módulo de monitoreo de misiones con telemetría simulada permitirá seguir el estado y la ubicación del dron durante la operación.
+4. Los reportes automáticos y el historial de operaciones servirán como respaldo del trabajo realizado y apoyarán la gestión.
+5. Una interfaz web responsive con un flujo guiado de creación de misiones será adoptada incluso por usuarios con baja alfabetización digital.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
-Hypothesis Statement 1
+**Hypothesis Statement 1**
 
-<p align="justify">
+Creemos que lograremos una reducción del 40 % en el tiempo y el costo de fumigación\
+si los pequeños y medianos agricultores y los operadores de drones\
+obtienen un área de fumigación delimitada con precisión antes de llegar al campo\
+con la funcionalidad de mapa interactivo de fincas y parcelas.
 
-We believe we will achieve a 40% reduction in spraying time and cost if small and medium farmers (PyMAs) attain precise and efficient crop coverage with the autonomous drone spraying feature.
+**Hypothesis Statement 2**
 
-</p>
-
-Hypothesis Statement 2
-
-<p align="justify">
-
-We believe we will achieve a faster response time to pest infestations if farmers and agricultural technical staff attain continuous, real-time visibility of field and drone status with the mission monitoring and control feature.
-
-</p>
+Creemos que lograremos una reducción del 40 % en el tiempo y el costo de fumigación\
+si los pequeños y medianos agricultores y los operadores de drones\
+obtienen una decisión confiable sobre la viabilidad de una misión antes de programarla\
+con la funcionalidad de validación climática con un servicio externo.
 
 **Hypothesis Statement 3**
 
-<p align="justify">
-
-We believe we will achieve higher platform adoption and customer retention if farmers with low digital literacy attain an intuitive and easy-to-learn experience with the web/mobile monitoring platform.
-
-</p>
+Creemos que lograremos un menor tiempo de respuesta ante infestaciones de plagas\
+si los agricultores y el personal técnico agrícola\
+obtienen visibilidad en tiempo real del avance de cada misión\
+con la funcionalidad de monitoreo de misiones.
 
 **Hypothesis Statement 4**
 
-<p align="justify">
+Creemos que lograremos un aumento del 40 % en la adopción de funciones premium tras el periodo de prueba gratuito\
+si los agricultores y el personal técnico\
+obtienen evidencia lista para usar de cada operación realizada\
+con la funcionalidad de reportes automáticos e historial de operaciones.
 
-We believe we will achieve increased adoption of premium features and improved operational decision-making if farmers and technical staff attain valuable, ready-to-use operational data with the automated spraying and usage report feature.
+**Hypothesis Statement 5**
 
-</p>
-
-<p align="justify">
-
-Creemos que integrar información meteorológica mediante una API externa ayudará a los usuarios a considerar las condiciones climáticas durante la planificación de una misión. Sabremos que esto es cierto cuando los usuarios puedan consultar dicha información antes de gestionar una operación.
-
-</p>
-
-Hypothesis Statement 4
-
-<p align="justify">
-
-Creemos que visualizar el estado y ubicación del dron durante una misión permitirá a los usuarios realizar un mejor seguimiento de la operación. Sabremos que esto es cierto cuando puedan identificar el estado y posición del dron durante una misión simulada.
-
-</p>
+Creemos que lograremos un aumento del 25 % en la retención de clientes después del primer ciclo de cultivo\
+si los agricultores con baja alfabetización digital\
+obtienen una experiencia intuitiva y fácil de aprender\
+con la plataforma web responsive y su flujo guiado de creación de misiones.
 
 #### 1.2.2.4. Lean UX Canvas
 
-<img width="1557" height="1010" alt="export-canva-48djfk42n3h4Hand56nD" src="https://github.com/user-attachments/assets/2d3277d5-22a1-40bb-a3c9-ad852362d1ef" />
+![Lean UX Canvas de AgriDron Solutions](https://github.com/user-attachments/assets/2d3277d5-22a1-40bb-a3c9-ad852362d1ef)
 
-Descripción:
+*Figura: Lean UX Canvas de AgriDron Solutions.*
 
-<p align="justify">
+El Lean UX Canvas resume el modelo de negocio de AgriDron Solutions. El **Business Problem** describe la necesidad de mejorar la forma en que los agricultores y el personal técnico gestionan las operaciones de fumigación. Las **Solutions** propuestas incluyen la fumigación con drones, el monitoreo en tiempo real y una plataforma web responsive. Los **Business Outcomes** esperados incluyen reducir el tiempo y el costo de fumigación, disminuir el tiempo de respuesta ante infestaciones y aumentar la retención de clientes.
 
-El Lean UX Canvas (Iteración 1) resume el modelo de negocio de AgriDron Solutions. El <strong>Business Problem</strong> describe la necesidad de mejorar la forma en que los agricultores y el personal técnico gestionan las operaciones de fumigación. Las <strong>Solutions</strong> propuestas incluyen fumigación con drones, monitoreo en tiempo real y una app móvil/web. Los <strong>Business Outcomes</strong> esperados incluyen reducir el tiempo y costo de fumigación, disminuir el tiempo de respuesta ante infestaciones y aumentar la retención de clientes.
-
-</p>
-
-<p align="justify">
-
-En cuanto a los <strong>Users & Customers</strong>, los principales segmentos son los pequeños y medianos agricultores (PyMAs) y el personal técnico. Sus <strong>User Outcomes & Benefits</strong> incluyen tener mayor control de sus campos, acceder a información de sus operaciones y reducir su exposición a productos químicos. Las <strong>Hypotheses</strong> buscan validar si los usuarios están dispuestos a pagar por el servicio y si las funciones de fumigación, monitoreo y reporte generan valor. El siguiente paso será validar la disposición de pago y el valor percibido mediante entrevistas y pruebas piloto.
-
-</p>
+En cuanto a los **Users & Customers**, los principales segmentos son los pequeños y medianos agricultores (PyMAs) y el personal técnico. Sus **User Outcomes & Benefits** incluyen tener mayor control de sus campos, acceder a información de sus operaciones y reducir su exposición a productos químicos. Las **Hypotheses** buscan validar si los usuarios están dispuestos a pagar por el servicio y si las funciones de planificación, validación climática, monitoreo y reportes generan valor. El siguiente paso es validar la disposición de pago y el valor percibido mediante entrevistas y pruebas piloto.
 
 ### 1.3. Segmentos objetivo
 
