@@ -85,7 +85,7 @@
 | 1.3.0 | 06/10/2026 | Damacen Galindo, Italo Gianfranco | Ampliación del Análisis competitivo (2.1.1) y de Herramientas del proyecto (5.1.1.2). |
 | 1.4.0 | 06/10/2026 | Sayago Vidal, Sebastián Leonardo | Sprint 2 (5.2.2). |
 | 2.0.0 | 06/10/2026 | Nicho Huillcañahui, Edwin Noe | Project Report Collaboration Insights, videos de exposición y Student Outcome. Versión de entrega TB1. |
-| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, el Registro de Versiones, Project Report Collaboration Insights, Student Outcome, Startup Profile y Solution Profile según el enunciado. |
+| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, el Registro de Versiones, Project Report Collaboration Insights, Student Outcome, Startup Profile, Solution Profile y Segmentos objetivo según el enunciado. |
 
 ## Project Report Collaboration Insights
 
@@ -607,59 +607,36 @@ El Lean UX Canvas resume el modelo de negocio de AgriDron Solutions. El **Busine
 
 En cuanto a los **Users & Customers**, los principales segmentos son los pequeños y medianos agricultores (PyMAs) y el personal técnico. Sus **User Outcomes & Benefits** incluyen tener mayor control de sus campos, acceder a información de sus operaciones y reducir su exposición a productos químicos. Las **Hypotheses** buscan validar si los usuarios están dispuestos a pagar por el servicio y si las funciones de planificación, validación climática, monitoreo y reportes generan valor. El siguiente paso es validar la disposición de pago y el valor percibido mediante entrevistas y pruebas piloto.
 
-### 1.3. Segmentos objetivo
+## 1.3. Segmentos objetivo
 
-#### 1.3.1. Pequeños y Medianos Agricultores (PyMAs)
-
-<p align="justify">
+### 1.3.1. Pequeños y Medianos Agricultores (PyMAs)
 
 Este es el segmento principal de AgriDron Solutions. Está conformado por productores agrícolas con extensiones de 5 a 50 hectáreas, que cultivan principalmente para el mercado local y regional. Pueden trabajar de forma independiente o agrupados en cooperativas y buscan reducir costos y proteger el rendimiento de sus cultivos.
 
-</p>
+**Características cuantitativas:** edad entre 28 y 60 años, extensión de cultivo de 5 a 50 hectáreas, nivel educativo variado desde educación básica hasta técnica, familiaridad tecnológica media-baja, con adopción creciente de smartphones.
 
-<p align="justify">
+**Características cualitativas:** su principal motivación es reducir costos y mejorar el rendimiento de sus cultivos. Sus principales problemas son las pérdidas por plagas, los costos de mano de obra y la falta de información para tomar decisiones.
 
-<strong>Características cuantitativas:</strong> edad entre 28 y 60 años, extensión de cultivo de 5 a 50 hectáreas, nivel educativo variado desde educación básica hasta técnica, familiaridad tecnológica media-baja, con adopción creciente de smartphones.
+**Información estadística de sustento:** según los resultados de la Encuesta Nacional Agropecuaria (ENA) 2022 del INEI:
 
-</p>
+- El 97.6 % de las unidades agropecuarias del país se emplea para la agricultura familiar (Agencia Andina, 2023).
+- Las explotaciones con menos de 5 hectáreas representan el 78.5 % del total (Redacción Gestión, 2023), mientras que el 21.4 % supera las 5 hectáreas (Agencia Andina, 2023). El segmento objetivo, con predios de 5 a 50 hectáreas, forma parte de este último grupo.
+- El 60 % de los productores emplea fertilizantes o plaguicidas (Agencia Andina, 2023), lo que evidencia la necesidad del control fitosanitario.
+- El 35.9 % de los productores tiene entre 45 y 59 años y el 21.9 % entre 30 y 44 años (Agencia Andina, 2023).
 
-<p align="justify">
+**Relación con la solución:** este segmento utilizará la plataforma para gestionar fincas y parcelas, seleccionar áreas de fumigación en el mapa, crear misiones, consultar el clima y revisar reportes e historial de sus operaciones.
 
-<strong>Características cualitativas:</strong> su principal motivación es reducir costos y mejorar el rendimiento de sus cultivos. Sus principales problemas son las pérdidas por plagas, los costos de mano de obra y la falta de información para tomar decisiones.
-
-</p>
-
-<p align="justify">
-
-<strong>Relación con la solución:</strong> este segmento utilizará la plataforma para gestionar fincas y parcelas, seleccionar áreas de fumigación en el mapa, crear misiones, consultar el clima y revisar reportes e historial de sus operaciones.
-
-</p>
-
-#### 1.3.2. Personal Técnico (Ingenieros Agrónomos y Técnicos de Campo)
-
-<p align="justify">
+### 1.3.2. Personal Técnico (Ingenieros Agrónomos y Técnicos de Campo)
 
 Este segmento está conformado por ingenieros agrónomos, técnicos agrícolas y operadores de drones. Son usuarios de la plataforma que se encargan de revisar la información, planificar las operaciones y supervisar las misiones de fumigación.
 
-</p>
+**Características cuantitativas:** edad entre 22 y 45 años, formación técnica o universitaria en agronomía, ingeniería agrícola o carreras afines, experiencia de 1 a 15 años en campo, a cargo de la supervisión de múltiples parcelas o unidades productivas de forma simultánea.
 
-<p align="justify">
+**Características cualitativas:** cuentan con mayor familiaridad tecnológica que el agricultor promedio y valoran herramientas que les ayuden a ahorrar tiempo. Su principal motivación es contar con información precisa para planificar las operaciones. Su principal problema es la dificultad para supervisar varios campos al mismo tiempo.
 
-<strong>Características cuantitativas:</strong> edad entre 22 y 45 años, formación técnica o universitaria en agronomía, ingeniería agrícola o carreras afines, experiencia de 1 a 15 años en campo, a cargo de la supervisión de múltiples parcelas o unidades productivas de forma simultánea.
+**Información estadística de sustento:** según los resultados de la Encuesta Nacional Agropecuaria (ENA) 2022 del INEI, solo el 3.8 % de los productores agropecuarios tuvo asistencia técnica y solo el 6.6 % recibió capacitación (Agencia Andina, 2023). Estas cifras muestran una amplia brecha de acompañamiento técnico en el campo, que este segmento busca cubrir.
 
-</p>
-
-<p align="justify">
-
-<strong>Características cualitativas:</strong> cuentan con mayor familiaridad tecnológica que el agricultor promedio y valoran herramientas que les ayuden a ahorrar tiempo. Su principal motivación es contar con información precisa para planificar las operaciones. Su principal problema es la dificultad para supervisar varios campos al mismo tiempo.
-
-</p>
-
-<p align="justify">
-
-<strong>Relación con la solución:</strong> este segmento utilizará la plataforma para revisar información de las operaciones, planificar y ejecutar misiones de fumigación mediante el software de control de drones y supervisar varias unidades productivas a la vez.
-
-</p>
+**Relación con la solución:** este segmento utilizará la plataforma para revisar la información de las operaciones, planificar las misiones de fumigación, hacer seguimiento a su ejecución y supervisar varias unidades productivas a la vez.
 
 ---
 
