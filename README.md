@@ -85,7 +85,7 @@
 | 1.3.0 | 06/10/2026 | Damacen Galindo, Italo Gianfranco | Ampliación del Análisis competitivo (2.1.1) y de Herramientas del proyecto (5.1.1.2). |
 | 1.4.0 | 06/10/2026 | Sayago Vidal, Sebastián Leonardo | Sprint 2 (5.2.2). |
 | 2.0.0 | 06/10/2026 | Nicho Huillcañahui, Edwin Noe | Project Report Collaboration Insights, videos de exposición y Student Outcome. Versión de entrega TB1. |
-| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, el Registro de Versiones, Project Report Collaboration Insights, Student Outcome, Startup Profile y Antecedentes y problemática según el enunciado. |
+| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, el Registro de Versiones, Project Report Collaboration Insights, Student Outcome, Startup Profile y Solution Profile según el enunciado. |
 
 ## Project Report Collaboration Insights
 
@@ -508,191 +508,104 @@ Los pequeños y medianos agricultores y el personal técnico que realiza fumigac
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-Problem Statement 1
+The current state of **crop spraying management in Peru's agricultural sector** has focused mainly on **manual and tractor-based methods run by small and medium farmers and their field workers, who coordinate spraying services through phone calls, WhatsApp messages and handwritten records**.
 
-<p align="justify">
+What existing products and services fail to address is **an accessible way for these farmers and for drone spraying operators to plan, coordinate and supervise drone spraying operations in one place, since current platforms such as DroneDeploy, Climate FieldView and Agrivi target large agribusinesses with high-cost, hardware-dependent solutions**.
 
-Los agricultores necesitan una forma centralizada de gestionar sus fincas, parcelas y áreas de fumigación, debido a que estas actividades forman parte de la planificación de sus operaciones con drones y pueden requerir coordinación manual.
+Our product will address this gap by **offering a responsive web platform that lets users register farms and plots, delimit spraying areas on an interactive map, validate weather conditions through an external service, monitor missions in real time and consult the history and reports of each operation**.
 
-</p>
+Our initial focus will be **small and medium farmers with 5 to 50 hectares and the technical staff who operate spraying drones for them**.
 
-Problem Statement 2
-
-<p align="justify">
-
-Los responsables de las operaciones de fumigación necesitan consultar las condiciones meteorológicas antes de realizar una misión, debido a que esta información es relevante para la planificación de la operación.
-
-</p>
-
-Problem Statement 3
-
-<p align="justify">
-
-Los responsables de una misión necesitan realizar un seguimiento del estado y ubicación del dron durante una operación, debido a que requieren conocer el progreso de la misión.
-
-</p>
-
-Problem Statement 4
-
-<p align="justify">
-
-Los usuarios necesitan consultar el historial y los reportes de las misiones realizadas, debido a que requieren mantener un registro de las operaciones de fumigación gestionadas.
-
-</p>
+We'll know we are successful when we see **farmers scheduling their spraying missions through the platform, operators arriving at the field with the plot already delimited and saving 20 to 30 minutes per service, and missions being rescheduled based on the platform's weather validation instead of after failed field visits**.
 
 #### 1.2.2.2. Lean UX Assumptions
 
-**1.2.2.2.1. ¿Quién es el usuario?**
+**Business Assumptions**
 
-<p align="justify">
+- Los pequeños y medianos agricultores están dispuestos a pagar una suscripción mensual accesible, de entre S/ 30 y S/ 120 según el tamaño del predio, por planificar y supervisar sus fumigaciones.
+- Los operadores de drones adoptarán la plataforma si les permite recibir las parcelas ya delimitadas y reducir el tiempo de coordinación con sus clientes.
+- Un modelo freemium, con gestión básica de parcelas gratuita, facilitará la adopción y la conversión hacia planes de pago.
+- Las alianzas con cooperativas agrarias serán un canal efectivo para llegar a nuevos agricultores.
+- Al no depender de hardware propietario, la plataforma podrá competir en precio con DroneDeploy, Climate FieldView y Agrivi.
 
-Los principales usuarios de la solución son agricultores, operadores y técnicos relacionados con la planificación, ejecución y supervisión de operaciones de fumigación agrícola mediante drones.
+**Business Outcome Assumptions**
 
-</p>
+- Los usuarios reducirán en un 40 % el tiempo y el costo de aplicación de pesticidas frente a los métodos tradicionales.
+- El tiempo de respuesta ante una infestación de plagas disminuirá gracias al monitoreo continuo de las operaciones.
+- La retención de clientes aumentará en un 25 % después del primer ciclo de cultivo.
+- La adopción de funciones premium aumentará en un 40 % tras el periodo de prueba gratuito.
 
-<p align="justify">
+**User Assumptions**
 
-La plataforma se utilizará como una herramienta de apoyo para gestionar las operaciones de fumigación agrícola. Permitirá centralizar actividades como el registro de parcelas, la planificación de misiones, la consulta de condiciones meteorológicas, el monitoreo de drones y la consulta de reportes.
+- Los usuarios principales son pequeños y medianos agricultores con predios de 5 a 50 hectáreas y el personal técnico: ingenieros agrónomos, técnicos de campo y operadores de drones.
+- Los agricultores priorizan las soluciones que les ahorran tiempo y reducen la incertidumbre en el manejo de plagas.
+- Los usuarios adoptarán nuevas tecnologías si la interfaz es intuitiva y requiere una capacitación mínima.
+- La falta de datos en tiempo real sobre las fumigaciones dificulta la toma de decisiones de los usuarios.
+- Agricultores y técnicos prefieren supervisar las operaciones desde el celular, debido a la distancia de las zonas de cultivo.
 
-</p>
+**User Outcome and Benefit Assumptions**
 
-**1.2.2.2.3. ¿Qué problemas tiene nuestro producto y cómo se pueden resolver?**
+- Los agricultores quieren evitar pérdidas económicas causadas por plagas.
+- Los usuarios quieren tener control sobre sus campos y parcelas desde un solo lugar.
+- Los usuarios quieren acceder a información en tiempo real sobre sus operaciones.
+- Los agricultores buscan mejorar la productividad y la rentabilidad de sus cultivos.
+- Los usuarios quieren reducir la exposición de los trabajadores a químicos peligrosos.
+- Los operadores quieren contar con un respaldo formal del trabajo realizado para evitar desacuerdos con sus clientes.
 
-<ul> 
-    <li><strong>Gestión dispersa de la información:</strong> centralizar la información de fincas, parcelas y misiones dentro de una misma plataforma.</li> 
-    <li><strong>Dificultad para definir el área de fumigación:</strong> utilizar un mapa interactivo para seleccionar el área que será fumigada.</li> 
-    <li><strong>Consulta de condiciones meteorológicas:</strong> integrar una API externa para obtener información climática.</li> 
-    <li><strong>Seguimiento de las misiones:</strong> incorporar un módulo de monitoreo con datos simulados sobre el estado y ubicación del dron.</li> 
-    <li><strong>Consulta de operaciones anteriores:</strong> almacenar el historial y generar reportes de las misiones realizadas.</li> 
-</ul>
+**Feature Assumptions**
 
-**1.2.2.2.4. ¿Cuándo y cómo es usado nuestro producto?**
-
-<p align="justify">
-
-La plataforma será utilizada antes, durante y después de una operación de fumigación. Antes de la misión, el usuario podrá gestionar la parcela, definir el área de fumigación, crear la misión y consultar las condiciones meteorológicas. Durante la operación podrá consultar el estado y ubicación del dron. Después de la misión podrá consultar el historial y los reportes generados.
-
-</p>
-
-#### 1.2.2.2. Lean UX Assumptions
-
-**1.2.2.2.1. Business Assumptions**
-
-<ul> 
-    <li>Gestión de fincas y parcelas.</li> 
-    <li>Mapa interactivo para definir áreas de fumigación.</li> 
-    <li>Creación y gestión de misiones.</li> <li>Consulta de condiciones meteorológicas mediante una API externa.</li> 
-    <li>Monitoreo del estado y ubicación de los drones.</li> <li>Historial y reportes de las operaciones.</li> 
-    <li>Gestión de roles de usuario.</li> 
-</ul>
-
-**1.2.2.2.6. ¿Cómo debe verse nuestro producto y cómo debe comportarse?**
-
-<p align="justify">
-
-La plataforma debe presentar una interfaz web clara y organizada, que permita a los usuarios acceder de manera sencilla a las principales funciones relacionadas con la gestión de sus operaciones. La información de las parcelas, misiones, condiciones meteorológicas y monitoreo deberá presentarse de manera comprensible, diferenciando las funcionalidades disponibles según el rol del usuario.
-
-<ul>
-  <li>Reducción del 40% en el tiempo y costo de la aplicación de pesticidas frente a los métodos tradicionales.</li>
-  <li>Reducción en el tiempo de respuesta ante una infestación de plagas gracias al monitoreo continuo de los cultivos.</li>
-  <li>Aumento del 25% en la retención de clientes después del primer ciclo de cultivo.</li>
-  <li>Incremento del 40% en la adopción de funciones premium tras el periodo de prueba gratuito.</li>
-</ul>
-
-**1.2.2.2.3. User Assumptions**
-
-<ul>
-  <li>Los usuarios principales son pequeños y medianos agricultores (PyMAs), así como ingenieros agrónomos y técnicos de campo.</li>
-  <li><strong>Necesidad:</strong> los agricultores priorizan soluciones que les ahorren tiempo y reduzcan la incertidumbre en el manejo de plagas.</li>
-  <li><strong>Comportamiento:</strong> los usuarios están dispuestos a adoptar nuevas tecnologías si la interfaz es intuitiva y el entrenamiento es mínimo.</li>
-  <li><strong>Dolor:</strong> la falta de datos en tiempo real sobre las operaciones de fumigación es un problema para la toma de decisiones.</li>
-  <li><strong>Contexto:</strong> los agricultores y técnicos prefieren supervisar operaciones desde dispositivos móviles debido a la distancia de las zonas de cultivo.</li>
-</ul>
-
-**1.2.2.2.4. User Outcome and Benefit Assumptions**
-
-<ul>
-  <li>Evitar pérdidas económicas por plagas.</li>
-  <li>Tener control de sus campos y parcelas.</li>
-  <li>Acceder a datos en tiempo real sobre las operaciones.</li>
-  <li>Mejorar la productividad y rentabilidad.</li>
-  <li>Reducir la exposición de los trabajadores a químicos peligrosos.</li>
-</ul>
-
-**1.2.2.2.5. Feature Assumptions**
-
-<ul>
-  <li><strong>Funcionalidad:</strong> los drones autónomos cubrirán las hectáreas de cultivo con mayor precisión y velocidad que los métodos tradicionales.</li>
-  <li><strong>Tecnología:</strong> la plataforma permitirá controlar y monitorear las operaciones de los drones desde la aplicación en tiempo real.</li>
-  <li><strong>Experiencia:</strong> la plataforma web/móvil será adoptada rápidamente incluso por usuarios con baja alfabetización digital.</li>
-  <li><strong>Integración:</strong> los reportes automáticos de fumigación, incluyendo área cubierta, insumos usados y tiempo, serán útiles para la gestión de las operaciones.</li>
-</ul>
+1. Un mapa interactivo para registrar fincas y delimitar parcelas permitirá definir con precisión el área de fumigación antes de llegar al campo.
+2. Una validación climática basada en un servicio meteorológico externo permitirá decidir si una misión es viable antes de programarla.
+3. Un módulo de monitoreo de misiones con telemetría simulada permitirá seguir el estado y la ubicación del dron durante la operación.
+4. Los reportes automáticos y el historial de operaciones servirán como respaldo del trabajo realizado y apoyarán la gestión.
+5. Una interfaz web responsive con un flujo guiado de creación de misiones será adoptada incluso por usuarios con baja alfabetización digital.
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
-Hypothesis Statement 1
+**Hypothesis Statement 1**
 
-<p align="justify">
+We believe we will achieve a 40% reduction in spraying time and cost\
+If small and medium farmers and drone operators\
+Attain a precisely delimited spraying area before reaching the field\
+With the interactive farm and plot mapping feature.
 
-We believe we will achieve a 40% reduction in spraying time and cost if small and medium farmers (PyMAs) attain precise and efficient crop coverage with the autonomous drone spraying feature.
+**Hypothesis Statement 2**
 
-</p>
-
-Hypothesis Statement 2
-
-<p align="justify">
-
-We believe we will achieve a faster response time to pest infestations if farmers and agricultural technical staff attain continuous, real-time visibility of field and drone status with the mission monitoring and control feature.
-
-</p>
+We believe we will achieve fewer cancelled field visits and lower input waste\
+If small and medium farmers and drone operators\
+Attain a reliable decision on whether a mission is viable before scheduling it\
+With the external weather validation feature.
 
 **Hypothesis Statement 3**
 
-<p align="justify">
-
-We believe we will achieve higher platform adoption and customer retention if farmers with low digital literacy attain an intuitive and easy-to-learn experience with the web/mobile monitoring platform.
-
-</p>
+We believe we will achieve a faster response time to pest infestations\
+If farmers and agricultural technical staff\
+Attain real-time visibility of each mission's progress\
+With the mission monitoring feature.
 
 **Hypothesis Statement 4**
 
-<p align="justify">
+We believe we will achieve a 40% increase in premium feature adoption after the free trial\
+If farmers and technical staff\
+Attain ready-to-use evidence of every operation performed\
+With the automated reports and operation history feature.
 
-We believe we will achieve increased adoption of premium features and improved operational decision-making if farmers and technical staff attain valuable, ready-to-use operational data with the automated spraying and usage report feature.
+**Hypothesis Statement 5**
 
-</p>
-
-<p align="justify">
-
-Creemos que integrar información meteorológica mediante una API externa ayudará a los usuarios a considerar las condiciones climáticas durante la planificación de una misión. Sabremos que esto es cierto cuando los usuarios puedan consultar dicha información antes de gestionar una operación.
-
-</p>
-
-Hypothesis Statement 4
-
-<p align="justify">
-
-Creemos que visualizar el estado y ubicación del dron durante una misión permitirá a los usuarios realizar un mejor seguimiento de la operación. Sabremos que esto es cierto cuando puedan identificar el estado y posición del dron durante una misión simulada.
-
-</p>
+We believe we will achieve a 25% increase in customer retention after the first crop cycle\
+If farmers with low digital literacy\
+Attain an intuitive and easy-to-learn experience\
+With the responsive web platform and its guided mission creation flow.
 
 #### 1.2.2.4. Lean UX Canvas
 
-<img width="1557" height="1010" alt="export-canva-48djfk42n3h4Hand56nD" src="https://github.com/user-attachments/assets/2d3277d5-22a1-40bb-a3c9-ad852362d1ef" />
+![Lean UX Canvas de AgriDron Solutions](https://github.com/user-attachments/assets/2d3277d5-22a1-40bb-a3c9-ad852362d1ef)
 
-Descripción:
+*Figura: Lean UX Canvas de AgriDron Solutions.*
 
-<p align="justify">
+El Lean UX Canvas resume el modelo de negocio de AgriDron Solutions. El **Business Problem** describe la necesidad de mejorar la forma en que los agricultores y el personal técnico gestionan las operaciones de fumigación. Las **Solutions** propuestas incluyen la fumigación con drones, el monitoreo en tiempo real y una plataforma web responsive. Los **Business Outcomes** esperados incluyen reducir el tiempo y el costo de fumigación, disminuir el tiempo de respuesta ante infestaciones y aumentar la retención de clientes.
 
-El Lean UX Canvas (Iteración 1) resume el modelo de negocio de AgriDron Solutions. El <strong>Business Problem</strong> describe la necesidad de mejorar la forma en que los agricultores y el personal técnico gestionan las operaciones de fumigación. Las <strong>Solutions</strong> propuestas incluyen fumigación con drones, monitoreo en tiempo real y una app móvil/web. Los <strong>Business Outcomes</strong> esperados incluyen reducir el tiempo y costo de fumigación, disminuir el tiempo de respuesta ante infestaciones y aumentar la retención de clientes.
-
-</p>
-
-<p align="justify">
-
-En cuanto a los <strong>Users & Customers</strong>, los principales segmentos son los pequeños y medianos agricultores (PyMAs) y el personal técnico. Sus <strong>User Outcomes & Benefits</strong> incluyen tener mayor control de sus campos, acceder a información de sus operaciones y reducir su exposición a productos químicos. Las <strong>Hypotheses</strong> buscan validar si los usuarios están dispuestos a pagar por el servicio y si las funciones de fumigación, monitoreo y reporte generan valor. El siguiente paso será validar la disposición de pago y el valor percibido mediante entrevistas y pruebas piloto.
-
-</p>
+En cuanto a los **Users & Customers**, los principales segmentos son los pequeños y medianos agricultores (PyMAs) y el personal técnico. Sus **User Outcomes & Benefits** incluyen tener mayor control de sus campos, acceder a información de sus operaciones y reducir su exposición a productos químicos. Las **Hypotheses** buscan validar si los usuarios están dispuestos a pagar por el servicio y si las funciones de planificación, validación climática, monitoreo y reportes generan valor. El siguiente paso es validar la disposición de pago y el valor percibido mediante entrevistas y pruebas piloto.
 
 ### 1.3. Segmentos objetivo
 
