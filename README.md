@@ -734,59 +734,60 @@ A continuación, se presenta el Competitive Analysis Landscape, cuyo objetivo es
       <td rowspan="4" align="center"><b>Análisis SWOT</b></td>
       <td><b>Fortalezas</b></td>
       <td>• Plataforma web moderna construida sobre arquitectura distribuida escalable (Spring Boot y Angular).<br>• Enfoque especializado en la planificación, validación climática y monitoreo de fumigación aérea sin requerir hardware cautivo.<br>• Interfaz diseñada para una curva de aprendizaje mínima, adaptable a usuarios con alfabetización digital intermedia o baja.<br>• Integración directa con servicios externos de pronóstico meteorológico para mitigar riesgos de deriva química.</td>
-      <td><i>Pendiente de redacción</i></td>
-      <td><i>Pendiente de redacción</i></td>
-      <td><i>Pendiente de redacción</i></td>
+      <td>• Capas de salud vegetal NDVI y RGB para detectar estrés por plagas, enfermedades, riego o fertilización <a href="https://www.dronedeploy.com/agriculture.html">(DroneDeploy, s. f.)</a>.<br>• Se integra con los principales fabricantes de drones <a href="https://www.dronedeploy.com/agriculture.html">(DroneDeploy, s. f.)</a>.<br>• Se usa en 400 mil campos de 130 países <a href="https://www.dronedeploy.com/agriculture.html">(DroneDeploy, s. f.)</a>.</td>
+      <td>• Respaldo de Bayer, su empresa matriz <a href="https://agritechobservatory.review.fao.org/ar/climate-fieldview">(FAO AgriTech Observatory, s. f.)</a>.<br>• Imágenes satelitales para evaluar la salud del campo <a href="https://climate.com/en-ca/pricing.html">(Climate FieldView, s. f.)</a>.<br>• FieldView Drive se conecta a la maquinaria y envía los datos de las operaciones a la plataforma <a href="https://agritechobservatory.review.fao.org/ar/climate-fieldview">(FAO AgriTech Observatory, s. f.)</a>.</td>
+      <td>• Gestión de inventario, trazabilidad y gestión financiera <a href="https://www.capterra.com/p/136084/Agrivi/">(Capterra, 2026)</a>.<br>• Gestión del cumplimiento de políticas para servicios, productos, procesos o proveedores <a href="https://www.capterra.com/p/136084/Agrivi/">(Capterra, 2026)</a>.</td>
     </tr>
     <tr>
       <td><b>Debilidades</b></td>
       <td>• Startup en etapa inicial con menor músculo financiero y base de clientes reducida frente a gigantes consolidados.<br>• Dependencia inicial de simulación para los flujos de telemetría de drones antes de la integración con hardware físico masivo.<br>• Marca nueva sin reconocimiento previo en ferias o asociaciones agrarias regionales.</td>
-      <td><i>Pendiente de redacción</i></td>
-      <td><i>Pendiente de redacción</i></td>
-      <td><i>Pendiente de redacción</i></td>
+      <td>• Planes de costo elevado: el plan Ag Lite cuesta USD 1,908 al año por piloto <a href="https://toolradar.com/tools/dronedeploy/pricing">(Toolradar, 2026)</a>.<br>• Su precio resulta alto para operaciones pequeñas <a href="https://toolradar.com/tools/dronedeploy/pricing">(Toolradar, 2026)</a>.<br>• Se centra en el mapeo y análisis de cultivos, no en coordinar servicios de fumigación entre agricultores y operadores.</td>
+      <td>• Requiere hardware adicional: FieldView Drive costaba USD 399 en mayo de 2024 <a href="https://agritechobservatory.review.fao.org/ar/climate-fieldview">(FAO AgriTech Observatory, s. f.)</a>.<br>• Suscripción desde USD 499 al año, más servicios cobrados por acre, como Seed Scripts a USD 1.50 por acre <a href="https://climate.com/en-ca/pricing.html">(Climate FieldView, s. f.)</a>.<br>• Orientado a fincas medianas y grandes <a href="https://agritechobservatory.review.fao.org/ar/climate-fieldview">(FAO AgriTech Observatory, s. f.)</a>.</td>
+      <td>• No publica sus precios: la cotización se solicita al proveedor <a href="https://www.capterra.com/p/136084/Agrivi/">(Capterra, 2026)</a>.<br>• Según una reseña de usuario, no es una solución barata <a href="https://www.capterra.com/p/136084/Agrivi/">(Capterra, 2026)</a>.<br>• Según una reseña de usuario, no puede usarse sin conexión a internet <a href="https://www.capterra.com/p/136084/Agrivi/">(Capterra, 2026)</a>.<br>• Según una reseña de usuario, su módulo financiero no reemplaza un software contable <a href="https://www.capterra.com/p/136084/Agrivi/">(Capterra, 2026)</a>.</td>
     </tr>
     <tr>
       <td><b>Oportunidades</b></td>
       <td>• Creciente interés de pequeños y medianos agricultores por modernizar la fumigación para reducir pérdidas económicas por plagas.<br>• Brecha de mercado desatendida por competidores de alto costo (DroneDeploy, Agrivi), que no diseñan soluciones accesibles para predios de 5 a 50 hectáreas.<br>• Necesidad de cooperativas locales de centralizar la supervisión de múltiples lotes en un solo panel colaborativo.</td>
-      <td><i>Pendiente de redacción</i></td>
-      <td><i>Pendiente de redacción</i></td>
-      <td><i>Pendiente de redacción</i></td>
+      <td>• Creciente uso de drones en la agricultura de precisión.<br>• Ofrecer planes más accesibles para mercados emergentes.</td>
+      <td>• Incorporar la fumigación con drones a su ecosistema.<br>• Usar los programas de Bayer para fidelizar productores.</td>
+      <td>• Demanda de trazabilidad en la agroexportación.<br>• Incorporar la gestión de operaciones con drones.</td>
     </tr>
     <tr>
       <td><b>Amenazas</b></td>
       <td>• Resistencia cultural al cambio tecnológico por parte de productores agrícolas acostumbrados a métodos tradicionales manuales.<br>• Expansión o reducción de precios de plataformas consolidadas (como Bayer Climate FieldView) hacia segmentos de menores extensiones.<br>• Deficiencias de infraestructura de conectividad a internet en zonas rurales que dificulten el uso de plataformas web en campo.</td>
-      <td><i>Pendiente de redacción</i></td>
-      <td><i>Pendiente de redacción</i></td>
-      <td><i>Pendiente de redacción</i></td>
+      <td>• Plataformas más económicas y especializadas para pequeños productores.<br>• Fabricantes de drones que incluyen su propio software.</td>
+      <td>• Plataformas sin dependencia de hardware y de menor costo.<br>• Baja mecanización de los pequeños predios, que limita el uso de FieldView Drive.</td>
+      <td>• Soluciones más simples y accesibles para pequeños productores.<br>• Baja alfabetización digital en zonas rurales.</td>
     </tr>
   </tbody>
 </table>
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-<p align="justify">
-
 A partir de los hallazgos obtenidos en el análisis competitivo y la matriz SWOT, se definen las estrategias y tácticas comerciales, técnicas y operativas que AgriDron Solutions implementará para posicionarse en el mercado:
 
-#### 1. Estrategia de Enfoque en Costos y Accesibilidad (Frente a DroneDeploy y Agrivi)
-Los competidores líderes manejan esquemas de precios enterprise con tarifas anuales elevadas, orientadas principalmente a grandes corporaciones o complejos agroindustriales. AgriDron Solutions capturará la cuota de mercado desatendida mediante una propuesta económica accesible para pequeños y medianos agricultores y coperativas:
+**1. Estrategia de Enfoque en Costos y Accesibilidad (Frente a DroneDeploy y Agrivi)**
+
+Los competidores líderes manejan esquemas de precios enterprise con tarifas anuales elevadas, orientadas principalmente a grandes corporaciones o complejos agroindustriales. AgriDron Solutions capturará la cuota de mercado desatendida mediante una propuesta económica accesible para pequeños y medianos agricultores y cooperativas:
 *   **Táctica de Pricing por Escala de Uso:** Implementar un modelo de suscripción flexible basado en rangos de hectáreas gestionadas o paquetes mensuales por temporada de fumigación, evitando contratos anuales forzosos.
 *   **Táctica Freemium de Entrada:** Ofrecer acceso gratuito para la delimitación de parcelas y consulta de métricas básicas de terreno, incentivando la conversión a planes de pago cuando el usuario requiera planificar rutas avanzadas de fumigación y monitorear condiciones meteorológicas.
 
-#### 2. Estrategia de Diferenciación por Interoperabilidad Abierta
+**2. Estrategia de Diferenciación por Interoperabilidad Abierta**
+
 Mientras que herramientas como Climate FieldView priorizan maquinaria terrestre con dispositivos propietarios y plataformas como DJI restringen su ecosistema a su propio hardware, AgriDron Solutions se posiciona como una plataforma web integradora:
 *   **Táctica de Gestión Abierta de Órdenes de Servicio:** Proveer una plataforma web accesible mediante APIs RESTful que permita registrar parcelas, programar órdenes de fumigación y actualizar bitácoras de trabajo de forma manual por el operador técnico, sin requerir sincronizaciones complejas ni depender de una marca específica de dron.
 *   **Táctica de Validación Climática Contextual:** Integrar servicios externos de pronóstico meteorológico hiperlocal directamente en el flujo de trazado de parcelas, alertando al usuario sobre velocidades de viento y humedad que provoquen deriva química antes de ejecutar la misión.
 
-#### 3. Estrategia de Adopción Digital y Curva de Aprendizaje Acelerada (Usabilidad)
+**3. Estrategia de Adopción Digital y Curva de Aprendizaje Acelerada (Usabilidad)**
+
 Sistemas como Agrivi presentan una alta complejidad funcional y curvas de aprendizaje pronunciadas que dificultan su uso por parte de agricultores con alfabetización digital intermedia. AgriDron Solutions prioriza una experiencia de usuario (UX) centrada en tareas críticas y visuales:
 *   **Táctica de Interfaz Web Intuitiva y Guiada:** Diseñar un flujo de trabajo lineal estructurado en tres pasos simples: 1) Dibujar parcela en el mapa interactivo, 2) Validar condiciones climáticas automáticas, y 3) Asignar y monitorear la ruta de fumigación.
 *   **Táctica Responsive Multidispositivo:** Garantizar que la interfaz web opere de forma fluida tanto en laptops de oficina como en navegadores de teléfonos inteligentes y tablets usados por operadores en campo.
 
-#### 4. Estrategia de Penetración de Canal y Trabajo con Comunidades Agrícolas
+**4. Estrategia de Penetración de Canal y Trabajo con Comunidades Agrícolas**
+
 Para contrarrestar la fuerza de ventas global y las redes corporativas de competidores como Bayer Climate FieldView, AgriDron Solutions ejecutará una estrategia directa y local:
 *   **Táctica de Alianzas con Cooperativas Agrarias:** Realizar demostraciones en vivo y pruebas piloto colaborativas en asociaciones agrarias locales, permitiendo que varios agricultores compartan la experiencia de gestionar sus predios.
-</p>
 
 ---
 
