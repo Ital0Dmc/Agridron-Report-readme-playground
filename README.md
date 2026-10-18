@@ -619,10 +619,10 @@ Este es el segmento principal de AgriDron Solutions. Está conformado por produc
 
 **Información estadística de sustento:** según los resultados de la Encuesta Nacional Agropecuaria (ENA) 2022 del INEI:
 
-- El 97.6 % de las unidades agropecuarias del país se emplea para la agricultura familiar (Agencia Andina, 2023).
-- Las explotaciones con menos de 5 hectáreas representan el 78.5 % del total (Redacción Gestión, 2023), mientras que el 21.4 % supera las 5 hectáreas (Agencia Andina, 2023). El segmento objetivo, con predios de 5 a 50 hectáreas, forma parte de este último grupo.
-- El 60 % de los productores emplea fertilizantes o plaguicidas (Agencia Andina, 2023), lo que evidencia la necesidad del control fitosanitario.
-- El 35.9 % de los productores tiene entre 45 y 59 años y el 21.9 % entre 30 y 44 años (Agencia Andina, 2023).
+- El 97.6 % de las unidades agropecuarias del país se emplea para la agricultura familiar [(Agencia Andina, 2023)](https://andina.pe/agencia/noticia-inei-334-productores-agropecuarios-del-pais-son-mujeres-948645.aspx).
+- Las explotaciones con menos de 5 hectáreas representan el 78.5 % del total [(Redacción Gestión, 2023)](https://gestion.pe/economia/encuesta-nacional-agropecuaria-asi-se-configura-el-sector-en-el-peru-noticia/), mientras que el 21.4 % supera las 5 hectáreas [(Agencia Andina, 2023)](https://andina.pe/agencia/noticia-inei-334-productores-agropecuarios-del-pais-son-mujeres-948645.aspx). El segmento objetivo, con predios de 5 a 50 hectáreas, forma parte de este último grupo.
+- El 60 % de los productores emplea fertilizantes o plaguicidas [(Agencia Andina, 2023)](https://andina.pe/agencia/noticia-inei-334-productores-agropecuarios-del-pais-son-mujeres-948645.aspx), lo que evidencia la necesidad del control fitosanitario.
+- El 35.9 % de los productores tiene entre 45 y 59 años y el 21.9 % entre 30 y 44 años [(Agencia Andina, 2023)](https://andina.pe/agencia/noticia-inei-334-productores-agropecuarios-del-pais-son-mujeres-948645.aspx).
 
 **Relación con la solución:** este segmento utilizará la plataforma para gestionar fincas y parcelas, seleccionar áreas de fumigación en el mapa, crear misiones, consultar el clima y revisar reportes e historial de sus operaciones.
 
@@ -634,7 +634,7 @@ Este segmento está conformado por ingenieros agrónomos, técnicos agrícolas y
 
 **Características cualitativas:** cuentan con mayor familiaridad tecnológica que el agricultor promedio y valoran herramientas que les ayuden a ahorrar tiempo. Su principal motivación es contar con información precisa para planificar las operaciones. Su principal problema es la dificultad para supervisar varios campos al mismo tiempo.
 
-**Información estadística de sustento:** según los resultados de la Encuesta Nacional Agropecuaria (ENA) 2022 del INEI, solo el 3.8 % de los productores agropecuarios tuvo asistencia técnica y solo el 6.6 % recibió capacitación (Agencia Andina, 2023). Estas cifras muestran una amplia brecha de acompañamiento técnico en el campo, que este segmento busca cubrir.
+**Información estadística de sustento:** según los resultados de la Encuesta Nacional Agropecuaria (ENA) 2022 del INEI, solo el 3.8 % de los productores agropecuarios tuvo asistencia técnica y solo el 6.6 % recibió capacitación [(Agencia Andina, 2023)](https://andina.pe/agencia/noticia-inei-334-productores-agropecuarios-del-pais-son-mujeres-948645.aspx). Estas cifras muestran una amplia brecha de acompañamiento técnico en el campo, que este segmento busca cubrir.
 
 **Relación con la solución:** este segmento utilizará la plataforma para revisar la información de las operaciones, planificar las misiones de fumigación, hacer seguimiento a su ejecución y supervisar varias unidades productivas a la vez.
 
