@@ -351,7 +351,7 @@ La plataforma permite registrar fincas y parcelas, seleccionar el área de fumig
 
 <table>
   <tr>
-    <td rowspan="4" align="center">
+    <td rowspan="4" align="center" width="200">
       <img src="https://github.com/user-attachments/assets/4c1d03a8-ec5b-484f-9621-4cf59cc49cca" alt="Foto de Italo Damacen" width="180" />
     </td>
   </tr>
@@ -371,7 +371,7 @@ La plataforma permite registrar fincas y parcelas, seleccionar el área de fumig
     </td>
   </tr>
   <tr>
-    <td rowspan="4" align="center">
+    <td rowspan="4" align="center" width="200">
       <img src="https://github.com/user-attachments/assets/3d3dea48-8f1b-4aa7-905d-9d25ebf87779" alt="Foto de Edwin Nicho" width="180" />
     </td>
   </tr>
@@ -391,7 +391,7 @@ La plataforma permite registrar fincas y parcelas, seleccionar el área de fumig
     </td>
   </tr>
   <tr>
-    <td rowspan="4" align="center">
+    <td rowspan="4" align="center" width="200">
       <img src="assets/Chapter1/team/Gabriel_Ramirez.jpg" alt="Foto de Gabriel Ramírez" width="180" />
     </td>
   </tr>
@@ -411,7 +411,7 @@ La plataforma permite registrar fincas y parcelas, seleccionar el área de fumig
     </td>
   </tr>
   <tr>
-    <td rowspan="4" align="center">
+    <td rowspan="4" align="center" width="200">
       <img src="assets/Chapter1/team/SebastiánSayago_Foto.png" alt="Foto de Sebastián Sayago" width="180" />
     </td>
   </tr>
@@ -431,7 +431,7 @@ La plataforma permite registrar fincas y parcelas, seleccionar el área de fumig
     </td>
   </tr>
   <tr>
-    <td rowspan="4" align="center">
+    <td rowspan="4" align="center" width="200">
       <img src="assets/Chapter1/team/Alexander_Vasquez.png" alt="Foto de Alexander Vásquez" width="180" />
     </td>
   </tr>
