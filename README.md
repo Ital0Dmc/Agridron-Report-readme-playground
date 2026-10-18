@@ -2,21 +2,23 @@
 <img src="assets/logos/upc_logo.png" alt="UPC Logo" width="150"/>
 
 ## **Universidad Peruana de Ciencias Aplicadas**
+### Facultad de Ingeniería
 ### Carrera de Ingeniería de Software
+### Ciclo 2026-20
 <br>
 
-**Curso: Desarrollo de Aplicaciones Open Source**
+**Curso: 1ASI0729 - Desarrollo de Aplicaciones Open Source**
 
 **NRC: 7760**
 
-**Docente: FLORES MOROCCO; Juan Antonio**
+**Profesor: Flores Moroco, Juan Antonio**
 <br>
 
-### **Informe del Trabajo Final**
+### **Informe de Trabajo Final**
 
 **Nombre de la Startup:** AgriDron Solutions
 
-**Nombre del producto:** AgriDron
+**Nombre del Producto:** AgriDron
 <br>
 
 ### **Integrantes**
@@ -25,8 +27,12 @@
 
 <table align="center" style="border-collapse: collapse; border: none; margin-left: auto; margin-right: auto;">
     <tr>
-        <th style="border: none; padding: 0 18px 6px 0; text-align: center;">U202421392</th>
-        <th style="border: none; padding: 0 0 6px 0; text-align: center;">Damacen Galindo, Italo Gianfranco</th>
+        <th style="border: none; padding: 0 18px 6px 0; text-align: center;">Código</th>
+        <th style="border: none; padding: 0 0 6px 0; text-align: center;">Apellidos y Nombres</th>
+    </tr>
+    <tr>
+        <td style="border: none; padding: 0 18px 4px 0; text-align: center;">U202421392</td>
+        <td style="border: none; padding: 0 0 4px 0; text-align: center;">Damacen Galindo, Italo Gianfranco</td>
     </tr>
     <tr>
         <td style="border: none; padding: 0 18px 4px 0; text-align: center;">U20241G306</td>
@@ -34,22 +40,24 @@
     </tr>
     <tr>
         <td style="border: none; padding: 0 18px 4px 0; text-align: center;">U202416053</td>
-        <td style="border: none; padding: 0 0 4px 0; text-align: center;">Ramirez Gutierrez, Gabriel</td>
+        <td style="border: none; padding: 0 0 4px 0; text-align: center;">Ramírez Gutiérrez, Gabriel</td>
     </tr>
     <tr>
         <td style="border: none; padding: 0 18px 4px 0; text-align: center;">U202422642</td>
-        <td style="border: none; padding: 0 0 4px 0; text-align: center;">Sayago Vidal, Sebastian Leonardo</td>
+        <td style="border: none; padding: 0 0 4px 0; text-align: center;">Sayago Vidal, Sebastián Leonardo</td>
     </tr>
     <tr>
         <td style="border: none; padding: 0 18px 4px 0; text-align: center;">U202222473</td>
-        <td style="border: none; padding: 0 0 4px 0; text-align: center;">Vasquez Roncal, Alexander Felipe</td>
+        <td style="border: none; padding: 0 0 4px 0; text-align: center;">Vásquez Roncal, Alexander Felipe</td>
     </tr>
 </table>
 <br>
 <div align="center">
-<b><i>Septiembre, 2026</i></b>
+<b><i>Octubre, 2026</i></b>
 </div>
 <br>
+
+<div style="page-break-after: always;"></div>
 
 ---
 
