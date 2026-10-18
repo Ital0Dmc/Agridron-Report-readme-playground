@@ -89,13 +89,13 @@
 
 ## Project Report Collaboration Insights
 
-URL del repositorio del informe: [Opensource-UPC/1ASI0729-2620-7760-G3-Agridron-Report](https://github.com/Opensource-UPC/1ASI0729-2620-7760-G3-Agridron-Report)
+El informe se elabora de forma colaborativa en el repositorio [1ASI0729-2620-7760-G3-Agridron-Report](https://github.com/Opensource-UPC/1ASI0729-2620-7760-G3-Agridron-Report), que pertenece a la organización Opensource-UPC en GitHub. A continuación se describe, para cada entrega, cómo se desarrollaron las actividades de elaboración del informe, junto con los analíticos de colaboración del repositorio.
 
 ### Entrega AV1
 
-El informe se elaboró de forma colaborativa en el repositorio de la organización Opensource-UPC, entre el 05/09/2026 y el 17/09/2026. Sayago Vidal, Sebastián Leonardo creó la plantilla base del README y la estructura de carpetas de assets. A partir de ella, cada integrante asumió capítulos específicos: Damacen Galindo, Italo Gianfranco elaboró el Capítulo I; Nicho Huillcañahui, Edwin Noe desarrolló el Capítulo II (entrevistas, Needfinding y Ubiquitous Language); Vásquez Roncal, Alexander Felipe trabajó los Capítulos III y IV (User Stories, Impact Mapping y Mock-ups); Sayago Vidal, Sebastián Leonardo documentó la arquitectura, el diseño de base de datos y el Software Configuration Management; y Ramírez Gutiérrez, Gabriel elaboró la sección del Sprint 1 y la Landing Page.
+El informe se elaboró entre el 05/09/2026 y el 17/09/2026. Sayago Vidal, Sebastián Leonardo creó la plantilla base del README y la estructura de carpetas de assets. A partir de ella, cada integrante asumió capítulos específicos. Damacen Galindo, Italo Gianfranco elaboró el Capítulo I. Nicho Huillcañahui, Edwin Noe desarrolló el Capítulo II, con las entrevistas, el Needfinding y el Ubiquitous Language. Vásquez Roncal, Alexander Felipe trabajó los Capítulos III y IV, incluyendo las User Stories, el Impact Mapping y los Mock-ups. Sayago Vidal, Sebastián Leonardo documentó la arquitectura, el diseño de base de datos y el Software Configuration Management. Por último, Ramírez Gutiérrez, Gabriel elaboró la sección del Sprint 1 y la Landing Page.
 
-Siguiendo GitFlow, los aportes se desarrollaron en ramas feature por capítulo o sección (por ejemplo, feature/capitulo-3, feature/chapter4, feature/database-design y feature/software-configuration-management), se integraron en develop mediante pull requests y se publicaron en main a través de la rama release-1.0 como la versión 1.0.0 del informe.
+Siguiendo GitFlow, los aportes se desarrollaron en ramas feature por capítulo o sección, como feature/capitulo-3, feature/chapter4, feature/database-design y feature/software-configuration-management. Estas ramas se integraron en develop mediante pull requests y se publicaron en main a través de la rama release-1.0, como la versión 1.0.0 del informe.
 
 ![Contributors del repositorio del informe en AV1](assets/collaboration/report_contributors_av1.png)
 
@@ -103,7 +103,7 @@ Siguiendo GitFlow, los aportes se desarrollaron en ramas feature por capítulo o
 
 ### Entrega TB1
 
-Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones derivadas de la retroalimentación de AV1. Vásquez Roncal, Alexander Felipe corrigió y amplió las User Stories; Sayago Vidal, Sebastián Leonardo actualizó los Class Diagrams y Database Diagrams, corrigió el formato del Sprint Backlog 1 y documentó el Sprint 2; Damacen Galindo, Italo Gianfranco amplió el Análisis competitivo y la tabla de herramientas del proyecto; y Nicho Huillcañahui, Edwin Noe actualizó esta sección, los enlaces de los videos de exposición y el Student Outcome. El trabajo se integró en develop mediante pull requests y luego se publicó en main como la versión 2.0.0 del informe.
+Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones derivadas de la retroalimentación de AV1. Vásquez Roncal, Alexander Felipe corrigió y amplió las User Stories. Sayago Vidal, Sebastián Leonardo actualizó los Class Diagrams y Database Diagrams, corrigió el formato del Sprint Backlog 1 y documentó el Sprint 2. Damacen Galindo, Italo Gianfranco amplió el Análisis competitivo y la tabla de herramientas del proyecto. Nicho Huillcañahui, Edwin Noe actualizó esta sección, los enlaces de los videos de exposición y el Student Outcome. El trabajo se integró en develop mediante pull requests y luego se publicó en main como la versión 2.0.0 del informe.
 
 ![Contributors del repositorio del informe en TB1](assets/collaboration/report_contributors_tb1.png)
 
