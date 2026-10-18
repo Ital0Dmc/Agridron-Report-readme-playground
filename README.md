@@ -85,7 +85,7 @@
 | 1.3.0 | 06/10/2026 | Damacen Galindo, Italo Gianfranco | Ampliación del Análisis competitivo (2.1.1) y de Herramientas del proyecto (5.1.1.2). |
 | 1.4.0 | 06/10/2026 | Sayago Vidal, Sebastián Leonardo | Sprint 2 (5.2.2). |
 | 2.0.0 | 06/10/2026 | Nicho Huillcañahui, Edwin Noe | Project Report Collaboration Insights, videos de exposición y Student Outcome. Versión de entrega TB1. |
-| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, el Registro de Versiones, Project Report Collaboration Insights y Student Outcome según el enunciado. |
+| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, el Registro de Versiones, Project Report Collaboration Insights, Student Outcome y Startup Profile según el enunciado. |
 
 ## Project Report Collaboration Insights
 
@@ -330,169 +330,127 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 ## 1.1. Startup Profile
 
-<p align="justify">
+### 1.1.1. Descripción de la Startup
 
-<strong>AgriDron Solutions</strong> es una startup tecnológica orientada a mejorar la gestión de cultivos mediante el uso de drones para fumigación y monitoreo. La plataforma busca facilitar estas tareas y hacer que las operaciones sean más rápidas y fáciles de controlar.
+**AgriDron Solutions** es una startup tecnológica que busca mejorar la protección de cultivos mediante el uso de drones de fumigación y una plataforma web de monitoreo. Su propósito es que agricultores y personal técnico puedan planificar, ejecutar y supervisar sus operaciones de fumigación desde una sola aplicación, de forma más rápida y fácil de controlar.
 
-</p>
-
-<p align="justify">
-
-AgriDron Solutions ofrece una plataforma que permite planificar misiones de fumigación, monitorear el trabajo en tiempo real y consultar reportes de las operaciones realizadas. El objetivo es que agricultores y personal técnico puedan controlar estas tareas desde una sola aplicación.
-
-</p>
+La plataforma permite registrar fincas y parcelas, seleccionar el área de fumigación sobre un mapa, crear misiones, consultar las condiciones meteorológicas, monitorear los drones durante la operación y revisar el historial y los reportes de las operaciones realizadas.
 
 **Misión:** Mejorar la gestión de cultivos mediante drones y una plataforma accesible que permita reducir costos y tiempo en las operaciones de fumigación.
 
 **Visión:** Convertirnos en una solución tecnológica de confianza para el sector agrícola, ayudando a modernizar la forma en que se gestionan y supervisan las operaciones de fumigación.
 
-Valores:
+**Valores:**
 
-<ul>
-  <li><strong>Innovación:</strong> buscamos utilizar nuevas tecnologías para mejorar las operaciones agrícolas.</li>
-  <li><strong>Eficiencia:</strong> buscamos reducir el tiempo, los costos y el uso de recursos.</li>
-  <li><strong>Confiabilidad:</strong> buscamos que las operaciones y los datos mostrados en la plataforma sean claros y precisos.</li>
-  <li><strong>Compromiso:</strong> buscamos ofrecer una solución útil y accesible para agricultores y personal técnico.</li>
-</ul>
-
-### 1.1.1. Descripción de la Startup
-
-<p align="justify">
-
-<strong>AgriDron Solutions</strong> es una startup que busca mejorar la protección de cultivos mediante drones y una plataforma de monitoreo. El sistema permitirá gestionar las operaciones de fumigación desde una sola plataforma.
-
-</p>
-
-<p align="justify">
-
-La plataforma permitirá registrar fincas y parcelas, seleccionar áreas de fumigación mediante un mapa, crear misiones, consultar el clima, monitorear los drones y revisar el historial de las operaciones.
-
-</p>
-
-Pilares de valor:
-
-<ul>
-  <li><strong>Innovación tecnológica:</strong> uso de drones aplicados a la agricultura.</li>
-  <li><strong>Eficiencia operativa:</strong> reducción de costos y tiempos frente a métodos tradicionales de fumigación.</li>
-  <li><strong>Confiabilidad de datos:</strong> información clara y disponible durante y después de las operaciones.</li>
-  <li><strong>Compromiso social y ambiental:</strong> reducción de riesgos para los trabajadores y del impacto de la fumigación.</li>
-</ul>
+- **Innovación:** utilizamos nuevas tecnologías, como los drones aplicados a la agricultura, para mejorar las operaciones agrícolas.
+- **Eficiencia:** buscamos reducir el tiempo, los costos y el uso de recursos frente a los métodos tradicionales de fumigación.
+- **Confiabilidad:** buscamos que las operaciones y los datos de la plataforma sean claros, precisos y estén disponibles durante y después de cada operación.
+- **Compromiso:** ofrecemos una solución útil y accesible para agricultores y personal técnico, que además reduce los riesgos para los trabajadores y el impacto ambiental de la fumigación.
 
 ### 1.1.2. Perfiles de integrantes del equipo
-
-> Para cada integrante, colocar foto, nombre, código, carrera, descripción y aporte/rol dentro del proyecto.
 
 <table>
   <tr>
     <td rowspan="4" align="center">
-      <img width="650"  alt="image" src="https://github.com/user-attachments/assets/4c1d03a8-ec5b-484f-9621-4cf59cc49cca" />
+      <img src="https://github.com/user-attachments/assets/4c1d03a8-ec5b-484f-9621-4cf59cc49cca" alt="Foto de Italo Damacen" width="180" />
     </td>
   </tr>
   <tr>
     <td><b>Nombre:</b> Damacen Galindo, Italo Gianfranco</td>
   </tr>
   <tr>
-    <td><b>Código:</b> U202421392 &nbsp;|&nbsp; <b>Carrera:</b> Ingeniería de Software</td>
+    <td><b>Código:</b> U202421392 | <b>Carrera:</b> Ingeniería de Software</td>
   </tr>
   <tr>
     <td>
-      <b>Descripción:</b><br/>
-      Soy Italo Damacen, estudiante de Ingeniería de Software. Me considero una persona responsable, organizada y comprometida con el trabajo. Cuento con conocimientos en C++, HTML y CSS, además de conocimientos básicos de JavaScript y Java. Me interesa el desarrollo de software y la organización de proyectos.
-      <br/><br/>
-      <b>Aporte y función dentro del equipo:</b><br/>
-      Participé principalmente en la elaboración del Capítulo I de AgriDron Solutions, incluyendo el Startup Profile, Solution Profile, antecedentes, problemática y Lean UX. También apoyé en la organización de las entrevistas, separando la información de cada entrevistado, colocando timestamps y ordenando las evidencias para facilitar su documentación y presentación.
+      <b>Descripción:</b><br>
+      Soy estudiante de Ingeniería de Software. Cuento con conocimientos en C++, HTML y CSS, además de conocimientos básicos de JavaScript y Java. Me considero una persona responsable, organizada y comprometida con el trabajo, con interés en el desarrollo de software y la organización de proyectos.
+      <br><br>
+      <b>Aporte y función dentro del equipo:</b><br>
+      Participé principalmente en la elaboración del Capítulo I de AgriDron Solutions, incluyendo el Startup Profile, el Solution Profile, los antecedentes, la problemática y el proceso Lean UX. También apoyé en la organización de las entrevistas, separando la información de cada entrevistado, colocando los timestamps y ordenando las evidencias para facilitar su documentación y presentación.
     </td>
   </tr>
   <tr>
     <td rowspan="4" align="center">
-     <img width="650"  alt="Foto EdwinNicho" src="https://github.com/user-attachments/assets/3d3dea48-8f1b-4aa7-905d-9d25ebf87779" />
+      <img src="https://github.com/user-attachments/assets/3d3dea48-8f1b-4aa7-905d-9d25ebf87779" alt="Foto de Edwin Nicho" width="180" />
     </td>
   </tr>
   <tr>
-    <td><b>Nombre:</b> Nicho Huillcánahui, Edwin Noe</td>
+    <td><b>Nombre:</b> Nicho Huillcañahui, Edwin Noe</td>
   </tr>
   <tr>
-    <td><b>Código:</b> U20241G306 &nbsp;|&nbsp; <b>Carrera:</b> Ingenieria de Software</td>
+    <td><b>Código:</b> U20241G306 | <b>Carrera:</b> Ingeniería de Software</td>
   </tr>
   <tr>
     <td>
-      <b>Descripción:</b><br/>
-     Soy Edwin, estudiante de 5to ciclo de Ingeniería de Software. Cuento con conocimientos en C++, además de nociones de Python, HTML y CSS. Durante el desarrollo de este proyecto aprendí a manejar GitHub Web y UXPressia, herramientas que me permitieron colaborar en el control de versiones del equipo y en la elaboración de los artefactos de investigación de usuarios. Me siento especialmente cómodo realizando labores de documentación, cuidando la claridad y el orden de la información que presento. En mis ratos libres disfruto aprender nuevos idiomas y practicar lógica de programación, lo cual complementa mi interés constante por seguir desarrollando mis habilidades técnicas.
-      <br/><br/>
-      <b>Aporte y función dentro del equipo:</b><br/>
-      Como integrante del equipo, mi función principal se centró en la investigación correspondiente al Capítulo II del proyecto, encargándome del análisis de competidores, el diseño y registro de entrevistas, y el proceso de Needfinding. A partir de esta investigación, elaboré los artefactos necesarios para sustentar los hallazgos: User Personas, User Task Matrix, User Journey Maps, Empathy Maps, además del Big Picture Event Storming y el Ubiquitous Language del dominio del problema.
+      <b>Descripción:</b><br>
+      Soy estudiante de quinto ciclo de Ingeniería de Software. Cuento con conocimientos en C++ y nociones de Python, HTML y CSS. Durante el proyecto aprendí a trabajar con GitHub y UXPressia para el control de versiones y la elaboración de artefactos de investigación de usuarios. Destaco en las labores de documentación, cuidando la claridad y el orden de la información.
+      <br><br>
+      <b>Aporte y función dentro del equipo:</b><br>
+      Como integrante del equipo, mi función principal se centró en la investigación correspondiente al Capítulo II del proyecto, encargándome del análisis de competidores, el diseño y registro de entrevistas, y el proceso de Needfinding. A partir de esta investigación, elaboré los artefactos necesarios para sustentar los hallazgos: User Personas, User Task Matrix, User Journey Maps y Empathy Maps, además del Big Picture Event Storming y el Ubiquitous Language del dominio del problema.
     </td>
   </tr>
   <tr>
     <td rowspan="4" align="center">
- <img src="assets/Chapter1/team/Gabriel_Ramirez.jpg" alt="Gabriel Ramirez" width="650" />
+      <img src="assets/Chapter1/team/Gabriel_Ramirez.jpg" alt="Foto de Gabriel Ramírez" width="180" />
     </td>
   </tr>
   <tr>
-    <td><b>Nombre:</b> Ramirez Gutierrez, Gabriel</td>
+    <td><b>Nombre:</b> Ramírez Gutiérrez, Gabriel</td>
   </tr>
   <tr>
-    <td><b>Código:</b> U202416053 &nbsp;|&nbsp; <b>Carrera:</b> Ingeniería de Software</td>
+    <td><b>Código:</b> U202416053 | <b>Carrera:</b> Ingeniería de Software</td>
   </tr>
   <tr>
     <td>
-      <b>Descripción:</b><br/>
-      Soy Gabriel Ramírez, estudiante de Ingeniería de Software con interés en el desarrollo frontend, la experiencia de usuario y la creación de interfaces claras y funcionales. Me gusta trabajar en la implementación de páginas web con enfoque en usabilidad, comunicación visual y estructura narrativa, para que la propuesta de valor del producto sea comprensible desde el primer contacto. También soy una persona organizada, responsable y comprometida con la calidad del trabajo entregado.
-      <br/><br/>
-      <b>Aporte y función dentro del equipo:</b><br/>
+      <b>Descripción:</b><br>
+      Soy estudiante de Ingeniería de Software con interés en el desarrollo frontend y la experiencia de usuario. Cuento con conocimientos en HTML, CSS y JavaScript para la implementación de páginas web responsive, con enfoque en usabilidad y comunicación visual. Me considero una persona organizada, responsable y comprometida con la calidad del trabajo entregado.
+      <br><br>
+      <b>Aporte y función dentro del equipo:</b><br>
       Me encargué principalmente del desarrollo de la Landing Page de AgriDron, definiendo la estructura visual, la propuesta de valor, los elementos de navegación y la experiencia inicial del usuario. Además, colaboré con la coordinación del contenido y la presentación del producto para asegurar que la primera impresión del sistema fuera clara, atractiva y alineada con la solución propuesta.
     </td>
   </tr>
   <tr>
-   <td rowspan="4" align="center">
- <img src="assets/Chapter1/team/SebastiánSayago_Foto.png" alt="Sebastián Sayago" width="650" />
+    <td rowspan="4" align="center">
+      <img src="assets/Chapter1/team/SebastiánSayago_Foto.png" alt="Foto de Sebastián Sayago" width="180" />
     </td>
   </tr>
   <tr>
-    <td><b>Nombre:</b> Sayago Vidal, Sebastian Leonardo</td>
+    <td><b>Nombre:</b> Sayago Vidal, Sebastián Leonardo</td>
   </tr>
   <tr>
-    <td><b>Código:</b> U202422642 &nbsp;|&nbsp; <b>Carrera:</b> Ingeniería de Software</td>
+    <td><b>Código:</b> U202422642 | <b>Carrera:</b> Ingeniería de Software</td>
   </tr>
   <tr>
     <td>
-      <b>Descripción:</b><br/>
-      Mi nombre es Sebastián Leonardo Sayago Vidal, estudio Ingeniería de Software en la UPC, estando presente en el 5to ciclo de la carrera. Me considero una persona responsable al cumplir con mi trabajo asignado en el plazo respectivo. Busco que lo que tenga que hacer, se haga de la forma correcta y tenga una buena presentación y priorizar la calidad de mis resultados.
-      <br/><br/>
-      <b>Aporte y función dentro del equipo:</b><br/>
+      <b>Descripción:</b><br>
+      Soy estudiante de quinto ciclo de Ingeniería de Software en la UPC. Cuento con conocimientos en Git y GitHub, diseño de arquitectura de software, modelado de bases de datos relacionales y documentación técnica en Markdown. Me considero una persona responsable, que cumple con el trabajo asignado en el plazo establecido y prioriza la calidad y la buena presentación de los resultados.
+      <br><br>
+      <b>Aporte y función dentro del equipo:</b><br>
       Mi participación incluyó la definición y documentación de las prácticas que utilizará el equipo para mantener la consistencia del proyecto durante su desarrollo, considerando la configuración del entorno de desarrollo, la gestión del código fuente, las convenciones de programación y el despliegue.
     </td>
   </tr>
   <tr>
     <td rowspan="4" align="center">
- <img src="assets/Chapter1/team/Alexander_Vasquez.png" alt="Alexander Vasquez" width="650" />
+      <img src="assets/Chapter1/team/Alexander_Vasquez.png" alt="Foto de Alexander Vásquez" width="180" />
     </td>
   </tr>
   <tr>
-    <td><b>Nombre:</b> Vasquez Roncal, Alexander Felipe</td>
+    <td><b>Nombre:</b> Vásquez Roncal, Alexander Felipe</td>
   </tr>
   <tr>
-    <td><b>Código:</b> U202222473 &nbsp;|&nbsp; <b>Carrera:</b> Ingenieria de Software</td>
+    <td><b>Código:</b> U202222473 | <b>Carrera:</b> Ingeniería de Software</td>
   </tr>
   <tr>
     <td>
-      <b>Descripción:</b><br/>
-        Mi nombre es Alexander Vasquez, tengo 27 años y actualmente
-        estoy cursando el cuarto ciclo de la carrera de Ingeniería de
-        Software. Soy una persona disciplinada, con capacidad para
-        trabajar en equipo. Mis habilidades técnicas incluyen lenguajes
-        de programación como Python y C + +. Me esfuerzo por
-        contribuir activamente al desarrollo del proyecto
-      <br/><br/>
-      <b>Aporte y función dentro del equipo:</b><br/>
-      Mi participacion incluyo hacer la documentacion del capitulo 3 y 4, ademas de diseñar el mockup de la app web and landing page. Por otro lado, tambien implemente el style guie de ambos para que todo siguiera un orden especifico.
+      <b>Descripción:</b><br>
+      Soy estudiante de cuarto ciclo de Ingeniería de Software. Cuento con conocimientos en Python y C++, además de experiencia en diseño de interfaces con Figma y en la gestión de repositorios en GitHub. Me considero una persona disciplinada, con capacidad para trabajar en equipo y contribuir activamente al desarrollo del proyecto.
+      <br><br>
+      <b>Aporte y función dentro del equipo:</b><br>
+      Mi participación incluyó la documentación de los Capítulos III y IV, además del diseño de los mock-ups de la Web Application y de la Landing Page. Por otro lado, también elaboré la guía de estilos de ambos productos para mantener un orden y una presentación consistentes.
     </td>
   </tr>
 </table>
-
-<br>
-
----
 
 ## 1.2. Solution Profile
 
