@@ -85,7 +85,7 @@
 | 1.3.0 | 06/10/2026 | Damacen Galindo, Italo Gianfranco | Ampliación del Análisis competitivo (2.1.1) y de Herramientas del proyecto (5.1.1.2). |
 | 1.4.0 | 06/10/2026 | Sayago Vidal, Sebastián Leonardo | Sprint 2 (5.2.2). |
 | 2.0.0 | 06/10/2026 | Nicho Huillcañahui, Edwin Noe | Project Report Collaboration Insights, videos de exposición y Student Outcome. Versión de entrega TB1. |
-| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, el Registro de Versiones, Project Report Collaboration Insights, Student Outcome, Startup Profile, Solution Profile y Segmentos objetivo según el enunciado. |
+| 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, el Registro de Versiones, Project Report Collaboration Insights, Student Outcome, Startup Profile, Solution Profile y Segmentos objetivo según el enunciado, y unificación del segundo segmento como Operadores Técnicos de Drones. |
 
 ## Project Report Collaboration Insights
 
@@ -117,7 +117,7 @@ Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones deriv
 
 - [Contenido](#contenido)
   - [Tabla de Contenido](#tabla-de-contenido)
-  - [Student Outcome](#student-outcome)
+- [Student Outcome](#student-outcome)
 - [Capítulo I: Introducción](#capítulo-i-introducción)
   - [1.1. Startup Profile](#11-startup-profile)
     - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
@@ -127,12 +127,11 @@ Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones deriv
     - [1.2.2. Lean UX Process](#122-lean-ux-process)
       - [1.2.2.1. Lean UX Problem Statements](#1221-lean-ux-problem-statements)
       - [1.2.2.2. Lean UX Assumptions](#1222-lean-ux-assumptions)
-      - [1.2.2.2. Lean UX Assumptions](#1222-lean-ux-assumptions-1)
       - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
       - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
   - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
     - [1.3.1. Pequeños y Medianos Agricultores (PyMAs)](#131-pequeños-y-medianos-agricultores-pymas)
-    - [1.3.2. Personal Técnico (Ingenieros Agrónomos y Técnicos de Campo)](#132-personal-técnico-ingenieros-agrónomos-y-técnicos-de-campo)
+    - [1.3.2. Operadores Técnicos de Drones](#132-operadores-técnicos-de-drones)
 - [Capítulo II: Requirements Elicitation \& Analysis](#capítulo-ii-requirements-elicitation--analysis)
   - [2.1. Competidores](#21-competidores)
     - [2.1.1. Análisis competitivo](#211-análisis-competitivo)
@@ -458,23 +457,23 @@ La plataforma permite registrar fincas y parcelas, seleccionar el área de fumig
 
 **Antecedentes**
 
-La agricultura enfrenta pérdidas recurrentes por plagas y enfermedades. Según la FAO (2023), hasta un 40 % de la producción agrícola mundial se pierde cada año por esta causa. Tradicionalmente, el control fitosanitario se realiza con fumigadoras de mochila o con tractores, métodos que demandan mucha mano de obra y tiempo, aplican producto donde no siempre es necesario y exponen a los trabajadores a agroquímicos. En los últimos años, los drones de fumigación se han convertido en una alternativa más precisa y segura. Sin embargo, su adopción por pequeños y medianos agricultores aún es limitada, y la coordinación de estos servicios se gestiona de forma manual, mediante mensajes y registros dispersos.
+La agricultura enfrenta pérdidas recurrentes por plagas y enfermedades. Según la [FAO (s. f.)](https://www.fao.org/plant-production-protection/about/es), hasta un 40 % de la producción agrícola mundial se pierde cada año por esta causa. Tradicionalmente, el control fitosanitario se realiza con fumigadoras de mochila o con tractores, métodos que demandan mucha mano de obra y tiempo, aplican producto donde no siempre es necesario y exponen a los trabajadores a agroquímicos. En los últimos años, los drones de fumigación se han convertido en una alternativa más precisa y segura. Sin embargo, su adopción por pequeños y medianos agricultores aún es limitada, y la coordinación de estos servicios se gestiona de forma manual, mediante mensajes y registros dispersos.
 
 **Problemática (5W + 2H)**
 
 | Pregunta | Descripción |
 |:--|:--|
-| **Who** (¿Quién?) | Pequeños y medianos agricultores y cooperativas, que contratan o gestionan las fumigaciones, y el personal técnico (ingenieros agrónomos, técnicos de campo y operadores de drones), que planifica y ejecuta las operaciones. |
+| **Who** (¿Quién?) | Pequeños y medianos agricultores y cooperativas, que contratan o gestionan las fumigaciones, y los operadores técnicos de drones, que planifican y ejecutan las operaciones. |
 | **What** (¿Qué?) | La presencia recurrente de plagas reduce el rendimiento y la calidad de la cosecha, y los métodos tradicionales de fumigación son lentos, costosos, imprecisos y riesgosos para los trabajadores. |
 | **Where** (¿Dónde?) | En terrenos agrícolas donde no existe una gestión ni un monitoreo formal de las operaciones, como los fundos de los valles costeros donde trabajan los entrevistados (Cañete, Huaral e Ica). |
 | **When** (¿Cuándo?) | Principalmente durante las temporadas de crecimiento de los cultivos, cuando se realizan aplicaciones preventivas o curativas ante signos de infestación. |
 | **Why** (¿Por qué?) | No existe un sistema que permita gestionar y monitorear las fumigaciones de forma centralizada. Esto provoca pérdidas económicas, desacuerdos sobre el área tratada y mayor exposición de los trabajadores a riesgos. |
 | **How** (¿Cómo?) | Mediante una plataforma web que permita gestionar fincas y parcelas, delimitar el área de fumigación en un mapa, crear misiones, consultar el clima, monitorear los drones y revisar reportes e historial. |
-| **How Much** (¿Cuánto?) | Hasta un 40 % de la producción agrícola mundial se pierde cada año por plagas y enfermedades (FAO, 2023). |
+| **How Much** (¿Cuánto?) | Hasta un 40 % de la producción agrícola mundial se pierde cada año por plagas y enfermedades [(FAO, s. f.)](https://www.fao.org/plant-production-protection/about/es). |
 
 **Enunciado del problema**
 
-Los pequeños y medianos agricultores y el personal técnico que realiza fumigaciones con drones no cuentan con una herramienta que les permita planificar, coordinar y supervisar estas operaciones de forma centralizada. Como consecuencia, la información de las parcelas, las condiciones climáticas y los servicios realizados se gestiona de manera manual y dispersa, lo que genera pérdidas de tiempo, un uso ineficiente de insumos, desacuerdos sobre el área fumigada y una mayor exposición de los trabajadores a riesgos.
+Los pequeños y medianos agricultores y los operadores técnicos de drones no cuentan con una herramienta que les permita planificar, coordinar y supervisar estas operaciones de forma centralizada. Como consecuencia, la información de las parcelas, las condiciones climáticas y los servicios realizados se gestiona de manera manual y dispersa, lo que genera pérdidas de tiempo, un uso ineficiente de insumos, desacuerdos sobre el área fumigada y una mayor exposición de los trabajadores a riesgos.
 
 **Puntos que debe resolver la solución**
 
@@ -486,7 +485,7 @@ Los pequeños y medianos agricultores y el personal técnico que realiza fumigac
 
 **Objetivos**
 
-*Objetivo general:* Desarrollar una plataforma web responsive que permita a agricultores y personal técnico planificar, ejecutar y supervisar operaciones de fumigación con drones de forma centralizada.
+*Objetivo general:* Desarrollar una plataforma web responsive que permita a agricultores y operadores técnicos de drones planificar, ejecutar y supervisar operaciones de fumigación con drones de forma centralizada.
 
 *Objetivos específicos:*
 
@@ -510,11 +509,11 @@ Los pequeños y medianos agricultores y el personal técnico que realiza fumigac
 
 El estado actual de **la gestión de la fumigación de cultivos en el sector agrícola peruano** se ha centrado principalmente en **métodos manuales y con tractor, realizados por pequeños y medianos agricultores y sus trabajadores de campo, que coordinan los servicios de fumigación mediante llamadas, mensajes de WhatsApp y registros escritos a mano**.
 
-Lo que los productos y servicios existentes no logran abordar es **una forma accesible para que estos agricultores y los operadores de drones de fumigación planifiquen, coordinen y supervisen las operaciones con drones en un solo lugar, ya que plataformas como DroneDeploy, Climate FieldView y Agrivi están dirigidas a grandes agroindustrias, con soluciones de alto costo y dependientes de hardware**.
+Lo que los productos y servicios existentes no logran abordar es **una forma accesible para que estos agricultores y los operadores técnicos de drones planifiquen, coordinen y supervisen las operaciones con drones en un solo lugar, ya que plataformas como DroneDeploy, Climate FieldView y Agrivi están dirigidas a grandes agroindustrias, con soluciones de alto costo y dependientes de hardware**.
 
 Nuestro producto abordará esta brecha mediante **una plataforma web responsive que permita registrar fincas y parcelas, delimitar áreas de fumigación en un mapa interactivo, validar las condiciones meteorológicas con un servicio externo, monitorear las misiones en tiempo real y consultar el historial y los reportes de cada operación**.
 
-Nuestro enfoque inicial será **los pequeños y medianos agricultores con predios de 5 a 50 hectáreas y el personal técnico que opera los drones de fumigación para ellos**.
+Nuestro enfoque inicial será **los pequeños y medianos agricultores con predios de 5 a 50 hectáreas y los operadores técnicos de drones que realizan las fumigaciones para ellos**.
 
 Sabremos que hemos tenido éxito cuando veamos **a los agricultores programando sus misiones de fumigación a través de la plataforma, a los operadores llegando al campo con la parcela ya delimitada y ahorrando entre 20 y 30 minutos por servicio, y misiones reprogramadas a partir de la validación climática de la plataforma, en lugar de después de visitas fallidas al campo**.
 
@@ -523,21 +522,21 @@ Sabremos que hemos tenido éxito cuando veamos **a los agricultores programando 
 **Business Assumptions**
 
 - Los pequeños y medianos agricultores están dispuestos a pagar una suscripción mensual accesible por planificar y supervisar sus fumigaciones.
-- Los operadores de drones adoptarán la plataforma si les permite recibir las parcelas ya delimitadas y reducir el tiempo de coordinación con sus clientes.
+- Los operadores técnicos de drones adoptarán la plataforma si les permite recibir las parcelas ya delimitadas y reducir el tiempo de coordinación con sus clientes.
 - Un modelo freemium, con gestión básica de parcelas gratuita, facilitará la adopción y la conversión hacia planes de pago.
 - Las alianzas con cooperativas agrarias serán un canal efectivo para llegar a nuevos agricultores.
 - Al no depender de hardware propietario, la plataforma podrá competir en precio con DroneDeploy, Climate FieldView y Agrivi.
 
 **Business Outcome Assumptions**
 
-- Los usuarios reducirán en un 40 % el tiempo y el costo de aplicación de pesticidas frente a los métodos tradicionales.
-- El tiempo de respuesta ante una infestación de plagas disminuirá gracias al monitoreo continuo de las operaciones.
 - La retención de clientes aumentará en un 25 % después del primer ciclo de cultivo.
 - La adopción de funciones premium aumentará en un 40 % tras el periodo de prueba gratuito.
+- Aumentará el número de misiones de fumigación programadas mensualmente a través de la plataforma.
+- El costo de adquisición de clientes disminuirá gracias a las alianzas con cooperativas agrarias.
 
 **User Assumptions**
 
-- Los usuarios principales son pequeños y medianos agricultores con predios de 5 a 50 hectáreas y el personal técnico: ingenieros agrónomos, técnicos de campo y operadores de drones.
+- Los usuarios principales son pequeños y medianos agricultores con predios de 5 a 50 hectáreas y los operadores técnicos de drones.
 - Los agricultores priorizan las soluciones que les ahorran tiempo y reducen la incertidumbre en el manejo de plagas.
 - Los usuarios adoptarán nuevas tecnologías si la interfaz es intuitiva y requiere una capacitación mínima.
 - La falta de datos en tiempo real sobre las fumigaciones dificulta la toma de decisiones de los usuarios.
@@ -551,6 +550,8 @@ Sabremos que hemos tenido éxito cuando veamos **a los agricultores programando 
 - Los agricultores buscan mejorar la productividad y la rentabilidad de sus cultivos.
 - Los usuarios quieren reducir la exposición de los trabajadores a químicos peligrosos.
 - Los operadores quieren contar con un respaldo formal del trabajo realizado para evitar desacuerdos con sus clientes.
+- Los usuarios quieren reducir el tiempo y el costo de aplicación de pesticidas frente a los métodos tradicionales.
+- Los usuarios quieren responder con mayor rapidez ante una infestación de plagas.
 
 **Feature Assumptions**
 
@@ -564,29 +565,29 @@ Sabremos que hemos tenido éxito cuando veamos **a los agricultores programando 
 
 **Hypothesis Statement 1**
 
-Creemos que lograremos una reducción del 40 % en el tiempo y el costo de fumigación\
-si los pequeños y medianos agricultores y los operadores de drones\
+Creemos que lograremos un aumento en el número de misiones de fumigación programadas mensualmente a través de la plataforma\
+si los pequeños y medianos agricultores y los operadores técnicos de drones\
 obtienen un área de fumigación delimitada con precisión antes de llegar al campo\
 con la funcionalidad de mapa interactivo de fincas y parcelas.
 
 **Hypothesis Statement 2**
 
-Creemos que lograremos una reducción del 40 % en el tiempo y el costo de fumigación\
-si los pequeños y medianos agricultores y los operadores de drones\
+Creemos que lograremos un aumento en el número de misiones de fumigación programadas mensualmente a través de la plataforma\
+si los pequeños y medianos agricultores y los operadores técnicos de drones\
 obtienen una decisión confiable sobre la viabilidad de una misión antes de programarla\
 con la funcionalidad de validación climática con un servicio externo.
 
 **Hypothesis Statement 3**
 
-Creemos que lograremos un menor tiempo de respuesta ante infestaciones de plagas\
-si los agricultores y el personal técnico agrícola\
+Creemos que lograremos un aumento del 25 % en la retención de clientes después del primer ciclo de cultivo\
+si los agricultores y los operadores técnicos de drones\
 obtienen visibilidad en tiempo real del avance de cada misión\
 con la funcionalidad de monitoreo de misiones.
 
 **Hypothesis Statement 4**
 
 Creemos que lograremos un aumento del 40 % en la adopción de funciones premium tras el periodo de prueba gratuito\
-si los agricultores y el personal técnico\
+si los agricultores y los operadores técnicos de drones\
 obtienen evidencia lista para usar de cada operación realizada\
 con la funcionalidad de reportes automáticos e historial de operaciones.
 
@@ -603,9 +604,9 @@ con la plataforma web responsive y su flujo guiado de creación de misiones.
 
 *Figura: Lean UX Canvas de AgriDron Solutions.*
 
-El Lean UX Canvas resume el modelo de negocio de AgriDron Solutions. El **Business Problem** describe la necesidad de mejorar la forma en que los agricultores y el personal técnico gestionan las operaciones de fumigación. Las **Solutions** propuestas incluyen la fumigación con drones, el monitoreo en tiempo real y una plataforma web responsive. Los **Business Outcomes** esperados incluyen reducir el tiempo y el costo de fumigación, disminuir el tiempo de respuesta ante infestaciones y aumentar la retención de clientes.
+El Lean UX Canvas resume el modelo de negocio de AgriDron Solutions. El **Business Problem** describe la necesidad de mejorar la forma en que los agricultores y los operadores técnicos de drones gestionan las operaciones de fumigación. Las **Solutions** propuestas incluyen la fumigación con drones, el monitoreo en tiempo real y una plataforma web responsive. Los **Business Outcomes** esperados incluyen reducir el tiempo y el costo de fumigación, disminuir el tiempo de respuesta ante infestaciones y aumentar la retención de clientes.
 
-En cuanto a los **Users & Customers**, los principales segmentos son los pequeños y medianos agricultores (PyMAs) y el personal técnico. Sus **User Outcomes & Benefits** incluyen tener mayor control de sus campos, acceder a información de sus operaciones y reducir su exposición a productos químicos. Las **Hypotheses** buscan validar si los usuarios están dispuestos a pagar por el servicio y si las funciones de planificación, validación climática, monitoreo y reportes generan valor. El siguiente paso es validar la disposición de pago y el valor percibido mediante entrevistas y pruebas piloto.
+En cuanto a los **Users & Customers**, los principales segmentos son los pequeños y medianos agricultores (PyMAs) y los operadores técnicos de drones. Sus **User Outcomes & Benefits** incluyen tener mayor control de sus campos, acceder a información de sus operaciones y reducir su exposición a productos químicos. Las **Hypotheses** buscan validar si los usuarios están dispuestos a pagar por el servicio y si las funciones de planificación, validación climática, monitoreo y reportes generan valor. El siguiente paso es validar la disposición de pago y el valor percibido mediante entrevistas y pruebas piloto.
 
 ## 1.3. Segmentos objetivo
 
@@ -626,9 +627,9 @@ Este es el segmento principal de AgriDron Solutions. Está conformado por produc
 
 **Relación con la solución:** este segmento utilizará la plataforma para gestionar fincas y parcelas, seleccionar áreas de fumigación en el mapa, crear misiones, consultar el clima y revisar reportes e historial de sus operaciones.
 
-### 1.3.2. Personal Técnico (Ingenieros Agrónomos y Técnicos de Campo)
+### 1.3.2. Operadores Técnicos de Drones
 
-Este segmento está conformado por ingenieros agrónomos, técnicos agrícolas y operadores de drones. Son usuarios de la plataforma que se encargan de revisar la información, planificar las operaciones y supervisar las misiones de fumigación.
+Este segmento está conformado por operadores de drones de fumigación y por técnicos e ingenieros agrónomos que realizan o supervisan estos servicios. Son usuarios de la plataforma que se encargan de revisar la información, planificar las operaciones y supervisar las misiones de fumigación.
 
 **Características cuantitativas:** edad entre 22 y 45 años, formación técnica o universitaria en agronomía, ingeniería agrícola o carreras afines, experiencia de 1 a 15 años en campo, a cargo de la supervisión de múltiples parcelas o unidades productivas de forma simultánea.
 
