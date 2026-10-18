@@ -457,7 +457,7 @@ La plataforma permite registrar fincas y parcelas, seleccionar el área de fumig
 
 **Antecedentes**
 
-La agricultura enfrenta pérdidas recurrentes por plagas y enfermedades. Según la [FAO (s. f.)](https://www.fao.org/plant-production-protection/about/es), hasta un 40 % de la producción agrícola mundial se pierde cada año por esta causa. Tradicionalmente, el control fitosanitario se realiza con fumigadoras de mochila o con tractores, métodos que demandan mucha mano de obra y tiempo, aplican producto donde no siempre es necesario y exponen a los trabajadores a agroquímicos. En los últimos años, los drones de fumigación se han convertido en una alternativa más precisa y segura. Sin embargo, su adopción por pequeños y medianos agricultores aún es limitada, y la coordinación de estos servicios se gestiona de forma manual, mediante mensajes y registros dispersos.
+La agricultura enfrenta pérdidas recurrentes por plagas y enfermedades. Según la [Organización de las Naciones Unidas para la Alimentación y la Agricultura \[FAO\] (s. f.)](https://www.fao.org/plant-production-protection/about/es), hasta un 40 % de la producción agrícola mundial se pierde cada año por esta causa. Tradicionalmente, el control fitosanitario se realiza con fumigadoras de mochila o con tractores, métodos que demandan mucha mano de obra y tiempo, aplican producto donde no siempre es necesario y exponen a los trabajadores a agroquímicos. En los últimos años, los drones de fumigación se han convertido en una alternativa más precisa y segura. Sin embargo, su adopción por pequeños y medianos agricultores aún es limitada, y la coordinación de estos servicios se gestiona de forma manual, mediante mensajes y registros dispersos.
 
 **Problemática (5W + 2H)**
 
@@ -531,8 +531,8 @@ Sabremos que hemos tenido éxito cuando veamos **a los agricultores programando 
 
 - La retención de clientes aumentará en un 25 % después del primer ciclo de cultivo.
 - La adopción de funciones premium aumentará en un 40 % tras el periodo de prueba gratuito.
-- Aumentará el número de misiones de fumigación programadas mensualmente a través de la plataforma.
-- El costo de adquisición de clientes disminuirá gracias a las alianzas con cooperativas agrarias.
+- El número de misiones de fumigación programadas mensualmente a través de la plataforma aumentará en un 30 % durante los primeros 6 meses de operación.
+- El costo de adquisición de clientes disminuirá en un 20 % gracias a las alianzas con cooperativas agrarias.
 
 **User Assumptions**
 
@@ -540,7 +540,7 @@ Sabremos que hemos tenido éxito cuando veamos **a los agricultores programando 
 - Los agricultores priorizan las soluciones que les ahorran tiempo y reducen la incertidumbre en el manejo de plagas.
 - Los usuarios adoptarán nuevas tecnologías si la interfaz es intuitiva y requiere una capacitación mínima.
 - La falta de datos en tiempo real sobre las fumigaciones dificulta la toma de decisiones de los usuarios.
-- Agricultores y técnicos prefieren supervisar las operaciones desde el celular, debido a la distancia de las zonas de cultivo.
+- Los agricultores y los operadores técnicos de drones prefieren supervisar las operaciones desde el celular, debido a la distancia de las zonas de cultivo.
 
 **User Outcome and Benefit Assumptions**
 
@@ -565,14 +565,14 @@ Sabremos que hemos tenido éxito cuando veamos **a los agricultores programando 
 
 **Hypothesis Statement 1**
 
-Creemos que lograremos un aumento en el número de misiones de fumigación programadas mensualmente a través de la plataforma\
+Creemos que lograremos un aumento del 30 % en el número de misiones de fumigación programadas mensualmente a través de la plataforma durante los primeros 6 meses de operación\
 si los pequeños y medianos agricultores y los operadores técnicos de drones\
 obtienen un área de fumigación delimitada con precisión antes de llegar al campo\
 con la funcionalidad de mapa interactivo de fincas y parcelas.
 
 **Hypothesis Statement 2**
 
-Creemos que lograremos un aumento en el número de misiones de fumigación programadas mensualmente a través de la plataforma\
+Creemos que lograremos un aumento del 30 % en el número de misiones de fumigación programadas mensualmente a través de la plataforma durante los primeros 6 meses de operación\
 si los pequeños y medianos agricultores y los operadores técnicos de drones\
 obtienen una decisión confiable sobre la viabilidad de una misión antes de programarla\
 con la funcionalidad de validación climática con un servicio externo.
