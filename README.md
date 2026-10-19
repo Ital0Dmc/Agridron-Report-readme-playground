@@ -652,6 +652,8 @@ Para validar la propuesta de valor de AgriDron Solutions y asegurar un posiciona
 *   **Climate FieldView:** Plataforma digital integral de gestión agronómica desarrollada por The Climate Corporation (división digital de Bayer). Funciona mediante la recopilación e integración de datos generados por sensores climáticos, satélites y maquinaria terrestre conectada al puerto de diagnóstico (FieldView Drive). Su software permite a los productores monitorear el desarrollo de sus campos, generar prescripciones variables de siembra y fertilizantes, y consultar datos meteorológicos hiperlocales para la toma de decisiones preventivas en campo.
 *   **Agrivi:** Software integral de gestión de explotaciones agrícolas (Farm Management Software - FMS) basado en el modelo SaaS en la nube. Su funcionamiento abarca la planificación completa de labores agrícolas, administración de inventarios de insumos químicos, trazabilidad de cosechas y registro de costos de producción. Además, integra alertas meteorológicas basadas en modelos predictivos para advertir sobre el riesgo de plagas y enfermedades, permitiendo llevar una bitácora detallada de las actividades de campo.
 
+También se identificó DJI SmartFarm, la aplicación complementaria de los drones de fumigación DJI Agras [(FAO AgriTech Observatory, s. f.)](https://agritechobservatory.review.fao.org/ar/dji-smartfarm-app). No se incluye en el Competitive Analysis Landscape porque está ligada a los drones de un solo fabricante, mientras que AgriDron Solutions se dirige a operadores que trabajan con distintas marcas de dron. Se considera en las estrategias como referencia de un ecosistema cerrado.
+
 ### 2.1.1. Análisis competitivo
 
 A continuación, se presenta el Competitive Analysis Landscape, cuyo objetivo es contrastar objetivamente las capacidades, fortalezas, debilidades y modelos comerciales de AgriDron Solutions frente a los competidores analizados:
@@ -712,7 +714,7 @@ A continuación, se presenta el Competitive Analysis Landscape, cuyo objetivo es
     <tr>
       <td rowspan="3" align="center"><b>Perfil de Producto</b></td>
       <td><b>Productos &amp; Servicios</b></td>
-      <td>Aplicación web (Angular), servicio RESTful (Spring Boot), landing page informativa, módulo de clima por API y simulador de telemetría de vuelo.</td>
+      <td>Aplicación web responsive para registrar fincas y delimitar parcelas en un mapa, solicitar misiones de fumigación, validar el clima antes del vuelo, monitorear el avance de la misión y consultar reportes e historial. Landing Page informativa.</td>
       <td>Software en la nube, aplicación móvil de control de vuelo, módulo de análisis NDVI y visor de ortofotos 2D/3D.</td>
       <td>Aplicación web y móvil, dispositivo FieldView Drive para tractores, mapas satelitales y prescripciones de siembra.</td>
       <td>Plataforma web/móvil FMS, módulo de control de plagas, gestión de bodegas, reportes de auditoría y app de tareas de campo.</td>
@@ -734,7 +736,7 @@ A continuación, se presenta el Competitive Analysis Landscape, cuyo objetivo es
     <tr>
       <td rowspan="4" align="center"><b>Análisis SWOT</b></td>
       <td><b>Fortalezas</b></td>
-      <td>• Plataforma web moderna construida sobre arquitectura distribuida escalable (Spring Boot y Angular).<br>• Enfoque especializado en la planificación, validación climática y monitoreo de fumigación aérea sin requerir hardware cautivo.<br>• Interfaz diseñada para una curva de aprendizaje mínima, adaptable a usuarios con alfabetización digital intermedia o baja.<br>• Integración directa con servicios externos de pronóstico meteorológico para mitigar riesgos de deriva química.</td>
+      <td>• Conecta en un solo lugar al agricultor y al operador técnico de drones: la parcela delimitada, la solicitud del servicio y el reporte del trabajo realizado.<br>• Enfoque especializado en la planificación, validación climática y monitoreo de fumigación aérea sin requerir hardware cautivo.<br>• Interfaz diseñada para una curva de aprendizaje mínima, adaptable a usuarios con alfabetización digital intermedia o baja.<br>• Integración directa con servicios externos de pronóstico meteorológico para mitigar riesgos de deriva química.</td>
       <td>• Capas de salud vegetal NDVI y RGB para detectar estrés por plagas, enfermedades, riego o fertilización <a href="https://www.dronedeploy.com/agriculture.html">(DroneDeploy, s. f.)</a>.<br>• Se integra con los principales fabricantes de drones <a href="https://www.dronedeploy.com/agriculture.html">(DroneDeploy, s. f.)</a>.<br>• Se usa en 400 mil campos de 130 países <a href="https://www.dronedeploy.com/agriculture.html">(DroneDeploy, s. f.)</a>.</td>
       <td>• Respaldo de Bayer, su empresa matriz <a href="https://agritechobservatory.review.fao.org/ar/climate-fieldview">(FAO AgriTech Observatory, s. f.)</a>.<br>• Imágenes satelitales para evaluar la salud del campo <a href="https://climate.com/en-ca/pricing.html">(Climate FieldView, s. f.)</a>.<br>• FieldView Drive se conecta a la maquinaria y envía los datos de las operaciones a la plataforma <a href="https://agritechobservatory.review.fao.org/ar/climate-fieldview">(FAO AgriTech Observatory, s. f.)</a>.</td>
       <td>• Gestión de inventario, trazabilidad y gestión financiera <a href="https://www.capterra.com/p/136084/Agrivi/">(Capterra, 2026)</a>.<br>• Gestión del cumplimiento de políticas para servicios, productos, procesos o proveedores <a href="https://www.capterra.com/p/136084/Agrivi/">(Capterra, 2026)</a>.</td>
@@ -771,7 +773,7 @@ A partir de los hallazgos obtenidos en el análisis competitivo y la matriz SWOT
 
 Los competidores líderes manejan esquemas de precios enterprise con tarifas anuales elevadas, orientadas principalmente a grandes corporaciones o complejos agroindustriales. AgriDron Solutions capturará la cuota de mercado desatendida mediante una propuesta económica accesible para pequeños y medianos agricultores y cooperativas:
 *   **Táctica de Pricing por Escala de Uso:** Implementar un modelo de suscripción flexible basado en rangos de hectáreas gestionadas o paquetes mensuales por temporada de fumigación, evitando contratos anuales forzosos.
-*   **Táctica Freemium de Entrada:** Ofrecer acceso gratuito para la delimitación de parcelas y consulta de métricas básicas de terreno, incentivando la conversión a planes de pago cuando el usuario requiera planificar rutas avanzadas de fumigación y monitorear condiciones meteorológicas.
+*   **Táctica Freemium de Entrada:** Ofrecer acceso gratuito para la delimitación de parcelas y consulta de métricas básicas de terreno, incentivando la conversión a planes de pago cuando el usuario requiera la validación climática, el monitoreo de misiones y los reportes de cada operación.
 
 **2. Estrategia de Diferenciación por Interoperabilidad Abierta**
 
@@ -782,13 +784,15 @@ Mientras que herramientas como Climate FieldView priorizan maquinaria terrestre 
 **3. Estrategia de Adopción Digital y Curva de Aprendizaje Acelerada (Usabilidad)**
 
 Sistemas como Agrivi presentan una alta complejidad funcional y curvas de aprendizaje pronunciadas que dificultan su uso por parte de agricultores con alfabetización digital intermedia. AgriDron Solutions prioriza una experiencia de usuario (UX) centrada en tareas críticas y visuales:
-*   **Táctica de Interfaz Web Intuitiva y Guiada:** Diseñar un flujo de trabajo lineal estructurado en tres pasos simples: 1) Dibujar parcela en el mapa interactivo, 2) Validar condiciones climáticas automáticas, y 3) Asignar y monitorear la ruta de fumigación.
+*   **Táctica de Interfaz Web Intuitiva y Guiada:** Diseñar un flujo de trabajo lineal estructurado en tres pasos simples: 1) Dibujar parcela en el mapa interactivo, 2) Validar condiciones climáticas automáticas, y 3) Solicitar y monitorear la misión de fumigación.
 *   **Táctica Responsive Multidispositivo:** Garantizar que la interfaz web opere de forma fluida tanto en laptops de oficina como en navegadores de teléfonos inteligentes y tablets usados por operadores en campo.
+*   **Táctica de Preparación Previa con Conexión:** Permitir que el agricultor delimite la parcela y que el operador revise la orden de servicio y el pronóstico del clima antes de salir al campo, desde la casa u oficina, para que la información crítica ya esté disponible al llegar al predio y se reduzca la dependencia de la conectividad en zonas rurales.
 
 **4. Estrategia de Penetración de Canal y Trabajo con Comunidades Agrícolas**
 
 Para contrarrestar la fuerza de ventas global y las redes corporativas de competidores como Bayer Climate FieldView, AgriDron Solutions ejecutará una estrategia directa y local:
 *   **Táctica de Alianzas con Cooperativas Agrarias:** Realizar demostraciones en vivo y pruebas piloto colaborativas en asociaciones agrarias locales, permitiendo que varios agricultores compartan la experiencia de gestionar sus predios.
+*   **Táctica de Capacitación Inicial en las Demostraciones:** Acompañar la primera delimitación de parcela de cada agricultor con un tutorial breve durante las demostraciones en las cooperativas, ya que los agricultores entrevistados señalaron que al inicio requerirían una pequeña capacitación o un video tutorial.
 
 ---
 
@@ -797,7 +801,9 @@ Para contrarrestar la fuerza de ventas global y las redes corporativas de compet
 ### 2.2.1. Diseño de entrevistas
 
 **Objetivo de la entrevista:**
-El objetivo de las entrevistas es recopilar evidencia sobre los flujos operativos, limitaciones tecnológicas y necesidades críticas de pequeños agricultores y técnicos de campo que utilizan drones como técnica principal de fumigación, con el fin de modelar perfiles de usuario precisos y fundamentar el diseño funcional de la plataforma web AgriDron.
+El objetivo de las entrevistas es recopilar evidencia sobre los flujos operativos, limitaciones tecnológicas y necesidades críticas de los Pequeños y Medianos Agricultores (PyMAs), que gestionan la fumigación de sus cultivos, y de los Operadores Técnicos de Drones, que planifican y ejecutan estos servicios, con el fin de modelar perfiles de usuario precisos y fundamentar el diseño funcional de la plataforma web AgriDron.
+
+Las preguntas de los Bloques A y B son las preguntas principales de la entrevista y las del Bloque C son complementarias.
 
 **Preguntas del segmento 1: Pequeños y Medianos Agricultores (PyMAs)**
 
