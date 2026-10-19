@@ -613,7 +613,7 @@ En cuanto a los **Users & Customers**, los principales segmentos son los pequeñ
 
 Este es el segmento principal de AgriDron Solutions. Está conformado por productores agrícolas con extensiones de 5 a 50 hectáreas, que cultivan principalmente para el mercado local y regional. Pueden trabajar de forma independiente o agrupados en cooperativas y buscan reducir costos y proteger el rendimiento de sus cultivos.
 
-**Características cuantitativas:** edad entre 28 y 60 años, extensión de cultivo de 5 a 50 hectáreas, nivel educativo variado desde educación básica hasta técnica, familiaridad tecnológica media-baja, con adopción creciente de smartphones.
+**Características cuantitativas:** edad entre 20 y 60 años, extensión de cultivo de 5 a 50 hectáreas, nivel educativo variado desde educación básica hasta técnica, familiaridad tecnológica media-baja, con adopción creciente de smartphones.
 
 **Características cualitativas:** su principal motivación es reducir costos y mejorar el rendimiento de sus cultivos. Sus principales problemas son las pérdidas por plagas, los costos de mano de obra y la falta de información para tomar decisiones.
 
@@ -991,18 +991,26 @@ Durante el ejercicio se identificaron tres **hotspots** (en rosado) que represen
 
 | Término | Definición |
 | :--- | :--- |
-| **Farm** (Finca) | Predio agrícola registrado por un Agricultor en la plataforma, identificado por nombre, ubicación geográfica y tamaño en hectáreas. Puede contener una o más parcelas. |
-| **Plot / Spraying Area** (Parcela / Área de fumigación) | Polígono delimitado sobre un mapa satelital dentro de los límites de una finca, sobre el cual se planifica y ejecuta una misión de fumigación. Su superficie se calcula automáticamente en hectáreas al momento de trazarla. |
+| **Farm** (Finca) | Predio agrícola de un Agricultor, identificado por su nombre, ubicación geográfica y tamaño en hectáreas. Puede contener una o más parcelas. |
+| **Plot** (Parcela / Lote) | Porción de una finca destinada a un cultivo y delimitada por sus linderos. Su superficie se expresa en hectáreas. |
+| **Spraying Area** (Área de fumigación) | Superficie de una parcela que debe tratarse en una misión de fumigación. Puede abarcar toda la parcela o solo los sectores afectados por una plaga. |
 | **Spraying Mission** (Misión de fumigación) | Solicitud de servicio creada por un Agricultor sobre un área y cultivo específicos. Atraviesa los estados *Pendiente*, *Confirmada*, *En Progreso*, *Pausada* y *Completada* a lo largo de su ciclo de vida. |
 | **Spraying Session** (Sesión de pulverización) | Periodo continuo de vuelo y aplicación aeroagrícola ejecutado en campo por el Operador, sujeto a ventanas climáticas óptimas y disponibilidad de batería y carga de fitosanitarios. |
 | **Aerial / Perimeter Obstacle** (Obstáculo aéreo / perimetral) | Elemento físico presente en el predio (postes, cables de alta tensión, copas de árboles, acequias) que el Operador debe identificar y registrar para evitar colisiones durante el vuelo. |
+| **Infestation** (Infestación) | Presencia de una plaga o enfermedad en un cultivo en un nivel que requiere un tratamiento fitosanitario. |
+| **Agrochemical** (Agroquímico / Fitosanitario) | Producto aplicado a los cultivos para prevenir o controlar plagas y enfermedades, como fungicidas, insecticidas o herbicidas. |
+| **Spray Mix** (Caldo / Mezcla) | Preparación de agua y agroquímicos que se carga en el tanque del dron para la fumigación. |
+| **Nozzle** (Boquilla) | Pieza del sistema de pulverización del dron por la que sale el caldo. Su tipo y tamaño determinan el tamaño de gota y el volumen aplicado. |
+| **Calibration** (Calibración) | Ajuste de las boquillas y del caudal del dron antes del vuelo para aplicar el volumen de caldo por hectárea que requiere el cultivo. |
+| **Drift** (Deriva) | Desplazamiento del producto pulverizado fuera del área de fumigación por acción del viento, que genera desperdicio de insumos y riesgo para cultivos y personas cercanas. |
+| **Crop Season** (Campaña) | Periodo productivo de un cultivo, desde la siembra hasta la cosecha, durante el cual se programan los tratamientos fitosanitarios. |
 | **Drone Technical Operator** (Operador Técnico de Drones) | Piloto acreditado que gestiona sus solicitudes de servicio, valida las parcelas, programa los vuelos, calibra los equipos y ejecuta la fumigación en campo. |
-| **Farmer** (Agricultor) | Usuario propietario o administrador de una finca, responsable de delimitar lotes, solicitar misiones de fumigación y consultar el historial de trabajo y reportes de productividad. |
+| **Farmer** (Agricultor) | Propietario o administrador de una finca, responsable de delimitar lotes, solicitar misiones de fumigación y consultar el historial de trabajo y reportes de productividad. |
 | **Incident** (Incidencia) | Evento adverso imprevisto reportado por el Operador durante una misión (ráfagas de viento mayores a 12-15 km/h, lluvia repentina, fallas mecánicas), que genera la pausa del servicio. |
 | **Service Record** (Acta de servicio) | Constancia digital inmediata emitida por el Operador al culminar la faena, donde se certifican las hectáreas netas tratadas, insumos fitosanitarios descargados y observaciones de campo. |
 | **Productivity Report** (Reporte de productividad) | Documento consolidado que consulta el Agricultor con el histórico de áreas fumigadas, insumos utilizados, costos por hectárea y fechas de tratamiento por predio. |
 | **Technical Performance Report** (Reporte de rendimiento técnico) | Resumen operativo generado por el Operador con métricas de desempeño propio (hectáreas tratadas por jornada, horas de vuelo acumuladas y volumen promedio aplicado). |
-| **Weather Conditions** (Condiciones meteorológicas) | Datos ambientales en tiempo real (velocidad del viento, temperatura y probabilidad de lluvia) provistos por un servicio meteorológico externo para validar la viabilidad técnica antes del despegue. |
+| **Weather Conditions** (Condiciones meteorológicas) | Estado del tiempo en el predio (velocidad del viento, temperatura y probabilidad de lluvia) que determina si es viable fumigar antes del despegue. |
 | **Simulated Flight Monitoring** (Monitoreo de vuelo simulado) | Visualización interactiva del progreso del dron durante la misión (posición GPS, nivel de batería, volumen de químico restante y avance porcentual), con datos simulados. |
 
 ---
