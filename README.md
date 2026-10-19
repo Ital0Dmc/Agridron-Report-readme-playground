@@ -900,59 +900,68 @@ A continuación, se presenta la tabla de registro que sintetiza el análisis des
 
 ## 2.3. Needfinding
 
+En esta sección se presentan los artefactos resultantes del análisis de la información recolectada en las entrevistas (2.2): los User Personas de cada segmento objetivo, el User Task Matrix, los User Journey Maps y los Empathy Maps, elaborados en UXPressia.
+
 ### 2.3.1. User Personas
 
-#### Persona 1:
+Los User Personas sintetizan las características más representativas de cada segmento objetivo identificadas en el análisis de entrevistas (2.2.3): datos demográficos, dispositivos y canales digitales, objetivos, motivaciones y frustraciones. Sus frustraciones también reflejan las brechas identificadas en el análisis competitivo (2.1), como el alto costo de las plataformas existentes y la falta de un canal único entre agricultor y operador. Se elaboró una ficha por cada segmento en UXPressia.
 
-<div align="center">
-  <img src="./assets/Chapter2/Userpersona-Segmento-1.png" alt="User Persona Segmento 1" />
-</div>
-<br>
+#### User Persona del Segmento 1, Pequeños y Medianos Agricultores (PyMAs): Laura Ramos Paucar
+
+![User Persona del Segmento 1: Laura Ramos Paucar](./assets/Chapter2/Userpersona-Segmento-1.png)
+
 Laura cursa el 10mo ciclo de Ingeniería Agrónoma y se desempeña como administradora de campo en el distrito de Subtanjalla, Ica. Combina sus conocimientos técnicos en monitoreo y sanidad vegetal con la gestión diaria del predio agrícola familiar, buscando incorporar tecnologías de precisión para optimizar el uso de agua e insumos y mejorar el control de plagas. En su trabajo enfrenta problemas como la aplicación de productos químicos condicionada por el viento, el registro manual de tratamientos, la falta de información digital para delimitar áreas y la dificultad de coordinar labores cuando las condiciones climáticas interrumpen el trabajo.
 
-#### Persona 2: 
+#### User Persona del Segmento 2, Operadores Técnicos de Drones: Diego Mendoza Ríos
 
-<div align = "center"> 
-  <img  witdh = "789" height="1600"src="./assets/Chapter2/Userpersona-Segmento-2.png" alt="User Persona Segmento 1" />
-</div>
-<br>
-Diego cursa el 9no ciclo de Ingeniería Agrícola en la Universidad Nacional Agraria La Molina (UNALM) y cuenta con acreditaciones
-en pilotaje de multirrotores y aplicación aeroagrícola. Opera un dron con tanque de 40 litros para tratamientos preventivos y curativos
-en frutales (palto, vid, cítricos) y panllevar en el valle de Cañete y valles vecinos (Mala, Quilmaná). Apoya las labores técnicas
-en el predio agrícola de su familia y presta servicios a terceros, enfrentando a diario la falta de cartografía formal de
-los clientes y el desgaste de coordinar cotizaciones por chat.
+![User Persona del Segmento 2: Diego Mendoza Ríos](./assets/Chapter2/Userpersona-Segmento-2.png)
+
+Diego cursa el 9no ciclo de Ingeniería Agrícola en la Universidad Nacional Agraria La Molina (UNALM) y cuenta con acreditaciones en pilotaje de multirrotores y aplicación aeroagrícola. Opera un dron con tanque de 30 litros para tratamientos preventivos y curativos en frutales (palto, vid, cítricos) y panllevar en el valle de Cañete y valles vecinos (Mala, Chincha). Apoya las labores técnicas en el predio agrícola de su familia y presta servicios a terceros, enfrentando a diario la falta de cartografía formal de los clientes y el desgaste de coordinar cotizaciones por chat.
 
 ### 2.3.2. User Task Matrix
 
-<div> 
-  <img src="./assets/Chapter2/UserTaskMatrix.png" alt="User Task Matrix" />
-</div>
+El User Task Matrix considera los dos segmentos objetivo: Pequeños y Medianos Agricultores (PyMAs), representados por el User Persona Laura Ramos Paucar, y Operadores Técnicos de Drones, representados por el User Persona Diego Mendoza Ríos. Para cada segmento se identificaron nueve tareas que realizan actualmente para cumplir sus objetivos, independientemente de la existencia de la solución, junto con su frecuencia e importancia.
+
+![User Task Matrix](./assets/Chapter2/UserTaskMatrix.png)
+
+*Figura: User Task Matrix de los dos segmentos objetivo, con la frecuencia y la importancia de cada tarea.*
+
+En el segmento de Pequeños y Medianos Agricultores (PyMAs), las tareas de mayor frecuencia e importancia son la inspección fitosanitaria y detección de daños en el cultivo y la verificación del clima local, ambas con frecuencia alta e importancia crítica. En el segmento de Operadores Técnicos de Drones, la mayoría de tareas tiene frecuencia alta e importancia crítica, en especial la recepción de pedidos y cotización de servicios, el monitoreo meteorológico, el reconocimiento perimetral, la calibración de boquillas y la ejecución del vuelo de fumigación.
+
+Ambos segmentos coinciden en verificar las condiciones climáticas antes de fumigar y en considerar crítica la reprogramación o suspensión de una labor por mal clima. La principal diferencia está en la delimitación del área: para el agricultor, señalar los linderos del predio es una tarea de frecuencia baja e importancia media, mientras que para el operador el reconocimiento perimetral es una tarea de frecuencia alta e importancia crítica, ya que de ella depende la seguridad del vuelo.
 
 ### 2.3.3. User Journey Mapping
 
-**Segmento 1:**
+Los User Journey Maps representan la situación actual (As-Is) de cada segmento, sin la solución, a lo largo del proceso completo de una fumigación: desde que se detecta la necesidad o se recibe el pedido hasta el cierre y registro del servicio. Para cada etapa se muestran las acciones, pensamientos y emociones, la curva emocional, los puntos de dolor y las oportunidades.
 
-<div align="center">
- <img src="/assets/Chapter2/UserJourneyMap-Segmento-1.png" alt="User Journey Segmento 1" />
-</div>
+#### Segmento 1: Pequeños y Medianos Agricultores (PyMAs)
 
-**Segmento 2:**
-<div align="center">
-   <img src="./assets/Chapter2/UserJourneyMap-Segmento-2.png" alt="User Journey Segmento 2" />
-</div>
+![User Journey Map del Segmento 1](./assets/Chapter2/UserJourneyMap-Segmento-1.png)
+
+*Figura: User Journey Map As-Is del segmento de Pequeños y Medianos Agricultores (PyMAs).* El recorrido tiene seis etapas: detección y preparación, revisión de condiciones climáticas, contratación y delimitación, ejecución y validación, imprevisto y reprogramación, y cierre, pago y registro. Los puntos más bajos de la curva emocional son el miedo durante la revisión del clima y el enojo cuando un imprevisto interrumpe la fumigación, momentos en los que el agricultor no cuenta con alertas automáticas ni con un reporte objetivo de lo tratado y lo pendiente.
+
+#### Segmento 2: Operadores Técnicos de Drones
+
+![User Journey Map del Segmento 2](./assets/Chapter2/UserJourneyMap-Segmento-2.png)
+
+*Figura: User Journey Map As-Is del segmento de Operadores Técnicos de Drones.* El recorrido tiene seis etapas: cotización y agenda, medición climática y reconocimiento, calibración del dron, ejecución del vuelo, imprevisto y sustento, y cierre, bitácora y cobro. Los puntos más bajos de la curva emocional son el miedo durante el reconocimiento del terreno, por la falta de linderos claros, y el enojo y la frustración cuando debe justificar una pausa por clima o cobrar un área que el cliente pone en duda.
 
 ### 2.3.4. Empathy Mapping
 
-**Segmento 1:**
+Para elaborar los Empathy Maps, el equipo preparó un mapa en UXPressia para cada User Persona, colocándolo al centro. Luego, cada integrante ubicó sus observaciones sobre el User Persona en la sección correspondiente, respondiendo a las preguntas ¿Con quién estamos empatizando?, ¿Qué necesita hacer?, ¿Qué ve?, ¿Qué dice?, ¿Qué hace?, ¿Qué escucha? y ¿Qué piensa y siente? Finalmente, se identificaron sus Pains y Gains.
 
-<div align="center">
-   <img src="./assets/Chapter2/Empathymap-Segmento-1.png" alt="Empathy Mappging Segmento 1" />
-</div>
+#### Segmento 1: Pequeños y Medianos Agricultores (PyMAs)
 
-**Segmento 2:**
-<div align="center">
-   <img src="./assets/Chapter2/Empathymap-Segmento-2.png" alt="Empathy Mappging Segmento 1" />
-</div>
+![Empathy Map del Segmento 1](./assets/Chapter2/Empathymap-Segmento-1.png)
+
+*Figura: Empathy Map del User Persona del segmento de Pequeños y Medianos Agricultores (PyMAs).* El mapa muestra la ansiedad del agricultor por la incertidumbre del clima y su temor a pagar por un servicio incompleto. Entre sus pains destacan el desperdicio de químicos y jornales por cambios repentinos de viento, la falta de reportes que avalen la cobertura real y la exposición de los operarios a agroquímicos. Entre sus gains, el ahorro de insumos, las alertas meteorológicas tempranas y la delimitación de parcelas sobre mapas satelitales.
+
+#### Segmento 2: Operadores Técnicos de Drones
+
+![Empathy Map del Segmento 2](./assets/Chapter2/Empathymap-Segmento-2.png)
+
+*Figura: Empathy Map del User Persona del segmento de Operadores Técnicos de Drones.* El mapa muestra el estrés del operador al decidir si suspende un vuelo por mal clima y su temor a accidentes por obstáculos no señalados. Entre sus pains destacan las disputas por la superficie pulverizada, el desgaste por la coordinación informal y el tiempo perdido reconociendo linderos. Entre sus gains, recibir parcelas ya cartografiadas, emitir una bitácora digital inmediata, contar con respaldo meteorológico y centralizar su agenda.
+
 ---
 
 ## 2.4. Big Picture EventStorming
