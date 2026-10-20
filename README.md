@@ -995,7 +995,7 @@ Durante el ejercicio se identificaron tres **hotspots** (en rosado) que represen
 | **Farm** (Finca) | Predio agrícola de un Agricultor, identificado por su nombre, ubicación geográfica y tamaño en hectáreas. Puede contener una o más parcelas. |
 | **Parcel** (Parcela / Lote) | Porción de una finca destinada a un cultivo y delimitada por sus linderos. Su superficie se expresa en hectáreas. |
 | **Fumigation Area** (Área de fumigación) | Superficie de una parcela que debe tratarse en una misión de fumigación. Puede abarcar toda la parcela o solo los sectores afectados por una plaga. |
-| **Spraying Mission** (Misión de fumigación) | Solicitud de servicio creada por un Agricultor sobre un área y cultivo específicos. Atraviesa los estados *Pendiente*, *Confirmada*, *En Progreso*, *Pausada* y *Completada* a lo largo de su ciclo de vida. |
+| **Spraying Mission** (Misión de fumigación) | Solicitud de servicio creada por un Agricultor sobre un área y cultivo específicos. Atraviesa los estados *Programada*, *Autorizada*, *En curso*, *En pausa*, *Completada* y *Cancelada* a lo largo de su ciclo de vida. |
 | **Spraying Session** (Sesión de pulverización) | Periodo continuo de vuelo y aplicación aeroagrícola ejecutado en campo por el Operador, sujeto a ventanas climáticas óptimas y disponibilidad de batería y carga de fitosanitarios. |
 | **Aerial / Perimeter Obstacle** (Obstáculo aéreo / perimetral) | Elemento físico presente en el predio (postes, cables de alta tensión, copas de árboles, acequias) que el Operador debe identificar y registrar para evitar colisiones durante el vuelo. |
 | **Infestation** (Infestación) | Presencia de una plaga o enfermedad en un cultivo en un nivel que requiere un tratamiento fitosanitario. |
@@ -1067,19 +1067,19 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado que, cuando, ent
 | DR-006 | Registro de fallas e incidentes de equipo | Como operador técnico, quiero reportar una falla mecánica en un dron, para restringir su uso en misiones hasta su reparación. | **Escenario 1**<br>Dado que un dron presenta un mal funcionamiento<br>Cuando el operador registra la incidencia técnica<br>Entonces el sistema cambia el estado del equipo a inoperativo y lo excluye de las asignaciones de misiones.<br><br>**Escenario 2**<br>Dado que un dron está marcado como inoperativo<br>Cuando se intenta asignarlo a una misión<br>Entonces el sistema no permite la asignación hasta que se registre su reparación. | EP04 |
 | DR-007 | Deshabilitación de dron de la flota | Como operador técnico, quiero dar de baja un dron retirado del servicio, para mantener el inventario actualizado. | **Escenario 1**<br>Dado que un equipo queda fuera de servicio permanente<br>Cuando el operador técnico solicita la baja del dron<br>Entonces el sistema inactiva el registro impidiendo asignaciones futuras.<br><br>**Escenario 2**<br>Dado que el dron está asignado a una misión activa<br>Cuando el operador técnico solicita su baja<br>Entonces el sistema no la realiza e indica que el dron tiene una misión en curso. | EP04 |
 | **EP05** | **Planificación y Programación de Misiones** | Flujo de solicitud, asignación de recursos y definición de parámetros de vuelo. | -- | -- |
-| MI-001 | Solicitud de misión de fumigación | Como agricultor, quiero solicitar una misión de fumigación indicando parcela y fecha estimada, para programar la atención de mi cultivo. | **Escenario 1**<br>Dado que el agricultor selecciona una parcela activa<br>Cuando ingresa la fecha requerida y el producto a aplicar<br>Entonces el sistema crea la solicitud en estado Pendiente.<br><br>**Escenario 2**<br>Dado que el agricultor no indica la fecha requerida o el producto a aplicar<br>Cuando intenta crear la solicitud<br>Entonces el sistema no la registra e indica el dato faltante. | EP05 |
-| MI-002 | Asignación de dron e insumos a la misión | Como operador técnico, quiero asignar un dron y la cantidad de producto requerida a una misión, para preparar la logística operativa. | **Escenario 1**<br>Dado que existe una misión en estado Pendiente<br>Cuando el operador técnico selecciona un dron disponible y especifica el insumo<br>Entonces el sistema reserva los recursos y vincula la orden de trabajo.<br><br>**Escenario 2**<br>Dado que no hay drones disponibles<br>Cuando el operador técnico intenta asignar un dron a la misión<br>Entonces el sistema indica que no hay equipos disponibles y mantiene la misión en estado Pendiente. | EP05 |
+| MI-001 | Solicitud de misión de fumigación | Como agricultor, quiero solicitar una misión de fumigación indicando parcela y fecha estimada, para programar la atención de mi cultivo. | **Escenario 1**<br>Dado que el agricultor selecciona una parcela activa<br>Cuando ingresa la fecha requerida y el producto a aplicar<br>Entonces el sistema crea la solicitud en estado Programada.<br><br>**Escenario 2**<br>Dado que el agricultor no indica la fecha requerida o el producto a aplicar<br>Cuando intenta crear la solicitud<br>Entonces el sistema no la registra e indica el dato faltante. | EP05 |
+| MI-002 | Asignación de dron e insumos a la misión | Como operador técnico, quiero asignar un dron y la cantidad de producto requerida a una misión, para preparar la logística operativa. | **Escenario 1**<br>Dado que existe una misión en estado Programada<br>Cuando el operador técnico selecciona un dron disponible y especifica el insumo<br>Entonces el sistema reserva los recursos y vincula la orden de trabajo.<br><br>**Escenario 2**<br>Dado que no hay drones disponibles<br>Cuando el operador técnico intenta asignar un dron a la misión<br>Entonces el sistema indica que no hay equipos disponibles y mantiene la misión en estado Programada. | EP05 |
 | MI-003 | Asignación de operador técnico a la misión | Como operador técnico, quiero asignarme una misión solicitada, para hacerme responsable de su ejecución en campo. | **Escenario 1**<br>Dado que una misión cuenta con recursos asignados<br>Cuando el operador técnico se asigna como responsable<br>Entonces el sistema lo registra en la misión y notifica al agricultor.<br><br>**Escenario 2**<br>Dado que la misión ya tiene un operador técnico responsable<br>Cuando otro operador intenta asignarse<br>Entonces el sistema no realiza la asignación. | EP05 |
 | MI-004 | Configuración de parámetros de vuelo | Como operador técnico, quiero definir la altura de vuelo, velocidad y tasa de pulverización, para asegurar una cobertura homogénea. | **Escenario 1**<br>Dado que el operador accede al plan de vuelo de la misión<br>Cuando especifica la velocidad, altura de pulverización y traslape<br>Entonces el sistema guarda la configuración operativa para la ejecución.<br><br>**Escenario 2**<br>Dado que la misión ya tiene una configuración guardada<br>Cuando el operador modifica la velocidad, la altura o el traslape<br>Entonces el sistema reemplaza la configuración anterior. | EP05 |
 | MI-005 | Consulta de calendario de misiones | Como operador técnico, quiero visualizar un calendario con las misiones programadas, para evitar conflictos de agenda y sobreposición de labores. | **Escenario 1**<br>Dado que el operador técnico consulta la programación de misiones<br>Cuando elige un periodo semanal o mensual<br>Entonces el sistema presenta las misiones programadas en ese periodo con sus estados.<br><br>**Escenario 2**<br>Dado que no hay misiones programadas en el periodo elegido<br>Cuando el operador técnico consulta la programación<br>Entonces el sistema indica que no hay misiones en ese periodo. | EP05 |
-| MI-006 | Reprogramación de misión | Como agricultor, quiero solicitar el cambio de fecha de una misión que aún no inicia, para ajustarme a eventualidades del fundo. | **Escenario 1**<br>Dado que una misión se encuentra en estado Pendiente o Confirmada<br>Cuando el agricultor solicita una nueva fecha<br>Entonces el sistema registra la nueva fecha y libera los recursos asignados.<br><br>**Escenario 2**<br>Dado que la misión ya se encuentra en estado En Progreso<br>Cuando el agricultor solicita una nueva fecha<br>Entonces el sistema no la reprograma e indica que la misión está en curso. | EP05 |
-| MI-007 | Aprobación formal de misión | Como operador técnico, quiero aprobar definitivamente una misión Pendiente, para autorizar el inicio del despliegue en campo. | **Escenario 1**<br>Dado que los parámetros y recursos están validados<br>Cuando el operador técnico confirma la aprobación<br>Entonces el sistema cambia el estado de la misión a Confirmada.<br><br>**Escenario 2**<br>Dado que la misión no tiene dron u operador asignado<br>Cuando el operador técnico intenta aprobarla<br>Entonces el sistema no cambia su estado e indica los recursos faltantes. | EP05 |
+| MI-006 | Reprogramación de misión | Como agricultor, quiero solicitar el cambio de fecha de una misión que aún no inicia, para ajustarme a eventualidades del fundo. | **Escenario 1**<br>Dado que una misión se encuentra en estado Programada o Autorizada<br>Cuando el agricultor solicita una nueva fecha<br>Entonces el sistema registra la nueva fecha y libera los recursos asignados.<br><br>**Escenario 2**<br>Dado que la misión ya se encuentra en estado En curso<br>Cuando el agricultor solicita una nueva fecha<br>Entonces el sistema no la reprograma e indica que la misión está en curso. | EP05 |
+| MI-007 | Aprobación formal de misión | Como operador técnico, quiero aprobar definitivamente una misión Programada, para autorizar el inicio del despliegue en campo. | **Escenario 1**<br>Dado que los parámetros y recursos están validados<br>Cuando el operador técnico confirma la aprobación<br>Entonces el sistema cambia el estado de la misión a Autorizada.<br><br>**Escenario 2**<br>Dado que la misión no tiene dron u operador asignado<br>Cuando el operador técnico intenta aprobarla<br>Entonces el sistema no cambia su estado e indica los recursos faltantes. | EP05 |
 | MI-008 | Exportación de plan de vuelo | Como operador técnico, quiero descargar el plan de vuelo parametrizado de la misión, para tenerlo como referencia durante la operación en campo. | **Escenario 1**<br>Dado que la misión está aprobada y parametrizada<br>Cuando el operador solicita la exportación<br>Entonces el sistema genera un archivo con los parámetros de vuelo y la secuencia de puntos de la ruta.<br><br>**Escenario 2**<br>Dado que la misión aún no tiene parámetros de vuelo configurados<br>Cuando el operador solicita la exportación<br>Entonces el sistema no genera el archivo e indica que faltan los parámetros. | EP05 |
 | **EP06** | **Ejecución y Telemetría de Vuelo en Tiempo Real** | Monitoreo interactivo, alertas operativas y registro de bitácora técnica de vuelo. | -- | -- |
-| TR-001 | Visualización de posición de dron en tiempo real | Como agricultor, quiero observar la trayectoria del dron sobre el mapa durante la fumigación, para verificar la cobertura del terreno. | **Escenario 1**<br>Dado que una misión se encuentra en estado En Progreso<br>Cuando el sistema recibe una nueva posición de la telemetría simulada del dron<br>Entonces el sistema actualiza la posición del dron y la trayectoria recorrida.<br><br>**Escenario 2**<br>Dado que la misión no está en estado En Progreso<br>Cuando el agricultor consulta el seguimiento del dron<br>Entonces el sistema indica que no hay un vuelo activo para esa misión. | EP06 |
-| TR-002 | Monitoreo de indicadores de vuelo | Como operador técnico, quiero supervisar el nivel de batería y volumen de tanque en tiempo real, para tomar decisiones operativas durante el vuelo. | **Escenario 1**<br>Dado que la telemetría simulada de la misión está activa<br>Cuando el sistema procesa una nueva lectura<br>Entonces el sistema presenta los porcentajes actualizados de batería y de carga fitosanitaria restante.<br><br>**Escenario 2**<br>Dado que la misión aún no se encuentra en estado En Progreso<br>Cuando el operador consulta los indicadores de vuelo<br>Entonces el sistema indica que no hay telemetría disponible. | EP06 |
+| TR-001 | Visualización de posición de dron en tiempo real | Como agricultor, quiero observar la trayectoria del dron sobre el mapa durante la fumigación, para verificar la cobertura del terreno. | **Escenario 1**<br>Dado que una misión se encuentra en estado En curso<br>Cuando el sistema recibe una nueva posición de la telemetría simulada del dron<br>Entonces el sistema actualiza la posición del dron y la trayectoria recorrida.<br><br>**Escenario 2**<br>Dado que la misión no está en estado En curso<br>Cuando el agricultor consulta el seguimiento del dron<br>Entonces el sistema indica que no hay un vuelo activo para esa misión. | EP06 |
+| TR-002 | Monitoreo de indicadores de vuelo | Como operador técnico, quiero supervisar el nivel de batería y volumen de tanque en tiempo real, para tomar decisiones operativas durante el vuelo. | **Escenario 1**<br>Dado que la telemetría simulada de la misión está activa<br>Cuando el sistema procesa una nueva lectura<br>Entonces el sistema presenta los porcentajes actualizados de batería y de carga fitosanitaria restante.<br><br>**Escenario 2**<br>Dado que la misión aún no se encuentra en estado En curso<br>Cuando el operador consulta los indicadores de vuelo<br>Entonces el sistema indica que no hay telemetría disponible. | EP06 |
 | TR-003 | Recepción de alertas operativas en vuelo | Como operador técnico, quiero recibir notificaciones inmediatas ante anomalías de altitud o batería baja, para prevenir accidentes en campo. | **Escenario 1**<br>Dado que la telemetría simulada registra un valor fuera de los umbrales seguros<br>Cuando el sistema detecta la discrepancia<br>Entonces el sistema genera una alerta inmediata para el operador técnico.<br><br>**Escenario 2**<br>Dado que los valores de la telemetría simulada se mantienen dentro de los umbrales seguros<br>Cuando el sistema procesa una nueva lectura<br>Entonces el sistema no genera alertas. | EP06 |
-| TR-004 | Pausa y reanudación de misión de emergencia | Como operador técnico, quiero registrar la interrupción temporal de un vuelo por imprevisto, para reanudar el trabajo desde el último punto tratado. | **Escenario 1**<br>Dado que el operador suspende el vuelo en campo<br>Cuando registra la pausa en el sistema<br>Entonces el sistema cambia el estado de la misión a Pausada y guarda el punto geográfico exacto de parada para la posterior reanudación.<br><br>**Escenario 2**<br>Dado que la misión está en estado Pausada<br>Cuando el operador registra la reanudación<br>Entonces el sistema cambia su estado a En Progreso y retoma la misión desde el punto de parada guardado. | EP06 |
+| TR-004 | Pausa y reanudación de misión de emergencia | Como operador técnico, quiero registrar la interrupción temporal de un vuelo por imprevisto, para reanudar el trabajo desde el último punto tratado. | **Escenario 1**<br>Dado que el operador suspende el vuelo en campo<br>Cuando registra la pausa en el sistema<br>Entonces el sistema cambia el estado de la misión a En pausa y guarda el punto geográfico exacto de parada para la posterior reanudación.<br><br>**Escenario 2**<br>Dado que la misión está en estado En pausa<br>Cuando el operador registra la reanudación<br>Entonces el sistema cambia su estado a En curso y retoma la misión desde el punto de parada guardado. | EP06 |
 | TR-005 | Registro de finalización de misión | Como operador técnico, quiero marcar una misión como completada al finalizar la aplicación, para cerrar la orden de trabajo en campo. | **Escenario 1**<br>Dado que el dron concluye el recorrido total del polígono<br>Cuando el operador confirma la finalización<br>Entonces el sistema cambia el estado de la misión a Completada y calcula el tiempo total de aplicación.<br><br>**Escenario 2**<br>Dado que el dron no completó el recorrido total del polígono<br>Cuando el operador intenta marcar la misión como completada<br>Entonces el sistema no cambia su estado a Completada e indica el área pendiente. | EP06 |
 | TR-006 | Bitácora técnica de observaciones en campo | Como operador técnico, quiero adjuntar notas operativas al finalizar el vuelo, para documentar incidencias de viento o vegetación. | **Escenario 1**<br>Dado que la misión ha finalizado<br>Cuando el operador escribe las observaciones del servicio<br>Entonces el sistema guarda los comentarios vinculados al registro histórico del vuelo.<br><br>**Escenario 2**<br>Dado que el operador no registra observaciones<br>Cuando cierra la misión<br>Entonces el sistema guarda el registro histórico del vuelo sin comentarios adicionales. | EP06 |
 | **EP07** | **Integración Meteorológica y Alertas** | Evaluación de condiciones ambientales para asegurar la viabilidad de la pulverización. | -- | -- |
@@ -1117,7 +1117,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado que, cuando, ent
 | TU-022 | Endpoint de agroquímicos | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/agrochemicals, para que la Web Application muestre los agroquímicos. | **Escenario 1**<br>Dado que existen agroquímicos registrados<br>Cuando el cliente envía GET /api/v1/agrochemicals<br>Entonces el servidor responde 200 OK con la lista, cada registro con name, type, stockLiters, minimumStockLiters y expirationDate.<br><br>**Escenario 2**<br>Dado que no existe un registro con el id indicado<br>Cuando el cliente envía GET /api/v1/agrochemicals/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
 | TU-023 | Endpoint de registros de mantenimiento | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/maintenance-records, para que la Web Application muestre los mantenimientos de los drones. | **Escenario 1**<br>Dado que existen registros de mantenimiento<br>Cuando el cliente envía GET /api/v1/maintenance-records<br>Entonces el servidor responde 200 OK con la lista, cada registro con droneId, date, type, description y technician.<br><br>**Escenario 2**<br>Dado que no existe un registro con el id indicado<br>Cuando el cliente envía GET /api/v1/maintenance-records/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
 | TU-024 | Endpoints de usuarios | Como Developer, quiero implementar los endpoints del recurso /api/v1/users, para que la Web Application registre usuarios con su rol. | **Escenario 1**<br>Dado que el cliente envía POST /api/v1/users con username, email, password y role (FARMER u OPERATOR)<br>Cuando la solicitud es válida<br>Entonces el servidor responde 201 Created con el usuario creado y su id, sin incluir la contraseña.<br><br>**Escenario 2**<br>Dado que no existe un usuario con el id indicado<br>Cuando el cliente envía GET /api/v1/users/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
-| TU-025 | Endpoints de misiones | Como Developer, quiero implementar los endpoints del recurso /api/v1/missions, para que la Web Application solicite, asigne, configure y actualice el estado de las misiones de fumigación. | **Escenario 1**<br>Dado que el cliente envía POST /api/v1/missions con parcelId, agrochemicalId y requestedDate<br>Cuando la solicitud es válida<br>Entonces el servidor responde 201 Created con la misión creada en estado PENDING.<br><br>**Escenario 2**<br>Dado que existe la misión indicada<br>Cuando el cliente envía PUT /api/v1/missions/{id} con requestedDate, droneId, operatorId, flightHeight, flightSpeed, sprayRate y overlap<br>Entonces el servidor responde 200 OK con la misión actualizada.<br><br>**Escenario 3**<br>Dado que existe la misión indicada<br>Cuando el cliente envía PATCH /api/v1/missions/{id}/status con un estado válido (PENDING, CONFIRMED, IN_PROGRESS, PAUSED o COMPLETED)<br>Entonces el servidor responde 200 OK con el nuevo estado de la misión.<br><br>**Escenario 4**<br>Dado que no existe una misión con el id indicado<br>Cuando el cliente envía GET, PUT o PATCH /api/v1/missions/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
+| TU-025 | Endpoints de misiones | Como Developer, quiero implementar los endpoints del recurso /api/v1/missions, para que la Web Application solicite, asigne, configure y actualice el estado de las misiones de fumigación. | **Escenario 1**<br>Dado que el cliente envía POST /api/v1/missions con parcelId, agrochemicalId y requestedDate<br>Cuando la solicitud es válida<br>Entonces el servidor responde 201 Created con la misión creada en estado PLANNED.<br><br>**Escenario 2**<br>Dado que existe la misión indicada<br>Cuando el cliente envía PUT /api/v1/missions/{id} con requestedDate, droneId, operatorId, flightHeight, flightSpeed, sprayRate y overlap<br>Entonces el servidor responde 200 OK con la misión actualizada.<br><br>**Escenario 3**<br>Dado que existe la misión indicada<br>Cuando el cliente envía PATCH /api/v1/missions/{id}/status con un estado válido (PLANNED, AUTHORIZED, IN_PROGRESS, PAUSED, COMPLETED o CANCELLED)<br>Entonces el servidor responde 200 OK con el nuevo estado de la misión.<br><br>**Escenario 4**<br>Dado que no existe una misión con el id indicado<br>Cuando el cliente envía GET, PUT o PATCH /api/v1/missions/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
 | TU-026 | Endpoint de inicio de sesión | Como Developer, quiero implementar el endpoint POST /api/v1/authentication/sign-in, para que los usuarios inicien sesión y obtengan un token JWT. | **Escenario 1**<br>Dado que el cliente envía POST /api/v1/authentication/sign-in con un email y una contraseña registrados<br>Cuando las credenciales son correctas<br>Entonces el servidor responde 200 OK con el id, el username, el role y el token JWT del usuario.<br><br>**Escenario 2**<br>Dado que el cliente envía POST /api/v1/authentication/sign-in con un email o una contraseña incorrectos<br>Cuando el servidor valida las credenciales<br>Entonces responde 401 Unauthorized sin generar un token. | EP09 |
 
 ## 3.2. Impact Mapping
@@ -1176,7 +1176,7 @@ El Product Backlog reúne las User Stories y Technical Stories del 3.1, ordenada
 | 26 | MI-003 | Asignación de operador técnico a la misión | Como operador técnico, quiero asignarme una misión solicitada, para hacerme responsable de su ejecución en campo. | 5 |
 | 27 | MI-004 | Configuración de parámetros de vuelo | Como operador técnico, quiero definir la altura de vuelo, velocidad y tasa de pulverización, para asegurar una cobertura homogénea. | 3 |
 | 28 | MI-005 | Consulta de calendario de misiones | Como operador técnico, quiero visualizar un calendario con las misiones programadas, para evitar conflictos de agenda y sobreposición de labores. | 3 |
-| 29 | MI-007 | Aprobación formal de misión | Como operador técnico, quiero aprobar definitivamente una misión Pendiente, para autorizar el inicio del despliegue en campo. | 2 |
+| 29 | MI-007 | Aprobación formal de misión | Como operador técnico, quiero aprobar definitivamente una misión Programada, para autorizar el inicio del despliegue en campo. | 2 |
 | 30 | TR-001 | Visualización de posición de dron en tiempo real | Como agricultor, quiero observar la trayectoria del dron sobre el mapa durante la fumigación, para verificar la cobertura del terreno. | 8 |
 | 31 | TR-002 | Monitoreo de indicadores de vuelo | Como operador técnico, quiero supervisar el nivel de batería y volumen de tanque en tiempo real, para tomar decisiones operativas durante el vuelo. | 5 |
 | 32 | TR-003 | Recepción de alertas operativas en vuelo | Como operador técnico, quiero recibir notificaciones inmediatas ante anomalías de altitud o batería baja, para prevenir accidentes en campo. | 3 |
@@ -1300,7 +1300,7 @@ La paleta de colores de AgriDron está inspirada en la naturaleza y el sector ag
 - **Verde Bosque / Primario (#1B463C):** transmite sostenibilidad y confianza agrícola. Se utiliza en la barra lateral de navegación, el pie de página y los títulos de la Web Application.
 - **Verde Teal / Secundario (#179A7A):** aporta dinamismo. Se usa en los botones principales, la opción activa de la navegación y los íconos de métricas.
 - **Verdes de la Landing Page (#1DA27E a #0F8E74 y texto #0D3C35):** se aplican en los botones con degradado y en los textos de la Landing Page.
-- **Colores de estado de la misión:** verde #4CAF50 (Completada), azul #42A5F5 (En Progreso), naranja #FFA726 (Pendiente o Confirmada) y rojo #EF5350 (Pausada).
+- **Colores de estado de la misión:** verde #4CAF50 (Completada), azul #42A5F5 (En curso), naranja #FFA726 (Programada o Autorizada) y rojo #EF5350 (En pausa o Cancelada).
 - **Colores de alerta meteorológica:** azul #1E3A8A (severidad baja), ámbar #B45309 (severidad media) y rojo #B91C1C (severidad alta), cada uno sobre un fondo tenue.
 - **Neutros y error:** blanco #FFFFFF y gris claro #F3F5F2 para fondos y tarjetas, y rojo #B3261E para los mensajes de error.
 
@@ -1409,328 +1409,231 @@ Se mantienen Roboto en la Web Application y Montserrat en la Landing Page. En la
 
 ## 4.2. Information Architecture
 
-La arquitectura de información de AgriDron Solutions ha sido diseñada para que los tres segmentos principales de usuarios —agricultores, operadores técnicos y supervisores de operaciones— puedan localizar información, ejecutar tareas y comprender el estado de sus operaciones de fumigación con drones de forma rápida y consistente. Esta propuesta abarca tanto la Landing Page como la Web Application, de modo que exista continuidad entre la experiencia de descubrimiento del producto y la experiencia de uso dentro de la plataforma operativa.
+La arquitectura de información de AgriDron Solutions organiza el contenido para los dos segmentos del proyecto, Pequeños y Medianos Agricultores (PyMAs) y Operadores Técnicos de Drones, de modo que puedan localizar información y ejecutar tareas de forma rápida y consistente. Abarca la Landing Page, orientada a presentar el producto y conducir al visitante hacia una acción concreta, y la Web Application, orientada a la gestión de fincas, parcelas, cultivos, zonas de fumigación, drones, misiones y reportes.
 
-En el caso de la Landing Page, la arquitectura de información busca guiar al visitante desde una comprensión inicial de los retos en la fumigación tradicional hacia una acción concreta, ya sea registrarse, solicitar una demostración o explorar las funcionalidades clave según su rol en el campo. Para ello, el contenido se organiza en bloques progresivos: propuesta de valor (Hero section), funcionalidades principales (planificación, monitoreo en tiempo real, IA predictiva), proceso de funcionamiento en 4 pasos, actores principales (agricultores, operadores, supervisores), planes de precios/suscripción, nuestro equipo y llamadas a la acción (CTAs). Esta secuencia permite que el usuario comprenda qué resuelve AgriDron Solutions, a quién está dirigido y cómo puede empezar a digitalizar sus cultivos.
-
-En la Web Application, la arquitectura de información responde a una lógica netamente operativa e interactiva. En lugar de priorizar la persuasión o el descubrimiento, la aplicación prioriza la velocidad de acceso, la visibilidad en tiempo real del estado de los vuelos y la ejecución eficiente de tareas en campo. Por ello, el contenido se distribuye en módulos funcionales diferenciados por rol, donde cada usuario accede únicamente a las secciones necesarias para gestionar fincas y parcelas sobre mapas satelitales, programar y asignar misiones de pulverización, monitorear la telemetría de los drones (batería, volumen de insumo, altitud), consultar validaciones climáticas y generar reportes de productividad.
-
-De esta manera, la arquitectura de información de AgriDron Solutions se apoya en cuatro sistemas complementarios: Organization Systems (sistemas de organización), Labeling Systems (sistemas de etiquetado), Searching Systems (sistemas de búsqueda) y Navigation Systems (sistemas de navegación). En conjunto, estos sistemas permiten estructurar la información de forma entendible, reducir la sobrecarga cognitiva en entornos de campo y mantener una experiencia coherente entre la web pública y la plataforma transaccional.
+La sección describe la estructura actual de ambos productos y los elementos ya comprometidos en el Product Backlog que aún no están implementados: en la Landing Page, las secciones de planes (LP-003) y preguntas frecuentes (LP-010), los términos legales (LP-006), el cambio de idioma (LP-007) y el acceso al registro de la Web Application (LP-004), y en la Web Application, el módulo de Misiones con su calendario y el monitoreo de la misión en curso (MI y TR), los mapas de parcelas (FM-007) y los filtros adicionales de parcelas e historial (FM-005 y RP-004).
 
 ### 4.2.1. Organization Systems
 
-La organización del contenido en AgriDron Solutions responde a la naturaleza de cada producto digital y al tipo de tarea que el usuario necesita realizar. La Landing Page organiza información para presentar, explicar y convencer sobre los beneficios de la agricultura de precisión con drones; mientras que la Web Application organiza información para operar, monitorear el vuelo y la dispersión de insumos en tiempo real, y tomar decisiones sobre el manejo de cultivos. Por ello, se aplican distintos esquemas de organización visual y categorización según el contexto.
-
 **Organization Systems in the Landing Page**
 
-En la Landing Page, la información se organiza principalmente de forma jerárquica y secuencial. La jerarquía visual permite destacar de inmediato la propuesta de valor, las funcionalidades clave y los llamados a la acción (CTAs) más importantes. La secuencia guía al visitante por un recorrido progresivo: primero entiende la problemática del campo, luego conoce la solución tecnológica de AgriDron, después explora sus capacidades paso a paso y finalmente recibe estímulos para registrarse, iniciar sesión o solicitar una demostración.
+La Landing Page organiza la información de forma jerárquica y secuencial. La jerarquía visual destaca primero la propuesta de valor y los llamados a la acción, y la secuencia guía al visitante desde lo que ofrece el producto hasta cómo empezar a usarlo. El recorrido de la página es el siguiente:
 
-La estructura general de la Landing Page sigue el siguiente flujo:
-
-- Hero section: Presenta la propuesta de valor principal ("Revoluciona la salud de tus cultivos con precisión automatizada") y los botones de acción clave (Empieza tu prueba gratuita, Ver cómo funciona, Solicitar Demo).
-- Sección de funcionalidades: Muestra los pilares tecnológicos del sistema: Planificación de misiones, Monitoreo en tiempo real e IA predictiva.
-- Sección de "Cómo funciona": Muestra la secuencia operativa en 4 pasos (1. Planifica, 2. Consulta el clima, 3. Ejecuta, 4. Analiza)
-- Sección de "Para quién" (audiencia): Categoriza la solución según los actores clave del sector agrícola (Agricultores, Operadores, Supervisores).
-- Sección de "Nuestro equipo": Presenta a los profesionales responsables del desarrollo de la plataforma para generar confianza.
-- Footer: Reúne la navegación secundaria, datos de contacto, ubicación, políticas legales y enlaces a redes sociales.
-
-Esta estructura no es aleatoria: busca reducir fricción en el recorrido del visitante y facilitar que identifique en pocos segundos cómo la plataforma optimiza el rendimiento de sus terrenos agrícolas.
+- Inicio (Hero): propuesta de valor "Revoluciona la salud de tus cultivos con precisión automatizada" y los botones Empieza tu prueba gratuita y Ver cómo funciona.
+- Nuestras funcionalidades: Planificación de misiones, Monitoreo en tiempo real y Consulta las condiciones climáticas.
+- Cómo funciona: secuencia de cuatro pasos (Planifica, Consulta el clima, Ejecuta y Analiza).
+- Para quién: tarjetas por segmento de usuario.
+- Planes y Preguntas frecuentes: secciones comprometidas en LP-003 y LP-010.
+- Nuestro equipo: integrantes del equipo de desarrollo.
+- Footer: enlaces a las secciones, datos de contacto, redes sociales y términos legales (LP-006).
 
 **Organization Systems in the Web Application**
 
-En la Web Application, la organización del contenido es principalmente por tópicos, por audiencia y cronológica, según el tipo de información mostrada.
+La Web Application organiza la información según el tipo de tarea:
 
-- Por tópicos: Se emplea en el menú principal (sidebar), donde las funcionalidades se agrupan en módulos como Fincas, Parcelas, Misiones, Monitoreo, Reportes, Inventario y Configuración.
-- Por audiencia (roles): Se aplica al adaptar la experiencia según el tipo de usuario: Agricultor, Operador y Supervisor. Cada rol visualiza los módulos y datos relevantes para su nivel de responsabilidad en la operación.
-- Cronológica: Se utiliza en los historiales de vuelo, registros de telemetría, diario de incidencias climáticas y reportes de insumos aplicados en el tiempo.
-- Matricial: Se emplea en vistas donde el usuario necesita comparar múltiples variables simultáneamente, como tablas de misiones, reportes de eficiencia por hectárea o el inventario de agroquímicos.
+- Por tópicos: el menú lateral agrupa las funcionalidades en módulos (Inicio, Fincas, Parcelas, Cultivos, Zonas de fumigación, Misiones, Reportes, Drones y Perfil).
+- Jerárquica: la vista Inicio presenta primero el saludo y el resumen de la operación, luego los Indicadores y el estado del clima, y al final los Accesos rápidos. Los datos dependen entre sí en el orden Finca, Parcela y Zona de fumigación.
+- Cronológica: el historial de misiones, el uso de insumos por fecha, el calendario de misiones (MI-005) y el próximo mantenimiento de cada dron.
+- Matricial: las tablas de Reportes, donde el usuario compara varios atributos de cada misión al mismo tiempo.
 
 **Organización visual del contenido**
 
-| Tipo de organización | Aplicación en AgriDron Solutions                                                                                                                   | Justificación                                                                                                               |
-|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|
-| **Jerárquica**       | Hero section, Dashboard principal, tarjetas de métricas (KPIs) y panel de telemetría del dron.                                                     | Permite destacar estados de vuelo activos, condiciones del clima y métricas de superficie (ha) antes que datos secundarios. |
-| **Secuencial**       | Registro de usuario, flujo de "Cómo funciona" y planificación de misiones en 4 pasos (*1. Parcela → 2. Tratamiento → 3. Fecha/Hora → 4. Resumen*). | Guía al agricultor o supervisor paso a paso en la definición de la fumigación, evitando errores operacionales.              |
-| **Matricial**        | Historial de misiones, consumo de insumos, tablas de personal y reportes de rendimiento por hectárea.                                              | Facilita comparar atributos como hectáreas cubiertas, fecha, tipo de cultivo, estado de misión y operador asignado.         |
+| Tipo de organización | Aplicación en AgriDron Solutions                                                                     | Justificación                                                                                       |
+|:---------------------|:-----------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------|
+| **Jerárquica**       | Hero de la Landing Page, vista Inicio de la Web Application y relación Finca, Parcela y Zona de fumigación. | Destaca primero la información principal y refleja la dependencia real entre los datos del campo.   |
+| **Secuencial**       | Sección Cómo funciona, registro de usuario y solicitud de misión (MI-001).                            | Guía al usuario paso a paso en las tareas que tienen un orden fijo.                                 |
+| **Matricial**        | Pestañas Misiones (ID, Fecha, Estado, Área) y Uso de insumos (Misión, Tipo, Fecha, Área, Volumen, L/ha) de Reportes. | Permite comparar varios atributos de cada misión en una sola vista.                                 |
 
 **Esquemas de categorización**
 
-| Tipo de esquema   | Aplicación en AgriDron Solutions                                                        | Justificación                                                                                                    |
-|:------------------|:----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|
-| **Por tópicos**   | Fincas, Parcelas, Misiones, Monitoreo, Reportes, Inventario, Personal y Configuración.  | Agrupa el contenido según la tarea operativa que el usuario busca realizar sobre sus terrenos o flota de drones. |
-| **Cronológico**   | Historial de misiones ejecutadas, registros melemétricos de vuelo y log de incidencias. | Facilita el seguimiento temporal de las aplicaciones de fertilizantes/pesticidas y auditorías agrícolas.         |
-| **Por audiencia** | Vista Agricultor, Vista Operador y Vista Supervisor.                                    | Reduce la sobrecarga cognitiva y adapta las opciones según el rol de campo o gabinete.                           |
+| Tipo de esquema   | Aplicación en AgriDron Solutions                                                                      | Justificación                                                                    |
+|:------------------|:------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------|
+| **Por tópicos**   | Módulos del menú lateral de la Web Application y secciones de la Landing Page.                         | Agrupa el contenido según la tarea que el usuario busca realizar.                |
+| **Cronológico**   | Historial de misiones, uso de insumos, calendario de misiones y mantenimientos de drones.              | Facilita el seguimiento de las aplicaciones y del estado de los equipos en el tiempo. |
+| **Por audiencia** | Sección Para quién de la Landing Page y selección de rol (agricultor u operador técnico) en el registro. | Permite que cada segmento identifique cómo lo ayuda la plataforma.                |
 
 **Esquemas no priorizados**
 
-AgriDron Solutions no prioriza un esquema alfabético como estructura principal, ya que la gestión agrícola no depende de una búsqueda lexical, sino de interacciones geoespaciales sobre mapas satelitales, estados de misión y prioridades operativas en campo. Aunque los listados de parcelas o insumos puedan ordenarse alfabéticamente como filtro secundario, la plataforma prioriza la ubicación, la urgencia de fumigación y el estado del vuelo.
+AgriDron Solutions no usa el esquema alfabético como estructura principal, porque el usuario localiza la información por finca, parcela, fecha o estado, y no por el nombre del registro.
 
-Tampoco se utiliza una organización puramente temática en la Landing Page sin jerarquía de conversión, porque la interfaz pública busca impulsar al usuario a iniciar una prueba o solicitar una demostración en el menor número de pasos posible.
+**Secciones principales de la Web Application**
 
-**Secciones principales de AgriDron Solutions**
-
-La aplicación se estructura en tres entornos diferenciados según el rol del usuario:
-
-**Vista Agricultor**
-
-| Sección                      | Descripción                                                                                                             |
-|:-----------------------------|:------------------------------------------------------------------------------------------------------------------------|
-| **Dashboard (Inicio)**       | Resumen del estado general: fincas registradas, parcelas, misiones activas, hectáreas totales y widget de clima actual. |
-| **Fincas**                   | Registro, edición y administración de los predios agrícolas con su ubicación y extensión.                               |
-| **Parcelas**                 | Delimitación y visualización de lotes sobre mapa satelital interactivo con información de cultivo y área.               |
-| **Misiones (Planificación)** | Creación y solicitud de misiones de fumigación seleccionando parcela, tipo de tratamiento e insumo.                     |
-| **Monitoreo de Misiones**    | Seguimiento en tiempo real del progreso del vuelo, ruta sobre la parcela y telemetría básica.                           |
-| **Reportes e Historial**     | Consulta de misiones pasadas, volumen de insumos utilizados y reportes de productividad por hectárea.                   |
-| **Configuración**            | Perfil del usuario, gestión de notificaciones e integración con alertas meteorológicas.                                 |
-
-**Vista Operador**
-
-| Sección                      | Descripción                                                                                                            |
-|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------|
-| **Dashboard / Mis Misiones** | Lista de misiones de fumigación asignadas para la jornada con detalles de ubicación y cultivo.                         |
-| **Ejecución y Monitoreo**    | Control en tiempo real del vuelo, telemetría del dron (batería, altitud, velocidad, flujo) y actualización de estados. |
-| **Registro de Incidencias**  | Documentación de interrupciones operativas en campo (vientos fuertes, fallas técnicas, lluvia).                        |
-| **Horas Trabajadas**         | Registro de jornada laboral con verificación de ubicación GPS para garantizar precisión operativa.                     |
-
+| Sección                 | Descripción                                                                                                   |
+|:------------------------|:--------------------------------------------------------------------------------------------------------------|
+| **Inicio**              | Saludo, resumen de la operación agrícola, Indicadores (fincas, parcelas, cultivos y zonas de fumigación), estado del clima y Accesos rápidos. |
+| **Fincas**              | Registro, edición y eliminación de fincas con su nombre y ubicación.                                          |
+| **Parcelas**            | Registro, edición, eliminación y detalle de parcelas por finca, con área, cultivo y geometría.                |
+| **Cultivos**            | Registro, edición y eliminación de cultivos con su nombre y variedad.                                         |
+| **Zonas de fumigación** | Registro, edición y eliminación de zonas de fumigación por parcela, con área y geometría.                      |
+| **Misiones**            | Solicitud, programación y calendario de misiones, y monitoreo de la misión en curso (MI y TR).                |
+| **Reportes**            | Reportes e Historial, con las pestañas Misiones, Uso de insumos e Indicadores, y el detalle de cada reporte.  |
+| **Drones**              | Flota de drones con estado, batería, boquilla, agroquímicos compatibles, próximo servicio y mantenimientos.   |
+| **Perfil**              | Datos de la cuenta activa (usuario, correo electrónico y rol asignado) y cierre de sesión.                     |
 
 ### 4.2.2. Labeling Systems
 
-El sistema de etiquetado de AgriDron Solutions ha sido diseñado para que cada elemento de la interfaz comunique su propósito de forma inmediata. Las etiquetas se redactan con términos breves, directos y familiares para el contexto agronómico y de operaciones con drones, evitando tecnicismos innecesarios. Esto permite que el usuario comprenda con rapidez qué sección está visitando, qué acción puede ejecutar y qué resultado debe esperar.
-
-A diferencia de un simple glosario, el sistema de etiquetado de AgriDron Solutions se aplica de manera concreta en zonas específicas de la interfaz, como la navbar de la Landing Page, el sidebar de la aplicación, los botones principales, los formularios, los breadcrumbs y los mensajes de estado.
+El sistema de etiquetado usa términos breves y familiares para el contexto agrícola y de operación de drones. Cada concepto se nombra siempre igual en toda la plataforma, y las acciones usan verbos que indican lo que ocurrirá. La Web Application presenta todas sus etiquetas en español e inglés.
 
 **Labeling in the Landing Page**
 
-En la Landing Page, las etiquetas priorizan claridad comercial y orientación a la conversión. Se emplean principalmente en:
-
-- Navbar superior: Inicio (Home), Funcionalidades (Features), Cómo funciona (How it works), Precios (Pricing), Preguntas Frecuentes (FAQ), Iniciar sesión (Sign in).
-- Botones principales del hero: Solicitar Demo, Crear cuenta, Probar gratis, Soy Agricultor, Soy Operador.
-- Secciones informativas: Beneficios, Casos de uso, Nuestro equipo, Preguntas frecuentes.
-- Footer: Contacto, Políticas de privacidad, Términos y condiciones, Soporte técnico.
-
-Estas etiquetas permiten que el visitante identifique rápidamente la estructura del contenido y pueda desplazarse hacia las secciones que más le interesan antes de tomar una decisión.
+- Barra de navegación: Inicio, Funcionalidades, Cómo Funciona, Para Quién, Nuestro Equipo y Solicitar Demo.
+- Botones del Hero: Empieza tu prueba gratuita y Ver cómo funciona.
+- Secciones: Nuestras funcionalidades, Cómo funciona, Para quién, Planes, Preguntas frecuentes y Nuestro equipo.
+- Footer: Enlaces, Contacto y términos legales.
+- Páginas de acceso: Inicia sesión (Correo electrónico, Contraseña y Entrar) y Solicita una demo (Nombre completo, Empresa, Correo electrónico, Teléfono y Solicitar acceso).
 
 **Labeling in the Web Application**
 
-En la Web Application, las etiquetas se enfocan en apoyar la operación diaria del usuario en campo y gabinete. Se distribuyen en los siguientes puntos:
-
-- Sidebar o menú lateral: Dashboard, Fincas, Parcelas, Misiones, Monitoreo, Inventario, Reportes, Configuración.
-- Header: Notificaciones, Mi perfil, Cambiar rol, Cerrar sesión
-- Botones de acción: + Nueva finca, + Nueva parcela, Crear misión, Iniciar vuelo, Pausar misión, Ver detalles, Guardar cambios, Cancelar.
-- Breadcrumbs: Misiones > Detalle de Misión, Parcelas > Crear Parcela, Fincas > Lote 1, Reportes > Rendimiento por Hectárea.
-- Formularios: Nombre de parcela, Extensión (ha), Tipo de cultivo, Producto / Insumo, Dosis por hectárea, Fecha de fumigación, Operador asignado.
-- Mensajes de estado: En curso / En ejecución, Completada, Programada, Pausada, Alerta de clima, Stock bajo.
-
-**Criterios del sistema de etiquetado**
-
-El sistema de etiquetado de AgriDron Solutions sigue los siguientes criterios:
-
-- Brevedad: Las etiquetas deben usar el menor número de palabras posible sin perder claridad.
-- Consistencia: Un mismo concepto (Parcela, Misión, Insumo) debe nombrarse siempre de la misma manera en toda la plataforma.
-- Familiaridad: Se priorizan términos cercanos al usuario real del dominio agrícola y técnico.
-- Orientación a la acción: Los botones y acciones usan verbos claros que indican lo que ocurrirá (Crear misión, Iniciar vuelo, Descargar reporte).
-- Escaneabilidad: Las etiquetas deben poder comprenderse rápidamente incluso en interfaces densas como mapas satelitales, tablas telemétricas y dashboards.
+- Menú lateral: Inicio, Fincas, Parcelas, Cultivos, Zonas de fumigación, Misiones, Reportes, Drones y Perfil.
+- Barra superior: botón de menú, nombre AgriDron y selector de idioma.
+- Botones de acción: Nueva finca, Nueva parcela, Nuevo cultivo, Nueva zona de fumigación, Crear, Actualizar, Editar, Eliminar, Ver más, Ver detalles, Ver mantenimientos, Filtrar, Limpiar, Descargar reporte, Exportar JSON y Exportar CSV.
+- Formularios: Nombre, Ubicación, Área (ha), Área (m²), Geometría (GeoJSON), Finca, Parcela, Cultivo, Variedad, Nombre de usuario, Correo electrónico, Contraseña y Rol en el sistema.
+- Estados de dron: Disponible, En vuelo, Mantenimiento y Fuera de servicio.
+- Estados de misión: Programada, Autorizada, En curso, En pausa, Completada y Cancelada.
+- Niveles de alerta climática: Alto, Medio y Bajo.
 
 **Etiquetas principales del sistema**
 
-| Etiqueta              | Lugar de uso                          | Descripción                                                                                       |
-|:----------------------|:--------------------------------------|:--------------------------------------------------------------------------------------------------|
-| **Iniciar sesión**    | Navbar, formularios de acceso         | Permite ingresar con una cuenta existente a la plataforma.                                        |
-| **Crear cuenta**      | Hero section, formularios de registro | Permite registrarse como nuevo usuario agricultor, operador o supervisor.                         |
-| **Dashboard**         | Sidebar, header, breadcrumbs          | Pantalla inicial con el resumen principal de métricas, fincas, parcelas y clima.                  |
-| **Fincas / Parcelas** | Sidebar, títulos de vista, mapas      | Módulo para la delimitación geoespacial y administración de terrenos agrícolas.                   |
-| **Crear misión**      | Botón principal, módulo de misiones   | Acción para programar y definir una nueva orden de fumigación con dron.                           |
-| **Estado de misión**  | Tablas, cards, vista de monitoreo     | Indicador del avance operativo de la pulverización (*Programada, En curso, Completada, Pausada*). |
-| **Telemetría**        | Panel de control del dron, mapas      | Vista en tiempo real de nivel de batería, altitud, velocidad y flujo de pulverización (L/min).    |
-| **Alerta climática**  | Dashboard, header, tarjetas           | Notificación operativa sobre condiciones de viento, lluvia o humedad fuera de rango.              |
-| **Inventario**        | Sidebar, títulos de vista             | Módulo de gestión y control de insumos agrícolas (agroquímicos, pesticidas, fertilizantes).       |
-| **Reportes**          | Sidebar, tablas, exportables          | Módulo de análisis, visualización de métricas e historial de rendimiento por hectárea.            |
-| **Configuración**     | Sidebar, header                       | Área de gestión del perfil, flota de drones, personal asignado y parámetros del sistema.          |
-| **Cerrar sesión**     | Header, menú de usuario               | Acción para salir de la cuenta activa de forma segura.                                            |
+| Etiqueta                | Lugar de uso                              | Descripción                                                                    |
+|:------------------------|:------------------------------------------|:-------------------------------------------------------------------------------|
+| **Solicitar Demo**      | Barra de navegación de la Landing Page    | Lleva al visitante a solicitar una demostración del servicio.                  |
+| **Iniciar Sesión**      | Landing Page y Web Application            | Permite ingresar con una cuenta existente.                                     |
+| **Crear Cuenta**        | Registro de la Web Application            | Permite registrarse como agricultor u operador técnico.                        |
+| **Inicio**              | Menú lateral                              | Vista inicial con el resumen de la operación, los indicadores y el clima.      |
+| **Fincas / Parcelas**   | Menú lateral, títulos y formularios       | Módulos para registrar y administrar los terrenos agrícolas.                   |
+| **Zonas de fumigación** | Menú lateral, títulos y formularios       | Módulo para definir las áreas de cada parcela que serán fumigadas.             |
+| **Misiones**            | Menú lateral                              | Módulo para solicitar, programar y monitorear las misiones de fumigación.      |
+| **Reportes**            | Menú lateral y Accesos rápidos            | Módulo de historial de misiones, uso de insumos e indicadores.                 |
+| **Drones**              | Menú lateral y Accesos rápidos            | Módulo de gestión de la flota de drones y sus mantenimientos.                  |
+| **Estado del clima**    | Vista Inicio                              | Condiciones actuales por ubicación y alertas con su nivel.                     |
+| **Cerrar Sesión**       | Perfil                                    | Acción para salir de la cuenta activa.                                         |
 
 ### 4.2.3. SEO Tags and Meta Tags
 
-Las etiquetas SEO y Meta Tags de AgriDron Solutions se definen para mejorar la visibilidad del producto en buscadores, reforzar la claridad del contenido presentado y optimizar la manera en que las páginas se muestran en navegadores y redes sociales. Debido a que la solución cuenta con una Landing Page pública y una Web Application privada, las decisiones de etiquetado SEO se concentran principalmente en las páginas públicas y en las pantallas principales que funcionan como punto de acceso o referencia operativa del producto.
+Las etiquetas SEO y Meta Tags se definen para las páginas principales de la Landing Page y de la Web Application. Los valores siguientes son los que se asignarán a cada página. En la Landing Page mejoran la visibilidad del producto en buscadores, y en la Web Application, que es privada, identifican cada vista en la pestaña del navegador.
 
-A continuación, se detallan los principales títulos y metadatos propuestos para las páginas más relevantes de la experiencia digital:
-
-**Home / Landing Page**
+**Landing Page: Inicio**
 
 - Title: AgriDron Solutions | Smart drone spraying and crop management
-- Meta Description: Optimize agricultural crop spraying, plot management, and real-time drone telemetry from one platform designed for farmers, operators, and supervisors.
-- Meta Keywords: agricultural drone spraying, precision agriculture, plot management, crop health monitoring, drone telemetry, agritech software
+- Meta Description: Plan drone spraying missions, check weather conditions, and manage farms and parcels from one platform designed for farmers and drone operators.
+- Meta Keywords: agricultural drone spraying, precision agriculture, parcel management, crop spraying, agritech software
 - Meta Author: AgriDron Solutions
 
-**Funcionalidades / Features**
+**Landing Page: Iniciar sesión**
 
-- Title: AgriDron Features | Mission planning, real-time telemetry, and weather alerts
-- Meta Description: Discover how AgriDron Solutions helps plan precision spraying missions, monitor drone telemetry in real time, analyze weather risks, and maximize crop yields.
-- Meta Keywords: drone mission planning, flight telemetry, agricultural weather alerts, crop monitoring software, agritech features
+- Title: Iniciar sesión | AgriDron Solutions
+- Meta Description: Sign in to your AgriDron Solutions account to manage farms, parcels, spraying missions, and reports.
+- Meta Keywords: agridron login, agritech platform access, farmer login, drone operator login
 - Meta Author: AgriDron Solutions
 
-**Planes / Pricing**
+**Landing Page: Solicitud de demo**
 
-- Title: AgriDron Pricing | Plans for farmers, operators, and enterprises
-- Meta Description: Explore AgriDron Solutions plans and choose the right option to digitize plot management, spraying operations, and drone fleet tracking.
-- Meta Keywords: agritech software pricing, drone spraying plans, agricultural platform subscription, farm management software
+- Title: Solicitud de demo | AgriDron Solutions
+- Meta Description: Request a personalized demo of AgriDron Solutions and see how drone spraying can be planned and monitored for your crops.
+- Meta Keywords: agridron demo, drone spraying demo, precision agriculture demo, agritech request
 - Meta Author: AgriDron Solutions
 
-**Login / Iniciar sesión**
+**Web Application: Inicio**
 
-- Title: Sign in | AgriDron Solutions
-- Meta Description: Access your AgriDron Solutions account to manage plots, spraying missions, drone telemetry, and operational reports from one centralized platform.
-- Meta Keywords: agridron login, agritech platform access, farmer dashboard, drone operator login
+- Title: Inicio | AgriDron Solutions
+- Meta Description: Review a summary of your agricultural operation, key indicators, and current weather conditions.
+- Meta Keywords: farm operations summary, agricultural indicators, weather conditions, agritech dashboard
 - Meta Author: AgriDron Solutions
 
-**Register / Crear cuenta**
+**Web Application: Fincas y Parcelas**
 
-- Title: Create account | AgriDron Solutions
-- Meta Description: Register in AgriDron Solutions as a farmer, operator, or supervisor and start organizing your precision spraying operations efficiently.
-- Meta Keywords: agridron register, farmer account, drone operator registration, agritech software account
+- Title: Fincas y Parcelas | AgriDron Solutions
+- Meta Description: Register and manage your farms, parcels, crops, and fumigation areas in one place.
+- Meta Keywords: farm management, parcel management, crop registry, fumigation areas
 - Meta Author: AgriDron Solutions
 
-**Dashboard**
+**Web Application: Misiones**
 
-- Title: Dashboard | AgriDron Solutions
-- Meta Description: Review your current farm status, active spraying missions, weather forecasts, and key agricultural metrics from the main AgriDron dashboard.
-- Meta Keywords: farm operations dashboard, spraying status, weather widget, active drone missions, agritech panel
+- Title: Misiones | AgriDron Solutions
+- Meta Description: Request, schedule, and monitor drone spraying missions for your parcels.
+- Meta Keywords: drone spraying missions, mission scheduling, mission monitoring, crop spraying software
 - Meta Author: AgriDron Solutions
 
-**Fincas y Parcelas / Farms & Plots**
+**Web Application: Reportes**
 
-- Title: Farms & Plots | AgriDron Solutions
-- Meta Description: Delimit, organize, and inspect your agricultural plots on interactive satellite maps for precision crop spraying and health analysis.
-- Meta Keywords: plot mapping, satellite farm view, crop boundary management, agricultural land mapping, farm plots
+- Title: Reportes | AgriDron Solutions
+- Meta Description: Review mission history, supply usage, and performance indicators of your spraying operations.
+- Meta Keywords: mission history, supply usage report, performance indicators, spraying reports
 - Meta Author: AgriDron Solutions
 
-**Misiones y Monitoreo / Spraying Missions**
+**Web Application: Drones**
 
-- Title: Spraying Missions | AgriDron Solutions
-- Meta Description: Create, schedule, and track drone spraying missions with real-time flight telemetry, dosage control, and environmental validation.
-- Meta Keywords: drone spraying missions, flight tracking, chemical dosage control, telemetry monitoring, crop spraying software
+- Title: Drones | AgriDron Solutions
+- Meta Description: Check the status, battery, nozzle, and maintenance schedule of your drone fleet.
+- Meta Keywords: drone fleet management, drone maintenance, agricultural drones, drone status
 - Meta Author: AgriDron Solutions
-
-Estas etiquetas permiten diferenciar el propósito de cada página dentro del ecosistema digital, mantener coherencia entre la propuesta comercial y la experiencia operativa, y reforzar el posicionamiento del producto en búsquedas relacionadas con agricultura de precisión, fumigación automatizada con drones y gestión de cultivos.
 
 ### 4.2.4. Searching Systems
 
-AgriDron Solutions incorpora sistemas de búsqueda y filtrado para reducir el tiempo que el usuario dedica a localizar información dentro de la plataforma. Dado que gran parte de la experiencia está orientada a tareas operativas sobre terreno y mapas satelitales, las búsquedas no solo deben encontrar datos telemétricos o registros, sino también presentarlos en un formato comprensible, geoespacial y directamente accionable.
-
 **Searching in the Web Application**
 
-Los mecanismos de búsqueda se aplican en módulos donde el volumen de información puede crecer rápidamente, como fincas, parcelas, misiones de fumigación, inventario de insumos, flota de drones, alertas y reportes. Cada búsqueda se acompaña de filtros específicos según el contexto del módulo.
+La Web Application no usa un buscador de texto. El usuario localiza la información mediante filtros ubicados en la parte superior de cada vista.
 
-| Sistema de búsqueda                | Ubicación                      | Descripción                                                                                                                 |
-|:-----------------------------------|:-------------------------------|:----------------------------------------------------------------------------------------------------------------------------|
-| **Búsqueda de parcelas y fincas**  | Fincas / Parcelas              | Permite localizar terrenos por nombre, ubicación geográfica, tipo de cultivo (uva, palta, maíz) o extensión en hectáreas.   |
-| **Búsqueda de misiones**           | Misiones                       | Permite filtrar misiones por ID de orden, estado (*Programada, En curso, Completada*), operador asignado o rango de fechas. |
-| **Búsqueda de insumos**            | Inventario                     | Permite encontrar agroquímicos, fertilizantes o pesticidas por nombre comercial, principio activo o categoría.              |
-| **Búsqueda de drones y flota**     | Monitoreo / Drones             | Permite filtrar unidades por código de serie, modelo, disponibilidad o estado de mantenimiento.                             |
-| **Filtro por tipo de cultivo**     | Parcelas y Reportes            | Reduce los listados y mapas a un tipo específico de siembra o variedad agrícola.                                            |
-| **Filtro por fecha y periodo**     | Historial, reportes y misiones | Permite analizar periodos específicos de pulverización e historial telemétrico.                                             |
-| **Filtro por estado y criticidad** | Dashboard, Misiones y Alertas  | Muestra únicamente registros en vuelo activo, misiones pausadas o alertas de clima desfavorable.                            |
+| Filtro                          | Ubicación                                  | Descripción                                                                                         |
+|:--------------------------------|:-------------------------------------------|:----------------------------------------------------------------------------------------------------|
+| **Seleccionar finca**           | Parcelas                                   | Muestra solo las parcelas de la finca elegida.                                                       |
+| **Seleccionar parcela**         | Zonas de fumigación                        | Muestra solo las zonas de fumigación de la parcela elegida.                                         |
+| **Desde / Hasta**               | Reportes, pestañas Misiones y Uso de insumos | Limita los registros a un rango de fechas con los botones Filtrar y Limpiar.                        |
+| **Pestañas de Reportes**        | Reportes                                   | Separan los resultados en Misiones, Uso de insumos e Indicadores.                                    |
+| **Cultivo o superficie**        | Parcelas                                   | Muestra solo las parcelas que cumplen el criterio elegido (FM-005).                                  |
+| **Rango de fechas y parcela**   | Reportes, historial de misiones            | Muestra las misiones ejecutadas en una parcela durante un periodo (RP-004).                          |
+| **Periodo semanal o mensual**   | Misiones, calendario                       | Muestra las misiones programadas en el periodo elegido con sus estados (MI-005).                     |
 
 **Visualización de resultados**
 
-Los resultados de búsqueda en AgriDron Solutions se presentan de forma distinta según la naturaleza del contenido:
+- Fincas: tarjetas con nombre, ubicación y número de parcelas.
+- Parcelas: tarjetas con nombre, cultivo, área en hectáreas y finca asociada, con acceso al detalle.
+- Cultivos y zonas de fumigación: tarjetas con sus datos principales.
+- Drones: tarjetas con modelo, número de serie, estado, batería, boquilla, agroquímicos compatibles y próximo servicio.
+- Reportes: tablas con las columnas ID, Fecha, Estado y Área (ha) en Misiones, y Misión, Tipo, Fecha, Área (ha), Volumen (L) y L/ha en Uso de insumos. Los Indicadores se muestran en tarjetas.
 
-- Parcelas y Fincas: Los resultados se destacan dinámicamente sobre el mapa satelital interactivo o en una lista con datos como nombre del lote, superficie (ha), tipo de cultivo y finca asociada.
-- Misiones: Los resultados se presentan en tabla o tarjetas con ID de misión, parcela destino, fecha, estado de ejecución, operador a cargo y acceso directo al panel de telemetría en tiempo real.
-- Inventario de insumos: Los resultados se muestran en tablas con nombre del producto, categoría (herbicida, fungicida, nutriente), dosis recomendada por hectárea y volumen disponible en stock.
-- Alertas climáticas y de vuelo: Los resultados se muestran como una lista priorizada según el nivel de criticidad (vientos fuertes, batería baja, lluvia), fecha/hora e impacto en la operación.
-- Reportes e historiales: Los resultados se representan mediante tablas filtradas y gráficos dinámicos ajustados al terreno, operador o rango de tiempo seleccionado.
+**Comportamiento de los resultados**
 
-**Comportamiento esperado de los resultados**
-
-Los resultados de búsqueda deben seguir estos criterios:
-
-- Responder en tiempo razonable y con feedback visual claro mediante indicadores de carga sobre tablas y mapas.
-- Mostrar solo la información necesaria para que el agricultor, operador o supervisor tome decisiones operativas inmediatas.
-- Permitir ordenar o refinar el resultado (por hectáreas, fecha de fumigación o criticidad) sin reiniciar completamente la búsqueda.
-- Indicar cuando no existen coincidencias mediante mensajes explícitos como "No se encontraron parcelas o misiones con los criterios seleccionados".
-- Mantener visibles los filtros aplicados (chips/etiquetas activas) para que el usuario identifique claramente qué subconjunto de datos está observando.
+- Mientras se cargan los datos, la vista muestra un mensaje de carga, como "Cargando parcelas...".
+- Antes de elegir un filtro obligatorio, la vista indica qué debe seleccionar, como "Seleccione una finca para ver sus parcelas".
+- Cuando no hay coincidencias, la vista lo indica con mensajes como "No hay parcelas registradas" o "No se encontraron registros.".
 
 **Searching in the Landing Page**
 
-La Landing Page no depende de un buscador interno complejo, sino que incorpora mecanismos de exploración rápida mediante navegación por secciones y enlaces de anclaje (anchors). En este caso, la búsqueda se resuelve a través de una estructura visible y predecible que permite al visitante llegar rápidamente a información clave como funcionalidades de fumigación, planes de suscripción, casos de éxito, preguntas frecuentes o acceso directo al registro y prueba gratuita.
+La Landing Page no tiene buscador. El visitante llega a la información mediante los enlaces de la barra de navegación, que llevan a cada sección de la misma página.
 
 ### 4.2.5. Navigation Systems
 
-El sistema de navegación de AgriDron Solutions ha sido diseñado para que el usuario pueda recorrer la experiencia con claridad tanto en la Landing Page como en la Web Application. En ambos casos, la navegación busca reducir fricción, mantener consistencia y facilitar el acceso rápido a acciones clave como la delimitación de parcelas, la programación de fumigaciones y el monitoreo de vuelo en tiempo real.
-
 **Navigation in the Landing Page**
 
-En la Landing Page, la navegación se estructura como un recorrido progresivo orientado a la conversión. El usuario puede desplazarse por la página de forma lineal o saltar directamente a secciones específicas mediante enlaces visibles en la barra superior.
-
-Los principales mecanismos de navegación en la Landing Page son:
-
-- Navbar superior fija: Incluye accesos a Inicio, Funcionalidades, Cómo funciona, Para quién, Precios, FAQ e Iniciar sesión.
-- Navegación por anchors (anclas): Cada opción del menú dirige suavemente a una sección concreta de la misma página.
-- Hero section con CTAs principales: Botones como Solicitar Demo, Comenzar gratis, Soy Agricultor o Soy Operador redirigen al usuario al flujo correspondiente.
-- CTAs secundarios distribuidos: Se repiten en secciones estratégicas para evitar que el usuario tenga que volver al inicio para actuar.
-- Footer con enlaces complementarios: Contacto, políticas de privacidad, términos y accesos secundarios.
-
-Este sistema permite que un visitante nuevo entienda rápidamente la propuesta de valor del sistema de fumigación con drones, navegue según su interés y llegue a la acción principal en pocos pasos.
+| Elemento                  | Descripción                                                                                                                          |
+|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------|
+| **Barra de navegación**   | Enlaces a las secciones de la página (Inicio, Funcionalidades, Cómo Funciona, Para Quién y Nuestro Equipo) y botón Solicitar Demo.   |
+| **Enlaces de sección**    | Cada enlace desplaza la página hasta su sección (`#inicio`, `#features`, `#how-it-works`, `#audiences` y `#team-section`).            |
+| **Solicitar Demo**        | Lleva a la página Iniciar sesión, desde la que el visitante llega al formulario Solicita una demo.                                   |
+| **CTAs del Hero**         | Empieza tu prueba gratuita lleva al registro de la Web Application (LP-004) y Ver cómo funciona lleva a la sección Cómo funciona.     |
+| **Footer**                | Repite los enlaces de las secciones y muestra los datos de contacto, las redes sociales y los términos legales (LP-006).             |
 
 **Navigation in the Web Application**
 
-En la aplicación web, la navegación se orienta a la productividad y la ejecución de tareas operativas en campo y gabinete. Cada rol (Agricultor, Operador, Supervisor) accede a una estructura estable que prioriza las funcionalidades más utilizadas.
-
-| Elemento de navegación              | Descripción                                                                                                                                             |
-|:------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Sidebar**                         | Menú lateral persistente con acceso directo a las secciones principales del rol activo (*Fincas, Parcelas, Misiones, Monitoreo, Inventario, Reportes*). |
-| **Header**                          | Barra superior con nombre de la finca activa, selector de rol, centro de notificaciones climáticas/de vuelo y menú de perfil.                           |
-| **Dashboard como punto de entrada** | Pantalla inicial tras autenticación, desde donde el usuario visualiza su estado operativo general y métricas clave.                                     |
-| **Breadcrumbs**                     | Indicadores de ruta para secciones de detalle (*Misiones > MS-1042*), permitiendo comprender la ubicación y retroceder fácilmente.                      |
-| **Botones contextuales**            | Acciones principales visibles dentro de cada módulo, como `+ Nueva parcela` o `+ Crear misión`.                                                         |
-| **Notificaciones**                  | Panel accesible desde el header para revisar alertas telemétricas o meteorológicas recientes y redirigirse a la sección relacionada.                    |
-| **Cambio de vista por rol**         | En caso de usuarios con más de un rol (ej. Agricultor/Supervisor), permite alternar entre contextos sin cerrar sesión.                                  |
+| Elemento                 | Descripción                                                                                                                                     |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Menú lateral**         | Acceso a todos los módulos, con ícono y etiqueta. El módulo activo se resalta. En pantallas menores a 960 px se oculta y se abre con el botón de menú. |
+| **Barra superior**       | Botón de menú, nombre AgriDron y selector de idioma.                                                                                            |
+| **Inicio como entrada**  | Tras iniciar sesión o registrarse, el usuario llega a Inicio. Desde ahí accede a Ver fincas, Ver reportes y los Accesos rápidos a cada módulo.   |
+| **Botones contextuales** | Cada listado tiene su botón de creación (Nueva finca, Nueva parcela y otros) y cada tarjeta sus acciones (Ver más, Editar y Eliminar).          |
+| **Vistas de detalle**    | El detalle de parcela, de reporte y de dron tiene un botón para volver al listado (Volver, Volver a reportes y Volver a drones).                 |
+| **Acceso y registro**    | Iniciar Sesión y Crear Cuenta se enlazan entre sí. Al cerrar sesión desde Perfil, el usuario vuelve a Iniciar Sesión.                           |
+| **Página no encontrada** | Una ruta inválida muestra un mensaje y el botón Ir a Inicio.                                                                                    |
 
 **Recorridos principales de navegación**
 
-La navegación de AgriDron Solutions considera recorridos típicos como los siguientes:
-
-- Visitante de Landing Page -> CTA principal (Comenzar gratis) -> Registro o login -> Dashboard del rol correspondiente.
-- Agricultor -> Dashboard -> Parcelas -> Delimitar parcela en mapa satelital -> Guardar lote.
-- Agricultor / Supervisor -> Dashboard -> Misiones -> Crear misión -> Seleccionar parcela e insumo -> Programar fecha y hora.
-- Operador -> Dashboard -> Mis Misiones -> Iniciar vuelo -> Monitorear telemetría en tiempo real -> Registrar finalización o incidencia.
-- Supervisor -> Dashboard -> Monitoreo de Drones -> Visualizar flota activa en mapa -> Reasignar operador o revisar inventario de agroquímicos.
-
-**Criterios de navegación**
-
-La navegación en AgriDron Solutions sigue los siguientes criterios:
-
-- Consistencia: Los elementos principales conservan posición y lógica entre pantallas.
-- Claridad: Cada enlace y botón comunica claramente su destino o acción.
-- Economía de pasos: Las tareas frecuentes (como iniciar un monitoreo o consultar el clima) deben completarse con el menor número posible de interacciones.
-- Visibilidad del estado actual: El usuario debe saber siempre en qué módulo está, qué dron o parcela está seleccionada y qué acciones puede ejecutar.
-- Adaptabilidad responsive: La navegación debe mantenerse usable en desktop, tablet y mobile web para su uso en campo.
-
-**Navegación — Landing Page**
-
-| Elemento                       | Descripción                                                                                                                                                                                                         |
-|:-------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Navbar fija**                | Barra superior visible en todo momento durante el scroll. Contiene logo, enlaces a secciones (anclas) y botones de Iniciar sesión / Registrarse. En mobile se colapsa en menú hamburguesa.                          |
-| **Anclas de sección**          | Los enlaces del navbar desplazan suavemente (*smooth scroll*) a cada sección de la página: `#hero`, `#funcionalidades`, `#como-funciona`, `#para-quien`, `#precios`, `#faq`.                                        |
-| **CTA primario en Hero**       | Botón `Comenzar gratis` redirige a `/register`. Es el punto de conversión principal de la landing.                                                                                                                  |
-| **CTA secundario en Hero**     | Botón `Ver cómo funciona` hace scroll a la sección `#como-funciona`, manteniendo al usuario en la landing para informarse antes de registrarse.                                                                     |
-| **CTAs por segmento**          | En la sección *"¿Para quién es AgriDron?"*, cada card (*Agricultor, Operador, Supervisor*) tiene un botón que redirige a `/register` con el parámetro de rol preseleccionado (`?rol=agricultor` o `?rol=operador`). |
-| **CTA en sección Precios**     | Cada plan tiene un botón que redirige a `/register` con el plan preseleccionado, reduciendo pasos en el onboarding.                                                                                                 |
-| **CTA final (bottom of page)** | Sección de cierre con un último llamado a la acción antes del footer, dirigido a usuarios que llegaron al final sin convertir.                                                                                      |
-| **Footer**                     | Contiene enlaces a páginas legales (política de privacidad, términos), redes sociales y el enlace de inicio de sesión para usuarios ya registrados.                                                                 |
-
-**Navegación — Web Application**
-
-| Elemento                         | Descripción                                                                                                                                                                                                                                                                        |
-|:---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Sidebar**                      | Menú principal fijo a la izquierda, visible en todo momento. Contiene accesos directos a todas las secciones del rol activo con ícono y etiqueta. En mobile se colapsa en hamburguesa.                                                                                             |
-| **Header**                       | Barra superior con nombre de la finca seleccionada, badge del plan activo, ícono de notificaciones con contador y avatar del usuario con menú desplegable (*Perfil / Configuración / Cerrar sesión*).                                                                              |
-| **Dashboard como home**          | Tras iniciar sesión, el usuario es redirigido automáticamente al Dashboard de su rol. El Dashboard funciona como hub de acceso rápido: las tarjetas de métricas (*misiones activas, alerta climática, stock bajo de insumos*) son clicables y llevan a la sección correspondiente. |
-| **Breadcrumbs**                  | Visibles en vistas de detalle para indicar la ruta actual y permitir la navegación hacia atrás. Ejemplo: *Misiones > #MS-1042*.                                                                                                                                                    |
-| **Botones de acción contextual** | Cada sección tiene un botón primario (`+ Nueva parcela`, `+ Crear misión`) ubicado en la esquina superior derecha del contenido, accesible sin scroll.                                                                                                                             |
-| **Panel de notificaciones**      | Al hacer clic en el ícono de campana del header, se despliega un panel lateral con las alertas recientes (viento fuerte, batería baja, misión completada) ordenadas cronológicamente. Cada alerta tiene un acceso directo a la sección correspondiente.                            |
-| **Modo restringido / Campo**     | El usuario u operador puede activar un modo de vista simplificada de campo desde Configuración. En este modo solo son visibles la telemetría del dron en vivo y la ruta de pulverización en el mapa, reduciendo elementos distractores.                                            |
-| **Cambio de rol**                | Si un usuario tiene más de un rol (Agricultor y Supervisor), puede cambiar de vista desde un selector en el header sin cerrar sesión.                                                                                                                                              |
+- Visitante: Landing Page, Empieza tu prueba gratuita, Crear Cuenta, Inicio.
+- Agricultor: Inicio, Fincas, Nueva finca, Parcelas, Nueva parcela, Zonas de fumigación.
+- Agricultor: Inicio, Misiones, solicitud de misión con parcela y fecha (MI-001).
+- Operador técnico: Inicio, Misiones, calendario de misiones, monitoreo de la misión en curso (MI-005 y TR).
+- Operador técnico: Inicio, Drones, Ver detalles, Ver mantenimientos.
+- Agricultor u operador técnico: Inicio, Reportes, Desde / Hasta, Filtrar, Ver detalle, Descargar reporte.
 
 ## 4.3. Landing Page UI Design
 
