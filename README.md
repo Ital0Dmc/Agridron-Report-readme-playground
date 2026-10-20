@@ -2951,13 +2951,13 @@ La propuesta de SCM para AgriDron Solutions se alinea con la arquitectura defini
 
 ### 5.1.1. Software Development Environment Configuration
 
-## 5.1.1.1. Propósito
+#### 5.1.1.1. Propósito
 
 El entorno de desarrollo define las herramientas que utilizará el equipo para implementar, documentar, probar y desplegar AgriDron Solutions. Se busca que todos los integrantes trabajen con una configuración homogénea, reduciendo problemas de compatibilidad y facilitando la colaboración.
 
 El Project Statement indica que esta sección debe especificar el nombre de cada producto de software, su propósito y la ruta de referencia o descarga correspondiente, considerando las actividades de Project Management, Requirements Management, UX/UI Design, Software Development, Software Deployment y Software Documentation.
 
-## 5.1.1.2. Herramientas del proyecto
+#### 5.1.1.2. Herramientas del proyecto
 
 La siguiente tabla indica, para cada actividad del ciclo de vida del producto, los productos de software que utiliza el equipo, su propósito de uso en el proyecto y su ruta de referencia (productos SaaS) o de descarga (productos que se ejecutan en el computador de cada integrante).
 
@@ -2989,11 +2989,11 @@ La siguiente tabla indica, para cada actividad del ciclo de vida del producto, l
 | Software Documentation  | Swagger / OpenAPI                | Documentación de los endpoints de los Web Services.                               | Local | https://swagger.io/specification/                                                             |
 
 
-## 5.1.1.3. Configuración base
+#### 5.1.1.3. Configuración base
 
 Todos los integrantes deberán mantener una configuración equivalente para evitar diferencias entre ambientes locales.
 
-### Frontend
+##### Frontend
 
 ```text
 Node.js
@@ -3003,7 +3003,7 @@ Angular
 TypeScript
 ```
 
-### Backend
+##### Backend
 
 ```text
 Java JDK
@@ -3012,14 +3012,14 @@ Spring Boot
 IDE compatible con Java
 ```
 
-### Base de datos
+##### Base de datos
 
 ```text
 PostgreSQL
 Cliente gráfico de base de datos
 ```
 
-### Control de versiones
+##### Control de versiones
 
 ```text
 Git
@@ -3029,7 +3029,7 @@ Conventional Commits
 Semantic Versioning
 ```
 
-## 5.1.1.4. Estructura de repositorios
+#### 5.1.1.4. Estructura de repositorios
 
 Para mantener separadas las responsabilidades de los productos, se propone trabajar con repositorios independientes:
 
@@ -3053,7 +3053,7 @@ Esta organización sigue la indicación del Project Statement de considerar los 
 
 ### 5.1.2. Source Code Management
 
-## 5.1.2.1. Plataforma y repositorios
+#### 5.1.2.1. Plataforma y repositorios
 
 El control de versiones del proyecto se realizará mediante **Git gestionado desde GitHub**. El Project Statement establece explícitamente GitHub como plataforma de control de versiones y solicita aplicar **GitFlow Workflow, Conventional Commits y Semantic Versioning**.
 
@@ -3066,13 +3066,13 @@ Los repositorios considerados para AgriDron Solutions son:
 | Frontend Web Application | `AgiDron-FrontEnd-7760-G3`    | Angular y TypeScript                                          | https://github.com/Opensource-UPC/Agridron-frontend           |
 | Web Services             | `AgiDron-BackEnd-7760-G3`     | Java, Spring Boot, pruebas unitarias e integración/aceptación | https://github.com/Opensource-UPC/Agridron-backend            |
 
-## 5.1.2.2. GitFlow Workflow
+#### 5.1.2.2. GitFlow Workflow
 
 Se utilizará **GitFlow** como estrategia de organización de ramas.
 
 <img src="assets/chapter5/GitFlow_Workflow.png" alt="Web Applications User Flow Diagrams" width="650"/>
 
-### Ramas principales
+##### Ramas principales
 
 | Branch      | Propósito                                                     |
 |-------------|---------------------------------------------------------------|
@@ -3082,7 +3082,7 @@ Se utilizará **GitFlow** como estrategia de organización de ramas.
 | `release/*` | Preparación de una nueva versión estable.                     |
 | `hotfix/*`  | Corrección urgente de errores encontrados en producción.      |
 
-## 5.1.2.3. Convención para Feature Branches
+#### 5.1.2.3. Convención para Feature Branches
 
 Cada funcionalidad debe desarrollarse en una rama independiente.
 
@@ -3090,7 +3090,7 @@ Cada funcionalidad debe desarrollarse en una rama independiente.
 
 Se utilizarán nombres en **inglés**, en minúsculas y separados mediante guiones.
 
-## 5.1.2.4. Convención para Release Branches
+#### 5.1.2.4. Convención para Release Branches
 
 Formato:
 
@@ -3108,7 +3108,7 @@ release/1.1.1
 
 Las release branches permiten realizar ajustes finales antes de integrar una versión estable a `main`.
 
-## 5.1.2.5. Convención para Hotfix Branches
+#### 5.1.2.5. Convención para Hotfix Branches
 
 Formato:
 
@@ -3126,7 +3126,7 @@ hotfix/login-validation
 
 Los hotfixes estarán destinados exclusivamente a correcciones urgentes de versiones publicadas.
 
-## 5.1.2.6. Pull Requests
+#### 5.1.2.6. Pull Requests
 
 Las modificaciones realizadas en `feature/*`, `release/*` y `hotfix/*` deberán integrarse mediante Pull Requests.
 
@@ -3162,7 +3162,7 @@ Tag vX.Y.Z
 
 Se recomienda que ningún integrante trabaje directamente sobre `main` para funcionalidades nuevas.
 
-## 5.1.2.7. Conventional Commits
+#### 5.1.2.7. Conventional Commits
 
 Los mensajes de commit seguirán la especificación de **Conventional Commits**.
 
@@ -3198,7 +3198,7 @@ Tipos principales:
 
 Conventional Commits relaciona `feat` con incrementos **MINOR**, `fix` con incrementos **PATCH** y los cambios incompatibles con incrementos **MAJOR**, facilitando su integración con Semantic Versioning.
 
-## 5.1.2.8. Semantic Versioning
+#### 5.1.2.8. Semantic Versioning
 
 Las versiones del producto seguirán el formato:
 
@@ -3237,7 +3237,7 @@ v1.1.1
 
 ### 5.1.3. Source Code Style Guide & Conventions
 
-## 5.1.3.1. Principios generales
+#### 5.1.3.1. Principios generales
 
 El Project Statement establece que para los lenguajes utilizados en la solución debe aplicarse nomenclatura en **inglés**. Para AgriDron Solutions se aplicará esta regla a HTML, CSS, JavaScript, TypeScript y Java.
 
@@ -3253,7 +3253,7 @@ Principios:
 8. Mantener las pruebas junto con el código correspondiente.
 9. No incluir credenciales ni secretos dentro del código fuente.
 
-## 5.1.3.2. HTML
+#### 5.1.3.2. HTML
 
 Convenciones:
 
@@ -3271,7 +3271,7 @@ Ejemplo:
 </section>
 ```
 
-## 5.1.3.3. CSS
+#### 5.1.3.3. CSS
 
 Convenciones:
 
@@ -3294,7 +3294,7 @@ Ejemplo:
 }
 ```
 
-## 5.1.3.4. JavaScript
+#### 5.1.3.4. JavaScript
 
 Convenciones:
 
@@ -3307,14 +3307,14 @@ Convenciones:
 Ejemplo:
 
 ```javascript
-const DEFAULT_MISSION_STATUS = "PENDING";
+const DEFAULT_MISSION_STATUS = "PLANNED";
 
 function createMission(missionData) {
   // implementation
 }
 ```
 
-## 5.1.3.5. TypeScript / Angular
+#### 5.1.3.5. TypeScript / Angular
 
 Convenciones:
 
@@ -3334,7 +3334,7 @@ Ejemplo:
 export interface Mission {
   id: number;
   parcelId: number;
-  scheduledDate: string;
+  requestedDate: string;
   status: MissionStatus;
 }
 
@@ -3345,7 +3345,7 @@ export class MissionService {
 }
 ```
 
-## 5.1.3.6. Java / Spring Boot
+#### 5.1.3.6. Java / Spring Boot
 
 Convenciones:
 
@@ -3383,7 +3383,7 @@ public class MissionController {
 }
 ```
 
-## 5.1.3.7. API REST
+#### 5.1.3.7. API REST
 
 Los endpoints utilizarán nombres de recursos en plural y en inglés.
 
@@ -3411,7 +3411,7 @@ Se utilizarán los verbos HTTP según la operación:
 | PATCH  | Actualizar parcialmente un recurso. |
 | DELETE | Eliminar un recurso.                |
 
-## 5.1.3.8. Documentación y lenguaje
+#### 5.1.3.8. Documentación y lenguaje
 
 El idioma por defecto definido para los mensajes, interfaz de usuario e interfaz de documentación de los productos de la solución es **inglés**.
 
@@ -3427,13 +3427,13 @@ Por lo tanto:
 
 ### 5.1.4. Software Deployment Configuration
 
-## 5.1.4.1. Objetivo
+#### 5.1.4.1. Objetivo
 
 El despliegue permitirá publicar los productos de AgriDron Solutions en plataformas cloud y automatizar progresivamente el proceso de entrega.
 
 El Project Statement establece que esta configuración debe contemplar la creación de cuentas, configuración de recursos en proveedores cloud y configuración de proyectos de desarrollo para integración o automatización del deployment. El proceso debe considerar los productos **Landing Page, Web Applications y Web Services**.
 
-## 5.1.4.2. Arquitectura de despliegue
+#### 5.1.4.2. Arquitectura de despliegue
 
 Se propone separar los componentes desplegables de acuerdo con la arquitectura del sistema:
 
@@ -3462,7 +3462,7 @@ flowchart TB
   GitHub -->|"CI/CD"| Backend
 ```
 
-## 5.1.4.3. Ambientes
+#### 5.1.4.3. Ambientes
 
 Se utilizarán tres ambientes conceptuales:
 
@@ -3490,7 +3490,7 @@ main
 Production
 ```
 
-## 5.1.4.4. Integración continua
+#### 5.1.4.4. Integración continua
 
 El repositorio podrá utilizar **GitHub Actions** para automatizar las tareas de integración y despliegue.
 
@@ -3516,7 +3516,7 @@ flowchart LR
   Validate --> DeployProd
 ```
 
-### Backend
+##### Backend
 
 ```text
 Checkout
@@ -3534,7 +3534,7 @@ Package application
 Deploy
 ```
 
-### Frontend
+##### Frontend
 
 ```text
 Checkout
@@ -3550,7 +3550,7 @@ Build Angular application
 Deploy
 ```
 
-### Landing Page
+##### Landing Page
 
 ```text
 Checkout
@@ -3562,7 +3562,7 @@ Build / prepare static assets
 Deploy
 ```
 
-## 5.1.4.5. Variables y secretos
+#### 5.1.4.5. Variables y secretos
 
 Las credenciales, API keys, tokens y contraseñas no deberán almacenarse directamente en el repositorio.
 
@@ -3582,7 +3582,7 @@ Los valores reales no se incluirán en archivos versionados.
 
 GitHub permite asociar secretos y variables a ambientes de despliegue. Además, los ambientes pueden restringir qué branches o tags tienen autorización para realizar deployments y pueden aplicar reglas de protección.
 
-## 5.1.4.6. Configuración de base de datos
+#### 5.1.4.6. Configuración de base de datos
 
 La base de datos relacional se desplegará como un servicio administrado o recurso equivalente dentro del proveedor cloud seleccionado.
 
@@ -3608,7 +3608,7 @@ DB_USER
 DB_PASSWORD
 ```
 
-## 5.1.4.7. Configuración de la API meteorológica
+#### 5.1.4.7. Configuración de la API meteorológica
 
 La API meteorológica será consumida exclusivamente desde el Backend.
 
@@ -3628,7 +3628,7 @@ WEATHER_API_KEY
 
 El Frontend no deberá contener directamente la clave privada del proveedor meteorológico.
 
-## 5.1.4.8. Estrategia de deployment
+#### 5.1.4.8. Estrategia de deployment
 
 La estrategia propuesta es:
 
@@ -3657,7 +3657,7 @@ flowchart TD
   I --> J["Production"]
 ```
 
-## 5.1.4.9. Trazabilidad del deployment
+#### 5.1.4.9. Trazabilidad del deployment
 
 Cada versión desplegada deberá poder relacionarse con:
 
@@ -3827,7 +3827,7 @@ El equipo trabajó de forma complementaria en tres dimensiones: la propuesta de 
 | Sprint 1 - Review Summary | Se revisó el avance alcanzado durante el Sprint 1, principalmente en la construcción de la Landing Page y en la definición inicial de la propuesta de valor, servicios, planes, registro, inicio de sesión y contenido legal. |
 | Sprint 1 - Retrospective Summary | Se identificó la necesidad de continuar con una distribución clara de responsabilidades y mejorar la coordinación entre las actividades de análisis, diseño y desarrollo, manteniendo una comunicación constante para integrar los avances individuales. |
 
-##### Sprint Goal & User Stories
+#### Sprint Goal & User Stories
 
 | Aspecto | Descripción |
 |:---|:---|
@@ -3905,8 +3905,6 @@ Durante el Sprint 2 se avanzó en la construcción de las funcionalidades princi
 
 Asimismo, se desarrollaron los elementos de análisis y diseño necesarios para representar las responsabilidades de los diferentes Bounded Contexts de la solución. Esta organización permitió relacionar las funcionalidades del Product Backlog con las responsabilidades específicas de cada parte del dominio.
 
-La evidencia de desarrollo del sprint debe incluir capturas de los avances realizados y, cuando corresponda, referencias a las ramas y commits utilizados para implementar las User Stories seleccionadas.
-
 ![Evidencia de desarrollo del Sprint 2](assets/chapter5/sprint_2_development.png)
 
 ---
@@ -3918,8 +3916,6 @@ La ejecución del Sprint 2 se realizó mediante coordinación entre los integran
 Durante el sprint se revisaron progresivamente las funcionalidades relacionadas con usuarios, parcelas, recursos, misiones, condiciones meteorológicas y resultados de las operaciones.
 
 ![Evidencia de ejecucion del Sprint 2](assets/chapter5/deployment_sprint_2.png)
-
-La evidencia de ejecución debe mostrar los avances funcionales alcanzados durante el sprint y la validación de las tareas completadas.
 
 **Link de la plataforma:** [https://agridronwebapp.web.app](https://agridronwebapp.web.app) 
 
@@ -3938,15 +3934,11 @@ La evidencia documental del sprint contempla:
 - Servicios para la consulta de historial, métricas y reportes.
 - Servicios relacionados con la gestión de drones e insumos.
 
-La documentación deberá complementarse con las capturas correspondientes y, cuando se encuentre disponible, con la URL de la documentación OpenAPI/Swagger y los identificadores de los commits relacionados.
-
 ---
 
 #### 5.2.2.7. Software Deployment Evidence for Sprint Review
 
 Durante el Sprint 2 se continuó con la configuración y preparación de los componentes necesarios para la evolución del producto. El trabajo de despliegue se mantuvo alineado con la estructura de repositorios y la estrategia de control de versiones definida para el proyecto.
-
-La evidencia de despliegue debe mostrar los cambios realizados en los entornos utilizados durante el sprint y, cuando corresponda, las configuraciones empleadas para publicar los componentes desarrollados.
 
 ![Evidencia de despliegue del Sprint 2](assets/chapter5/deployment_sprint_2.png)
 
