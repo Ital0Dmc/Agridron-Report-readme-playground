@@ -1283,38 +1283,30 @@ El branding de AgriDron se fundamenta en los siguientes conceptos clave:
 - **Sostenibilidad y Cercanía:** Inspiradas en una paleta orgánica y el uso de imágenes reales de campo, conectando la tecnología directamente con la realidad del agricultor.
 
 **3. Typography:**
-El sistema tipográfico de AgriDron emplea dos familias de fuentes seleccionadas para equilibrar fuerza de marca,
-alta legibilidad en pantallas y precisión técnica en datos:
 
-- **Brand / Títulos principales (Segoe UI):** Se utiliza en fuentes sans-serif para títulos (Display, Headline), encabezados
-de la landing page y secciones principales de la aplicación. Aporta modernidad y estructura visual limpia.
+El sistema tipográfico de AgriDron emplea dos familias de fuentes, una para cada producto, que equilibran la fuerza de marca con la legibilidad en pantalla:
 
-<img src="assets/chapter4/General_Style/Typography.jpg" alt="Typography Agridron" width="650"/>
+- **Montserrat (Landing Page):** se utiliza en títulos, párrafos y botones de la Landing Page, con Segoe UI como fuente alternativa. Sus pesos de 400 a 900 permiten jerarquizar títulos y textos con una sola familia.
+- **Roboto (Web Application):** es la tipografía de Material Design que aplica Angular Material en toda la Web Application. Se usa con los pesos 300, 400 y 500 en títulos, formularios, tablas y botones, y garantiza claridad en la consulta de datos operativos.
 
-*Figura: Escala tipográfica de títulos con Segoe UI.*
+<img src="assets/chapter4/General_Style/typography.png" alt="Typography Agridron" width="650"/>
 
-- **Plain / Cuerpo de texto (Montserrat):** Se emplea para el cuerpo de texto, párrafos, formularios, tablas, etiquetas y botones
-generales. Su alto rendimiento de lectura garantiza claridad en la consulta de datos operativos.
-
-<img src="assets/chapter4/General_Style/Typography_body.jpg" alt="Typography Agridron" width="650"/>
-
-*Figura: Tipografía Montserrat para el cuerpo de texto y la interfaz.*
+*Figura: Tipografías de AgriDron Solutions.* Montserrat se aplica en la Landing Page y Roboto en la Web Application, con la jerarquía de títulos, textos, etiquetas y botones de cada producto.
 
 **4. Colors:**
 
-La paleta de colores de AgriDron está inspirada en la naturaleza y el sector agrícola, complementada con tonos tecnológicos y de alto
-contraste para maximizar la legibilidad en campo y gabinetes operativos:
+La paleta de colores de AgriDron está inspirada en la naturaleza y el sector agrícola, complementada con colores de estado y de alerta de alto contraste:
 
-- **Verde Bosque / Primario (#1B463C):** Transmite sostenibilidad, naturaleza y confianza agrícola. Se utiliza en headers, navegación.
-- **Verde Teal / Secundario (#20AC87):** Aporta dinamismo y frescura. Se usa en botones interactivos (CTAs), estados activos de misiones y gráficos de progreso.
-- **Azul Tecnológico (#1E3A8A):** Representa precisión, telemetría y fiabilidad técnica en la plataforma. Utilizado en datos de vuelo y componentes de monitoreo.   
-- **Amarillo / Alerta (#F59E0B):** Destinado a estados programados, advertencias meteorológicas y notificaciones de atención.   
-- **Neutros (Blanco #FFFFFF y Gris Claro #F8FAFC):** Garantizan orden, espacio respirable y balance visual en la interfaz.
+- **Verde Bosque / Primario (#1B463C):** transmite sostenibilidad y confianza agrícola. Se utiliza en la barra lateral de navegación, el pie de página y los títulos de la Web Application.
+- **Verde Teal / Secundario (#179A7A):** aporta dinamismo. Se usa en los botones principales, la opción activa de la navegación y los íconos de métricas.
+- **Verdes de la Landing Page (#1DA27E a #0F8E74 y texto #0D3C35):** se aplican en los botones con degradado y en los textos de la Landing Page.
+- **Colores de estado de la misión:** verde #4CAF50 (Completada), azul #42A5F5 (En Progreso), naranja #FFA726 (Pendiente o Confirmada) y rojo #EF5350 (Pausada).
+- **Colores de alerta meteorológica:** azul #1E3A8A (severidad baja), ámbar #B45309 (severidad media) y rojo #B91C1C (severidad alta), cada uno sobre un fondo tenue.
+- **Neutros y error:** blanco #FFFFFF y gris claro #F3F5F2 para fondos y tarjetas, y rojo #B3261E para los mensajes de error.
 
-<img src="assets/chapter4/General_Style/colors.jpg" alt="Colors Agridron" width="650"/>
+<img src="assets/chapter4/General_Style/colors.png" alt="Colors Agridron" width="650"/>
 
-*Figura: Paleta de colores de AgriDron Solutions: verde bosque, verde teal, azul tecnológico, amarillo de alerta y blanco.*
-
+*Figura: Paleta de colores de AgriDron Solutions.* Agrupa los colores de marca, los colores de estado de la misión y los colores de las alertas meteorológicas y de error.
 
 **5. Spacing:**
 
@@ -1340,117 +1332,78 @@ Según las dimensiones del tono de comunicación, AgriDron se ubica en:
 
 **7. Language:**
 
-El lenguaje del sistema será directo, breve y orientado a la acción. El idioma principal de la interfaz será
-el Español (es_419), adaptado al entorno agrícola latinoamericano, contando con soporte para Inglés (en_US).
+El lenguaje del sistema será directo, breve y orientado a la acción. El idioma principal de la interfaz es el español, adaptado al entorno agrícola latinoamericano, con soporte para inglés.
 
-Se priorizarán frases cortas e imperativas que reduzcan la carga cognitiva:
-
-- Nueva misión en lugar de Registrar solicitud de servicio de fumigación.
-- Seleccionar parcela en lugar de Elegir área geográfica de terreno agrícola.
-- Monitorear vuelo en lugar de Visualizar estado de la telemetría del dron en ejecución.
-- Descargar reporte en lugar de Generar informe detallado de rendimiento de insumos.
+Se priorizan etiquetas cortas y verbos de acción que reducen la carga cognitiva, como en la Web Application: Nueva finca, Nueva parcela, Ver más, Editar, Eliminar y Volver. El cambio de idioma se realiza desde un selector en la barra superior.
 
 ### 4.1.2. Web Style Guidelines
 
-Las Web Style Guidelines de AgriDron Solutions establecen los criterios visuales y de interacción que
-guían el diseño de la landing page y la web application. Estas pautas aseguran consistencia entre dispositivos,
-favorecen la legibilidad y permiten que tanto agricultores como operadores técnicos naveguen de forma intuitiva por la plataforma.
+Las Web Style Guidelines de AgriDron Solutions establecen los criterios visuales y de interacción que guían el diseño de la Landing Page y la Web Application. Estas pautas aseguran consistencia entre dispositivos, favorecen la legibilidad y permiten que tanto agricultores como operadores técnicos naveguen de forma intuitiva por la plataforma.
 
 **Estructura general**
 
-AgriDron Solutions adopta un enfoque responsive web design, de modo que la interfaz se adapte correctamente a desktop,
-laptop, tablet y mobile web sin perder claridad ni coherencia visual.
+AgriDron Solutions adopta un enfoque responsive web design, de modo que la interfaz se adapte a desktop, tablet y mobile web sin perder claridad ni coherencia visual.
 
-- **Desktop:** La navegación principal se presenta mediante sidebar lateral y header superior. Los módulos con mayor densidad informativa, como la gestión de parcelas en mapa satelital, monitoreo de misiones, inventario y reportes de productividad, aprovechan mejor el ancho disponible mediante tablas, mapas interactivos, tarjetas de métricas y filtros visibles.
-
-- **Tablet:** La estructura se reorganiza a 6 u 8 columnas, reduciendo el número de elementos visibles por fila. Los paneles laterales pueden colapsarse y ciertas tablas o paneles de telemetría pasan a formatos más compactos para facilitar la interacción táctil en campo.
-
-- **Mobile Web:** La estructura se simplifica a una sola columna. Los elementos se apilan verticalmente, se priorizan botones de acción principal (como iniciar misión o registrar incidencia) y la navegación se compacta mediante menú hamburguesa o navegación inferior, según el flujo de trabajo.
+- **Web Application:** la navegación se organiza con una barra lateral en verde bosque y una barra superior con el botón de menú, el nombre AgriDron y el selector de idioma. La barra lateral da acceso a Inicio, Fincas, Parcelas, Cultivos, Zonas de fumigación, Reportes, Drones y Perfil. Las fincas, parcelas y drones se presentan en cuadrículas de tarjetas que se reacomodan según el ancho disponible.
+- **Landing Page:** un menú superior lleva a las secciones Inicio, Funcionalidades, Cómo funciona, Para quién y Nuestro equipo, y los botones de acción dirigen al registro y al inicio de sesión.
 
 **Breakpoints**
 
-Se proponen los siguientes breakpoints para asegurar una adaptación consistente en todos los entornos de uso:
-
-- Mobile: hasta 767 px.
-- Tablet: desde 768 px hasta 1023 px.
-- Desktop: 1024 px en adelante.
-
-![Web Style Guide de AgriDron Solutions](./assets/chapter4/Web_Style/web_style_guide.png)
-
-*Figura: Web Style Guide de AgriDron Solutions.* Ilustra los botones primarios y secundarios con sus estados hover y focus, los inputs en estado por defecto, enfocado y con error de validación, una card con su estado de misión, los colores de los estados (Completada, En Progreso, Pendiente o Confirmada, y Pausada o alerta), el formato de las tablas y los tres breakpoints.
+- **Web Application:** hasta 959 px la barra lateral se oculta y se abre como panel desplegable desde el botón de menú. Desde 960 px la barra lateral permanece fija.
+- **Landing Page:** el diseño se reorganiza en 1200 px y en 760 px, apilando los contenidos en una sola columna en pantallas pequeñas.
 
 **Componentes básicos de UI**
 
-- Botones primarios: fondo verde bosque #1B463C o verde teal #20AC87, texto blanco, bordes redondeados de 8 px a 12 px. Se utilizan para acciones clave como + Nueva finca, + Nueva parcela, Crear misión, Confirmar e Iniciar sesión.
-- Botones secundarios: fondo blanco o gris claro #F8FAFC, borde en verde bosque #1B463C o gris #CBD5E1, con texto oscuro. Se emplean para acciones complementarias como Cancelar, Ver detalle, Filtrar o Volver.
-- Inputs y formularios: bordes suaves (#CBD5E1), fondo claro e interno con suficiente padding para facilitar la lectura e interacción. El estado enfocado resalta mediante un borde verde teal #20AC87. El estado de error utiliza un borde rojo #EF4444 con un mensaje de validación visible debajo del campo.
-- Cards: contenedores rectangulares con esquinas redondeadas, padding interno de 16 px a 24 px y jerarquía clara entre título, contenido y acciones. Se usan en el dashboard principal, resumen meteorológico, métricas de cultivo, tarjetas de fincas y vistas de misiones.
-- Tablas: encabezados destacados sobre fondo tenue, filas con separación visual suficiente mediante bordes sutiles y acciones agrupadas al extremo derecho. En resoluciones pequeñas, las tablas se transforman en tarjetas apiladas para mejorar la lectura rápida en dispositivos móviles de campo.
-- Sidebar: navegación vertical persistente en desktop, con acceso a Dashboard (Inicio), Fincas, Parcelas, Misiones, Drones / Monitoreo, Reportes, Inventario y Configuración. En tablet y mobile web la barra lateral se colapsa automáticamente.
-- Header: barra superior que alberga el nombre del usuario autenticado, su rol (Agricultor u Operador técnico), buscador global, widget de notificaciones / alertas meteorológicas y acceso rápido a configuración o cierre de sesión.
+- **Botones primarios:** en la Web Application son botones de Angular Material con fondo verde teal #179A7A y texto blanco, como Nueva finca o Crear. En la Landing Page usan un degradado verde (#1DA27E a #0F8E74) con bordes redondeados de 12 px a 14 px.
+- **Botones secundarios:** botones de Angular Material con borde o solo texto, para acciones como Volver, Ver más o Editar.
+- **Campos de formulario:** campos de Angular Material con estilo outlined. Si un dato obligatorio falta, el campo se marca en rojo #B3261E y muestra el mensaje de validación debajo, por ejemplo "El área es obligatoria".
+- **Cards:** tarjetas de Angular Material con esquinas redondeadas de 12 px, usadas para fincas, parcelas, drones, métricas y el clima.
+- **Tablas:** tablas de Angular Material en los reportes, con el estado de cada misión en etiquetas de color.
+- **Etiquetas de estado:** etiquetas redondeadas con el color de cada estado de la misión y de cada severidad de alerta meteorológica.
+
+![Web Style Guide de AgriDron Solutions](./assets/chapter4/Web_Style/web_style_guide.png)
+
+*Figura: Web Style Guide de AgriDron Solutions.* Ilustra los botones de la Web Application y de la Landing Page, los campos de formulario en estado por defecto y con error de validación, una tarjeta con las etiquetas de estado de la misión, la navegación de la Web Application y los breakpoints de cada producto.
 
 **Tipografía en web**
 
-La propuesta tipográfica de AgriDron Solutions mantiene como base las familias tipográficas Segoe UI y Montserrat, según la identidad visual previamente definida:
-
-- Títulos principales (H1): Segoe UI, 24 px a 28 px.   
-- Subtítulos (H2): Segoe UI SemiBold, 20 px a 22 px.   
-- Encabezados de sección (H3): Segoe UI Medium, 18 px.  
-- Texto de párrafo y descripciones: Montserrat Regular, 14 px a 16 px.   
-- Texto en botones: Montserrat SemiBold, 14 px a 16 px.   
-- Etiquetas de formularios y tablas: Montserrat Medium, 13 px a 14 px.   
-- Datos técnicos y telemetría: Montserrat, 12 px a 14 px (utilizado para coordenadas GPS, logs del dron y métricas de vuelo).
+- **Web Application (Roboto):** títulos de vista de 28 px, títulos de sección de 18 px, texto de formularios y tablas de 14 px, y etiquetas de 12 px.
+- **Landing Page (Montserrat):** títulos principales en pesos 700 a 900, subtítulos en peso 600 y párrafos en peso 400.
 
 **Interacción**
 
-- Hover: Los botones incrementan ligeramente el contraste o brillo del color base (verde o gris). Los enlaces se subrayan o cambian a un tono más intenso del verde corporativo.  
-- Focus: Todo componente interactivo muestra un estado visible de foco (anillo de resalte en verde teal #20AC87), especialmente en inputs, botones y controles de mapa, para favorecer la accesibilidad y navegación por teclado.   
-- Active / Click: Los botones aplican una ligera reducción de escala o sombra interna para confirmar la pulsación o interacción del usuario.  
-- Feedback visual: Estados como éxito (Completada), error o advertencia (Pausada, ráfaga de viento alto), pendiente (Pendiente o Confirmada) o información en progreso (En Progreso) se distinguen mediante color (verde, rojo, amarillo/ámbar, azul), iconografía representativa y texto breve de confirmación.  
-- Scroll y navegación persistente: En desktop, el header superior y los controles interactivos del mapa satelital permanecen fijos (sticky) para facilitar la navegación y el monitoreo continuo durante desplazamientos verticales largos.  
-- Responsive behavior: El contenido prioritario (estado de misión, mapa interactivo y botones de acción rápida) conserva visibilidad inmediata antes que elementos decorativos o información secundaria en pantallas reducidas.
+- **Hover:** las opciones de la barra lateral cambian su fondo al pasar el cursor.
+- **Estado activo:** la opción de navegación de la vista actual se resalta en verde teal #179A7A.
+- **Focus:** los componentes de Angular Material muestran un estado de foco visible, que favorece la navegación por teclado.
+- **Feedback visual:** los estados de la misión y las alertas meteorológicas se distinguen por color y por texto, y los errores de formulario se muestran junto al campo.
+- **Transiciones:** los cambios de color en la navegación usan transiciones breves de 0.2 segundos.
 
 ### 4.1.3. Mobile Style Guidelines
 
-Las Mobile Style Guidelines de AgriDron Solutions tienen como objetivo adaptar la experiencia de uso a pantallas reducidas sin perder funcionalidad, claridad visual ni consistencia con la propuesta general del producto. Estas pautas priorizan rapidez de interacción en campo, facilidad de lectura bajo luz solar directa y acceso inmediato a acciones frecuentes de fumigación y monitoreo.
+Las Mobile Style Guidelines de AgriDron Solutions adaptan la experiencia a pantallas reducidas, desde el navegador del celular, sin perder funcionalidad ni consistencia con la propuesta general del producto.
 
 **Estructura general**
 
-La experiencia móvil de AgriDron Solutions está diseñada para que agricultores y operadores técnicos puedan consultar información crítica de parcelas y ejecutar acciones esenciales de campo desde cualquier lugar.
-
-- Pantallas en una sola columna, con contenido apilado verticalmente.   
-- Header compacto, con el logo de AgriDron, nombre de la vista actual y acceso a notificaciones, alertas meteorológicas o menú desplegable.   
-- Navegación simplificada, priorizando las secciones más importantes según el rol del usuario (Inicio, Fincas, Parcelas, Misiones y Monitoreo).  
-- Botones de acción visibles, especialmente en flujos clave como + Nueva finca, + Nueva parcela, Crear misión o Pausar vuelo.   
-- Tarjetas resumidas e interactivas, en lugar de tablas complejas, para mostrar parcelas, misiones recientes, condiciones climáticas y telemetría de drones de forma clara y directa.
+- La barra lateral de la Web Application se oculta y se abre desde el botón de menú de la barra superior.
+- Las cuadrículas de tarjetas pasan a una sola columna, con el contenido apilado verticalmente.
+- El detalle del dron reorganiza su contenido en una sola columna desde 700 px, y el widget de clima reduce el tamaño de la temperatura en pantallas pequeñas.
+- La Landing Page apila sus secciones en una sola columna desde 760 px.
 
 **Componentes básicos en mobile**
 
-- Botones primarios: verde bosque #1B463C o verde teal #20AC87, texto blanco, esquinas redondeadas de 12 px y un área táctil mínima de 44 x 44 px para facilitar la interacción en terreno.   
-- Botones secundarios: fondo blanco o gris claro #F8FAFC con borde visible en verde o gris y alto contraste.
-- Inputs: ancho completo (100%), padding amplio y separación mínima de 16 px entre campos para evitar pulsaciones accidentales.
-- Cards de resumen: usadas para misiones, parcelas, clima y telemetría (batería, altitud, flujo de insumo), con distribución vertical y jerarquía visual clara.
-- Listas: los registros de fincas y misiones se organizan en bloques táctiles con título, estado, fecha, extensión en hectáreas (ha) y acción principal (Ver, Monitorear).
-- Indicadores de estado: cada misión o alerta utiliza color y texto explícito para distinguir rápidamente condiciones como Completada (verde), En Progreso (azul), Pendiente o Confirmada (amarillo/ámbar) o Pausada / Alerta (rojo).
+- Los botones, campos y tarjetas son los mismos de la versión web, con el ancho completo de la pantalla.
+- Los botones de Angular Material mantienen un área táctil suficiente para la interacción en campo.
+- Las etiquetas de estado conservan el mismo color y texto que en la versión web.
 
 **Tipografía en mobile**
 
-La adaptación móvil de AgriDron Solutions mantiene la coherencia con las familias tipográficas Segoe UI (títulos) y Montserrat (cuerpo e interfaz):
-
-- Título principal (H1): Segoe UI Bold, 20 px a 22 px.   
-- Subtítulos (H2): Segoe UI SemiBold, 16 px a 18 px.  
-- Texto general y párrafos: Montserrat Regular, 14 px.   
-- Botones: Montserrat SemiBold, 14 px.  
-- Etiquetas pequeñas o estados: Montserrat Medium, 12 px a 13 px.   
-- Datos de telemetría y coordenadas: Montserrat, 12 px a 13 px (utilizado para niveles de batería, velocidad m/s, flujo de líquido L/min y coordenadas GPS).
+Se mantienen Roboto en la Web Application y Montserrat en la Landing Page. En la Landing Page, el título principal se reduce en pantallas pequeñas para conservar la legibilidad.
 
 **Interacción en mobile**
 
-- Acciones rápidas y flujos cortos: Se priorizan flujos simplificados (como el dibujo de parcelas o la planificación de misiones en 3 o 4 pasos) para optimizar el trabajo en el campo.  
-- Dimensiones táctiles: Todos los botones y componentes interactivos respetan el tamaño mínimo de área táctil (44 x 44 px). 
-- Formularios en bloques: Los formularios de registro de parcelas, cultivos e insumos se dividen en secciones o pasos breves para evitar la fatiga visual. 
-- Alcance del pulgar: Las acciones críticas (como confirmar una misión o pausar una operación de emergencia) se colocan estratégicamente en la zona inferior de la pantalla al alcance natural del pulgar.   
-- Feedback inmediato: Los cambios de estado de vuelo, alertas meteorológicas o el guardado de datos se muestran instantáneamente mediante mensajes visibles (toast notifications), banners contextuales e indicadores de color explícitos.
+- La navegación se abre y se cierra desde el botón de menú, y el panel lateral se superpone al contenido.
+- El selector de idioma permanece visible en la barra superior.
+- Los mensajes de error y los estados se muestran igual que en la versión web.
 
 ---
 
