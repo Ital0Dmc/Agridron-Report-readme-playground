@@ -2966,9 +2966,9 @@ La siguiente tabla indica, para cada actividad del ciclo de vida del producto, l
 | Project Management      | Trello                           | Organización de los Sprint Backlogs y seguimiento de las tareas del equipo.       | SaaS  | https://trello.com/                                                                           |
 | Requirements Management | Trello                           | Gestión del Product Backlog y de los User Stories.                                | SaaS  | https://trello.com/                                                                           |
 | Requirements Management | UXPressia                        | Elaboración de User Personas, Empathy Maps, User Journey Maps e Impact Mapping.   | SaaS  | https://uxpressia.com/                                                                        |
-| Requirements Management | Miro                             | Elaboración de Big Picture EventStorming y Design-Level EventStorming.            | SaaS  | https://miro.com/                                                                             |
-| Product UX/UI Design    | Figma                            | Diseño de wireframes, mock-ups y prototipos del Landing Page y de la Web Application. | SaaS  | https://www.figma.com/                                                                    |
-| Product UX/UI Design    | Lucidchart                       | Elaboración de diagramas de flujo, Wireflows y User Flows.                        | SaaS  | https://www.lucidchart.com/                                                                   |
+| Requirements Management | Miro                             | Elaboración del Big Picture EventStorming y de los User Flows.                    | SaaS  | https://miro.com/                                                                             |
+| Product UX/UI Design    | Figma                            | Diseño de wireframes, wireflows, mock-ups y prototipos del Landing Page y de la Web Application. | SaaS  | https://www.figma.com/                                                                    |
+| Product UX/UI Design    | Lucidchart                       | Elaboración del Design-Level EventStorming.                                       | SaaS  | https://www.lucidchart.com/                                                                   |
 | Software Development    | Git                              | Control de versiones local del código fuente.                                     | Local | https://git-scm.com/downloads                                                                 |
 | Software Development    | GitHub                           | Hospedaje de repositorios y colaboración mediante GitFlow, Pull Requests y Conventional Commits. | SaaS  | https://github.com/                                                         |
 | Software Development    | HTML5, CSS3 y JavaScript         | Implementación del Landing Page.                                                  | Local | https://developer.mozilla.org/                                                                |
@@ -2988,7 +2988,6 @@ La siguiente tabla indica, para cada actividad del ciclo de vida del producto, l
 | Software Documentation  | Mermaid                          | Diagramas como código (C4 Model, diagramas de clases y de base de datos) renderizados en GitHub. | SaaS  | https://mermaid.js.org/                                                       |
 | Software Documentation  | Swagger / OpenAPI                | Documentación de los endpoints de los Web Services.                               | Local | https://swagger.io/specification/                                                             |
 
-> **Nota:** Las herramientas de gestión de proyectos y los proveedores cloud deberán reemplazarse por los productos concretos que el equipo haya seleccionado en su implementación final. La tabla mantiene como propuesta las herramientas que no han sido fijadas previamente.
 
 ## 5.1.1.3. Configuración base
 
@@ -3062,7 +3061,7 @@ Los repositorios considerados para AgriDron Solutions son:
 
 | Producto                 | Repositorio                   | Contenido                                                     | Link de Github                                                |
 |--------------------------|-------------------------------|---------------------------------------------------------------|---------------------------------------------------------------|
-| Report                  | `AgiDron-LandingPage-7760-G3-Agridon-Report` | Documento en Markdown                                        | https://github.com/Opensource-UPC/1ASI0729-2620-7760-G3-Agridron-Report |
+| Report                  | `1ASI0729-2620-7760-G3-Agridron-Report` | Documento en Markdown                                        | https://github.com/Opensource-UPC/1ASI0729-2620-7760-G3-Agridron-Report |
 | Landing Page             | `AgiDron-LandingPage-7760-G3` | HTML, CSS y JavaScript                                        | https://github.com/Opensource-UPC/AgiDron-LandingPage-7760-G3 |
 | Frontend Web Application | `AgiDron-FrontEnd-7760-G3`    | Angular y TypeScript                                          | https://github.com/Opensource-UPC/Agridron-frontend           |
 | Web Services             | `AgiDron-BackEnd-7760-G3`     | Java, Spring Boot, pruebas unitarias e integración/aceptación | https://github.com/Opensource-UPC/Agridron-backend            |
@@ -3360,23 +3359,21 @@ Convenciones:
 | DTO      | PascalCase + DTO | `MissionResponseDTO`   |
 | Entity   | PascalCase       | `Mission`              |
 
-La estructura del backend seguirá una separación lógica entre:
+La estructura del backend seguirá la organización por Bounded Context y, dentro de cada uno, por capas (TU-001):
 
 ```text
-controller/
-service/
-domain/
-repository/
-dto/
-config/
-exception/
+<bounded-context>/
+  domain/
+  application/
+  infrastructure/
+  interfaces/
 ```
 
 Ejemplo:
 
 ```java
 @RestController
-@RequestMapping("/api/missions")
+@RequestMapping("/api/v1/missions")
 public class MissionController {
 
   @GetMapping("/{id}")
@@ -3393,15 +3390,15 @@ Los endpoints utilizarán nombres de recursos en plural y en inglés.
 Ejemplos:
 
 ```text
-GET    /api/farms
-GET    /api/parcels
-POST   /api/parcels
-GET    /api/missions
-POST   /api/missions
-PUT    /api/missions/{id}
-DELETE /api/missions/{id}
-GET    /api/weather
-GET    /api/reports
+GET    /api/v1/farms
+GET    /api/v1/parcels
+POST   /api/v1/parcels
+GET    /api/v1/missions
+POST   /api/v1/missions
+PUT    /api/v1/missions/{id}
+PATCH  /api/v1/missions/{id}/status
+GET    /api/v1/weather
+GET    /api/v1/mission-reports
 ```
 
 Se utilizarán los verbos HTTP según la operación:
@@ -3574,9 +3571,9 @@ Se utilizarán variables de entorno y secretos administrados por la plataforma d
 Ejemplos:
 
 ```text
-DATABASE_URL
-DATABASE_USERNAME
-DATABASE_PASSWORD
+DB_HOST
+DB_USER
+DB_PASSWORD
 WEATHER_API_KEY
 JWT_SECRET
 ```
@@ -3708,27 +3705,6 @@ Esto permite identificar qué cambios forman parte de una versión determinada y
 | Velocity            | 18                                                                                                                                                                                                       |
 | Sum of Story Points | 18                                                                                                                                                                                                       |
 
-Es muy importante que el equipo dedique atención a la identificación del Sprint Goal. Según el Scrum Guide, “El Sprint Goal es el objetivo individual del Sprint. Es un compromiso para los Developers, flexible en términos del trabajo exacto que se requiere para alcanzarlo. El Sprint Goal también crea coherencia y enfoque, buscando que los miembros del Scrum Team trabajen juntos en vez de ir en pos de iniciativas individuales.”
-
-Para identificar el Sprint Goal, es recomendable enfocarse en el negocio (business) o la perspectiva de los usuarios (user-focused), como por ejemplo entregar un nuevo feature o feature set. Esta visión ayuda a priorizar lo esencial del sprint y a mantener alineado al equipo con el valor que se desea entregar.
-
-Escribir objetivos SMART (Specific, Measurable, Attainable, Relevant, Time-bound) puede ser de mucha utilidad para que el equipo articule el Sprint Goal. La estructura propuesta por Scrum.org ofrece un ejemplo claro: “Our focus is on <Outcome> We believe it delivers <Impact> to <Customer(s)> This will be confirmed when <Event happens>”.
-
-Por ejemplo, tomando como ejemplo un solo feature: “Our focus is on sending a basic email that contains a link to a spreadsheet. We believe it delivers confidence in the product to our organization. This will be confirmed when we have an email in an inbox”.
-
-Es importante que el equipo se enfoque en identificar Outcome, Impact, Customer(s), así como Event. El solo hecho de aplicar el template no garantiza un buen Sprint Goal. El siguiente ejemplo es un uso incorrecto del template: “Our focus is on having SAP integrated into the Corporate system. We believe it delivers satisfaction and closure for our project manager. This will be confirmed when Epic SAP-123 is closed in Jira.” Aquí el Goal se está centrándose en el complimiento de un sistema interno, no en un valor observable para el usuario. Un mejor enfoque sería: “Our focus is on having a landing page that explains our new solution clearly and motivates sign-ups. We believe it delivers increased conversion and customer trust. This will be confirmed when the team receives at least 20 qualified leads from the demo landing page.”
-
-Es recomendable que la redacción sea específica en términos de qué features se compromete a lograr y cómo benefician a los segmentos objetivo, sin detallar cómo. Algunos ejemplos de feature-sets con un enfoque de alto nivel:
-
-- “A customer can place an order from a single-product catalog”.
-- “Show a multi-product catalog”.
-- “Show top-selling products”.
-- “Make product catalog manageable for the sales department operator”.
-
-Es muy importante que el equipo establezca en conjunto el Sprint Goal, pues de esa forma todo el equipo puede trabajar en identificar qué epics y stories deberían considerarse en principio en la iteración, en base a su contribución para ese Goal en particular.
-
-A continuación, se presentan ejemplos de Sprint Goals. En cada ejemplo, se brinda un contexto previo para entender de mejor manera el propósito del Sprint Goal.
-
 #### 5.2.1.2. Aspect Leaders and Collaborators
 Esta distribución permite definir responsabilidades claras dentro del equipo y facilita la coordinación durante el desarrollo del proyecto. Asimismo, la organización de líderes y colaboradores mantiene relación directa con la posterior selección de tareas, ya que el líder de cada aspecto tiene la responsabilidad principal de coordinar y dar seguimiento al trabajo correspondiente.
 
@@ -3736,7 +3712,7 @@ Esta distribución permite definir responsabilidades claras dentro del equipo y 
 |---|---|---|---|---|---|---|---|
 | Ramírez Gutiérrez, Gabriel | GabrielRamirez06 | **L** | C | C | C | C | C |
 | Vásquez Roncal, Alexander Felipe | Dev-AlexanderVasquez | C | **L** | **L** | C | C | C |
-| Damacen Galindo, Italo Gianfranco | ItaloDMc | C | C | C | **L** | C | C |
+| Damacen Galindo, Italo Gianfranco | Ital0Dmc | C | C | C | **L** | C | C |
 | Sayago Vidal, Sebastián Leonardo | SSayag0V | C | C | C | C | **L** | C |
 | Nicho Huillcañahui, Edwin Noe | Edwindeploy21 | C | C | C | C | C | **L** |
 
@@ -3891,13 +3867,13 @@ En esta sección se registra el trabajo planificado para el Sprint 2 a partir de
 | Sprint 2 | AU-003 | Inicio de sesión seguro | T05 | Validar acceso según rol | Comprobar que el usuario autenticado pueda acceder al panel correspondiente a su rol. | 3 | Sebastián Sayago | Done |
 | Sprint 2 | AU-006 | Selección de rol en el registro | T06 | Definir roles y permisos | Establecer los roles de usuario y los permisos asociados dentro de la plataforma. | 2 | Gabriel Ramírez | Done |
 | Sprint 2 | AU-006 | Selección de rol en el registro | T07 | Implementar selección de rol | Implementar la selección de rol en el formulario de registro y su asignación a la cuenta creada. | 4 | Gabriel Ramírez | Done |
-| Sprint 2 | FM-001 | Registro de finca agrícola | T08 | Implementar registro de fincas | Implementar el registro de nombre, ubicación y departamento de una finca agrícola. | 4 | Alexander Vásquez | Done |
+| Sprint 2 | FM-001 | Registro de finca agrícola | T08 | Implementar registro de fincas | Implementar el registro del nombre y la ubicación de una finca agrícola. | 4 | Alexander Vásquez | Done |
 | Sprint 2 | FM-002 | Delimitación geográfica de parcela | T09 | Implementar delimitación de parcela | Implementar la selección de vértices sobre el mapa para definir el polígono de una parcela. | 5 | Alexander Vásquez | Done |
 | Sprint 2 | FM-002 | Delimitación geográfica de parcela | T10 | Calcular superficie de parcela | Implementar el cálculo del área de la parcela y registrar el resultado en hectáreas. | 4 | Alexander Vásquez | Done |
 | Sprint 2 | FM-004 | Asignación de tipo de cultivo y fenología | T11 | Registrar información del cultivo | Implementar el registro del tipo de cultivo y etapa fenológica asociada a una parcela. | 3 | Alexander Vásquez | Done |
 | Sprint 2 | FM-005 | Consulta y filtrado de parcelas | T12 | Implementar consulta y filtros | Permitir la consulta de parcelas y aplicar filtros según los criterios definidos por el usuario. | 3 | Alexander Vásquez | Done |
 | Sprint 2 | DR-001 | Registro de nuevo dron en inventario | T13 | Registrar información técnica del dron | Implementar el registro del modelo, número de serie y capacidad del tanque del dron. | 3 | Edwin Nicho | Done |
-| Sprint 2 | DR-002 | Consulta del estado operativo de flota | T14 | Mostrar disponibilidad de drones | Implementar la consulta del estado de los drones disponibles, en mantenimiento o en misión. | 3 | Edwin Nicho | Done |
+| Sprint 2 | DR-002 | Consulta del estado operativo de flota | T14 | Mostrar disponibilidad de drones | Implementar la consulta del estado de los drones disponibles, en vuelo, en mantenimiento o fuera de servicio. | 3 | Edwin Nicho | Done |
 | Sprint 2 | DR-003 | Registro de agroquímicos e insumos | T15 | Registrar insumos agrícolas | Implementar el registro de productos agroquímicos y sus principales características. | 3 | Edwin Nicho | Done |
 | Sprint 2 | DR-005 | Programación de mantenimiento preventivo | T16 | Registrar mantenimiento de drones | Implementar el registro de fechas y horas de mantenimiento preventivo de los drones. | 3 | Edwin Nicho | Done |
 | Sprint 2 | MI-001 | Solicitud de misión de fumigación | T17 | Crear solicitud de misión | Implementar el flujo para crear una solicitud indicando parcela, fecha estimada y producto a aplicar. | 4 | Alexander Vásquez | Done |
@@ -3907,7 +3883,7 @@ En esta sección se registra el trabajo planificado para el Sprint 2 a partir de
 | Sprint 2 | MI-005 | Consulta de calendario de misiones | T21 | Implementar calendario de misiones | Implementar la visualización de las misiones programadas y sus estados en un calendario. | 3 | Alexander Vásquez | Done |
 | Sprint 2 | TR-001 | Visualización de posición de dron en tiempo real | T22 | Mostrar posición del dron | Implementar la visualización de la posición y trayectoria del dron durante la ejecución de una misión. | 4 | Alexander Vásquez | Done |
 | Sprint 2 | TR-002 | Monitoreo de indicadores de vuelo | T23 | Mostrar telemetría de vuelo | Implementar la visualización de indicadores como batería y volumen de tanque durante la operación. | 4 | Alexander Vásquez | Done |
-| Sprint 2 | TR-005 | Registro de finalización de misión | T24 | Registrar finalización de operación | Implementar el cambio de estado de la misión a realizada y registrar los resultados de la operación. | 3 | Alexander Vásquez | Done |
+| Sprint 2 | TR-005 | Registro de finalización de misión | T24 | Registrar finalización de operación | Implementar el cambio de estado de la misión a Completada y registrar los resultados de la operación. | 3 | Alexander Vásquez | Done |
 | Sprint 2 | CL-001 | Consulta de condiciones climáticas actuales | T25 | Integrar consulta meteorológica | Implementar la consulta de temperatura, humedad y velocidad del viento para la ubicación seleccionada. | 4 | Italo Damacen | Done |
 | Sprint 2 | CL-002 | Alerta por exceso de velocidad de viento | T26 | Implementar validación de viento | Implementar la evaluación de la velocidad del viento y generación de una alerta cuando supere el límite establecido. | 3 | Italo Damacen | Done |
 | Sprint 2 | CL-003 | Identificación de ventana óptima de pulverización | T27 | Evaluar condiciones meteorológicas | Analizar las condiciones meteorológicas para identificar rangos adecuados para la aplicación. | 4 | Italo Damacen | Done |
