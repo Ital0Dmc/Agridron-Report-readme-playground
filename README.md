@@ -3843,14 +3843,20 @@ El objetivo es que las funcionalidades seleccionadas mantengan coherencia con la
 
 #### 5.2.2.2. Aspect Leaders and Collaborators
 
-| Aspecto | Líder | Colaboradores |
-|:---|:---|:---|
-| Identity & Access Management | Gabriel Ramírez Gutiérrez | Sebastián Sayago Vidal, Edwin Noe Nicho Huillcañahui |
-| Field Management | Alexander Felipe Vásquez Roncal | Italo Gianfranco Damacen Galindo, Sebastián Sayago Vidal |
-| Flight Operations | Alexander Felipe Vásquez Roncal | Edwin Noe Nicho Huillcañahui, Italo Gianfranco Damacen Galindo |
-| Weather Integration | Italo Gianfranco Damacen Galindo | Alexander Felipe Vásquez Roncal, Gabriel Ramírez Gutiérrez |
-| Analytics & Reporting | Sebastián Leonardo Sayago Vidal | Gabriel Ramírez Gutiérrez, Edwin Noe Nicho Huillcañahui |
-| Inventory & Resource Management | Edwin Noe Nicho Huillcañahui | Italo Gianfranco Damacen Galindo, Alexander Felipe Vásquez Roncal |
+En el Sprint 2 los aspectos de trabajo son los seis Bounded Contexts de la solución: Identity & Access Management, Field Management, Flight Operations, Weather Integration, Analytics & Reporting e Inventory & Resource Management. Cada aspecto tiene un líder, que coordina y da seguimiento a su trabajo, y dos colaboradores. Esta distribución se refleja en la asignación de tareas del Sprint Backlog 2.
+
+| Team Member (Last Name, First Name) | GitHub Username | Identity & Access Management | Field Management | Flight Operations | Weather Integration | Analytics & Reporting | Inventory & Resource Management |
+|---|---|---|---|---|---|---|---|
+| Ramírez Gutiérrez, Gabriel | GabrielRamirez06 | **L** | | | C | C | |
+| Vásquez Roncal, Alexander Felipe | Dev-AlexanderVasquez | | **L** | **L** | C | | C |
+| Damacen Galindo, Italo Gianfranco | Ital0Dmc | | C | C | **L** | | C |
+| Sayago Vidal, Sebastián Leonardo | SSayag0V | C | C | | | **L** | |
+| Nicho Huillcañahui, Edwin Noe | Edwindeploy21 | C | | C | | C | **L** |
+
+**Leyenda:**
+
+- **L (Leader):** integrante responsable de liderar y coordinar el trabajo relacionado con el aspecto asignado.
+- **C (Collaborator):** integrante que participa como colaborador y brinda apoyo en el desarrollo del aspecto.
 
 ---
 
@@ -3901,9 +3907,16 @@ En esta sección se registra el trabajo planificado para el Sprint 2 a partir de
 
 #### 5.2.2.4. Development Evidence for Sprint Review
 
-Durante el Sprint 2 se avanzó en la construcción de las funcionalidades principales de AgriDron Solutions a partir de las User Stories priorizadas. El trabajo se distribuyó entre los integrantes del equipo considerando las responsabilidades asociadas a la gestión de usuarios, gestión territorial, operaciones de vuelo, integración meteorológica, analítica y gestión de recursos.
+Durante el Sprint 2 se implementó la primera versión de la Web Application en Angular, organizada por Bounded Context y por capas (domain, application, infrastructure y presentation). Los principales avances son los siguientes:
 
-Asimismo, se desarrollaron los elementos de análisis y diseño necesarios para representar las responsabilidades de los diferentes Bounded Contexts de la solución. Esta organización permitió relacionar las funcionalidades del Product Backlog con las responsabilidades específicas de cada parte del dominio.
+- **Identity & Access Management:** inicio de sesión con nombre de usuario y contraseña, registro con selección de rol y vista de perfil con cierre de sesión.
+- **Field Management:** registro, edición y eliminación de fincas, parcelas, cultivos y zonas de fumigación, con el filtro de parcelas por finca y de zonas de fumigación por parcela, y el detalle de cada parcela.
+- **Weather Integration:** estado del clima en la vista Inicio, con temperatura, humedad, viento, precipitación y alertas por nivel.
+- **Analytics & Reporting:** vista Reportes e Historial con las pestañas Misiones, Uso de insumos e Indicadores, el filtro por rango de fechas, el detalle de cada reporte y su exportación en JSON y CSV.
+- **Inventory & Resource Management:** flota de drones con su estado, batería, boquilla y próximo servicio, y el detalle de cada dron.
+- **Shared:** barra lateral de navegación, selector de idioma (español e inglés), vista Inicio con indicadores y accesos rápidos, y página de ruta no encontrada.
+
+La Web Application consume un Fake RESTful API: json-server en el entorno local y MockAPI en la versión desplegada.
 
 ![Evidencia de desarrollo del Sprint 2](assets/chapter5/sprint_2_development.png)
 
@@ -3923,22 +3936,56 @@ Durante el sprint se revisaron progresivamente las funcionalidades relacionadas 
 
 #### 5.2.2.6. Services Documentation Evidence for Sprint Review
 
-Durante el Sprint 2 se continuó con la definición y documentación de los servicios necesarios para soportar las User Stories seleccionadas. Los servicios se relacionan principalmente con la gestión de usuarios, parcelas, misiones, información meteorológica, recursos y reportes.
+En el Sprint 2 la Web Application se integró con un Fake RESTful API. En el entorno local se usa json-server (`server/db.json`), que expone las colecciones bajo la ruta base `http://localhost:3000/api/v1` mediante `server/routes.json`. La siguiente tabla documenta los endpoints que consume la Web Application, con las acciones HTTP que utiliza en cada uno.
 
-La evidencia documental del sprint contempla:
+| Endpoint | Verbo HTTP | Sintaxis de llamada | Parámetros | Acción y respuesta |
+|---|---|---|---|---|
+| Users | GET | `/api/v1/users` | — | Lista los usuarios. Se usa para validar el inicio de sesión. |
+| Users | POST | `/api/v1/users` | Body: `username`, `email`, `password`, `role` | Registra un usuario y devuelve el usuario creado con su `id`. |
+| Farms | GET | `/api/v1/farms` | — | Lista las fincas. |
+| Farms | GET | `/api/v1/farms/{id}` | `id` de la finca | Devuelve una finca. |
+| Farms | POST | `/api/v1/farms` | Body: `name`, `location`, `ownerId`, `image` | Registra una finca y la devuelve con su `id`. |
+| Farms | PUT | `/api/v1/farms/{id}` | `id` y body completo | Actualiza una finca y la devuelve. |
+| Farms | DELETE | `/api/v1/farms/{id}` | `id` de la finca | Elimina una finca. |
+| Parcels | GET, POST | `/api/v1/parcels` | Body (POST): `name`, `area`, `geometry`, `farmId`, `cropId`, `image` | Lista o registra parcelas. |
+| Parcels | GET, PUT, DELETE | `/api/v1/parcels/{id}` | `id` de la parcela | Consulta, actualiza o elimina una parcela. |
+| Crops | GET, POST | `/api/v1/crops` | Body (POST): `name`, `variety` | Lista o registra cultivos. |
+| Crops | GET, PUT, DELETE | `/api/v1/crops/{id}` | `id` del cultivo | Consulta, actualiza o elimina un cultivo. |
+| Fumigation Areas | GET, POST | `/api/v1/fumigation-areas` | Body (POST): `parcelId`, `geometry`, `area` | Lista o registra zonas de fumigación. |
+| Fumigation Areas | GET, PUT, DELETE | `/api/v1/fumigation-areas/{id}` | `id` de la zona | Consulta, actualiza o elimina una zona de fumigación. |
+| Weather | GET | `/api/v1/weather` | — | Lista las condiciones meteorológicas por ubicación, con sus alertas. |
+| Mission Reports | GET | `/api/v1/mission-reports` y `/api/v1/mission-reports/{id}` | `id` del reporte | Lista los reportes de misión o devuelve uno. |
+| Mission Histories | GET | `/api/v1/mission-histories` | — | Lista el historial de misiones con su estado final. |
+| Operational Metrics | GET | `/api/v1/operational-metrics` | — | Lista las métricas operativas de cada reporte. |
+| Performance Indicators | GET | `/api/v1/performance-indicators` | — | Lista los indicadores de desempeño por periodo. |
+| Drones | GET | `/api/v1/drones` | — | Lista los drones con su estado, batería y fechas de mantenimiento. |
+| Nozzles | GET | `/api/v1/nozzles` | — | Lista las boquillas. |
 
-- Servicios asociados al registro y autenticación de usuarios.
-- Servicios para la gestión de fincas y parcelas.
-- Servicios relacionados con la planificación y gestión de misiones.
-- Integración con el servicio meteorológico externo.
-- Servicios para la consulta de historial, métricas y reportes.
-- Servicios relacionados con la gestión de drones e insumos.
+Ejemplo de llamada y respuesta (`GET /api/v1/farms/1`):
+
+```json
+{
+  "id": 1,
+  "name": "Finca San Rafael",
+  "location": "Ica, Peru",
+  "ownerId": 1,
+  "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600"
+}
+```
+
+Si el `id` no existe, json-server responde `404 Not Found`. Las respuestas de las colecciones (`GET` sin `id`) devuelven un arreglo de objetos con la misma estructura.
 
 ---
 
 #### 5.2.2.7. Software Deployment Evidence for Sprint Review
 
-Durante el Sprint 2 se continuó con la configuración y preparación de los componentes necesarios para la evolución del producto. El trabajo de despliegue se mantuvo alineado con la estructura de repositorios y la estrategia de control de versiones definida para el proyecto.
+Durante el Sprint 2 se desplegó la primera versión de la Web Application en Firebase Hosting. El repositorio del frontend incluye la configuración del despliegue: `firebase.json` publica la carpeta `dist/Agridron-frontend/browser` y `.firebaserc` apunta al proyecto `agridronwebapp`. Los pasos realizados fueron los siguientes:
+
+1. Instalar las dependencias del proyecto con `npm install`.
+2. Generar la versión de producción con `npm run build` (`ng build`). Esta versión usa `environment.ts`, que apunta al Fake API publicado en MockAPI. En el entorno de desarrollo Angular lo reemplaza por `environment.development.ts`, que apunta al json-server local.
+3. Iniciar sesión en Firebase con `firebase login`.
+4. Publicar con `firebase deploy --only hosting`, que sube el contenido de `dist/Agridron-frontend/browser` al proyecto `agridronwebapp`.
+5. Verificar la versión publicada en [https://agridronwebapp.web.app](https://agridronwebapp.web.app).
 
 ![Evidencia de despliegue del Sprint 2](assets/chapter5/deployment_sprint_2.png)
 
