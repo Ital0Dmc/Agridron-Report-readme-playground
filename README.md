@@ -1637,11 +1637,11 @@ La Landing Page no tiene buscador. El visitante llega a la información mediante
 
 ## 4.3. Landing Page UI Design
 
-La propuesta de UI de la Landing Page de AgriDron Solutions traduce las decisiones previas de identidad visual, estilo y arquitectura de información en una experiencia clara, persuasiva y orientada a la conversión. Su objetivo principal es presentar la propuesta de valor del producto, explicar de manera rápida cómo ayuda a agricultores, operadores de drones y supervisores del campo, y conducir al visitante hacia una acción concreta, como registrarse, iniciar sesión, solicitar una demostración o explorar el funcionamiento de la plataforma de fumigación de precisión.
+La propuesta de UI de la Landing Page de AgriDron Solutions traduce las decisiones previas de identidad visual, estilo y arquitectura de información en una experiencia clara, persuasiva y orientada a la conversión. Su objetivo principal es presentar la propuesta de valor del producto, explicar de manera rápida cómo ayuda a los agricultores y a los operadores técnicos de drones, y conducir al visitante hacia una acción concreta, como registrarse, iniciar sesión, solicitar una demostración o explorar el funcionamiento de la plataforma de fumigación de precisión.
 
-El diseño de la Landing Page se estructura en bloques progresivos que responden a una lógica de descubrimiento: primero captar la atención con una promesa clara de optimización agrícola, luego explicar la problemática de la fumigación tradicional y la gestión de cultivos, mostrar los beneficios y funcionalidades clave (planificación de misiones, telemetría en tiempo real, alertas climáticas e IA predictiva), reforzar la confianza mediante componentes visuales del sistema y un equipo transparente, y finalmente cerrar con llamadas a la acción claras. Esta organización permite que el usuario entienda qué resuelve AgriDron Solutions, cómo funciona y por qué debería utilizarlo, sin tener que navegar por una interfaz compleja ni enfrentarse a una sobrecarga de información.
+El diseño de la Landing Page se estructura en bloques progresivos que responden a una lógica de descubrimiento: primero captar la atención con una promesa clara de optimización agrícola, luego mostrar las funcionalidades clave (planificación de misiones, monitoreo en tiempo real y consulta de las condiciones climáticas) y los cuatro pasos de funcionamiento, reforzar la confianza mediante componentes visuales del sistema y un equipo transparente, y finalmente cerrar con llamadas a la acción claras. Esta organización permite que el usuario entienda qué resuelve AgriDron Solutions, cómo funciona y por qué debería utilizarlo, sin tener que navegar por una interfaz compleja ni enfrentarse a una sobrecarga de información.
 
-A nivel visual, la interfaz aprovecha la paleta cromática definida para la marca, con predominio del verde bosque (#1E4D2B), verde acento (#10B981), azul tecnológico (#1E3A8A) y tonos neutros, para transmitir sostenibilidad agrícola, precisión tecnológica, innovación y confianza profesional. La jerarquía visual se apoya en titulares fuertes en tipografía Inter, botones de acción (CTAs) altamente visibles, tarjetas informativas modulares con bordes suavizados y bloques claramente diferenciados por un sistema de espaciado basado en 8 px, logrando que el recorrido visual sea intuitivo, accesible y consistente tanto en pantallas de escritorio como en dispositivos móviles de campo.
+A nivel visual, la interfaz aprovecha la paleta cromática definida para la marca, con predominio del degradado verde de los botones (#1DA27E a #0F8E74), el verde oscuro de los textos (#0D3C35) y tonos neutros, para transmitir sostenibilidad agrícola, precisión tecnológica, innovación y confianza profesional. La jerarquía visual se apoya en titulares fuertes en tipografía Montserrat, botones de acción (CTAs) altamente visibles, tarjetas informativas modulares con bordes suavizados y bloques claramente diferenciados por un sistema de espaciado basado en 8 px, logrando que el recorrido visual sea intuitivo, accesible y consistente tanto en pantallas de escritorio como en dispositivos móviles de campo.
 
 ### 4.3.1. Landing Page Wireframe
 
@@ -1651,24 +1651,44 @@ Los wireframes de la Landing Page de AgriDron Solutions representan la fase inic
 
 En la versión desktop, el wireframe organiza la información en un recorrido secuencial de pantalla completa:
 
-- Hero Section: Cabecera con el titular principal ("Revoluciona la salud de tus cultivos con precisión automatizada"), subtítulo explicativo, botones de acción primarios (Empieza tu prueba gratuita, Ver cómo funciona, Solicitar Demo) y un elemento gráfico de soporte con la previsualización del dron y la app.
-- Nuestras funcionalidades: Tarjetas horizontales dedicadas a los pilares tecnológicos del producto (Planificación de misiones, Monitoreo en tiempo real e IA predictiva).
+- Hero Section: Cabecera con el titular principal ("Revoluciona la salud de tus cultivos con precisión automatizada"), subtítulo explicativo, botones de acción (Empieza tu prueba gratuita y Ver cómo funciona), con el botón Solicitar Demo en la barra de navegación, y un elemento gráfico de soporte.
+- Nuestras funcionalidades: Tarjetas horizontales dedicadas a los pilares tecnológicos del producto (Planificación de misiones, Monitoreo en tiempo real y Consulta las condiciones climáticas).
 - Cómo funciona: Diagrama de proceso en 4 pasos (1. Planifica, 2. Consulta el clima, 3. Ejecuta, 4. Analiza) que explica el flujo de trabajo en campo.
-- Para quién: Bloque de segmentación por roles (Agricultores, Operadores y Supervisores), especificando el valor que aporta la plataforma a cada usuario.
+- Para quién: Bloque de tarjetas por segmento de usuario (Agricultores y Operadores), especificando el valor que aporta la plataforma a cada usuario.
 - Nuestro equipo: Sección de respaldo con los perfiles del equipo multidisciplinario detrás de la solución.
 - Footer: Pie de página con enlaces de navegación interna, datos de contacto, ubicación y canales de redes sociales.
 
-<img src="assets/chapter4/landing_wireframe.png" alt="Landing Page Wireframe" width="650"/>
+<img src="assets/chapter4/landing_wireframe_desktop.png" alt="Landing Page Wireframe Desktop" width="650"/>
+
+*Figura: Wireframe Desktop de la Landing Page.* El wireframe usa escala de grises, marcadores de imagen y líneas de texto de relleno para centrar la revisión en la estructura y no en el estilo. La jerarquía se marca con el tamaño de los títulos, las secciones se separan con fondos alternos y el contenido repetido (funcionalidades, pasos, segmentos y equipo) se ordena en columnas del mismo ancho.
+
+**Mobile**
+
+En la versión mobile, el wireframe conserva las mismas secciones y su orden, y las reorganiza en una sola columna. La barra de navegación se reduce a un botón de menú y al nombre AgriDron Solutions, los botones del Hero ocupan todo el ancho de la pantalla, las tarjetas de funcionalidades y de segmentos se apilan una debajo de otra y los cuatro pasos de Cómo funciona se presentan en vertical, unidos por flechas.
+
+<img src="assets/chapter4/landing_wireframe_mobile.png" alt="Landing Page Wireframe Mobile" width="300"/>
+
+*Figura: Wireframe Mobile de la Landing Page.* La disposición en una sola columna evita el desplazamiento horizontal, los botones de ancho completo facilitan el uso con una mano y los textos se mantienen cortos para leerse en pantallas pequeñas, lo que apoya el uso desde el celular en campo.
 
 ### 4.3.2. Landing Page Mock-up
 
-Los mock-ups finales de la Landing Page de AgriDron Solutions representan la consolidación visual de la arquitectura y estructura planteadas en los wireframes. En esta etapa de alta fidelidad se integran la paleta cromática institucional (con predominio del verde bosque #1E4D2B y el verde acento #10B981), las familias tipográficas Inter y Roboto, la escala de espaciado modular basada en 8 px, la iconografía agrícola/tecnológica y los estándares de accesibilidad visual (WCAG 2.1 AA). El resultado es una interfaz pública coherente, moderna y persuasiva, alineada con la propuesta de valor de la agricultura de precisión y la fumigación con drones.
+Los mock-ups finales de la Landing Page de AgriDron Solutions representan la consolidación visual de la arquitectura y estructura planteadas en los wireframes. En esta etapa de alta fidelidad se integran la paleta cromática institucional (con predominio del degradado verde #1DA27E a #0F8E74 y el texto #0D3C35), la familia tipográfica Montserrat, la escala de espaciado modular basada en 8 px, la iconografía agrícola/tecnológica y los estándares de accesibilidad visual (WCAG 2.1 AA). El resultado es una interfaz pública coherente, moderna y persuasiva, alineada con la propuesta de valor de la agricultura de precisión y la fumigación con drones.
 
 **Desktop**
 
-En el mock-up desktop se evidencia una jerarquía visual clara, reforzada mediante el uso del verde bosque corporativo en componentes estructurales y el verde acento en los botones de llamada a la acción (CTAs) y puntos de énfasis. La hero section captura de inmediato la atención del visitante con el mensaje principal de la plataforma, botones destacados de conversión (Empieza tu prueba gratuita, Solicitar Demo) y un contenedor visual que muestra la interfaz telemétrica del dron sobre un mapa satelital. Las secciones posteriores organizan las funcionalidades clave, la segmentación por roles (agricultores, operadores, supervisores), la secuencia operativa de uso y el equipo multidisciplinario sobre fondos neutros claros (#FFFFFF y #F8FAFC), facilitando una lectura escaneable y fluida.
+En el mock-up desktop se evidencia una jerarquía visual clara, reforzada mediante el uso del verde oscuro #0D3C35 en títulos y textos y el degradado verde en los botones de llamada a la acción (CTAs) y puntos de énfasis. La hero section captura de inmediato la atención del visitante con el mensaje principal de la plataforma, botones destacados de conversión (Empieza tu prueba gratuita y Ver cómo funciona) y un contenedor visual que muestra la interfaz telemétrica del dron sobre un mapa satelital. Las secciones posteriores organizan las funcionalidades clave, la segmentación por segmento de usuario (agricultores y operadores), la secuencia operativa de uso y el equipo multidisciplinario sobre fondos neutros claros (#FFFFFF y #F0F3F1), facilitando una lectura escaneable y fluida.
 
 <img src="assets/chapter4/landing_mockup.png" alt="Landing Page Mock-up" width="650"/>
+
+*Figura: Mock-up Desktop de la Landing Page.*
+
+**Mobile**
+
+En el mock-up mobile se aplican los colores y la tipografía de la versión desktop sobre la estructura del wireframe mobile. El Hero muestra una fotografía de campo detrás del titular, los beneficios (Reduce costos, Aumenta tu productividad y Protege a tu equipo) y los dos botones de acción. Las tarjetas de funcionalidades usan iconos verdes y bordes redondeados, los pasos de Cómo funciona se numeran en círculos verdes, las tarjetas de Para quién incluyen una fotografía de cada segmento (Agricultores y Operadores) y el footer en verde reúne los enlaces, el contacto y las redes sociales.
+
+<img src="assets/chapter4/landing_mockup_mobile.png" alt="Landing Page Mock-up Mobile" width="300"/>
+
+*Figura: Mock-up Mobile de la Landing Page.* El texto oscuro sobre fondo blanco y los botones verdes con texto blanco mantienen un contraste alto, los iconos acompañan siempre a una etiqueta de texto y los botones y tarjetas tienen un tamaño cómodo para tocarlos en pantallas táctiles.
 
 ## 4.4. Web Applications UX/UI Design
 
