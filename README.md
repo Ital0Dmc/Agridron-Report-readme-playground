@@ -3759,6 +3759,20 @@ En esta sección se registra y explica el avance en términos de producto y trab
 
 Durante este sprint se desarrolló la base del producto AgriDron con una landing page informativa, una estructura visual clara para servicios y un primer flujo de autenticación. Además, se inició la definición de los principales módulos de gestión de fincas y misiones, de acuerdo con la arquitectura propuesta en el proyecto.
 
+La siguiente tabla presenta los commits de implementación realizados durante el Sprint 1 en los repositorios de los productos.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| Opensource-UPC/AgiDron-LandingPage-7760-G3 | main | 394d481 | Initial commit | — | 10/09/2026 |
+| Opensource-UPC/AgiDron-LandingPage-7760-G3 | main | b9cb5b7 | Add project title to README | — | 10/09/2026 |
+| Opensource-UPC/AgiDron-LandingPage-7760-G3 | main | efa1777 | Update README.md | — | 10/09/2026 |
+| Opensource-UPC/AgiDron-LandingPage-7760-G3 | feature/landing | bbdc638 | First Version of the Landing Page | — | 10/09/2026 |
+| Opensource-UPC/AgiDron-LandingPage-7760-G3 | feature/landing | 38d29a3 | Update | — | 10/09/2026 |
+| Opensource-UPC/AgiDron-LandingPage-7760-G3 | feature/landing | e6e7063 | Add login and register pages | — | 13/09/2026 |
+| Opensource-UPC/AgiDron-LandingPage-7760-G3 | feature/landing | 1962f70 | Create README.md | — | 13/09/2026 |
+| Opensource-UPC/AgiDron-LandingPage-7760-G3 | develop | f50296b | feature/cambio de elementos y agregar un integrante | — | 15/09/2026 |
+| Opensource-UPC/Agridron-frontend | main | e19388c | Initial commit | — | 17/09/2026 |
+
 ![Evidencia de desarrollo](assets/chapter4/landing_mockup.png)
 
 La evidencia de desarrollo incluye la versión inicial del landing page, la propuesta visual del producto y la estructura base del sistema para registro, autenticación y gestión de misiones. En paralelo, se validó la consistencia con la propuesta de valor y los segmentos objetivo, reforzando la dirección de diseño del producto.
@@ -3917,6 +3931,40 @@ Durante el Sprint 2 se implementó la primera versión de la Web Application en 
 - **Shared:** barra lateral de navegación, selector de idioma (español e inglés), vista Inicio con indicadores y accesos rápidos, y página de ruta no encontrada.
 
 La Web Application consume un Fake RESTful API: json-server en el entorno local y MockAPI en la versión desplegada.
+
+La siguiente tabla presenta los commits de implementación realizados durante el Sprint 2 en los repositorios de la Landing Page y de la Web Application.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+|---|---|---|---|---|---|
+| Opensource-UPC/AgiDron-LandingPage-7760-G3 | main | 3aece7e | initial commit | — | 21/09/2026 |
+| Opensource-UPC/AgiDron-LandingPage-7760-G3 | main | 24b2bbf | se modifico el landingPage y se paso al lenguaje angular | — | 05/10/2026 |
+| Opensource-UPC/AgiDron-LandingPage-7760-G3 | main | 7e67dfa | cambios del router | — | 05/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/startProyect | 5600264 | se creo el proyecto Agridron en Angular y se agrego la base de header,footer y language switcher | — | 30/09/2026 |
+| Opensource-UPC/Agridron-frontend | feature/fieldManagement | f16409f | se agrego archivos shared/infraestructure/base-[archivo] | — | 01/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/fieldManagement | 51f92f8 | se agrego infraestructura, aplication | — | 01/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/analyticsAndReporting | 4b31a65 | chore(env): add analytics and reporting endpoint paths | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/analyticsAndReporting | b6e1490 | feat(analytics): add domain model for reports, history, metrics and indicators | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/analyticsAndReporting | 9e38370 | feat(analytics): add assemblers, endpoints and api facade | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/analyticsAndReporting | faee758 | feat(analytics): add mission report, history and indicator stores | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/analyticsAndReporting | 70804ff | chore(server): add sample data for analytics json-server | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/weatherIntegration | 47cbbaa | Se realizó el avance de la weather API. Ahora existe un &lt;app-weather-widget&gt; para que el equipo pueda hacer un llamado al widget del clima en cualquier parte del frontend. La api es funcional y tiene diferentes mensajes de alertas. | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/fieldManagement | 1806f7c | se agrego fieldmanagement/components and se modifico app.route.ts | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/analyticsAndReporting | 198d012 | feat(analytics): register analytics route, menu option and i18n | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/analyticsAndReporting | 7372c28 | chore: add json-server for local development | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/bc1-login-view | a3f38d5 | first commit | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/fieldManagement | 9a89a38 | se agregaron componentes nuevos, side-bar y estilos para ello | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/bc1-login-view | 26761f8 | feat(iam-domain): add user entity, role enum and auth commands | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/bc1-login-view | 3b6d7cd | feat(iam-infra): implement auth api client, response dtos and assembler | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/bc1-login-view | 7f75752 | feat(iam-app): implement authentication service with reactive session signals | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/bc1-login-view | 5b379e5 | feat(iam-app): implement authentication service with reactive session signals | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/bc1-login-view | eb36667 | feat(iam-ui): create sign-in, sign-up and profile standalone components | — | 02/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/inventoryAndResourceManagement | 4bb7cb9 | feat(inventory): drones and maintenance records | — | 03/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/inventoryAndResourceManagement | a3c7896 | feat(inventory): register drones route, menu option, i18n and environment | — | 03/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/inventoryAndResourceManagement | 7250706 | feat(inventory): register drones route and menu option | — | 03/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/fieldManagement | 3ce6b34 | se agrego el BC de login, y drones | — | 05/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/inventoryAndResourceManagement | 2e500e9 | fix(inventory): ultima puesta a prueba | — | 06/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/fieldManagement | 02bbc7a | se modifico el readme | — | 06/10/2026 |
+| Opensource-UPC/Agridron-frontend | feature/fieldManagement | 8ccd013 | cambios en enviroment | — | 06/10/2026 |
 
 ![Evidencia de desarrollo del Sprint 2](assets/chapter5/sprint_2_development.png)
 
