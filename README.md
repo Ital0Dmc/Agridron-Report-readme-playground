@@ -1350,7 +1350,7 @@ AgriDron Solutions adopta un enfoque responsive web design, de modo que la inter
 **Breakpoints**
 
 - **Web Application:** hasta 959 px la barra lateral se oculta y se abre como panel desplegable desde el botón de menú. Desde 960 px la barra lateral permanece fija.
-- **Landing Page:** el diseño se reorganiza en 1200 px y en 760 px, apilando los contenidos en una sola columna en pantallas pequeñas.
+- **Landing Page:** el diseño se reorganiza en 1024 px, donde el Hero pasa a una sola columna y los botones de acción se acomodan en varias filas.
 
 **Componentes básicos de UI**
 
@@ -1387,7 +1387,7 @@ Las Mobile Style Guidelines de AgriDron Solutions adaptan la experiencia a panta
 - La barra lateral de la Web Application se oculta y se abre desde el botón de menú de la barra superior.
 - Las cuadrículas de tarjetas pasan a una sola columna, con el contenido apilado verticalmente.
 - El detalle del dron reorganiza su contenido en una sola columna desde 700 px, y el widget de clima reduce el tamaño de la temperatura en pantallas pequeñas.
-- La Landing Page apila sus secciones en una sola columna desde 760 px.
+- La Landing Page apila el Hero en una sola columna desde 1024 px.
 
 **Componentes básicos en mobile**
 
@@ -1411,7 +1411,7 @@ Se mantienen Roboto en la Web Application y Montserrat en la Landing Page. En la
 
 La arquitectura de información de AgriDron Solutions organiza el contenido para los dos segmentos del proyecto, Pequeños y Medianos Agricultores (PyMAs) y Operadores Técnicos de Drones, de modo que puedan localizar información y ejecutar tareas de forma rápida y consistente. Abarca la Landing Page, orientada a presentar el producto y conducir al visitante hacia una acción concreta, y la Web Application, orientada a la gestión de fincas, parcelas, cultivos, zonas de fumigación, drones, misiones y reportes.
 
-La sección describe la estructura actual de ambos productos y los elementos ya comprometidos en el Product Backlog que aún no están implementados: en la Landing Page, las secciones de planes (LP-003) y preguntas frecuentes (LP-010), los términos legales (LP-006), el cambio de idioma (LP-007) y el acceso al registro de la Web Application (LP-004), y en la Web Application, el módulo de Misiones con su calendario y el monitoreo de la misión en curso (MI y TR), los mapas de parcelas (FM-007) y los filtros adicionales de parcelas e historial (FM-005 y RP-004).
+La sección describe la estructura actual de ambos productos y los elementos ya comprometidos en el Product Backlog que aún no están implementados: en la Landing Page, las secciones de planes (LP-003) y preguntas frecuentes (LP-010), los términos legales (LP-006), las páginas de inicio de sesión y de solicitud de demostración (LP-005 y LP-009) y el acceso al registro de la Web Application (LP-004), y en la Web Application, el módulo de Misiones con su calendario y el monitoreo de la misión en curso (MI y TR), los mapas de parcelas (FM-007) y los filtros adicionales de parcelas e historial (FM-005 y RP-004).
 
 ### 4.2.1. Organization Systems
 
@@ -1423,6 +1423,7 @@ La Landing Page organiza la información de forma jerárquica y secuencial. La j
 - Nuestras funcionalidades: Planificación de misiones, Monitoreo en tiempo real y Consulta las condiciones climáticas.
 - Cómo funciona: secuencia de cuatro pasos (Planifica, Consulta el clima, Ejecuta y Analiza).
 - Para quién: tarjetas por segmento de usuario.
+- Disponible en: dispositivos desde los que se puede usar la plataforma (iPhone, Mac, Android y Windows).
 - Planes y Preguntas frecuentes: secciones comprometidas en LP-003 y LP-010.
 - Nuestro equipo: integrantes del equipo de desarrollo.
 - Footer: enlaces a las secciones, datos de contacto, redes sociales y términos legales (LP-006).
@@ -1476,11 +1477,11 @@ El sistema de etiquetado usa términos breves y familiares para el contexto agr�
 
 **Labeling in the Landing Page**
 
-- Barra de navegación: Inicio, Funcionalidades, Cómo Funciona, Para Quién, Nuestro Equipo y Solicitar Demo.
+- Barra de navegación: Inicio, Funcionalidades, Cómo Funciona, Para Quién, Nuestro Equipo, Solicitar Demo y selector de idioma (ES y EN).
 - Botones del Hero: Empieza tu prueba gratuita y Ver cómo funciona.
-- Secciones: Nuestras funcionalidades, Cómo funciona, Para quién, Planes, Preguntas frecuentes y Nuestro equipo.
-- Footer: Enlaces, Contacto y términos legales.
-- Páginas de acceso: Inicia sesión (Correo electrónico, Contraseña y Entrar) y Solicita una demo (Nombre completo, Empresa, Correo electrónico, Teléfono y Solicitar acceso).
+- Secciones: Nuestras funcionalidades, Cómo funciona, Para quién, Disponible en iPhone, Mac, Android y Windows, Planes, Preguntas frecuentes y Nuestro equipo.
+- Footer: Enlaces, Contacto, Redes sociales y términos legales.
+- Páginas de acceso (LP-005 y LP-009): Inicia sesión (Correo electrónico, Contraseña y Entrar) y Solicita una demo (Nombre completo, Empresa, Correo electrónico, Teléfono y Solicitar acceso).
 
 **Labeling in the Web Application**
 
@@ -1609,7 +1610,8 @@ La Landing Page no tiene buscador. El visitante llega a la información mediante
 | Elemento                  | Descripción                                                                                                                          |
 |:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------|
 | **Barra de navegación**   | Enlaces a las secciones de la página (Inicio, Funcionalidades, Cómo Funciona, Para Quién y Nuestro Equipo) y botón Solicitar Demo.   |
-| **Enlaces de sección**    | Cada enlace desplaza la página hasta su sección (`#inicio`, `#features`, `#how-it-works`, `#audiences` y `#team-section`).            |
+| **Enlaces de sección**    | Cada enlace desplaza la página hasta su sección (`#features`, `#how-it-works`, `#audiences`, `#available` y `#team-section`).          |
+| **Selector de idioma**    | Cambia el contenido de la página entre español e inglés (LP-007).                                                                    |
 | **Solicitar Demo**        | Lleva al formulario Solicita una demo (LP-009).                                   |
 | **CTAs del Hero**         | Empieza tu prueba gratuita lleva al registro de la Web Application (LP-004) y Ver cómo funciona lleva a la sección Cómo funciona.     |
 | **Footer**                | Repite los enlaces de las secciones y muestra los datos de contacto, las redes sociales y los términos legales (LP-006).             |
@@ -1676,7 +1678,7 @@ Los mock-ups finales de la Landing Page de AgriDron Solutions representan la con
 
 **Desktop**
 
-En el mock-up desktop se evidencia una jerarquía visual clara, reforzada mediante el uso del verde oscuro #0D3C35 en títulos y textos y el degradado verde en los botones de llamada a la acción (CTAs) y puntos de énfasis. La hero section captura de inmediato la atención del visitante con el mensaje principal de la plataforma, botones destacados de conversión (Empieza tu prueba gratuita y Ver cómo funciona) y un contenedor visual que muestra la interfaz telemétrica del dron sobre un mapa satelital. Las secciones posteriores organizan las funcionalidades clave, la segmentación por segmento de usuario (agricultores y operadores), la secuencia operativa de uso y el equipo multidisciplinario sobre fondos neutros claros (#FFFFFF y #F0F3F1), facilitando una lectura escaneable y fluida.
+En el mock-up desktop se evidencia una jerarquía visual clara, reforzada mediante el uso del verde oscuro #0D3C35 en títulos y textos y el degradado verde en los botones de llamada a la acción (CTAs) y puntos de énfasis. La hero section captura de inmediato la atención del visitante con el mensaje principal de la plataforma, botones destacados de conversión (Empieza tu prueba gratuita y Ver cómo funciona) y un contenedor visual que muestra la interfaz telemétrica del dron sobre un mapa satelital. Las secciones posteriores organizan las funcionalidades clave, la segmentación por segmento de usuario (agricultores y operadores), la secuencia operativa de uso y el equipo multidisciplinario sobre fondos neutros claros (#FFFFFF y #F3F5F2), facilitando una lectura escaneable y fluida.
 
 <img src="assets/chapter4/landing_mockup.png" alt="Landing Page Mock-up" width="650"/>
 
@@ -3980,6 +3982,8 @@ Durante el sprint se revisaron progresivamente las funcionalidades relacionadas 
 
 **Link de la plataforma:** [https://agridronwebapp.web.app](https://agridronwebapp.web.app) 
 
+**Link de la Landing Page (versión en Angular):** [https://agridronlandingpage.web.app](https://agridronlandingpage.web.app)
+
 ---
 
 #### 5.2.2.6. Services Documentation Evidence for Sprint Review
@@ -4158,8 +4162,6 @@ Como <strong>recomendaciones para las siguientes entregas</strong>, el equipo co
 ## Anexo A: Evidencias adicionales
 
 **Enlace de miro:** [https://miro.com/app/board/uXjVHnbT8O4=/?share_link_id=43911574677](https://miro.com/app/board/uXjVHnbT8O4=/?share_link_id=43911574677)
-
-**Link LandingPague:** [https://agridronlandingpage.web.app/](https://agridronlandingpage.web.app/)
 
 **Link LandingPage:** [https://agridronlandingpage.web.app](https://agridronlandingpage.web.app)
 
