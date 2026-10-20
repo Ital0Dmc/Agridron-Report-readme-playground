@@ -1119,28 +1119,23 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado que, cuando, ent
 
 ## 3.2. Impact Mapping
 
-**Impact Mapping Segmento 1:**
-<div align="center">
-   <img src="./assets/Chapter3/Impactmap-Segmento1.png" alt=" Impact Mapping Segmento 1" />
-</div>
+El Impact Mapping relaciona los objetivos de negocio de AgriDron Solutions con los User Personas de cada segmento, los cambios de comportamiento que se esperan de ellos, los entregables del producto digital y las User Stories que los hacen posibles. Se elaboró un mapa por segmento en UXPressia, a partir de las fichas de User Persona del 2.3.1.
 
-
-
-**Impact Mapping Segmento 2:**
+#### Segmento 1: Pequeños y Medianos Agricultores (PyMAs)
 
 <div align="center">
-   <img src="./assets/Chapter3/Impactmap-Segmento2.png" alt=" Impact Mapping Segmento 2" />
+   <img src="./assets/Chapter3/Impactmap-Segmento1.png" alt="Impact Mapping Segmento 1" />
 </div>
 
+*Figura: Impact Map del segmento de Pequeños y Medianos Agricultores (PyMAs).* El mapa define tres Business Goals: alcanzar 100 agricultores registrados y activos gestionando sus predios durante los primeros 6 meses tras el lanzamiento (BG01), lograr que al menos el 60 % de las fumigaciones contratadas se planifiquen y soliciten a través de la plataforma en los primeros 6 meses (BG02) y conseguir que el 75 % de los agricultores activos consulten y exporten sus actas de servicio y reportes fitosanitarios al cierre del primer ciclo agrícola (BG03). Para lograrlos, se espera que el agricultor conozca la propuesta de valor y registre su finca y sus parcelas, que reemplace las llamadas y chats informales por solicitudes en la plataforma consultando antes el clima, y que deje los cuadernos físicos para validar el trabajo realizado con registros digitales.
 
+#### Segmento 2: Operadores Técnicos de Drones
 
-**Descripción:**
-<p align="justify">
+<div align="center">
+   <img src="./assets/Chapter3/Impactmap-Segmento2.png" alt="Impact Mapping Segmento 2" />
+</div>
 
-Diagrama que muestra la relación entre los actores clave (agricultor, operador y supervisor),
-los objetivos estratégicos del proyecto y las funcionalidades necesarias para lograrlos
-
-</p>
+*Figura: Impact Map del segmento de Operadores Técnicos de Drones.* El mapa define tres Business Goals: afiliar a 50 operadores técnicos de drones de fumigación en las zonas de Cañete, Ica y Huaral durante los primeros 6 meses de operación (BG01), reducir en un 70 % el tiempo de reconocimiento previo en campo y de preparación de vuelo durante los primeros 6 meses (BG02) y alcanzar un 90 % de misiones cerradas con acta de servicio digital y cero disputas por hectáreas tratadas en el primer semestre (BG03). Para lograrlos, se espera que el operador registre su perfil técnico y sus drones, que llegue al campo con la parcela ya reconocida e identifique los obstáculos antes del despegue, y que sustente las pausas de vuelo con datos climáticos y cierre cada servicio con su acta.
 
 ---
 
