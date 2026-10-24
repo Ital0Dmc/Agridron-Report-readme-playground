@@ -221,6 +221,7 @@ Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones deriv
       - [5.1.4.7. Configuración de la API meteorológica](#5147-configuración-de-la-api-meteorológica)
       - [5.1.4.8. Estrategia de deployment](#5148-estrategia-de-deployment)
       - [5.1.4.9. Trazabilidad del deployment](#5149-trazabilidad-del-deployment)
+      - [5.1.4.10. Pasos de despliegue por producto](#51410-pasos-de-despliegue-por-producto)
   - [5.2. Landing Page, Services \& Applications Implementation](#52-landing-page-services--applications-implementation)
     - [5.2.1. Sprint 1](#521-sprint-1)
       - [5.2.1.1. Sprint Planning 1](#5211-sprint-planning-1)
@@ -2973,11 +2974,11 @@ La siguiente tabla indica, para cada actividad del ciclo de vida del producto, l
 | Product UX/UI Design    | Lucidchart                       | Elaboración del Design-Level EventStorming.                                       | SaaS  | https://www.lucidchart.com/                                                                   |
 | Software Development    | Git                              | Control de versiones local del código fuente.                                     | Local | https://git-scm.com/downloads                                                                 |
 | Software Development    | GitHub                           | Hospedaje de repositorios y colaboración mediante GitFlow, Pull Requests y Conventional Commits. | SaaS  | https://github.com/                                                         |
-| Software Development    | HTML5, CSS3 y JavaScript         | Implementación del Landing Page.                                                  | Local | https://developer.mozilla.org/                                                                |
+| Software Development    | HTML5 y CSS3                     | Plantillas y estilos de los componentes del Landing Page y del Frontend Web Application. | Local | https://developer.mozilla.org/                                                                |
 | Software Development    | Visual Studio Code               | Editor para el desarrollo del Landing Page y del Frontend Web Application.        | Local | https://code.visualstudio.com/download                                                        |
 | Software Development    | Node.js y npm                    | Instalación de dependencias y ejecución de las herramientas de Angular.           | Local | https://nodejs.org/en/download                                                                |
-| Software Development    | Angular                          | Framework del Frontend Web Application.                                           | Local | https://angular.dev/                                                                          |
-| Software Development    | TypeScript                       | Lenguaje de programación del Frontend Web Application.                            | Local | https://www.typescriptlang.org/download                                                       |
+| Software Development    | Angular                          | Framework del Landing Page y del Frontend Web Application.                        | Local | https://angular.dev/                                                                          |
+| Software Development    | TypeScript                       | Lenguaje de programación del Landing Page y del Frontend Web Application.         | Local | https://www.typescriptlang.org/download                                                       |
 | Software Development    | Angular Material                 | Biblioteca de componentes de UI basada en Material Design.                        | Local | https://material.angular.dev/                                                                 |
 | Software Development    | Java (JDK)                       | Lenguaje de programación de los Web Services.                                     | Local | https://jdk.java.net/                                                                         |
 | Software Development    | Spring Boot y Spring Data JPA    | Implementación del RESTful API y acceso a datos de los Web Services.              | Local | https://spring.io/projects/spring-boot y https://spring.io/projects/spring-data-jpa           |
@@ -3038,13 +3039,13 @@ Para mantener separadas las responsabilidades de los productos, se propone traba
 ```text
 AgriDron Solutions
 │
-├── agridron-landing
-│   └── Landing Page
+├── AgiDron-LandingPage-7760-G3
+│   └── Landing Page Angular
 │
-├── agridron-frontend
+├── Agridron-frontend
 │   └── Frontend Angular
 │
-└── agridron-backend
+└── Agridron-backend
     ├── Backend Spring Boot
     ├── Unit Tests
     └── Integration / Acceptance Tests
@@ -3064,9 +3065,9 @@ Los repositorios considerados para AgriDron Solutions son:
 | Producto                 | Repositorio                   | Contenido                                                     | Link de Github                                                |
 |--------------------------|-------------------------------|---------------------------------------------------------------|---------------------------------------------------------------|
 | Report                  | `1ASI0729-2620-7760-G3-Agridron-Report` | Documento en Markdown                                        | https://github.com/Opensource-UPC/1ASI0729-2620-7760-G3-Agridron-Report |
-| Landing Page             | `AgiDron-LandingPage-7760-G3` | HTML, CSS y JavaScript                                        | https://github.com/Opensource-UPC/AgiDron-LandingPage-7760-G3 |
-| Frontend Web Application | `AgiDron-FrontEnd-7760-G3`    | Angular y TypeScript                                          | https://github.com/Opensource-UPC/Agridron-frontend           |
-| Web Services             | `AgiDron-BackEnd-7760-G3`     | Java, Spring Boot, pruebas unitarias e integración/aceptación | https://github.com/Opensource-UPC/Agridron-backend            |
+| Landing Page             | `AgiDron-LandingPage-7760-G3` | Angular y TypeScript                                          | https://github.com/Opensource-UPC/AgiDron-LandingPage-7760-G3 |
+| Frontend Web Application | `Agridron-frontend`           | Angular y TypeScript                                          | https://github.com/Opensource-UPC/Agridron-frontend           |
+| Web Services             | `Agridron-backend`            | Java, Spring Boot, pruebas unitarias e integración/aceptación | https://github.com/Opensource-UPC/Agridron-backend            |
 
 #### 5.1.2.2. GitFlow Workflow
 
@@ -3255,9 +3256,12 @@ Principios:
 8. Mantener las pruebas junto con el código correspondiente.
 9. No incluir credenciales ni secretos dentro del código fuente.
 
+Las convenciones de esta sección toman como referencia las guías indicadas por el Project Statement.
+Los criterios de aceptación de las User Stories (3.1) siguen las convenciones de Gherkin [(Keiblinger, 2021)](https://web.archive.org/web/20250120021954/https://specflow.org/gherkin/gherkin-conventions-for-readable-specifications/).
+
 #### 5.1.3.2. HTML
 
-Convenciones:
+Convenciones, basadas en [(W3Schools, s. f.)](https://www.w3schools.com/html/html5_syntax.asp) y [(Google, s. f.-a)](https://google.github.io/styleguide/htmlcssguide.html):
 
 - Utilizar HTML5 semántico.
 - Utilizar elementos semánticos como `header`, `nav`, `main`, `section` y `footer`.
@@ -3275,7 +3279,7 @@ Ejemplo:
 
 #### 5.1.3.3. CSS
 
-Convenciones:
+Convenciones, basadas en [(Google, s. f.-a)](https://google.github.io/styleguide/htmlcssguide.html):
 
 - Utilizar nombres de clases en inglés.
 - Utilizar `kebab-case` para clases CSS.
@@ -3318,7 +3322,7 @@ function createMission(missionData) {
 
 #### 5.1.3.5. TypeScript / Angular
 
-Convenciones:
+Convenciones, basadas en [(Google, s. f.-c)](https://google.github.io/styleguide/tsguide.html) y [(Angular, s. f.)](https://angular.dev/style-guide):
 
 | Elemento   | Convención       | Ejemplo              |
 |------------|------------------|----------------------|
@@ -3349,7 +3353,7 @@ export class MissionService {
 
 #### 5.1.3.6. Java / Spring Boot
 
-Convenciones:
+Convenciones, basadas en [(Google, s. f.-b)](https://google.github.io/styleguide/javaguide.html) y [(Broadcom, s. f.)](https://docs.spring.io/spring-boot/reference/features/index.html):
 
 | Elemento | Convención       | Ejemplo                |
 |----------|------------------|------------------------|
@@ -3417,6 +3421,8 @@ Se utilizarán los verbos HTTP según la operación:
 
 El idioma por defecto definido para los mensajes, interfaz de usuario e interfaz de documentación de los productos de la solución es **inglés**.
 
+La Landing Page y la Web Application arrancan en inglés y cambian a español si el idioma del navegador es español. Ambos productos usan `ngx-translate` con `lang: 'en'` y `fallbackLang: 'en'`, y el usuario puede cambiar el idioma con el selector de idioma (`currentLang`), que carga las traducciones de `en.json` y `es.json`.
+
 Por lo tanto:
 
 - Variables: inglés.
@@ -3425,7 +3431,7 @@ Por lo tanto:
 - Endpoints: inglés.
 - Mensajes de API: inglés.
 - Documentación técnica: inglés.
-- Textos visibles para el usuario: inglés, salvo que una decisión posterior de UX establezca otro idioma.
+- Textos visibles para el usuario: inglés por defecto, con traducción al español.
 
 ### 5.1.4. Software Deployment Configuration
 
@@ -3557,11 +3563,11 @@ Deploy
 ```text
 Checkout
 ↓
-Validate files
+Install npm dependencies
 ↓
-Build / prepare static assets
+Build Angular application
 ↓
-Deploy
+Deploy to Firebase Hosting
 ```
 
 #### 5.1.4.5. Variables y secretos
@@ -3678,6 +3684,34 @@ Deployment
 ```
 
 Esto permite identificar qué cambios forman parte de una versión determinada y facilita la recuperación ante errores.
+
+#### 5.1.4.10. Pasos de despliegue por producto
+
+##### Landing Page
+
+La Landing Page (`AgiDron-LandingPage-7760-G3`, rama `main`) se publica en Firebase Hosting en [https://agridronlandingpage.web.app](https://agridronlandingpage.web.app). El repositorio todavía no incluye los archivos `firebase.json` ni `.firebaserc`, por lo que la configuración de Firebase debe agregarse a `main` para que el despliegue se pueda repetir desde el repositorio. Los pasos son los siguientes:
+
+1. Clonar el repositorio y cambiar a la rama `main`.
+2. Instalar las dependencias con `npm install`.
+3. Generar la versión de producción con `npm run build` (`ng build`). Como `angular.json` no define `outputPath`, el resultado queda en `dist/agridron-lp/browser`.
+4. Iniciar sesión en Firebase con `firebase login`.
+5. Publicar con `firebase deploy --only hosting`, con `firebase.json` apuntando a `dist/agridron-lp/browser` y `.firebaserc` al proyecto de la Landing Page.
+6. Verificar la versión publicada en [https://agridronlandingpage.web.app](https://agridronlandingpage.web.app).
+
+##### Frontend Web Application
+
+El repositorio del frontend (`Agridron-frontend`, rama `main`) incluye la configuración del despliegue: `firebase.json` publica la carpeta `dist/Agridron-frontend/browser` y `.firebaserc` apunta al proyecto `agridronwebapp`. Los pasos son los siguientes:
+
+1. Clonar el repositorio y cambiar a la rama `main`.
+2. Instalar las dependencias con `npm install`.
+3. Generar la versión de producción con `npm run build` (`ng build`), que usa `environment.ts`.
+4. Iniciar sesión en Firebase con `firebase login`.
+5. Publicar con `firebase deploy --only hosting`.
+6. Verificar la versión publicada en [https://agridronwebapp.web.app](https://agridronwebapp.web.app).
+
+##### Web Services
+
+El repositorio [https://github.com/Opensource-UPC/Agridron-backend](https://github.com/Opensource-UPC/Agridron-backend) todavía no contiene código. Los pasos de despliegue de los Web Services se especificarán cuando el proyecto Spring Boot esté implementado en ese repositorio.
 
 ---
 
