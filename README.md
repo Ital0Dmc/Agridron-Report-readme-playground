@@ -156,6 +156,7 @@ Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones deriv
 - [Capítulo IV: Product Design](#capítulo-iv-product-design)
   - [4.1. Style Guidelines](#41-style-guidelines)
     - [4.1.1. General Style Guidelines](#411-general-style-guidelines)
+    - [4.1.2. Web Style Guidelines](#412-web-style-guidelines)
   - [4.2. Information Architecture](#42-information-architecture)
     - [4.2.1. Organization Systems](#421-organization-systems)
     - [4.2.2. Labeling Systems](#422-labeling-systems)
@@ -185,7 +186,7 @@ Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones deriv
     - [4.7.1. Class Diagrams](#471-class-diagrams)
   - [4.8. Database Design](#48-database-design)
     - [4.8.1. Database Diagrams](#481-database-diagrams)
-    - [4.8.2. Normalizacion](#482-normalizacion)
+    - [4.8.2. Normalización](#482-normalización)
 - [Capítulo V: Product Implementation, Validation \& Deployment](#capítulo-v-product-implementation-validation--deployment)
   - [5.1. Software Configuration Management](#51-software-configuration-management)
     - [5.1.1. Software Development Environment Configuration](#511-software-development-environment-configuration)
@@ -232,7 +233,7 @@ Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones deriv
       - [5.2.1.6. Services Documentation Evidence for Sprint Review](#5216-services-documentation-evidence-for-sprint-review)
       - [5.2.1.7. Software Deployment Evidence for Sprint Review](#5217-software-deployment-evidence-for-sprint-review)
       - [5.2.1.8. Team Collaboration Insights during Sprint](#5218-team-collaboration-insights-during-sprint)
-  - [5.2.2. Sprint 2](#521-sprint-2)
+    - [5.2.2. Sprint 2](#522-sprint-2)
       - [5.2.2.1. Sprint Planning 2](#5221-sprint-planning-2)
       - [5.2.2.2. Aspect Leaders and Collaborators](#5222-aspect-leaders-and-collaborators)
       - [5.2.2.3. Sprint Backlog 2](#5223-sprint-backlog-2)
@@ -1240,6 +1241,8 @@ El Product Backlog se gestiona en Trello, en el siguiente enlace público:
 
 ---
 
+<div style="page-break-after: always;"></div>
+
 # Capítulo IV: Product Design
 
 ## 4.1. Style Guidelines
@@ -1864,9 +1867,9 @@ El flujo comienza cuando un agricultor solicita un servicio de fumigación y ter
 
 | Comando                              | Origen             | Propósito                                                       |
 |--------------------------------------|--------------------|-----------------------------------------------------------------|
-| Registrar parcela                    | Operador           | Crear información de una parcela agrícola.                      |
-| Delimitar área de fumigación         | Operador           | Definir el área que será tratada.                               |
-| Crear misión                         | Operador           | Crear una operación de fumigación asociada a una parcela.       |
+| Registrar parcela                    | Agricultor         | Crear información de una parcela agrícola.                      |
+| Delimitar zona de fumigación         | Agricultor         | Definir el área que será tratada.                               |
+| Crear misión                         | Agricultor         | Crear una operación de fumigación asociada a una parcela.       |
 | Programar misión                     | Operador           | Definir fecha y hora planificadas.                              |
 | Consultar condiciones meteorológicas | Sistema            | Obtener información climática de la API externa.                |
 | Iniciar operación                    | Operador           | Marcar el inicio de la misión.                                  |
@@ -1915,11 +1918,7 @@ El flujo comienza cuando un agricultor solicita un servicio de fumigación y ter
 
 ---
 
-# 4.6.1.1. Bounded Contexts
-
-La partición del dominio se realiza considerando las responsabilidades y conceptos principales de la solución.
-
-# 4.6.1.1. Bounded Contexts
+#### 4.6.1.1. Bounded Contexts
 
 La partición del dominio se realiza considerando las responsabilidades y conceptos principales de la solución, y se alinea con los seis Bounded Contexts identificados en el diagrama de EventStorming.
 
@@ -1937,7 +1936,7 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 
 **Responsabilidad:** administrar la información territorial, la delimitación de parcelas en mapa y la asociación de tipos de cultivo para planificar servicios.
 
-**Conceptos:** campo, parcela, cultivo, ubicación, área de fumigación y coordenadas.
+**Conceptos:** campo, parcela, cultivo, ubicación, zona de fumigación y coordenadas.
 
 **Operaciones:** registrar/actualizar parcela, visualizarla en mapa, delimitar área y asociar cultivo.
 
@@ -1986,7 +1985,6 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 ### Relación entre Bounded Contexts
 
 <img src="assets/chapter4/DDD-BoundedContext.jpg" alt="DDD Bounded Context" width="650"/>
-```
 
 **link de mmiro:** https://miro.com/app/board/uXjVHl_E4nc=/?share_link_id=823387251080
 
@@ -2194,7 +2192,7 @@ flowchart LR
 
 ### Responsabilidades
 
-- **Field Management:** administrar campos, parcelas y áreas de fumigación.
+- **Field Management:** administrar campos, parcelas y zonas de fumigación.
 - **Flight Operations:** crear, programar y monitorear misiones.
 - **Weather Integration:** mostrar condiciones y alertas meteorológicas.
 - **Analytics & Reporting:** consultar historial y reportes.
@@ -2940,6 +2938,8 @@ El modelo relacional se diseñó aplicando hasta la Tercera Forma Normal (3FN) e
 Estas duplicaciones se mantienen sincronizadas desde la capa de aplicación al momento de registrar o finalizar una misión, y están limitadas a atributos de solo lectura una vez generado el reporte o historial.
 
 ---
+
+<div style="page-break-after: always;"></div>
 
 # Capítulo V: Product Implementation, Validation & Deployment
 
@@ -4125,6 +4125,8 @@ La coordinación entre los integrantes permitió relacionar las User Stories con
 
 ---
 
+<div style="page-break-after: always;"></div>
+
 ## Conclusiones y recomendaciones
  
 <p align="justify">
@@ -4176,6 +4178,8 @@ Como <strong>recomendaciones para las siguientes entregas</strong>, el equipo co
 
 ---
 
+<div style="page-break-after: always;"></div>
+
 # Bibliografía
 
 > Fuentes utilizadas, registradas siguiendo el formato APA 7ª edición, en orden alfabético por apellido del primer autor.
@@ -4189,6 +4193,8 @@ Como <strong>recomendaciones para las siguientes entregas</strong>, el equipo co
 4. Zhang, Y., Li, H., Torres-Sánchez, J., & García, C. (2024). Drones in precision agriculture: A comprehensive review of applications, technologies, and challenges. *Drones*, *8*(11), 686. https://doi.org/10.3390/drones8110686
 
 ---
+
+<div style="page-break-after: always;"></div>
 
 # Anexos
 
