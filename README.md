@@ -157,6 +157,7 @@ Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones deriv
   - [4.1. Style Guidelines](#41-style-guidelines)
     - [4.1.1. General Style Guidelines](#411-general-style-guidelines)
     - [4.1.2. Web Style Guidelines](#412-web-style-guidelines)
+    - [4.1.3. Mobile Style Guidelines](#413-mobile-style-guidelines)
   - [4.2. Information Architecture](#42-information-architecture)
     - [4.2.1. Organization Systems](#421-organization-systems)
     - [4.2.2. Labeling Systems](#422-labeling-systems)
@@ -1708,6 +1709,8 @@ En escritorio, los wireframes muestran una estructura con sidebar lateral persis
 
 <img src="assets/chapter4/Web_Applications_Wireframes.png" alt="Web Applications Wireframes" width="650"/>
 
+*Figura: Wireframes de la Web Application.* Representan la estructura de las vistas principales, en escritorio y en dispositivos responsivos, antes de aplicar el diseño visual. Su propósito es validar la jerarquía y la distribución del contenido de cada vista.
+
 ### 4.4.2. Web Applications Wireflow Diagrams
 
 Los diagramas de wireflow de AgriDron Solutions ilustran la secuencia e interacción de las pantallas de la aplicación web para cumplir los objetivos clave del usuario dentro del sistema de fumigación con drones. Cada flujo mapea la transición entre interfaces a partir de un propósito operativo (user goal), detallando desde el ingreso a la plataforma hasta el monitoreo telemétrico en tiempo real y la gestión del perfil.
@@ -1728,7 +1731,9 @@ Este flujo representa el recorrido completo del usuario (agricultor u operador) 
 
 <img src="assets/chapter4/Web_Applications_Wireflow_Diagrams.png" alt="Web Applications Wireflow Diagrams" width="650"/>
 
-**link del figma:** https://www.figma.com/design/gIhPSpNHHNel3RMWLQSl8a/Sin-t%C3%ADtulo?node-id=0-1&t=LmubQnBsex2NasC8-1
+*Figura: Wireflow de la Web Application.* Representa la secuencia de pantallas que recorre el usuario para planificar, ejecutar y monitorear una misión de fumigación, con las transiciones entre ellas. Su propósito es verificar que la navegación lleve al usuario a su objetivo sin pasos innecesarios.
+
+**Enlace del Figma:** https://www.figma.com/design/gIhPSpNHHNel3RMWLQSl8a/Sin-t%C3%ADtulo?node-id=0-1&t=LmubQnBsex2NasC8-1
 
 ### 4.4.3. Web Applications Mock-ups
 
@@ -1800,9 +1805,21 @@ A continuación, se detallan los 8 escenarios visuales clave presentados en la p
 - Ficha de usuario (Juan Pérez - juan.perez@agro.com) con nombre de usuario, correo electrónico y rol asignado.
 - Botones Ir a Fincas y Cerrar Sesión.
 
+**8. Vista en Dispositivos Responsivos**
+
+- Propósito: Adaptación de las pantallas clave (Fincas y Monitoreo de Misión) al formato mobile y tablet para su uso directo en campo.
+
+**Componentes clave:**
+
+- Barra lateral oculta que se abre desde el botón de menú de la barra superior y se superpone al contenido.
+- Tarjetas en una sola columna, con el contenido apilado verticalmente y botones de ancho completo.
+- Selector de idioma visible en la barra superior y etiquetas de estado con el mismo color y texto que en la versión web.
+
 <img src="assets/chapter4/Web_Applications_Mock-ups.png" alt="Web Applications Mock-ups" width="650"/>
 
-**link del figma:** https://www.figma.com/design/gIhPSpNHHNel3RMWLQSl8a/Sin-t%C3%ADtulo?node-id=0-1&t=LmubQnBsex2NasC8-1
+*Figura: Mock-ups de la Web Application.* Representan las vistas principales en alta fidelidad, con la paleta, la tipografía y los componentes definidos en las Style Guidelines del 4.1. Su propósito es mostrar cómo se verá la aplicación antes de implementarla y servir de referencia para el desarrollo.
+
+**Enlace del Figma:** https://www.figma.com/design/gIhPSpNHHNel3RMWLQSl8a/Sin-t%C3%ADtulo?node-id=0-1&t=LmubQnBsex2NasC8-1
 
 ### 4.4.4. Web Applications User Flow Diagrams
 
@@ -1828,6 +1845,8 @@ User Goal 1: Planificar y ejecutar una misión de fumigación de precisión.
 - Incidencias técnicas o climáticas durante el vuelo: Si durante la pulverización surge una falla de equipo o cambio climático adverso, el operador técnico pausa la misión, que pasa a estado En pausa, y la reanuda desde el punto de parada cuando la incidencia se resuelve.
 
 <img src="assets/chapter4/Web_Applications_User_Flow_Diagrams.jpg" alt="Web Applications User Flow Diagrams" width="650"/>
+
+*Figura: User Flow de la planificación y ejecución de una misión de fumigación.* Representa los puntos de decisión del recorrido, con el camino feliz y las rutas alternativas. Su propósito es mostrar cómo responde el sistema ante cada condición.
 
 **Link del Miro:** https://miro.com/app/board/uXjVHnbT8O4=/?share_link_id=310365063702
 
