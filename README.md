@@ -600,11 +600,11 @@ con la plataforma web responsive y su flujo guiado de creación de misiones.
 
 #### 1.2.2.4. Lean UX Canvas
 
-![Lean UX Canvas de AgriDron Solutions](https://github.com/user-attachments/assets/2d3277d5-22a1-40bb-a3c9-ad852362d1ef)
+![Lean UX Canvas de AgriDron Solutions](assets/Chapter1/lean-ux-canvas.png)
 
 *Figura: Lean UX Canvas de AgriDron Solutions.*
 
-El Lean UX Canvas resume el modelo de negocio de AgriDron Solutions. El **Business Problem** describe la necesidad de mejorar la forma en que los agricultores y los operadores técnicos de drones gestionan las operaciones de fumigación. Las **Solutions** propuestas incluyen la fumigación con drones, el monitoreo en tiempo real y una plataforma web responsive. Los **Business Outcomes** esperados incluyen reducir el tiempo y el costo de fumigación, disminuir el tiempo de respuesta ante infestaciones y aumentar la retención de clientes.
+El Lean UX Canvas resume el modelo de negocio de AgriDron Solutions. El **Business Problem** describe la necesidad de mejorar la forma en que los agricultores y los operadores técnicos de drones gestionan las operaciones de fumigación. Las **Solutions** propuestas incluyen la fumigación con drones, el monitoreo en tiempo real y una plataforma web responsive. Los **Business Outcomes** esperados son un aumento del 25 % en la retención de clientes, un aumento del 40 % en la adopción de funciones premium, un aumento del 30 % en las misiones de fumigación programadas al mes y una disminución del 20 % en el costo de adquisición de clientes.
 
 En cuanto a los **Users & Customers**, los principales segmentos son los pequeños y medianos agricultores (PyMAs) y los operadores técnicos de drones. Sus **User Outcomes & Benefits** incluyen tener mayor control de sus campos, acceder a información de sus operaciones y reducir su exposición a productos químicos. Las **Hypotheses** buscan validar si los usuarios están dispuestos a pagar por el servicio y si las funciones de planificación, validación climática, monitoreo y reportes generan valor. El siguiente paso es validar la disposición de pago y el valor percibido mediante entrevistas y pruebas piloto.
 
