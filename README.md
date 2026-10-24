@@ -509,7 +509,7 @@ Los pequeños y medianos agricultores y los operadores técnicos de drones no cu
 
 El estado actual de **la gestión de la fumigación de cultivos en el sector agrícola peruano** se ha centrado principalmente en **métodos manuales y con tractor, realizados por pequeños y medianos agricultores y sus trabajadores de campo, que coordinan los servicios de fumigación mediante llamadas, mensajes de WhatsApp y registros escritos a mano**.
 
-Lo que los productos y servicios existentes no logran abordar es **una forma accesible para que estos agricultores y los operadores técnicos de drones planifiquen, coordinen y supervisen las operaciones con drones en un solo lugar, ya que plataformas como DroneDeploy, Climate FieldView y Agrivi están dirigidas a grandes agroindustrias, con soluciones de alto costo y dependientes de hardware**.
+Lo que los productos y servicios existentes no logran abordar es **una forma accesible para que estos agricultores y los operadores técnicos de drones planifiquen, coordinen y supervisen las operaciones con drones en un solo lugar, ya que plataformas como DroneDeploy, Climate FieldView y Agrivi tienen precios elevados o no publicados, en algunos casos requieren hardware adicional y no están pensadas para el pequeño productor peruano**.
 
 Nuestro producto abordará esta brecha mediante **una plataforma web responsive que permita registrar fincas y parcelas, delimitar zonas de fumigación en un mapa interactivo, validar las condiciones meteorológicas con un servicio externo, monitorear las misiones en tiempo real y consultar el historial y los reportes de cada operación**.
 
@@ -701,15 +701,15 @@ A continuación, se presenta el Competitive Analysis Landscape, cuyo objetivo es
       <td rowspan="2" align="center"><b>Perfil de Marketing</b></td>
       <td><b>Mercado objetivo</b></td>
       <td>Pequeños y medianos agricultores (PyMAs), cooperativas agrarias y operadores técnicos de drones de fumigación.</td>
-      <td>Grandes corporaciones agrícolas, empresas de ingeniería, construcción e inspección aérea.</td>
+      <td>En el agro, productores individuales, aplicadores por encargo, distribuidores de insumos y grandes operaciones empresariales, y fuera del agro, construcción, minería, energía y servicios públicos <a href="https://www.dronedeploy.com/agriculture.html">(DroneDeploy, s. f.)</a>.</td>
       <td>Medianos y grandes productores agrícolas con maquinaria mecanizada y tecnificada.</td>
-      <td>Medianas y grandes empresas agroexportadoras, consultores agrícolas y cadenas agroalimentarias.</td>
+      <td>Fincas de todos los tamaños y organizaciones de la cadena agroalimentaria, como cooperativas, empresas de alimentos, fabricantes de insumos, bancos agrícolas y asesorías agronómicas <a href="https://www.capterra.com/p/136084/Agrivi/">(Capterra, 2026)</a>.</td>
     </tr>
     <tr>
       <td><b>Estrategias de marketing</b></td>
       <td>Marketing digital educativo, demostraciones en cooperativas locales, esquema freemium para visualización de parcelas y alianzas con técnicos de campo.</td>
       <td>Venta directa enterprise, marketing de contenidos B2B global, eventos del sector aeroespacial y certificaciones técnicas.</td>
-      <td>Distribución a través de redes de concesionarios de insumos Bayer, patrocinios agrícolas y pruebas de campo a gran escala.</td>
+      <td>Venta a través de distribuidores locales de FieldView <a href="https://www.bayer.com/en-us/united-states/news-and-stories/2024/fieldview-features">(Bayer, 2024)</a>, prueba gratuita y reembolso del 50 % de la suscripción con el programa BayerValue para productores calificados <a href="https://climate.com/en-ca/pricing.html">(Climate FieldView, s. f.)</a>.</td>
       <td>Marketing inbound, presencia en conferencias globales AgTech, certificaciones digitales y canal de consultoría especializada.</td>
     </tr>
     <tr>
@@ -772,7 +772,7 @@ A partir de los hallazgos obtenidos en el análisis competitivo y la matriz SWOT
 
 **1. Estrategia de Enfoque en Costos y Accesibilidad (Frente a DroneDeploy y Agrivi)**
 
-Los competidores líderes manejan esquemas de precios enterprise con tarifas anuales elevadas, orientadas principalmente a grandes corporaciones o complejos agroindustriales. AgriDron Solutions capturará la cuota de mercado desatendida mediante una propuesta económica accesible para pequeños y medianos agricultores y cooperativas:
+Los competidores líderes manejan precios anuales elevados, como DroneDeploy, o no publicados, como Agrivi, poco accesibles para el pequeño productor aunque sus plataformas atiendan a fincas de todos los tamaños. AgriDron Solutions capturará la cuota de mercado desatendida mediante una propuesta económica accesible para pequeños y medianos agricultores y cooperativas:
 *   **Táctica de Pricing por Escala de Uso:** Implementar un modelo de suscripción flexible basado en rangos de hectáreas gestionadas o paquetes mensuales por temporada de fumigación, evitando contratos anuales forzosos.
 *   **Táctica Freemium de Entrada:** Ofrecer acceso gratuito para la delimitación de parcelas y consulta de métricas básicas de terreno, incentivando la conversión a planes de pago cuando el usuario requiera la validación climática, el monitoreo de misiones y los reportes de cada operación.
 
