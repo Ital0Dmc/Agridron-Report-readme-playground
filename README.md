@@ -2053,7 +2053,7 @@ C4Container
   System_Ext(weather, "API Meteorológica", "API externa para obtener condiciones meteorológicas.")
 
   System_Boundary(agridron, "AgriDron Solutions") {
-    Container(landing, "Landing Page", "HTML / CSS / JavaScript", "Presenta la solución y permite acceder a la plataforma.")
+    Container(landing, "Landing Page", "Angular / TypeScript", "Presenta la solución y permite acceder a la plataforma.")
     Container(frontend, "Frontend Angular", "Angular / TypeScript", "Interfaz web para gestionar parcelas, misiones, monitoreo, historial y reportes.")
     Container(backend, "Backend Spring Boot", "Java / Spring Boot", "Implementa la lógica de negocio y expone la API REST.")
     ContainerDb(database, "Base de Datos Relacional", "SQL", "Almacena usuarios, parcelas, misiones, drones, operaciones, incidentes y reportes.")
@@ -2073,7 +2073,7 @@ C4Container
 
 | Contenedor                   | Tecnología              | Responsabilidad                                                                                  |
 |------------------------------|-------------------------|--------------------------------------------------------------------------------------------------|
-| **Landing Page**             | HTML / CSS / JavaScript | Presentar AgriDron Solutions y facilitar el acceso a la plataforma.                              |
+| **Landing Page**             | Angular / TypeScript    | Presentar AgriDron Solutions y facilitar el acceso a la plataforma.                              |
 | **Frontend Angular**         | Angular / TypeScript    | Proporcionar la interfaz para gestionar parcelas, misiones, monitoreo, historial y reportes.     |
 | **Backend Spring Boot**      | Java / Spring Boot      | Implementar la lógica de negocio, exponer servicios REST y coordinar datos y servicios externos. |
 | **Base de Datos Relacional** | SQL                     | Persistir usuarios, parcelas, misiones, operaciones, incidentes y reportes.                      |
@@ -2090,12 +2090,14 @@ C4Container
 
 ## Trazabilidad entre dominio y arquitectura
 
-| Bounded Context           | Responsabilidad                            | Soporte arquitectónico      |
-|---------------------------|--------------------------------------------|-----------------------------|
-| **Field Management**      | Campos, parcelas y áreas                   | Frontend + Backend + BD     |
-| **Flight Operations**     | Misiones, drones, operaciones e incidentes | Frontend + Backend + BD     |
-| **Weather Integration**   | Condiciones y alertas meteorológicas       | Backend + API Meteorológica |
-| **Analytics & Reporting** | Historial, métricas y reportes             | Frontend + Backend + BD     |
+| Bounded Context                     | Responsabilidad                                                | Soporte arquitectónico      |
+|-------------------------------------|----------------------------------------------------------------|-----------------------------|
+| **Identity & Access Management**    | Usuarios, roles, registro e inicio de sesión                   | Frontend + Backend + BD     |
+| **Field Management**                | Campos, parcelas y zonas de fumigación                         | Frontend + Backend + BD     |
+| **Flight Operations**               | Misiones, operaciones e incidentes                             | Frontend + Backend + BD     |
+| **Weather Integration**             | Condiciones y alertas meteorológicas                           | Backend + API Meteorológica |
+| **Analytics & Reporting**           | Historial, métricas y reportes                                 | Frontend + Backend + BD     |
+| **Inventory & Resource Management** | Drones, boquillas, agroquímicos y registros de mantenimiento   | Frontend + Backend + BD     |
 
 La correspondencia permite mantener trazabilidad entre el análisis de dominio realizado mediante Event Storming y la arquitectura propuesta para AgriDron Solutions.
 
@@ -2111,47 +2113,71 @@ La API RESTful implementada con Spring Boot concentra la lógica de aplicación 
 flowchart LR
   subgraph API["RESTful API - Spring Boot"]
     subgraph Presentation["API / Presentation Layer"]
+      UC["Users Controller"]
+      AC["Authentication Controller"]
       FC["Field Controller"]
       MC["Mission Controller"]
       WC["Weather Controller"]
       RC["Report Controller"]
+      DC["Drones Controller"]
+      NC["Nozzles Controller"]
+      AGC["Agrochemicals Controller"]
+      MRC["Maintenance Records Controller"]
     end
     subgraph Application["Application Layer"]
+      IS["IAM Service"]
       FS["Field Service"]
       MS["Mission Service"]
       WS["Weather Service"]
       RS["Report Service"]
+      INS["Inventory Service"]
     end
     subgraph Domain["Domain Layer"]
+      ID["Identity & Access Management Domain"]
       FD["Field Management Domain"]
       MD["Flight Operations Domain"]
       WD["Weather Integration Domain"]
       RD["Analytics & Reporting Domain"]
+      IND["Inventory & Resource Management Domain"]
     end
     subgraph Infrastructure["Infrastructure Layer"]
+      UR["User Repository"]
       FR["Field Repository"]
       MR["Mission Repository"]
       RR["Report Repository"]
+      INR["Inventory Repository"]
       WA["Weather API Adapter"]
     end
   end
   DB[("Relational Database")]
   Weather["Weather API"]
+  UC --> IS
+  AC --> IS
   FC --> FS
   MC --> MS
   WC --> WS
   RC --> RS
+  DC --> INS
+  NC --> INS
+  AGC --> INS
+  MRC --> INS
+  IS --> ID
   FS --> FD
   MS --> MD
   WS --> WD
   RS --> RD
+  INS --> IND
+  IS --> UR
   FS --> FR
   MS --> MR
   RS --> RR
+  INS --> INR
   WS --> WA
+  UR --> DB
   FR --> DB
   MR --> DB
   RR --> DB
+  INR --> DB
   WA --> Weather
 ```
 
@@ -2164,6 +2190,8 @@ flowchart LR
 | Domain         | Contener reglas y conceptos principales de cada Bounded Context.        |
 | Infrastructure | Implementar persistencia e integración con servicios externos.          |
 
+Los componentes de Identity & Access Management atienden `/api/v1/users` (TU-024) y `/api/v1/authentication/sign-in` (TU-026). Los de Inventory & Resource Management atienden `/api/v1/drones` (TU-020), `/api/v1/nozzles` (TU-021), `/api/v1/agrochemicals` (TU-022) y `/api/v1/maintenance-records` (TU-023).
+
 ## 4.6.4.2. Web Application
 
 La aplicación web utiliza Angular para proporcionar las funcionalidades de operadores y clientes.
@@ -2171,52 +2199,68 @@ La aplicación web utiliza Angular para proporcionar las funcionalidades de oper
 ```mermaid
 flowchart LR
   subgraph Web["Web Application - Angular"]
-    subgraph Field["Field Management"]
-      Farms["Farm Management"]
-      Parcels["Parcel Management"]
-      Map["Interactive Map"]
+    subgraph IAM["iam"]
+      SignIn["Sign In"]
+      SignUp["Sign Up"]
+      Profile["User Profile"]
+    end
+    subgraph Field["fieldManagement"]
+      Farms["Farms"]
+      Parcels["Parcels"]
+      Crops["Crops"]
+      Zones["Fumigation Areas"]
     end
     subgraph Flight["Flight Operations"]
-      Missions["Mission Management"]
-      Schedule["Mission Calendar"]
-      Monitor["Mission Monitoring"]
+      Missions["Mission Management (pendiente)"]
     end
-    subgraph Weather["Weather Integration"]
-      WeatherView["Weather View"]
-      Alerts["Weather Alerts"]
+    subgraph Weather["weather-integration"]
+      WeatherService["Weather Service"]
     end
-    subgraph Reports["Analytics & Reporting"]
-      History["Mission History"]
+    subgraph Reports["analyticsAndReporting"]
       ReportsView["Reports"]
-      Metrics["Operational Metrics"]
+      History["Mission History"]
+      Indicators["Performance Indicators"]
+      Supply["Supply Usage"]
     end
-    Shared["Shared Components / Authentication"]
-    APIClient["REST API Client"]
+    subgraph Inventory["InventoryResourceManagement"]
+      Drones["Drones"]
+      Resources["Nozzles, Agrochemicals and Maintenance Records"]
+    end
+    subgraph Shared["shared"]
+      Layout["Layout and Navigation"]
+      WeatherWidget["Weather Widget"]
+      APIClient["REST API Client"]
+    end
   end
   API["RESTful API"]
+  SignIn --> APIClient
+  SignUp --> APIClient
+  Profile --> APIClient
   Farms --> APIClient
   Parcels --> APIClient
-  Map --> APIClient
-  Missions --> APIClient
-  Schedule --> APIClient
-  Monitor --> APIClient
-  WeatherView --> APIClient
-  Alerts --> APIClient
-  History --> APIClient
+  Crops --> APIClient
+  Zones --> APIClient
+  Missions -.-> APIClient
+  WeatherWidget --> WeatherService
+  WeatherService --> APIClient
   ReportsView --> APIClient
-  Metrics --> APIClient
-  Shared --> APIClient
+  History --> APIClient
+  Indicators --> APIClient
+  Supply --> APIClient
+  Drones --> APIClient
+  Resources --> APIClient
   APIClient --> API
 ```
 
 ### Responsabilidades
 
-- **Field Management:** administrar campos, parcelas y zonas de fumigación.
-- **Flight Operations:** crear, programar y monitorear misiones.
-- **Weather Integration:** mostrar condiciones y alertas meteorológicas.
-- **Analytics & Reporting:** consultar historial y reportes.
-- **Shared Components:** centralizar elementos reutilizables y autenticación.
-- **REST API Client:** encapsular la comunicación con el Backend.
+- **iam (Identity & Access Management):** registrar usuarios, iniciar sesión y mostrar el perfil del usuario.
+- **fieldManagement (Field Management):** administrar campos, parcelas, cultivos y zonas de fumigación.
+- **Flight Operations:** crear, programar y monitorear misiones. Es el módulo de misiones pendiente de implementación y aún no tiene carpeta en el frontend.
+- **weather-integration (Weather Integration):** obtener las condiciones y alertas meteorológicas que muestra el Weather Widget.
+- **analyticsAndReporting (Analytics & Reporting):** consultar reportes, historial de misiones, indicadores de rendimiento y uso de insumos.
+- **InventoryResourceManagement (Inventory & Resource Management):** consultar la flota de drones, las boquillas, los agroquímicos y los registros de mantenimiento.
+- **shared:** centralizar el layout, la navegación, el Weather Widget y la clase base del REST API Client, que encapsula la comunicación con el Backend.
 
 ## 4.6.4.3. Weather Integration Component
 
