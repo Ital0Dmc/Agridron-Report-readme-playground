@@ -1031,6 +1031,8 @@ Las User Stories se organizan en nueve Epics, que agrupan los requisitos de la L
 
 Los criterios de aceptación siguen la estructura Gherkin (Dado que, cuando, entonces) e incluyen el escenario principal y al menos un escenario alternativo de cada User Story. Cada escenario se presenta numerado, con las cláusulas Dado que, Cuando y Entonces en líneas separadas. En las Technical Stories, los escenarios describen la interacción de request y response con cada endpoint del RESTful API. La telemetría del dron se simula en la Web Application, como se indica en las restricciones del proyecto (1.2.1), por lo que no requiere un endpoint propio. Las Technical Stories describen los recursos del RESTful API de esta versión del producto. Las User Stories, o los datos de una User Story, que todavía no tienen un endpoint en esta versión se incorporarán al RESTful API en sprints posteriores, según la priorización del Product Backlog.
 
+Las Technical Stories TU-003 (geometría espacial), TU-004 (WebSocket) y TU-009 (Flyway) se retiraron del alcance por su complejidad y por no estar asignadas a ningún sprint. Sus identificadores no se reutilizan, para mantener la trazabilidad con versiones anteriores del backlog.
+
 | Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
 |---|---|---|---|---|
 | **EP01** | **Descubrimiento e Información Comercial (Landing Page)** | Definición general de la propuesta de valor y servicios públicos de la plataforma. | -- | -- |
