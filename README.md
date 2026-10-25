@@ -2296,7 +2296,9 @@ El diseño orientado a objetos representa los principales elementos del dominio 
 
 ### 4.7.1. Class Diagrams
 
-Los Class Diagrams se presentan por Bounded Context para mantener cada modelo legible y con responsabilidades claras. Las referencias entre contextos se realizan mediante identificadores (por ejemplo, `parcelId`, `droneId` u `operatorId` en `Mission`), y no mediante asociaciones directas entre clases de contextos distintos.
+Los Class Diagrams se presentan por Bounded Context para mantener cada modelo legible y con responsabilidades claras. Las referencias entre contextos se realizan mediante identificadores (por ejemplo, `parcelId`, `agrochemicalId`, `droneId` u `operatorId` en `Mission`), y no mediante asociaciones directas entre clases de contextos distintos.
+
+En todos los diagramas, el scope se indica con `+` (público), `-` (privado) y `#` (protegido, solo en las clases base de Shared). Cada relación muestra su nombre, su dirección y su multiplicidad en ambos extremos. Los atributos corresponden a los campos de `server/db.json` del frontend y de las Technical Stories del 3.1 (TU-011 a TU-026), excepto `passwordHash` de `User`, que guarda la contraseña cifrada (TU-002 y TU-024). Los métodos corresponden a comportamientos descritos en las User Stories del 3.1.
 
 ### 4.7.1.1. Overview
 
@@ -2329,34 +2331,37 @@ classDiagram
   }
   namespace InventoryResourceManagement {
     class Drone
-    class AgrochemicalSupply
+    class Agrochemical
     class Nozzle
     class MaintenanceRecord
   }
   namespace Shared {
     class BaseApi
-    class BaseEndpoint
+    class BaseApiEndpoint
   }
 
-  Farm "1" *-- "1..*" Parcel
-  Parcel "1" *-- "0..*" FumigationArea
-  Parcel "*" --> "1" Crop
-  Mission "1" *-- "0..*" Incident
-  Mission "1" *-- "0..*" OperationStatus
-  Mission "1" *-- "0..1" MissionResult
-  Drone "1" *-- "0..*" MaintenanceRecord
-  MissionReport "1" *-- "0..*" OperationalMetric
+  Farm "1" *-- "0..*" Parcel : contains
+  Parcel "1" *-- "0..*" FumigationArea : defines
+  Parcel "0..*" --> "1" Crop : has
+  Mission "1" *-- "0..*" Incident : records
+  Mission "1" *-- "0..*" OperationStatus : tracks
+  Mission "1" *-- "0..1" MissionResult : produces
+  WeatherCondition "1" *-- "0..*" WeatherAlert : contains
+  MissionReport "1" *-- "0..*" OperationalMetric : contains
+  Drone "1" *-- "0..*" MaintenanceRecord : has
+  Drone "0..*" --> "1" Nozzle : uses nozzleId
 
-  Farm ..> User : ownerId
-  Mission ..> Parcel : parcelId
-  Mission ..> Drone : droneId
-  Mission ..> User : operatorId
-  Mission ..> WeatherAlert : consulta
-  WeatherCondition ..> Parcel : coordenadas
-  MissionHistory ..> Mission : missionId
-  MissionResult ..> MissionReport : alimenta
-  MissionResult ..> AgrochemicalSupply : supplyId
-  BaseEndpoint --> BaseApi
+  Farm "0..*" ..> "1" User : ownerId
+  Mission "0..*" ..> "1" Parcel : parcelId
+  Mission "0..*" ..> "1" Agrochemical : agrochemicalId
+  Mission "0..*" ..> "0..1" Drone : droneId
+  Mission "0..*" ..> "0..1" User : operatorId
+  Mission "0..*" ..> "0..*" WeatherAlert : checks before flight
+  WeatherCondition "0..*" ..> "1" Farm : location
+  MissionReport "0..*" ..> "1" Mission : missionId
+  MissionHistory "0..1" ..> "1" Mission : missionId
+  MissionResult "1" ..> "0..*" MissionReport : feeds
+  BaseApi "1" o-- "1..*" BaseApiEndpoint : composes
 ```
 
 ### 4.7.1.2. Identity & Access Management
@@ -2369,16 +2374,15 @@ classDiagram
     -String email
     -String passwordHash
     -UserRole role
-    +signUp()
-    +authenticate()
-    +updateProfile()
-    +hasRole(role)
+    +signUp() void
+    +authenticate() Boolean
+    +updateProfile(username: String, email: String) void
+    +hasRole(role: UserRole) Boolean
   }
   class UserRole {
     <<enumeration>>
     FARMER
     OPERATOR
-    TECHNICIAN
   }
   class SignInCommand {
     -String username
@@ -2391,15 +2395,16 @@ classDiagram
     -UserRole role
   }
   class AuthenticationService {
-    +signIn(command)
-    +signUp(command)
-    +signOut()
-    +hasAccess(user, requiredRole)
+    +signIn(command: SignInCommand) void
+    +signUp(command: SignUpCommand) void
+    +signOut() void
+    +hasAccess(user: User, requiredRole: UserRole) Boolean
   }
-  User --> UserRole : has
-  AuthenticationService --> User : manages
-  AuthenticationService ..> SignInCommand : handles
-  AuthenticationService ..> SignUpCommand : handles
+  User "0..*" --> "1" UserRole : has
+  SignUpCommand "0..*" --> "1" UserRole : selects
+  AuthenticationService "1" --> "0..*" User : authenticates
+  AuthenticationService "1" ..> "1" SignInCommand : handles
+  AuthenticationService "1" ..> "1" SignUpCommand : handles
 ```
 
 ### 4.7.1.3. Field Management
@@ -2411,9 +2416,10 @@ classDiagram
     -String name
     -String location
     -Long ownerId
-    +register()
-    +update()
-    +getParcels()
+    -String image
+    +register() void
+    +update(name: String, location: String) void
+    +getParcels() List~Parcel~
   }
   class Parcel {
     -Long id
@@ -2422,27 +2428,27 @@ classDiagram
     -String geometry
     -Long farmId
     -Long cropId
-    +defineArea()
-    +updateCrop()
-    +getGeometry()
+    -String image
+    +defineArea(geometry: String) void
+    +updateCrop(cropId: Long) void
   }
   class FumigationArea {
     -Long id
     -Long parcelId
     -String geometry
     -Double area
-    +calculateArea()
-    +updateGeometry()
+    +calculateArea() Double
+    +updateGeometry(geometry: String) void
   }
   class Crop {
     -Long id
     -String name
     -String variety
-    +getInformation()
+    +getInformation() String
   }
-  Farm "1" *-- "1..*" Parcel : contains
+  Farm "1" *-- "0..*" Parcel : contains
   Parcel "1" *-- "0..*" FumigationArea : defines
-  Parcel "*" --> "1" Crop : has
+  Parcel "0..*" --> "1" Crop : has
 ```
 
 ### 4.7.1.4. Flight Operations
@@ -2451,20 +2457,25 @@ classDiagram
 classDiagram
   class Mission {
     -Long id
-    -String code
-    -LocalDate scheduledDate
-    -MissionStatus status
-    -Double plannedArea
-    -Double treatedArea
+    -LocalDate requestedDate
     -Long parcelId
+    -Long agrochemicalId
     -Long droneId
     -Long operatorId
-    +create()
-    +schedule()
-    +start()
-    +pause()
-    +complete()
-    +cancel()
+    -Double flightHeight
+    -Double flightSpeed
+    -Double sprayRate
+    -Double overlap
+    -MissionStatus status
+    +assignResources(droneId: Long, agrochemicalId: Long) void
+    +assignOperator(operatorId: Long) void
+    +configureFlightParameters(flightHeight: Double, flightSpeed: Double, sprayRate: Double, overlap: Double) void
+    +reschedule(requestedDate: LocalDate) void
+    +authorize() void
+    +pause() void
+    +resume() void
+    +complete() void
+    +updateStatus(status: MissionStatus) void
   }
   class Incident {
     -Long id
@@ -2472,8 +2483,7 @@ classDiagram
     -String type
     -String description
     -LocalDateTime occurredAt
-    +register()
-    +update()
+    +register(type: String, description: String) void
   }
   class OperationStatus {
     -Long id
@@ -2482,7 +2492,7 @@ classDiagram
     -Double longitude
     -String status
     -LocalDateTime timestamp
-    +updateLocation()
+    +updateLocation(latitude: Double, longitude: Double) void
   }
   class MissionResult {
     -Long id
@@ -2490,7 +2500,7 @@ classDiagram
     -Double treatedArea
     -Double appliedVolume
     -String observations
-    +register()
+    +register(treatedArea: Double, appliedVolume: Double, observations: String) void
   }
   class MissionStatus {
     <<enumeration>>
@@ -2501,7 +2511,7 @@ classDiagram
     COMPLETED
     CANCELLED
   }
-  Mission --> MissionStatus : has
+  Mission "0..*" --> "1" MissionStatus : has
   Mission "1" *-- "0..*" Incident : records
   Mission "1" *-- "0..*" OperationStatus : tracks
   Mission "1" *-- "0..1" MissionResult : produces
@@ -2513,29 +2523,31 @@ classDiagram
 classDiagram
   class WeatherService {
     -WeatherApiClient apiClient
-    +getCurrentConditions(latitude, longitude)
-    +getForecast(latitude, longitude)
-    +evaluateConditions(weather)
+    +getCurrentConditions(latitude: Double, longitude: Double) WeatherCondition
+    +getForecast(latitude: Double, longitude: Double) List~WeatherCondition~
+    +evaluateConditions(weather: WeatherCondition) List~WeatherAlert~
   }
   class WeatherApiClient {
     <<interface>>
-    +getCurrentWeather(latitude, longitude)
-    +getForecast(latitude, longitude)
+    +getCurrentWeather(latitude: Double, longitude: Double) WeatherCondition
+    +getForecast(latitude: Double, longitude: Double) List~WeatherCondition~
   }
   class WeatherCondition {
+    -Long id
+    -String location
     -Double temperature
     -Double humidity
     -Double windSpeed
     -Double precipitation
     -LocalDateTime observedAt
-    +isSuitable()
+    +isSuitable() Boolean
   }
   class WeatherAlert {
     -Long id
     -AlertSeverity severity
     -String message
     -LocalDateTime createdAt
-    +generate()
+    +generate() void
   }
   class AlertSeverity {
     <<enumeration>>
@@ -2543,10 +2555,11 @@ classDiagram
     MEDIUM
     HIGH
   }
-  WeatherService --> WeatherApiClient : uses
-  WeatherService --> WeatherCondition : evaluates
-  WeatherService --> WeatherAlert : generates
-  WeatherAlert --> AlertSeverity : has
+  WeatherService "1" --> "1" WeatherApiClient : uses
+  WeatherService "1" ..> "0..*" WeatherCondition : evaluates
+  WeatherService "1" ..> "0..*" WeatherAlert : generates
+  WeatherCondition "1" *-- "0..*" WeatherAlert : contains
+  WeatherAlert "0..*" --> "1" AlertSeverity : has
 ```
 
 ### 4.7.1.6. Analytics & Reporting
@@ -2561,37 +2574,41 @@ classDiagram
     -Double appliedVolume
     -String observations
     -LocalDateTime generatedAt
-    +generate()
-    +export()
+    +generate() void
+    +export(format: String) String
   }
   class MissionHistory {
     -Long id
     -Long missionId
-    -LocalDateTime completedAt
     -String finalStatus
-    +register()
-    +findByDate()
+    -LocalDateTime completedAt
+    +register() void
+    +isCompletedOn(date: LocalDate) Boolean
   }
   class OperationalMetric {
+    -Long id
+    -Long reportId
     -String name
     -Double value
     -String unit
-    +calculate()
+    +calculate() Double
   }
   class PerformanceIndicator {
+    -Long id
     -String name
     -Double value
     -String unit
     -String period
-    +calculate()
+    -LocalDateTime calculatedAt
+    +calculate() Double
   }
   class ReportType {
     <<enumeration>>
     MISSION_SUMMARY
     PHYTOSANITARY
   }
-  MissionReport --> ReportType : has
-  MissionReport "1" --> "1" MissionHistory : summarizes
+  MissionReport "0..*" --> "1" ReportType : has
+  MissionReport "0..*" --> "1" MissionHistory : summarizes
   MissionReport "1" *-- "0..*" OperationalMetric : contains
 ```
 
@@ -2603,102 +2620,151 @@ classDiagram
     -Long id
     -String serialNumber
     -String model
-    -Double capacity
+    -Integer batteryLevel
     -DroneStatus status
-    +register()
-    +assignToMission()
-    +updateStatus()
-    +getLocation()
+    -Long nozzleId
+    -LocalDate lastMaintenanceDate
+    -LocalDate nextMaintenanceDate
+    +register() void
+    +assignToMission(missionId: Long) void
+    +updateStatus(status: DroneStatus) void
   }
-  class AgrochemicalSupply {
+  class Agrochemical {
     -Long id
     -String name
     -String type
-    -Double stock
-    -String unit
-    +register()
-    +increaseStock()
-    +decreaseStock()
+    -Double stockLiters
+    -Double minimumStockLiters
+    -LocalDate expirationDate
+    +register() void
+    +decreaseStock(liters: Double) void
   }
   class Nozzle {
     -Long id
-    -String model
     -String type
+    -Double diameterMm
+    -Integer stockUnits
     -String status
-    +register()
-    +updateStatus()
+    +register() void
+    +updateStatus(status: String) void
   }
   class MaintenanceRecord {
     -Long id
     -Long droneId
+    -LocalDate date
+    -MaintenanceType type
     -String description
-    -LocalDate scheduledDate
-    -LocalDateTime performedAt
-    -MaintenanceStatus status
-    +schedule()
-    +markAsDone()
+    -String technician
+    +register() void
   }
   class DroneStatus {
     <<enumeration>>
     AVAILABLE
-    ASSIGNED
     IN_FLIGHT
-    PAUSED
     MAINTENANCE
+    OUT_OF_SERVICE
   }
-  class MaintenanceStatus {
+  class MaintenanceType {
     <<enumeration>>
-    SCHEDULED
-    COMPLETED
-    OVERDUE
+    PREVENTIVE
+    CORRECTIVE
   }
-  Drone --> DroneStatus : has
-  Drone "1" o-- "0..*" Nozzle : equipped with
+  Drone "0..*" --> "1" DroneStatus : has
+  Drone "0..*" --> "1" Nozzle : uses nozzleId
   Drone "1" *-- "0..*" MaintenanceRecord : has
-  MaintenanceRecord --> MaintenanceStatus : has
+  MaintenanceRecord "0..*" --> "1" MaintenanceType : classified as
 ```
 
 ### 4.7.1.8. Shared
 
+El contexto Shared reúne las clases base que reutilizan los demás Bounded Contexts del frontend (`src/app/shared`): los contratos de dominio e infraestructura y los componentes de presentación comunes.
+
 ```mermaid
 classDiagram
+  class BaseEntity {
+    <<interface>>
+    +Number id
+  }
+  class BaseResource {
+    <<interface>>
+    +Number id
+  }
+  class BaseResponse {
+    <<interface>>
+  }
+  class BaseAssembler~TEntity~ {
+    <<interface>>
+    +toEntityFromResource(resource: TResource) TEntity
+    +toResourceFromEntity(entity: TEntity) TResource
+    +toEntitiesFromResponse(response: TResponse) TEntity[]
+  }
+  class BaseApiEndpoint~TEntity~ {
+    <<abstract>>
+    #HttpClient http
+    #String endpointUrl
+    #TAssembler assembler
+    +getAll() Observable~TEntity[]~
+    +getById(id: Number) Observable~TEntity~
+    +create(entity: TEntity) Observable~TEntity~
+    +update(entity: TEntity, id: Number) Observable~TEntity~
+    +delete(id: Number) Observable~void~
+    #handleError(operation: String) Function
+  }
   class BaseApi {
-    -AxiosInstance http
-    +getHttp()
+    <<abstract>>
   }
-  class BaseEndpoint {
-    -AxiosInstance http
-    -String endpointPath
-    +getAll()
-    +getById(id)
-    +create(resource)
-    +update(id, resource)
-    +delete(id)
-  }
-  class IamInterceptor {
-    <<interceptor>>
-    +intercept(config)
+  class ErrorHandlingEnabledBaseType {
+    <<abstract>>
+    #handleError(operation: String) Function
   }
   class Layout {
-    -Boolean drawer
-    -List items
-    +toggleDrawer()
+    +Signal~Boolean~ sidebarOpen
+    +toggleSidebar() void
+    +closeSidebar() void
+  }
+  class HeaderContent {
+    +Function menuToggle
+  }
+  class SideNav {
+    +Boolean open
+    +Function close
+    +Array options
+    +onNavigate() void
   }
   class LanguageSwitcher {
-    -String locale
-    -List availableLocales
-    +changeLocale(locale)
+    #String currentLang
+    #String[] languages
+    -TranslateService translate
+    +useLanguage(language: String) void
   }
   class FooterContent
-  class Home
-  class About
-  class PageNotFound {
-    -String unavailableRoute
+  class WeatherWidget {
+    -WeatherService weatherService
+    +Signal~WeatherCondition[]~ weatherConditions
   }
-  BaseEndpoint --> BaseApi : uses
-  BaseApi ..> IamInterceptor : applies
-  Layout *-- LanguageSwitcher
-  Layout *-- FooterContent
+  class Home {
+    -AuthenticationService authService
+    -WeatherService weatherService
+    +Array metrics
+    +Array shortcuts
+  }
+  class PageNotFound {
+    #String invalidPath
+    -ActivatedRoute route
+    -Router router
+    +ngOnInit() void
+    #navigateToHome() void
+  }
+  BaseApi "1" o-- "1..*" BaseApiEndpoint : composes
+  BaseApiEndpoint "1" --> "1" BaseAssembler : uses
+  BaseApiEndpoint "1" ..> "0..*" BaseEntity : returns
+  BaseAssembler "1" ..> "0..*" BaseResource : converts
+  BaseAssembler "1" ..> "0..*" BaseResponse : reads
+  Layout "1" *-- "1" HeaderContent : contains
+  Layout "1" *-- "1" SideNav : contains
+  Layout "1" *-- "1" FooterContent : contains
+  HeaderContent "1" *-- "1" LanguageSwitcher : contains
+  Home "1" *-- "1" WeatherWidget : contains
 ```
 
 
