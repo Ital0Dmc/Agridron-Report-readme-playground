@@ -2769,7 +2769,7 @@ classDiagram
 
 
 ## 4.8. Database Design
-El diseño de base de datos define la persistencia necesaria para los objetos de cada Bounded Context. Para almacenamiento relacional se especifican tablas, columnas, claves primarias, claves foráneas y relaciones entre tablas. Esto corresponde a lo solicitado por el Project Statement. La solución se organiza en seis Bounded Contexts (Identity & Access Management, Field Management, Flight Operations, Weather Integration, Analytics & Reporting e Inventory & Resource Management); cada diagrama muestra las tablas propias del contexto y, cuando es necesario, las tablas de otros contextos que referencia mediante claves foráneas.
+El diseño de base de datos define la persistencia necesaria para los objetos de cada Bounded Context. Para almacenamiento relacional se especifican tablas, columnas, claves primarias, claves foráneas y relaciones entre tablas. Esto corresponde a lo solicitado por el Project Statement. La solución se organiza en seis Bounded Contexts (Identity & Access Management, Field Management, Flight Operations, Weather Integration, Analytics & Reporting e Inventory & Resource Management). Cada diagrama muestra las tablas propias del contexto y, cuando es necesario, las tablas de otros contextos que referencia mediante claves foráneas. Las tablas y columnas corresponden a las clases y atributos de los Class Diagrams (4.7.1), con nombres en snake_case, y las multiplicidades de las relaciones son las mismas.
 
 ### 4.8.1. Database Diagrams
 
@@ -2783,11 +2783,10 @@ erDiagram
         VARCHAR email UK
         VARCHAR password_hash
         VARCHAR role
-        TIMESTAMP created_at
     }
 ```
 
-**Restricciones principales:** `USER_ACCOUNT.id` es PK; `username` y `email` son únicos; `role` solo admite los valores `FARMER`, `OPERATOR` y `TECHNICIAN`; `password_hash` nunca almacena la contraseña en texto plano. Esta tabla es referenciada por los demás contextos mediante FK (`FARM.owner_id`, `MISSION.operator_id`).
+**Restricciones principales:** `USER_ACCOUNT.id` es PK. `username` y `email` son únicos. `role` solo admite los valores `FARMER` y `OPERATOR`. `password_hash` nunca almacena la contraseña en texto plano. Esta tabla es referenciada por los demás contextos mediante FK (`FARM.owner_id`, `MISSION.operator_id`).
 
 ### 4.8.1.2. Field Management
 
@@ -2806,7 +2805,7 @@ erDiagram
         BIGINT owner_id FK
         VARCHAR name
         VARCHAR location
-        TIMESTAMP created_at
+        VARCHAR image
     }
     PARCEL {
         BIGINT id PK
@@ -2815,14 +2814,13 @@ erDiagram
         VARCHAR name
         DECIMAL area
         TEXT geometry
-        TIMESTAMP created_at
+        VARCHAR image
     }
     FUMIGATION_AREA {
         BIGINT id PK
         BIGINT parcel_id FK
         DECIMAL area
         TEXT geometry
-        TIMESTAMP created_at
     }
     CROP {
         BIGINT id PK
@@ -2831,20 +2829,24 @@ erDiagram
     }
 ```
 
-**Restricciones principales:** `FARM.id`, `PARCEL.id`, `FUMIGATION_AREA.id` y `CROP.id` son PK; las FK mantienen las relaciones indicadas (`FARM.owner_id` referencia `USER_ACCOUNT.id`); `area` debe ser mayor que cero.
+**Restricciones principales:** `FARM.id`, `PARCEL.id`, `FUMIGATION_AREA.id` y `CROP.id` son PK. Las FK mantienen las relaciones indicadas (`FARM.owner_id` referencia `USER_ACCOUNT.id`, `PARCEL.farm_id` referencia `FARM.id`, `PARCEL.crop_id` referencia `CROP.id` y `FUMIGATION_AREA.parcel_id` referencia `PARCEL.id`). Una finca puede registrarse sin parcelas (cero o muchas). `area` debe ser mayor que cero.
 
 ### 4.8.1.3. Flight Operations
 
 ```mermaid
 erDiagram
     PARCEL ||--o{ MISSION : scheduled_for
-    DRONE ||--o{ MISSION : assigned_to
-    USER_ACCOUNT ||--o{ MISSION : operates
+    AGROCHEMICAL ||--o{ MISSION : applied_in
+    DRONE |o--o{ MISSION : assigned_to
+    USER_ACCOUNT |o--o{ MISSION : operates
     MISSION ||--o{ INCIDENT : records
     MISSION ||--o{ OPERATION_STATUS : tracks
     MISSION ||--o| MISSION_RESULT : produces
-    AGROCHEMICAL_SUPPLY ||--o{ MISSION_RESULT : applied_in
     PARCEL {
+        BIGINT id PK
+        VARCHAR name
+    }
+    AGROCHEMICAL {
         BIGINT id PK
         VARCHAR name
     }
@@ -2856,22 +2858,18 @@ erDiagram
         BIGINT id PK
         VARCHAR username
     }
-    AGROCHEMICAL_SUPPLY {
-        BIGINT id PK
-        VARCHAR name
-    }
     MISSION {
         BIGINT id PK
         BIGINT parcel_id FK
+        BIGINT agrochemical_id FK
         BIGINT drone_id FK
         BIGINT operator_id FK
-        VARCHAR code UK
-        DATE scheduled_date
+        DATE requested_date
+        DECIMAL flight_height
+        DECIMAL flight_speed
+        DECIMAL spray_rate
+        DECIMAL overlap
         VARCHAR status
-        DECIMAL planned_area
-        DECIMAL treated_area
-        TIMESTAMP started_at
-        TIMESTAMP completed_at
     }
     INCIDENT {
         BIGINT id PK
@@ -2886,36 +2884,29 @@ erDiagram
         DECIMAL latitude
         DECIMAL longitude
         VARCHAR status
-        TIMESTAMP recorded_at
+        TIMESTAMP timestamp
     }
     MISSION_RESULT {
         BIGINT id PK
         BIGINT mission_id FK,UK
-        BIGINT supply_id FK
         DECIMAL treated_area
         DECIMAL applied_volume
         TEXT observations
-        TIMESTAMP registered_at
     }
 ```
 
-**Restricciones principales:** `MISSION.parcel_id`, `MISSION.drone_id` y `MISSION.operator_id` son FK hacia Field Management, Inventory & Resource Management e Identity & Access Management respectivamente; `MISSION.code` y `DRONE.serial_number` son únicos; las FK de `INCIDENT` y `OPERATION_STATUS` referencian `MISSION.id`; `MISSION_RESULT.mission_id` es FK y UNIQUE (un resultado por misión); `status` solo admite `PLANNED`, `AUTHORIZED`, `IN_PROGRESS`, `PAUSED`, `COMPLETED` y `CANCELLED`; las áreas y volúmenes no pueden ser negativos.
+**Restricciones principales:** `MISSION.parcel_id` y `MISSION.agrochemical_id` son FK obligatorias hacia Field Management e Inventory & Resource Management, porque la solicitud de la misión los requiere (MI-001). `MISSION.drone_id` y `MISSION.operator_id` son FK que admiten nulo hasta que se asignan el dron (MI-002) y el operador técnico (MI-003). Las FK de `INCIDENT` y `OPERATION_STATUS` referencian `MISSION.id`. `MISSION_RESULT.mission_id` es FK y UNIQUE (un resultado por misión). `status` solo admite `PLANNED`, `AUTHORIZED`, `IN_PROGRESS`, `PAUSED`, `COMPLETED` y `CANCELLED`. Los parámetros de vuelo, las áreas y los volúmenes no pueden ser negativos.
 
 ### 4.8.1.4. Weather Integration
 
-Para el MVP, la información meteorológica puede almacenarse únicamente cuando sea necesaria para mantener trazabilidad de la evaluación asociada a una misión.
+Para el MVP, se almacenan las condiciones meteorológicas consultadas por ubicación y las alertas que genera cada una.
 
 ```mermaid
 erDiagram
-    MISSION ||--o{ WEATHER_OBSERVATION : evaluated_with
-    WEATHER_OBSERVATION ||--o{ WEATHER_ALERT : may_generate
-    MISSION {
+    WEATHER_CONDITION ||--o{ WEATHER_ALERT : contains
+    WEATHER_CONDITION {
         BIGINT id PK
-        VARCHAR code UK
-    }
-    WEATHER_OBSERVATION {
-        BIGINT id PK
-        BIGINT mission_id FK
+        VARCHAR location
         DECIMAL temperature
         DECIMAL humidity
         DECIMAL wind_speed
@@ -2924,25 +2915,25 @@ erDiagram
     }
     WEATHER_ALERT {
         BIGINT id PK
-        BIGINT observation_id FK
+        BIGINT weather_condition_id FK
         VARCHAR severity
         TEXT message
         TIMESTAMP created_at
     }
 ```
 
-**Restricciones principales:** `WEATHER_OBSERVATION.mission_id` y `WEATHER_ALERT.observation_id` son FK; los valores meteorológicos deben validarse según la fuente; `severity` solo admite `LOW`, `MEDIUM` y `HIGH`; cada observación conserva su fecha y hora.
+**Restricciones principales:** `WEATHER_CONDITION.id` y `WEATHER_ALERT.id` son PK. `WEATHER_ALERT.weather_condition_id` es FK hacia `WEATHER_CONDITION.id`. `location` guarda la ubicación consultada (la de la finca, CL-001) como texto, sin FK. `severity` solo admite `LOW`, `MEDIUM` y `HIGH`. Cada condición conserva su fecha y hora de observación.
 
 ### 4.8.1.5. Analytics & Reporting
 
 ```mermaid
 erDiagram
-    MISSION ||--|| MISSION_HISTORY : archived_in
+    MISSION ||--o| MISSION_HISTORY : archived_in
     MISSION ||--o{ MISSION_REPORT : generates
     MISSION_REPORT ||--o{ OPERATIONAL_METRIC : contains
     MISSION {
         BIGINT id PK
-        VARCHAR code UK
+        VARCHAR status
     }
     MISSION_HISTORY {
         BIGINT id PK
@@ -2976,47 +2967,50 @@ erDiagram
     }
 ```
 
-**Restricciones principales:** `MISSION_HISTORY.mission_id` es FK y UNIQUE para mantener una relación uno a uno con la misión; `MISSION_REPORT.mission_id` es FK y la combinación (`mission_id`, `type`) es única; `type` solo admite `MISSION_SUMMARY` y `PHYTOSANITARY`; `OPERATIONAL_METRIC.report_id` referencia `MISSION_REPORT.id`; `PERFORMANCE_INDICATOR` es una tabla independiente que consolida valores por periodo; `treated_area` y `applied_volume` no pueden ser negativos.
+**Restricciones principales:** `MISSION_HISTORY.mission_id` es FK y UNIQUE, porque una misión tiene como máximo un registro en el historial y solo lo tiene al finalizar. `MISSION_REPORT.mission_id` es FK y la combinación (`mission_id`, `type`) es única. `type` solo admite `MISSION_SUMMARY` y `PHYTOSANITARY`. `OPERATIONAL_METRIC.report_id` referencia `MISSION_REPORT.id`. `PERFORMANCE_INDICATOR` es una tabla independiente que consolida valores por periodo. `treated_area` y `applied_volume` no pueden ser negativos.
 
 ### 4.8.1.6. Inventory & Resource Management
 
 ```mermaid
 erDiagram
-    DRONE ||--o{ NOZZLE : equipped_with
+    NOZZLE ||--o{ DRONE : installed_on
     DRONE ||--o{ MAINTENANCE_RECORD : has
     DRONE {
         BIGINT id PK
         VARCHAR serial_number UK
         VARCHAR model
-        DECIMAL capacity
+        INT battery_level
         VARCHAR status
-        TIMESTAMP created_at
+        BIGINT nozzle_id FK
+        DATE last_maintenance_date
+        DATE next_maintenance_date
     }
     NOZZLE {
         BIGINT id PK
-        BIGINT drone_id FK
-        VARCHAR model
         VARCHAR type
+        DECIMAL diameter_mm
+        INT stock_units
         VARCHAR status
     }
     MAINTENANCE_RECORD {
         BIGINT id PK
         BIGINT drone_id FK
+        DATE date
+        VARCHAR type
         TEXT description
-        DATE scheduled_date
-        TIMESTAMP performed_at
-        VARCHAR status
+        VARCHAR technician
     }
-    AGROCHEMICAL_SUPPLY {
+    AGROCHEMICAL {
         BIGINT id PK
         VARCHAR name
         VARCHAR type
-        DECIMAL stock
-        VARCHAR unit
+        DECIMAL stock_liters
+        DECIMAL minimum_stock_liters
+        DATE expiration_date
     }
 ```
 
-**Restricciones principales:** `DRONE.id`, `NOZZLE.id`, `MAINTENANCE_RECORD.id` y `AGROCHEMICAL_SUPPLY.id` son PK; `DRONE.serial_number` es único; `NOZZLE.drone_id` admite nulo (boquilla en inventario sin dron asignado) y `MAINTENANCE_RECORD.drone_id` es FK obligatoria; `DRONE.status` solo admite `AVAILABLE`, `ASSIGNED`, `IN_FLIGHT`, `PAUSED` y `MAINTENANCE`; `MAINTENANCE_RECORD.status` solo admite `SCHEDULED`, `COMPLETED` y `OVERDUE`; `capacity` debe ser mayor que cero y `stock` no puede ser negativo.
+**Restricciones principales:** `DRONE.id`, `NOZZLE.id`, `MAINTENANCE_RECORD.id` y `AGROCHEMICAL.id` son PK. `DRONE.serial_number` es único. `DRONE.nozzle_id` es FK obligatoria hacia `NOZZLE.id` (cada dron tiene una boquilla) y `MAINTENANCE_RECORD.drone_id` es FK obligatoria hacia `DRONE.id`. `DRONE.status` solo admite `AVAILABLE`, `IN_FLIGHT`, `MAINTENANCE` y `OUT_OF_SERVICE`. `MAINTENANCE_RECORD.type` solo admite `PREVENTIVE` y `CORRECTIVE`. `battery_level` va de 0 a 100, y `stock_liters`, `minimum_stock_liters` y `stock_units` no pueden ser negativos.
 
 ### 4.8.1.7. Vista integrada de persistencia
 
@@ -3031,9 +3025,9 @@ flowchart LR
     IAM -->|"Owner / Operator"| FM
     IAM -->|"Operator"| FO
     FM -->|"Parcel information"| FO
-    IR -->|"Drones and supplies"| FO
-    FO -->|"Mission"| WI
-    WI -->|"Weather evaluation"| FO
+    IR -->|"Drones and agrochemicals"| FO
+    FM -->|"Farm location"| WI
+    WI -->|"Weather alerts"| FO
     FO -->|"Completed mission"| AR
 ```
 
@@ -3046,23 +3040,24 @@ El modelo relacional se diseñó aplicando hasta la Tercera Forma Normal (3FN) e
 **Primera Forma Normal (1FN).** Todas las columnas almacenan valores atómicos y no existen grupos repetitivos. Las colecciones se modelan como tablas hijas con FK en lugar de columnas multivaluadas:
 - Las incidencias, estados de operación y resultados de una misión están en `INCIDENT`, `OPERATION_STATUS` y `MISSION_RESULT`, no dentro de `MISSION`.
 - Las métricas de un reporte están en `OPERATIONAL_METRIC` (FK a `MISSION_REPORT`), no como columnas `metric_1`, `metric_2`, etc.
-- Las boquillas de un dron están en `NOZZLE` (FK a `DRONE`) y los mantenimientos en `MAINTENANCE_RECORD`.
-- La geometría de parcelas y áreas se guarda como un único valor (`geometry`, en formato GeoJSON/WKT), tratado como dato atómico.
+- Las alertas de una condición meteorológica están en `WEATHER_ALERT` (FK a `WEATHER_CONDITION`).
+- Cada dron referencia su boquilla con `DRONE.nozzle_id` (FK a `NOZZLE`) y sus mantenimientos están en `MAINTENANCE_RECORD`.
+- La geometría de parcelas y zonas de fumigación se guarda como un único valor (`geometry`, en formato GeoJSON), tratado como dato atómico.
 
 **Segunda Forma Normal (2FN).** Todas las tablas usan una PK simple (`id`), por lo que no existen dependencias parciales: cada atributo no clave depende de la clave completa. Las únicas claves compuestas son restricciones UNIQUE, no PK (por ejemplo, `MISSION_REPORT` con (`mission_id`, `type`)).
 
 **Tercera Forma Normal (3FN).** No hay dependencias transitivas entre atributos no clave: los datos descriptivos se separan en su propia tabla y se referencian por FK.
 - El cultivo (`name`, `variety`) está en `CROP` y `PARCEL` solo guarda `crop_id`.
-- Los datos del propietario están en `USER_ACCOUNT` y `FARM` solo guarda `owner_id`; lo mismo para `MISSION.operator_id`.
-- Los datos del dron (`model`, `capacity`, `serial_number`) están en `DRONE` y `MISSION` solo guarda `drone_id`.
+- Los datos del propietario están en `USER_ACCOUNT` y `FARM` solo guarda `owner_id`. Lo mismo ocurre con `MISSION.operator_id`.
+- Los datos del dron (`model`, `battery_level`, `serial_number`) están en `DRONE` y `MISSION` solo guarda `drone_id`.
+- Los datos del agroquímico están en `AGROCHEMICAL` y `MISSION` solo guarda `agrochemical_id`.
 - Los datos de la parcela se consultan desde `PARCEL` mediante `MISSION.parcel_id`.
-- Las observaciones meteorológicas (`WEATHER_OBSERVATION`) y sus alertas (`WEATHER_ALERT`) se separan porque una observación puede generar varias alertas o ninguna.
+- Los datos de la boquilla (`type`, `diameter_mm`) están en `NOZZLE` y `DRONE` solo guarda `nozzle_id`.
 
 **Desnormalización controlada.** Algunos atributos se duplican a propósito, por trazabilidad o rendimiento de consulta:
-- `MISSION_REPORT.treated_area` y `applied_volume` guardan una copia de lo registrado en `MISSION` y `MISSION_RESULT` al momento de generar el reporte, de modo que el reporte sea un registro histórico que no cambie si después se corrige la misión.
+- `MISSION_REPORT.treated_area` y `applied_volume` guardan una copia de lo registrado en `MISSION_RESULT` al momento de generar el reporte, de modo que el reporte sea un registro histórico que no cambie si después se corrige la misión.
 - `MISSION_HISTORY.final_status` conserva el estado final de la misión en el historial.
 - `PARCEL.area` y `FUMIGATION_AREA.area` son valores derivables de `geometry`, pero se almacenan para evitar recalcularlos en cada consulta.
-- `MISSION.treated_area` resume el resultado de la operación y puede coincidir con `MISSION_RESULT.treated_area`.
 
 Estas duplicaciones se mantienen sincronizadas desde la capa de aplicación al momento de registrar o finalizar una misión, y están limitadas a atributos de solo lectura una vez generado el reporte o historial.
 
