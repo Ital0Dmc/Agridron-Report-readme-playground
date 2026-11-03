@@ -2012,7 +2012,7 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 ### 4.6.2. Software Architecture Context Diagram
 El **System Context Diagram de C4** representa el sistema como una única unidad y muestra los usuarios y sistemas externos que interactúan directamente con él. En este nivel no se detallan tecnologías internas.
 
-<img src="assets/chapter4/agridron-context.jpg" alt="Software Architecture Context Diagram"/>
+<img src="assets/chapter4/agridron-context.jpg" alt="Software Architecture Context Diagram" width="2059"/>
 
 
 ### Descripción
@@ -2032,7 +2032,7 @@ Los contenedores definidos son:
 4. **Base de Datos Relacional**
 5. **API Meteorológica Externa**
 
-<img src="assets/chapter4/agridron-container.jpg" alt="Software Architecture Container Diagrams"/>
+<img src="assets/chapter4/agridron-container.jpg" alt="Software Architecture Container Diagrams" width="3253"/>
 
 
 ### Descripción de los contenedores
@@ -2075,7 +2075,7 @@ Esta sección presenta el diseño interno de los principales componentes de soft
 
 La API RESTful implementada con Spring Boot concentra la lógica de aplicación y dominio. Se organiza en capas de presentación, aplicación, dominio e infraestructura.
 
-<img src="assets/chapter4/agridron-api.png" alt="RESTful Api"/>
+<img src="assets/chapter4/agridron-api.png" alt="RESTful Api" width="3521"/>
 
 
 ### Responsabilidades
@@ -2093,7 +2093,7 @@ Los componentes de Identity & Access Management atienden `/api/v1/users` (TU-024
 
 La aplicación web utiliza Angular para proporcionar las funcionalidades de operadores y clientes.
 
-<img src="assets/chapter4/agridron-web-application.png" alt="Web Application"/>
+<img src="assets/chapter4/agridron-web-application.png" alt="Web Application" width="150" width="4420"/>
 
 
 
@@ -2111,7 +2111,7 @@ La aplicación web utiliza Angular para proporcionar las funcionalidades de oper
 
 La integración meteorológica se mantiene aislada para evitar acoplar directamente la lógica de negocio con la API externa.
 
-<img src="assets/chapter4/agridron-weather.png" alt="Weather Integration"/>
+<img src="assets/chapter4/agridron-weather.png" alt="Weather Integration" width="1232"/>
 
 
 El componente permite cambiar o adaptar el proveedor meteorológico sin modificar directamente los componentes de **Flight Operations**.
