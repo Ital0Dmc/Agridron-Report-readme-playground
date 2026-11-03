@@ -2012,21 +2012,8 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 ### 4.6.2. Software Architecture Context Diagram
 El **System Context Diagram de C4** representa el sistema como una única unidad y muestra los usuarios y sistemas externos que interactúan directamente con él. En este nivel no se detallan tecnologías internas.
 
-```mermaid
-C4Context
-  title System Context Diagram - AgriDron Solutions
+<img src="assets/chapter4/agridron-context.jpg" alt="Software Architecture Context Diagram"/>
 
-  Person(farmer, "Agricultor / Cliente", "Solicita servicios de fumigación y consulta información de sus operaciones.")
-  Person(operator, "Operador Técnico", "Gestiona parcelas, planifica misiones, monitorea operaciones y registra resultados.")
-
-  System(agridron, "AgriDron Solutions", "Plataforma web para la planificación y monitoreo de operaciones de fumigación agrícola mediante drones.")
-
-  System_Ext(weather, "API Meteorológica", "Servicio externo que proporciona información de condiciones meteorológicas.")
-
-  Rel(farmer, agridron, "Solicita y consulta servicios")
-  Rel(operator, agridron, "Gestiona parcelas, misiones y operaciones")
-  Rel(agridron, weather, "Consulta condiciones meteorológicas")
-```
 
 ### Descripción
 
@@ -2045,31 +2032,8 @@ Los contenedores definidos son:
 4. **Base de Datos Relacional**
 5. **API Meteorológica Externa**
 
-```mermaid
-C4Container
-  title Container Diagram - AgriDron Solutions
+<img src="assets/chapter4/agridron-container.jpg" alt="Software Architecture Container Diagrams"/>
 
-  Person(farmer, "Agricultor / Cliente", "Consulta información de sus servicios y operaciones.")
-  Person(operator, "Operador Técnico", "Gestiona parcelas, planifica y monitorea operaciones de fumigación.")
-
-  System_Ext(weather, "API Meteorológica", "API externa para obtener condiciones meteorológicas.")
-
-  System_Boundary(agridron, "AgriDron Solutions") {
-    Container(landing, "Landing Page", "Angular / TypeScript", "Presenta la solución y permite acceder a la plataforma.")
-    Container(frontend, "Frontend Angular", "Angular / TypeScript", "Interfaz web para gestionar parcelas, misiones, monitoreo, historial y reportes.")
-    Container(backend, "Backend Spring Boot", "Java / Spring Boot", "Implementa la lógica de negocio y expone la API REST.")
-    ContainerDb(database, "Base de Datos Relacional", "SQL", "Almacena usuarios, parcelas, misiones, drones, operaciones, incidentes y reportes.")
-  }
-
-  Rel(farmer, landing, "Consulta información")
-  Rel(operator, landing, "Consulta información")
-  Rel(farmer, frontend, "Consulta servicios")
-  Rel(operator, frontend, "Gestiona operaciones")
-  Rel(landing, frontend, "Redirige al acceso de la plataforma")
-  Rel(frontend, backend, "Consume API REST", "HTTPS / JSON")
-  Rel(backend, database, "Lee y almacena información", "SQL")
-  Rel(backend, weather, "Consulta condiciones meteorológicas", "HTTPS / JSON")
-```
 
 ### Descripción de los contenedores
 
@@ -2111,77 +2075,8 @@ Esta sección presenta el diseño interno de los principales componentes de soft
 
 La API RESTful implementada con Spring Boot concentra la lógica de aplicación y dominio. Se organiza en capas de presentación, aplicación, dominio e infraestructura.
 
-```mermaid
-flowchart LR
-  subgraph API["RESTful API - Spring Boot"]
-    subgraph Presentation["API / Presentation Layer"]
-      UC["Users Controller"]
-      AC["Authentication Controller"]
-      FC["Field Controller"]
-      MC["Mission Controller"]
-      WC["Weather Controller"]
-      RC["Report Controller"]
-      DC["Drones Controller"]
-      NC["Nozzles Controller"]
-      AGC["Agrochemicals Controller"]
-      MRC["Maintenance Records Controller"]
-    end
-    subgraph Application["Application Layer"]
-      IS["IAM Service"]
-      FS["Field Service"]
-      MS["Mission Service"]
-      WS["Weather Service"]
-      RS["Report Service"]
-      INS["Inventory Service"]
-    end
-    subgraph Domain["Domain Layer"]
-      ID["Identity & Access Management Domain"]
-      FD["Field Management Domain"]
-      MD["Flight Operations Domain"]
-      WD["Weather Integration Domain"]
-      RD["Analytics & Reporting Domain"]
-      IND["Inventory & Resource Management Domain"]
-    end
-    subgraph Infrastructure["Infrastructure Layer"]
-      UR["User Repository"]
-      FR["Field Repository"]
-      MR["Mission Repository"]
-      RR["Report Repository"]
-      INR["Inventory Repository"]
-      WA["Weather API Adapter"]
-    end
-  end
-  DB[("Relational Database")]
-  Weather["Weather API"]
-  UC --> IS
-  AC --> IS
-  FC --> FS
-  MC --> MS
-  WC --> WS
-  RC --> RS
-  DC --> INS
-  NC --> INS
-  AGC --> INS
-  MRC --> INS
-  IS --> ID
-  FS --> FD
-  MS --> MD
-  WS --> WD
-  RS --> RD
-  INS --> IND
-  IS --> UR
-  FS --> FR
-  MS --> MR
-  RS --> RR
-  INS --> INR
-  WS --> WA
-  UR --> DB
-  FR --> DB
-  MR --> DB
-  RR --> DB
-  INR --> DB
-  WA --> Weather
-```
+<img src="assets/chapter4/agridron-api.png" alt="RESTful Api"/>
+
 
 ### Responsabilidades
 
@@ -2198,61 +2093,9 @@ Los componentes de Identity & Access Management atienden `/api/v1/users` (TU-024
 
 La aplicación web utiliza Angular para proporcionar las funcionalidades de operadores y clientes.
 
-```mermaid
-flowchart LR
-  subgraph Web["Web Application - Angular"]
-    subgraph IAM["iam"]
-      SignIn["Sign In"]
-      SignUp["Sign Up"]
-      Profile["User Profile"]
-    end
-    subgraph Field["fieldManagement"]
-      Farms["Farms"]
-      Parcels["Parcels"]
-      Crops["Crops"]
-      Zones["Fumigation Areas"]
-    end
-    subgraph Flight["Flight Operations"]
-      Missions["Mission Management (pendiente)"]
-    end
-    subgraph Weather["weather-integration"]
-      WeatherService["Weather Service"]
-    end
-    subgraph Reports["analyticsAndReporting"]
-      ReportsView["Reports"]
-      History["Mission History"]
-      Indicators["Performance Indicators"]
-      Supply["Supply Usage"]
-    end
-    subgraph Inventory["InventoryResourceManagement"]
-      Drones["Drones"]
-      Resources["Nozzles, Agrochemicals and Maintenance Records"]
-    end
-    subgraph Shared["shared"]
-      Layout["Layout and Navigation"]
-      WeatherWidget["Weather Widget"]
-      APIClient["REST API Client"]
-    end
-  end
-  API["RESTful API"]
-  SignIn --> APIClient
-  SignUp --> APIClient
-  Profile --> APIClient
-  Farms --> APIClient
-  Parcels --> APIClient
-  Crops --> APIClient
-  Zones --> APIClient
-  Missions -.-> APIClient
-  WeatherWidget --> WeatherService
-  WeatherService --> APIClient
-  ReportsView --> APIClient
-  History --> APIClient
-  Indicators --> APIClient
-  Supply --> APIClient
-  Drones --> APIClient
-  Resources --> APIClient
-  APIClient --> API
-```
+<img src="assets/chapter4/agridron-web-application.png" alt="Web Application"/>
+
+
 
 ### Responsabilidades
 
@@ -2268,26 +2111,8 @@ flowchart LR
 
 La integración meteorológica se mantiene aislada para evitar acoplar directamente la lógica de negocio con la API externa.
 
-```mermaid
-flowchart LR
-  Backend["Backend Spring Boot"]
-  subgraph WeatherIntegration["Weather Integration"]
-    WS["Weather Service"]
-    WClient["Weather API Client"]
-    Mapper["Weather Response Mapper"]
-    Evaluator["Weather Condition Evaluator"]
-    Alert["Weather Alert Generator"]
-  end
-  External["External Weather API"]
-  Backend --> WS
-  WS --> WClient
-  WClient --> External
-  External --> WClient
-  WClient --> Mapper
-  Mapper --> Evaluator
-  Evaluator --> Alert
-  Alert --> Backend
-```
+<img src="assets/chapter4/agridron-weather.png" alt="Weather Integration"/>
+
 
 El componente permite cambiar o adaptar el proveedor meteorológico sin modificar directamente los componentes de **Flight Operations**.
 
