@@ -88,6 +88,7 @@
 | 2.1.0 | 17/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección de la carátula, el Registro de Versiones, Project Report Collaboration Insights, Student Outcome, Startup Profile, Solution Profile y Segmentos objetivo según el enunciado, y unificación del segundo segmento como Operadores Técnicos de Drones. |
 | 2.2.0 | 18/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección del Capítulo II según el enunciado (Competidores, Entrevistas, Needfinding, Big Picture Event Storming y Ubiquitous Language), sustento estadístico de los Segmentos objetivo con citas enlazadas a sus fuentes, saltos de página al inicio de los Capítulos I y II y actualización de la tabla de contenido de ambos capítulos. |
 | 2.3.0 | 20/10/2026 | Damacen Galindo, Italo Gianfranco | Corrección del Capítulo III según el enunciado: introducciones, User Stories con varios criterios de aceptación en formato Gherkin, Technical Stories para los recursos del RESTful API, explicación del Impact Mapping y Product Backlog rehecho con los IDs del 3.1, orden por valor de negocio y enlace de Trello. |
+| 2.4.0 | 04/11/2026 | Nicho Huillcañahui, Edwin Noe | Actualización de Inventory & Resource Management: User Stories DR-001 a DR-006, Technical Stories TU-020 a TU-022 y nueva TU-027, Ubiquitous Language, Bounded Context, arquitectura, arquitectura de información, restricciones de base de datos y estado de las tareas del Sprint 2. |
 
 ## Project Report Collaboration Insights
 
@@ -1005,6 +1006,10 @@ Durante el ejercicio se identificaron tres **hotspots** (en rosado) que represen
 | **Agrochemical** (Agroquímico / Fitosanitario) | Producto aplicado a los cultivos para prevenir o controlar plagas y enfermedades, como fungicidas, insecticidas o herbicidas. |
 | **Spray Mix** (Caldo / Mezcla) | Preparación de agua y agroquímicos que se carga en el tanque del dron para la fumigación. |
 | **Nozzle** (Boquilla) | Pieza del sistema de pulverización del dron por la que sale el caldo. Su tipo y tamaño determinan el tamaño de gota y el volumen aplicado. |
+| **Drone** (Dron) | Equipo aéreo no tripulado de la flota que ejecuta las misiones de fumigación. Se identifica por su número de serie y su estado operativo es *Disponible*, *En vuelo*, *En mantenimiento* o *Fuera de servicio*. |
+| **Flight Hours** (Horas de vuelo) | Horas de operación que acumula un dron desde su último mantenimiento preventivo. Las incrementan las misiones y no se editan a mano; el servicio preventivo las reinicia a cero. |
+| **Maintenance Record** (Registro de mantenimiento) | Constancia de un servicio realizado a un dron, con su fecha, descripción y técnico. Puede ser *preventivo* (programado, actualiza las fechas de servicio y reinicia las horas de vuelo) o *correctivo* (repara una falla y no modifica las fechas de servicio ni las horas). |
+| **Drone Fault** (Falla de equipo) | Mal funcionamiento mecánico de un dron reportado por el Operador. Deja el dron *Fuera de servicio* y el incidente *Pendiente de reparación* hasta que se registra la reparación, con lo que pasa a *Reparada*. No debe confundirse con la Incidencia de una misión. |
 | **Calibration** (Calibración) | Ajuste de las boquillas y del caudal del dron antes del vuelo para aplicar el volumen de caldo por hectárea que requiere el cultivo. |
 | **Drift** (Deriva) | Desplazamiento del producto pulverizado fuera de la zona de fumigación por acción del viento, que genera desperdicio de insumos y riesgo para cultivos y personas cercanas. |
 | **Crop Season** (Campaña) | Periodo productivo de un cultivo, desde la siembra hasta la cosecha, durante el cual se programan los tratamientos fitosanitarios. |
@@ -1064,12 +1069,12 @@ Las Technical Stories TU-003 (geometría espacial), TU-004 (WebSocket) y TU-009 
 | FM-007 | Cambio de capas en mapa cartográfico | Como agricultor, quiero alternar entre vistas satelital, topográfica e híbrida, para analizar las características del terreno. | **Escenario 1**<br>Dado que el agricultor consulta el mapa de sus parcelas<br>Cuando elige una vista satelital, topográfica o híbrida<br>Entonces el sistema presenta el mapa con la vista elegida.<br><br>**Escenario 2**<br>Dado que el agricultor eligió una vista cartográfica<br>Cuando consulta otra parcela<br>Entonces el sistema mantiene la vista elegida. | EP03 |
 | FM-008 | Asignación de operadores técnicos a fincas | Como agricultor, quiero asociar operadores técnicos a fincas específicas, para delegar la gestión de misiones en dichos terrenos. | **Escenario 1**<br>Dado que el agricultor trabaja con operadores técnicos<br>Cuando asigna un operador técnico a una finca registrada<br>Entonces el sistema concede al operador permisos de lectura y programación sobre las parcelas vinculadas.<br><br>**Escenario 2**<br>Dado que un operador técnico no está asociado a una finca<br>Cuando intenta programar misiones en sus parcelas<br>Entonces el sistema no le permite la programación. | EP03 |
 | **EP04** | **Gestión de Flota y Equipos de Fumigación** | Control de inventario de drones, insumos agrícolas, boquillas y mantenimiento. | -- | -- |
-| DR-001 | Registro de nuevo dron en inventario | Como operador técnico, quiero dar de alta un dron con sus especificaciones físicas, para integrarlo a la flota utilizable. | **Escenario 1**<br>Dado que el operador ingresa el modelo, número de serie y capacidad del tanque del equipo<br>Cuando confirma el registro<br>Entonces el sistema guarda el dron en el catálogo con estado disponible.<br><br>**Escenario 2**<br>Dado que el dron recién registrado aún no fue asignado a una misión<br>Cuando el operador consulta la flota<br>Entonces el sistema lo presenta con estado disponible. | EP04 |
-| DR-002 | Consulta del estado operativo de flota | Como operador técnico, quiero visualizar el estado y disponibilidad de los drones, para planificar las asignaciones de trabajo. | **Escenario 1**<br>Dado que el operador técnico accede al inventario de equipos<br>Cuando consulta el catálogo<br>Entonces el sistema lista todos los drones indicando si están disponibles, en vuelo, en mantenimiento o fuera de servicio.<br><br>**Escenario 2**<br>Dado que el operador técnico consulta el detalle de un dron<br>Cuando lo selecciona<br>Entonces el sistema presenta su nivel de batería, su boquilla y sus fechas de último y próximo mantenimiento. | EP04 |
-| DR-003 | Registro de agroquímicos e insumos | Como operador técnico, quiero registrar los productos agroquímicos autorizados, para controlar las dosis aplicadas en las misiones. | **Escenario 1**<br>Dado que el operador técnico ingresa la denominación comercial, ingrediente activo y dosis recomendada de un producto<br>Cuando guarda la información<br>Entonces el sistema habilita el insumo en la lista de opciones para misiones.<br><br>**Escenario 2**<br>Dado que el operador técnico omite el ingrediente activo o la dosis recomendada<br>Cuando intenta guardar el producto<br>Entonces el sistema no lo habilita e indica el dato faltante. | EP04 |
-| DR-004 | Registro de tipos de boquillas de asperjar | Como operador técnico, quiero asociar tipos de boquillas a cada dron, para garantizar el tamaño de gota adecuado según el cultivo. | **Escenario 1**<br>Dado que el operador selecciona un dron registrado<br>Cuando especifica el modelo y caudal de las boquillas instaladas<br>Entonces el sistema actualiza la configuración técnica del equipo.<br><br>**Escenario 2**<br>Dado que el operador cambia la boquilla instalada en un dron<br>Cuando registra la nueva boquilla<br>Entonces el sistema reemplaza la configuración técnica anterior del equipo. | EP04 |
-| DR-005 | Programación de mantenimiento preventivo | Como operador técnico, quiero registrar las horas de vuelo y fechas de mantenimiento de un dron, para prevenir fallas operativas. | **Escenario 1**<br>Dado que un dron acumula horas de operación<br>Cuando el operador registra un servicio de mantenimiento preventivo<br>Entonces el sistema actualiza el historial técnico y restablece el contador de horas de servicio.<br><br>**Escenario 2**<br>Dado que el operador registró un mantenimiento preventivo<br>Cuando consulta el dron<br>Entonces el sistema presenta las fechas del último y del próximo mantenimiento. | EP04 |
-| DR-006 | Registro de fallas e incidentes de equipo | Como operador técnico, quiero reportar una falla mecánica en un dron, para restringir su uso en misiones hasta su reparación. | **Escenario 1**<br>Dado que un dron presenta un mal funcionamiento<br>Cuando el operador registra la incidencia técnica<br>Entonces el sistema cambia el estado del equipo a inoperativo y lo excluye de las asignaciones de misiones.<br><br>**Escenario 2**<br>Dado que un dron está marcado como inoperativo<br>Cuando se intenta asignarlo a una misión<br>Entonces el sistema no permite la asignación hasta que se registre su reparación. | EP04 |
+| DR-001 | Registro de nuevo dron en inventario | Como operador técnico, quiero dar de alta un dron con sus especificaciones físicas, para integrarlo a la flota utilizable. | **Escenario 1**<br>Dado que el operador ingresa el modelo, número de serie, capacidad del tanque, nivel de batería y la boquilla inicial del equipo<br>Cuando confirma el registro<br>Entonces el sistema guarda el dron en el catálogo con estado disponible y con 0 horas de vuelo.<br><br>**Escenario 2**<br>Dado que el dron recién registrado aún no fue asignado a una misión<br>Cuando el operador consulta la flota<br>Entonces el sistema lo presenta con estado disponible. | EP04 |
+| DR-002 | Consulta del estado operativo de flota | Como operador técnico, quiero visualizar el estado y disponibilidad de los drones, para planificar las asignaciones de trabajo. | **Escenario 1**<br>Dado que el operador técnico accede al inventario de equipos<br>Cuando consulta el catálogo<br>Entonces el sistema lista todos los drones indicando si están disponibles, en vuelo, en mantenimiento o fuera de servicio.<br><br>**Escenario 2**<br>Dado que el operador técnico consulta el detalle de un dron<br>Cuando lo selecciona<br>Entonces el sistema presenta su nivel de batería, su boquilla, la capacidad de su tanque, sus horas de vuelo y sus fechas de último y próximo mantenimiento. | EP04 |
+| DR-003 | Registro de agroquímicos e insumos | Como operador técnico, quiero registrar los productos agroquímicos autorizados, para controlar las dosis aplicadas en las misiones. | **Escenario 1**<br>Dado que el operador técnico ingresa la denominación comercial, el tipo, el ingrediente activo, la dosis recomendada (L/ha), el stock, el stock mínimo y la fecha de vencimiento de un producto<br>Cuando guarda la información<br>Entonces el sistema habilita el insumo en la lista de opciones para misiones.<br><br>**Escenario 2**<br>Dado que el operador técnico omite un dato obligatorio, como el ingrediente activo o la dosis recomendada, o ingresa una fecha de vencimiento pasada<br>Cuando intenta guardar el producto<br>Entonces el sistema no lo habilita e indica el dato faltante o inválido.<br><br>**Escenario 3**<br>Dado que el stock de un producto es igual o menor a su stock mínimo, o que el producto ya venció<br>Cuando el operador técnico consulta los agroquímicos<br>Entonces el sistema lo señala con un aviso de stock bajo o de vencido. | EP04 |
+| DR-004 | Registro de tipos de boquillas de asperjar | Como operador técnico, quiero asociar tipos de boquillas a cada dron, para garantizar el tamaño de gota adecuado según el cultivo. | **Escenario 1**<br>Dado que el operador técnico registra una boquilla en el catálogo con su tipo y diámetro<br>Cuando repone su stock o actualiza el estado de sus unidades (buenas, desgastadas o dañadas)<br>Entonces el sistema actualiza el stock en bodega de ese tipo de boquilla.<br><br>**Escenario 2**<br>Dado que el operador cambia la boquilla instalada en un dron que no está en vuelo<br>Cuando elige la nueva boquilla e indica en qué estado devuelve la retirada<br>Entonces el sistema reemplaza la configuración técnica anterior del equipo, descuenta una unidad de la nueva y devuelve la retirada a bodega en el estado indicado.<br><br>**Escenario 3**<br>Dado que una boquilla no tiene unidades instalables o el dron está en vuelo<br>Cuando el operador intenta instalarla<br>Entonces el sistema no realiza el cambio. | EP04 |
+| DR-005 | Programación de mantenimiento preventivo | Como operador técnico, quiero registrar las horas de vuelo y fechas de mantenimiento de un dron, para prevenir fallas operativas. | **Escenario 1**<br>Dado que un dron acumula horas de vuelo por las misiones que ejecuta<br>Cuando el operador registra un mantenimiento preventivo con su fecha, descripción, técnico y la fecha del próximo servicio<br>Entonces el sistema agrega el registro al historial técnico, actualiza las fechas de último y próximo mantenimiento y reinicia el contador de horas de vuelo a 0.<br><br>**Escenario 2**<br>Dado que el operador registró un mantenimiento preventivo<br>Cuando consulta el dron<br>Entonces el sistema presenta las fechas del último y del próximo mantenimiento.<br><br>**Escenario 3**<br>Dado que el operador registra un mantenimiento correctivo<br>Cuando confirma el registro<br>Entonces el sistema lo agrega al historial sin modificar las fechas de servicio ni las horas de vuelo del dron.<br><br>**Escenario 4**<br>Dado que el operador ingresa una fecha de mantenimiento futura<br>Cuando intenta registrarlo<br>Entonces el sistema no lo registra e indica el error. | EP04 |
+| DR-006 | Registro de fallas e incidentes de equipo | Como operador técnico, quiero reportar una falla mecánica en un dron, para restringir su uso en misiones hasta su reparación. | **Escenario 1**<br>Dado que un dron presenta un mal funcionamiento y no está fuera de servicio<br>Cuando el operador registra la falla con su descripción<br>Entonces el sistema crea un incidente pendiente de reparación, cambia el estado del equipo a fuera de servicio y lo excluye de las asignaciones de misiones.<br><br>**Escenario 2**<br>Dado que un dron está fuera de servicio por una falla<br>Cuando se intenta asignarlo a una misión<br>Entonces el sistema no permite la asignación hasta que se registre su reparación.<br><br>**Escenario 3**<br>Dado que un dron tiene un incidente pendiente de reparación<br>Cuando el operador registra la reparación con su fecha, lo que se reparó y el técnico<br>Entonces el sistema crea un mantenimiento correctivo en el historial, marca el incidente como reparado y devuelve el dron a disponible.<br><br>**Escenario 4**<br>Dado que un dron ya tiene un incidente pendiente de reparación<br>Cuando el operador intenta reportar otra falla<br>Entonces el sistema no lo permite. | EP04 |
 | DR-007 | Deshabilitación de dron de la flota | Como operador técnico, quiero dar de baja un dron retirado del servicio, para mantener el inventario actualizado. | **Escenario 1**<br>Dado que un equipo queda fuera de servicio permanente<br>Cuando el operador técnico solicita la baja del dron<br>Entonces el sistema inactiva el registro impidiendo asignaciones futuras.<br><br>**Escenario 2**<br>Dado que el dron está asignado a una misión activa<br>Cuando el operador técnico solicita su baja<br>Entonces el sistema no la realiza e indica que el dron tiene una misión en curso. | EP04 |
 | **EP05** | **Planificación y Programación de Misiones** | Flujo de solicitud, asignación de recursos y definición de parámetros de vuelo. | -- | -- |
 | MI-001 | Solicitud de misión de fumigación | Como agricultor, quiero solicitar una misión de fumigación indicando parcela y fecha estimada, para programar la atención de mi cultivo. | **Escenario 1**<br>Dado que el agricultor selecciona una parcela activa<br>Cuando ingresa la fecha requerida y el producto a aplicar<br>Entonces el sistema crea la solicitud en estado Programada.<br><br>**Escenario 2**<br>Dado que el agricultor no indica la fecha requerida o el producto a aplicar<br>Cuando intenta crear la solicitud<br>Entonces el sistema no la registra e indica el dato faltante. | EP05 |
@@ -1117,13 +1122,14 @@ Las Technical Stories TU-003 (geometría espacial), TU-004 (WebSocket) y TU-009 
 | TU-017 | Endpoint de historial de misiones | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/mission-histories, para que la Web Application muestre el historial de misiones. | **Escenario 1**<br>Dado que existen registros en el historial de misiones<br>Cuando el cliente envía GET /api/v1/mission-histories<br>Entonces el servidor responde 200 OK con la lista de registros, cada uno con missionId, finalStatus y completedAt.<br><br>**Escenario 2**<br>Dado que no existe un registro con el id indicado<br>Cuando el cliente envía GET /api/v1/mission-histories/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
 | TU-018 | Endpoint de métricas operativas | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/operational-metrics, para que la Web Application muestre las métricas operativas de cada reporte. | **Escenario 1**<br>Dado que existen métricas operativas registradas<br>Cuando el cliente envía GET /api/v1/operational-metrics<br>Entonces el servidor responde 200 OK con la lista de registros, cada uno con reportId, name, value y unit.<br><br>**Escenario 2**<br>Dado que no existe un registro con el id indicado<br>Cuando el cliente envía GET /api/v1/operational-metrics/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
 | TU-019 | Endpoint de indicadores de desempeño | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/performance-indicators, para que la Web Application muestre los indicadores de desempeño. | **Escenario 1**<br>Dado que existen indicadores de desempeño calculados<br>Cuando el cliente envía GET /api/v1/performance-indicators<br>Entonces el servidor responde 200 OK con la lista de registros, cada uno con name, value, unit, period y calculatedAt.<br><br>**Escenario 2**<br>Dado que no existe un registro con el id indicado<br>Cuando el cliente envía GET /api/v1/performance-indicators/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
-| TU-020 | Endpoint de drones | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/drones, para que la Web Application muestre la flota de drones. | **Escenario 1**<br>Dado que existen drones registrados<br>Cuando el cliente envía GET /api/v1/drones<br>Entonces el servidor responde 200 OK con la lista, cada registro con serialNumber, model, batteryLevel, status, nozzleId y fechas de último y próximo mantenimiento.<br><br>**Escenario 2**<br>Dado que no existe un registro con el id indicado<br>Cuando el cliente envía GET /api/v1/drones/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
-| TU-021 | Endpoint de boquillas | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/nozzles, para que la Web Application muestre las boquillas. | **Escenario 1**<br>Dado que existen boquillas registradas<br>Cuando el cliente envía GET /api/v1/nozzles<br>Entonces el servidor responde 200 OK con la lista de registros, cada uno con type, diameterMm, stockUnits y status.<br><br>**Escenario 2**<br>Dado que no existe un registro con el id indicado<br>Cuando el cliente envía GET /api/v1/nozzles/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
-| TU-022 | Endpoint de agroquímicos | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/agrochemicals, para que la Web Application muestre los agroquímicos. | **Escenario 1**<br>Dado que existen agroquímicos registrados<br>Cuando el cliente envía GET /api/v1/agrochemicals<br>Entonces el servidor responde 200 OK con la lista, cada registro con name, type, stockLiters, minimumStockLiters y expirationDate.<br><br>**Escenario 2**<br>Dado que no existe un registro con el id indicado<br>Cuando el cliente envía GET /api/v1/agrochemicals/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
+| TU-020 | Endpoint de drones | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/drones, para que la Web Application muestre la flota de drones. | **Escenario 1**<br>Dado que existen drones registrados<br>Cuando el cliente envía GET /api/v1/drones<br>Entonces el servidor responde 200 OK con la lista, cada registro con serialNumber, model, batteryLevel, status, nozzleId, tankCapacityLiters, flightHours y fechas de último y próximo mantenimiento.<br><br>**Escenario 2**<br>Dado que no existe un registro con el id indicado<br>Cuando el cliente envía GET /api/v1/drones/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
+| TU-021 | Endpoint de boquillas | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/nozzles, para que la Web Application muestre las boquillas. | **Escenario 1**<br>Dado que existen boquillas registradas<br>Cuando el cliente envía GET /api/v1/nozzles<br>Entonces el servidor responde 200 OK con la lista de registros, cada uno con type, diameterMm, goodUnits, wornUnits y damagedUnits.<br><br>**Escenario 2**<br>Dado que no existe un registro con el id indicado<br>Cuando el cliente envía GET /api/v1/nozzles/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
+| TU-022 | Endpoint de agroquímicos | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/agrochemicals, para que la Web Application muestre los agroquímicos. | **Escenario 1**<br>Dado que existen agroquímicos registrados<br>Cuando el cliente envía GET /api/v1/agrochemicals<br>Entonces el servidor responde 200 OK con la lista, cada registro con name, type, activeIngredient, recommendedDoseLitersPerHa, stockLiters, minimumStockLiters y expirationDate.<br><br>**Escenario 2**<br>Dado que no existe un registro con el id indicado<br>Cuando el cliente envía GET /api/v1/agrochemicals/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
 | TU-023 | Endpoint de registros de mantenimiento | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/maintenance-records, para que la Web Application muestre los mantenimientos de los drones. | **Escenario 1**<br>Dado que existen registros de mantenimiento<br>Cuando el cliente envía GET /api/v1/maintenance-records<br>Entonces el servidor responde 200 OK con la lista, cada registro con droneId, date, type, description y technician.<br><br>**Escenario 2**<br>Dado que no existe un registro con el id indicado<br>Cuando el cliente envía GET /api/v1/maintenance-records/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
 | TU-024 | Endpoints de usuarios | Como Developer, quiero implementar los endpoints del recurso /api/v1/users, para que la Web Application registre usuarios con su rol. | **Escenario 1**<br>Dado que el cliente envía POST /api/v1/users con username, email, password y role (FARMER u OPERATOR)<br>Cuando la solicitud es válida<br>Entonces el servidor responde 201 Created con el usuario creado y su id, sin incluir la contraseña.<br><br>**Escenario 2**<br>Dado que no existe un usuario con el id indicado<br>Cuando el cliente envía GET /api/v1/users/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
 | TU-025 | Endpoints de misiones | Como Developer, quiero implementar los endpoints del recurso /api/v1/missions, para que la Web Application solicite, asigne, configure y actualice el estado de las misiones de fumigación. | **Escenario 1**<br>Dado que el cliente envía POST /api/v1/missions con parcelId, agrochemicalId y requestedDate<br>Cuando la solicitud es válida<br>Entonces el servidor responde 201 Created con la misión creada en estado PLANNED.<br><br>**Escenario 2**<br>Dado que existe la misión indicada<br>Cuando el cliente envía PUT /api/v1/missions/{id} con requestedDate, droneId, operatorId, flightHeight, flightSpeed, sprayRate y overlap<br>Entonces el servidor responde 200 OK con la misión actualizada.<br><br>**Escenario 3**<br>Dado que existe la misión indicada<br>Cuando el cliente envía PATCH /api/v1/missions/{id}/status con un estado válido (PLANNED, AUTHORIZED, IN_PROGRESS, PAUSED, COMPLETED o CANCELLED)<br>Entonces el servidor responde 200 OK con el nuevo estado de la misión.<br><br>**Escenario 4**<br>Dado que no existe una misión con el id indicado<br>Cuando el cliente envía GET, PUT o PATCH /api/v1/missions/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
 | TU-026 | Endpoint de inicio de sesión | Como Developer, quiero implementar el endpoint POST /api/v1/authentication/sign-in, para que los usuarios inicien sesión y obtengan un token JWT. | **Escenario 1**<br>Dado que el cliente envía POST /api/v1/authentication/sign-in con un username y una contraseña registrados<br>Cuando las credenciales son correctas<br>Entonces el servidor responde 200 OK con el id, el username, el role y el token JWT del usuario.<br><br>**Escenario 2**<br>Dado que el cliente envía POST /api/v1/authentication/sign-in con un username o una contraseña incorrectos<br>Cuando el servidor valida las credenciales<br>Entonces responde 401 Unauthorized sin generar un token. | EP09 |
+| TU-027 | Endpoint de incidentes de drones | Como Developer, quiero implementar el endpoint del recurso /api/v1/drone-incidents, para que la Web Application registre las fallas de los drones y sus reparaciones. | **Escenario 1**<br>Dado que existen incidentes registrados<br>Cuando el cliente envía GET /api/v1/drone-incidents<br>Entonces el servidor responde 200 OK con la lista, cada registro con droneId, description, reportedAt, resolvedAt, status y repairRecordId.<br><br>**Escenario 2**<br>Dado que no existe un registro con el id indicado<br>Cuando el cliente envía GET /api/v1/drone-incidents/{id}<br>Entonces el servidor responde 404 Not Found. | EP09 |
 
 ## 3.2. Impact Mapping
 
@@ -1215,24 +1221,25 @@ El Product Backlog reúne las User Stories y Technical Stories del 3.1, ordenada
 | 60 | TU-021 | Endpoint de boquillas | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/nozzles, para que la Web Application muestre las boquillas. | 1 |
 | 61 | TU-022 | Endpoint de agroquímicos | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/agrochemicals, para que la Web Application muestre los agroquímicos. | 1 |
 | 62 | TU-023 | Endpoint de registros de mantenimiento | Como Developer, quiero implementar el endpoint de consulta del recurso /api/v1/maintenance-records, para que la Web Application muestre los mantenimientos de los drones. | 1 |
-| 63 | MI-006 | Reprogramación de misión | Como agricultor, quiero solicitar el cambio de fecha de una misión que aún no inicia, para ajustarme a eventualidades del fundo. | 3 |
-| 64 | MI-008 | Exportación de plan de vuelo | Como operador técnico, quiero descargar el plan de vuelo parametrizado de la misión, para tenerlo como referencia durante la operación en campo. | 3 |
-| 65 | CL-003 | Identificación de ventana óptima de pulverización | Como operador técnico, quiero visualizar una recomendación del mejor horario para fumigar, para optimizar la eficacia de la aplicación fitosanitaria. | 5 |
-| 66 | CL-004 | Registro de medición climática manual | Como operador técnico, quiero ingresar mediciones de un anemómetro de campo, para validar la viabilidad cuando el servicio meteorológico no tenga cobertura local. | 2 |
-| 67 | CL-005 | Configuración de umbrales meteorológicos por cultivo | Como operador técnico, quiero ajustar los límites de viento y temperatura aceptables por tipo de cultivo, para adaptar las reglas de validación. | 3 |
-| 68 | RP-005 | Balance de consumo de productos agroquímicos | Como operador técnico, quiero consultar un reporte de insumos utilizados por finca, para controlar el gasto y stock de agroquímicos. | 3 |
-| 69 | RP-006 | Comparativa de eficiencia operativa entre parcelas | Como operador técnico, quiero comparar el tiempo promedio de fumigación por hectárea entre distintas parcelas, para identificar oportunidades de mejora. | 5 |
-| 70 | FM-005 | Consulta y filtrado de parcelas | Como agricultor, quiero filtrar mis parcelas por tipo de cultivo o superficie, para ubicar rápidamente terrenos específicos. | 2 |
-| 71 | FM-006 | Deshabilitación de parcela agrícola | Como agricultor, quiero inactivar una parcela fuera de producción, para retirarla de la lista de terrenos operativos. | 2 |
-| 72 | FM-007 | Cambio de capas en mapa cartográfico | Como agricultor, quiero alternar entre vistas satelital, topográfica e híbrida, para analizar las características del terreno. | 3 |
-| 73 | FM-008 | Asignación de operadores técnicos a fincas | Como agricultor, quiero asociar operadores técnicos a fincas específicas, para delegar la gestión de misiones en dichos terrenos. | 5 |
-| 74 | AU-004 | Recuperación de contraseña | Como usuario registrado, quiero restablecer mi contraseña mediante correo electrónico, para recuperar el acceso ante un olvido. | 3 |
-| 75 | AU-005 | Edición de perfil de usuario | Como usuario registrado, quiero actualizar mis datos de contacto y organización, para mantener la información al día. | 2 |
-| 76 | TU-001 | Configuración de arquitectura limpia base | Como Developer, quiero estructurar la solución backend en Spring Boot siguiendo principios de arquitectura limpia, para garantizar la mantenibilidad y modularidad del software. | 5 |
-| 77 | TU-006 | Manejo global de excepciones e intercepción de errores | Como Developer, quiero implementar una clase controladora de excepciones globales, para retornar respuestas de error estandarizadas bajo el formato JSON Problem Details. | 2 |
-| 78 | TU-007 | Pipeline de integración continua con GitHub Actions | Como Developer, quiero configurar un flujo de integración continua en GitHub Actions, para automatizar la compilación y ejecución de pruebas unitarias en cada push. | 2 |
-| 79 | TU-008 | Documentación interactiva de API con OpenAPI/Swagger | Como Developer, quiero integrar la biblioteca Springdoc OpenAPI, para generar automáticamente la documentación interactiva de los endpoints RESTful. | 1 |
-| 80 | TU-010 | Configuración de CORS | Como Developer, quiero configurar la política CORS del RESTful API, para que la Web Application pueda consumir sus endpoints desde su propio origen. | 1 |
+| 63 | TU-027 | Endpoint de incidentes de drones | Como Developer, quiero implementar el endpoint del recurso /api/v1/drone-incidents, para que la Web Application registre las fallas de los drones y sus reparaciones. | 1 |
+| 64 | MI-006 | Reprogramación de misión | Como agricultor, quiero solicitar el cambio de fecha de una misión que aún no inicia, para ajustarme a eventualidades del fundo. | 3 |
+| 65 | MI-008 | Exportación de plan de vuelo | Como operador técnico, quiero descargar el plan de vuelo parametrizado de la misión, para tenerlo como referencia durante la operación en campo. | 3 |
+| 66 | CL-003 | Identificación de ventana óptima de pulverización | Como operador técnico, quiero visualizar una recomendación del mejor horario para fumigar, para optimizar la eficacia de la aplicación fitosanitaria. | 5 |
+| 67 | CL-004 | Registro de medición climática manual | Como operador técnico, quiero ingresar mediciones de un anemómetro de campo, para validar la viabilidad cuando el servicio meteorológico no tenga cobertura local. | 2 |
+| 68 | CL-005 | Configuración de umbrales meteorológicos por cultivo | Como operador técnico, quiero ajustar los límites de viento y temperatura aceptables por tipo de cultivo, para adaptar las reglas de validación. | 3 |
+| 69 | RP-005 | Balance de consumo de productos agroquímicos | Como operador técnico, quiero consultar un reporte de insumos utilizados por finca, para controlar el gasto y stock de agroquímicos. | 3 |
+| 70 | RP-006 | Comparativa de eficiencia operativa entre parcelas | Como operador técnico, quiero comparar el tiempo promedio de fumigación por hectárea entre distintas parcelas, para identificar oportunidades de mejora. | 5 |
+| 71 | FM-005 | Consulta y filtrado de parcelas | Como agricultor, quiero filtrar mis parcelas por tipo de cultivo o superficie, para ubicar rápidamente terrenos específicos. | 2 |
+| 72 | FM-006 | Deshabilitación de parcela agrícola | Como agricultor, quiero inactivar una parcela fuera de producción, para retirarla de la lista de terrenos operativos. | 2 |
+| 73 | FM-007 | Cambio de capas en mapa cartográfico | Como agricultor, quiero alternar entre vistas satelital, topográfica e híbrida, para analizar las características del terreno. | 3 |
+| 74 | FM-008 | Asignación de operadores técnicos a fincas | Como agricultor, quiero asociar operadores técnicos a fincas específicas, para delegar la gestión de misiones en dichos terrenos. | 5 |
+| 75 | AU-004 | Recuperación de contraseña | Como usuario registrado, quiero restablecer mi contraseña mediante correo electrónico, para recuperar el acceso ante un olvido. | 3 |
+| 76 | AU-005 | Edición de perfil de usuario | Como usuario registrado, quiero actualizar mis datos de contacto y organización, para mantener la información al día. | 2 |
+| 77 | TU-001 | Configuración de arquitectura limpia base | Como Developer, quiero estructurar la solución backend en Spring Boot siguiendo principios de arquitectura limpia, para garantizar la mantenibilidad y modularidad del software. | 5 |
+| 78 | TU-006 | Manejo global de excepciones e intercepción de errores | Como Developer, quiero implementar una clase controladora de excepciones globales, para retornar respuestas de error estandarizadas bajo el formato JSON Problem Details. | 2 |
+| 79 | TU-007 | Pipeline de integración continua con GitHub Actions | Como Developer, quiero configurar un flujo de integración continua en GitHub Actions, para automatizar la compilación y ejecución de pruebas unitarias en cada push. | 2 |
+| 80 | TU-008 | Documentación interactiva de API con OpenAPI/Swagger | Como Developer, quiero integrar la biblioteca Springdoc OpenAPI, para generar automáticamente la documentación interactiva de los endpoints RESTful. | 1 |
+| 81 | TU-010 | Configuración de CORS | Como Developer, quiero configurar la política CORS del RESTful API, para que la Web Application pueda consumir sus endpoints desde su propio origen. | 1 |
 
 El Product Backlog se gestiona en Trello, en el siguiente enlace público:
 
@@ -1264,7 +1271,7 @@ Estos criterios se fundamentan en principios de diseño como jerarquía visual, 
 enfoque accesible e intuitivo para que los agricultores y los operadores técnicos de drones puedan interactuar con la plataforma en entornos
 de alta exigencia operativa sin sobrecarga cognitiva.
 </p>
- 
+
 **1. Logo:**
 <p align="justify">
 El isotipo y logotipo de AgriDron Solutions representan la convergencia entre la tecnología de precisión y la naturaleza agrícola.
@@ -1326,8 +1333,8 @@ El tono de comunicación de AgriDron es profesional, confiable, claro, transpare
 de cultivos, mapas de parcelas y programación de fumigación, el tono debe brindar seguridad y control técnico sin resultar excesivamente complejo o burocrático.   
 AgriDron busca transmitir:
 
-- **Seguridad y Control:** al presentar métricas de avance de misión, niveles de batería e insumos.   
-- **Claridad y Eficiencia:** al guiar al agricultor paso a paso en la planificación de una fumigación.   
+- **Seguridad y Control:** al presentar métricas de avance de misión, niveles de batería e insumos.
+- **Claridad y Eficiencia:** al guiar al agricultor paso a paso en la planificación de una fumigación.
 - **Cercanía:** al usar terminología conocida por el productor agrícola (finca, parcela, cultivo, insumo).
 
 Según las dimensiones del tono de comunicación, AgriDron se ubica en:
@@ -1475,7 +1482,8 @@ AgriDron Solutions no usa el esquema alfabético como estructura principal, porq
 | **Zonas de fumigación** | Registro, edición y eliminación de zonas de fumigación por parcela, con área y geometría.                      |
 | **Misiones**            | Solicitud, programación y calendario de misiones, y monitoreo de la misión en curso (MI y TR).                |
 | **Reportes**            | Reportes e Historial, con las pestañas Misiones, Uso de insumos e Indicadores, y el detalle de cada reporte.  |
-| **Drones**              | Flota de drones con estado, batería, boquilla, agroquímicos compatibles, próximo servicio y mantenimientos.   |
+| **Drones**              | Flota de drones con estado, batería, horas de vuelo, boquilla, próximo servicio, mantenimientos e incidentes (fallas y reparaciones). Incluye el catálogo de boquillas.   |
+| **Agroquímicos**        | Registro y consulta de agroquímicos con tipo, ingrediente activo, dosis recomendada, stock y vencimiento.       |
 | **Perfil**              | Datos de la cuenta activa (usuario, correo electrónico y rol asignado) y cierre de sesión.                     |
 
 ### 4.2.2. Labeling Systems
@@ -1494,9 +1502,9 @@ El sistema de etiquetado usa términos breves y familiares para el contexto agr�
 
 - Menú lateral: Inicio, Fincas, Parcelas, Cultivos, Zonas de fumigación, Misiones, Reportes, Drones y Perfil.
 - Barra superior: botón de menú, nombre AgriDron y selector de idioma.
-- Botones de acción: Nueva finca, Nueva parcela, Nuevo cultivo, Nueva zona de fumigación, Crear, Actualizar, Editar, Eliminar, Ver más, Ver detalles, Ver mantenimientos, Filtrar, Limpiar, Descargar reporte, Exportar JSON y Exportar CSV.
+- Botones de acción: Nueva finca, Nueva parcela, Nuevo cultivo, Nueva zona de fumigación, Crear, Actualizar, Editar, Eliminar, Ver más, Ver detalles, Ver mantenimientos, Registrar mantenimiento, Reportar falla, Registrar reparación, Cambiar boquilla, Nuevo agroquímico, Filtrar, Limpiar, Descargar reporte, Exportar JSON y Exportar CSV.
 - Formularios: Nombre, Ubicación, Área (ha), Área (m²), Geometría (GeoJSON), Finca, Parcela, Cultivo, Variedad, Nombre de usuario, Correo electrónico, Contraseña y Rol en el sistema.
-- Estados de dron: Disponible, En vuelo, Mantenimiento y Fuera de servicio.
+- Estados de dron: Disponible, En vuelo, Mantenimiento y Fuera de servicio. Estados de incidente: Pendiente de reparación y Reparada.
 - Estados de misión: Programada, Autorizada, En curso, En pausa, Completada y Cancelada.
 - Niveles de alerta climática: Alto, Medio y Bajo.
 
@@ -1512,7 +1520,8 @@ El sistema de etiquetado usa términos breves y familiares para el contexto agr�
 | **Zonas de fumigación** | Menú lateral, títulos y formularios       | Módulo para definir las áreas de cada parcela que serán fumigadas.             |
 | **Misiones**            | Menú lateral                              | Módulo para solicitar, programar y monitorear las misiones de fumigación.      |
 | **Reportes**            | Menú lateral y Accesos rápidos            | Módulo de historial de misiones, uso de insumos e indicadores.                 |
-| **Drones**              | Menú lateral y Accesos rápidos            | Módulo de gestión de la flota de drones y sus mantenimientos.                  |
+| **Drones**              | Menú lateral y Accesos rápidos            | Módulo de gestión de la flota de drones, sus mantenimientos, incidentes y boquillas.   |
+| **Agroquímicos**        | Menú lateral                              | Módulo para registrar y consultar los agroquímicos y su stock.                 |
 | **Estado del clima**    | Vista Inicio                              | Condiciones actuales por ubicación y alertas con su nivel.                     |
 | **Cerrar Sesión**       | Perfil                                    | Acción para salir de la cuenta activa.                                         |
 
@@ -1641,7 +1650,7 @@ La Landing Page no tiene buscador. El visitante llega a la información mediante
 - Agricultor: Inicio, Fincas, Nueva finca, Parcelas, Nueva parcela, Zonas de fumigación.
 - Agricultor: Inicio, Misiones, solicitud de misión con parcela y fecha (MI-001).
 - Operador técnico: Inicio, Misiones, calendario de misiones, monitoreo de la misión en curso (MI-005 y TR).
-- Operador técnico: Inicio, Drones, Ver detalles, Ver mantenimientos.
+- Operador técnico: Inicio, Drones, Ver detalles, Ver mantenimientos, Registrar mantenimiento, Reportar falla, Registrar reparación, Agroquímicos.
 - Agricultor u operador técnico: Inicio, Reportes, Desde / Hasta, Filtrar, Ver detalle, Descargar reporte.
 
 ## 4.3. Landing Page UI Design
@@ -1748,7 +1757,7 @@ A continuación, se detallan los 8 escenarios visuales clave presentados en la p
 **1. Inicio / Dashboard**
 
 - Propósito: Vista principal y centro de control operativo tras autenticarse en la plataforma.
- **Componentes clave:**
+  **Componentes clave:**
 - Tarjetas de métricas generales (KPIs): Resumen numérico con total de Fincas registradas (3), Parcelas (8), Misiones (5) y Área total (18.5 ha).
 - Misiones recientes: Tabla resumida con ID de misión (MS-001, MS-002, MS-003), parcela de destino, fecha y badges de estado con código de color (En curso, Completada, Programada).
 - Widget meteorológico: Panel en tiempo real que exhibe temperatura (18 °C), condición del cielo (Parcialmente nublado), velocidad del viento (12 km/h) y humedad relativa (68%)
@@ -1774,7 +1783,7 @@ A continuación, se detallan los 8 escenarios visuales clave presentados en la p
 **4. Planificación de Misiones**
 
 - Propósito: Flujo asistido (wizard) en 4 pasos para programar una pulverización de precisión.
-**Componentes clave:**
+  **Componentes clave:**
 
 - Indicador de progreso por etapas (1. Parcela ➔ 2. Fecha y hora ➔ 3. Insumos ➔ 4. Resumen).
 - Previsualización geoespacial del área a tratar (2.5 ha), selección del tipo de cultivo (Uva) y definición del agroquímico (Fungicida), con botón primario Siguiente ➔.
@@ -1865,7 +1874,7 @@ User Goal 1: Planificar y ejecutar una misión de fumigación de precisión.
 ## 4.6. Domain-Driven Software Architecture
 
 ### 4.6.1. Design-Level Event Storming
-El **Design-Level Event Storming** permite representar el flujo principal del dominio de AgriDron Solutions mediante comandos, eventos de dominio, actores, políticas y agregados. 
+El **Design-Level Event Storming** permite representar el flujo principal del dominio de AgriDron Solutions mediante comandos, eventos de dominio, actores, políticas y agregados.
 
 ### Flujo principal del dominio
 
@@ -1929,12 +1938,14 @@ El flujo comienza cuando un agricultor solicita un servicio de fumigación y ter
 | **Registro de incidentes**            | Una incidencia debe quedar registrada para mantener trazabilidad.                                           |
 | **Registro de resultados**            | Una misión finalizada debe conservar información sobre el trabajo realizado.                                |
 | **Actualización del historial**       | Los resultados de misiones finalizadas deben estar disponibles para consultas posteriores.                  |
+| **Restricción por falla de equipo**   | Un dron con una falla pendiente queda fuera de servicio y no puede asignarse a misiones hasta registrar su reparación. Solo puede haber una falla pendiente por dron. |
+| **Mantenimiento preventivo**          | El servicio preventivo actualiza las fechas de último y próximo mantenimiento y reinicia las horas de vuelo; la reparación de una falla se registra como mantenimiento correctivo y no las modifica. |
 
 ### Agregados principales
 
 - **Farm / Parcel:** concentra información territorial y agrícola.
 - **Mission:** concentra la información principal de una operación y su ciclo de vida.
-- **Drone:** representa el recurso utilizado para ejecutar una misión.
+- **Drone:** representa el recurso utilizado para ejecutar una misión. Sus fallas y reparaciones se registran como incidentes del dron, vinculados a su mantenimiento correctivo.
 - **Mission Report:** concentra los resultados registrados al finalizar una operación.
 
 ---
@@ -1995,13 +2006,13 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 
 ## Bounded Context 6: Inventory & Resource Management
 
-**Responsabilidad:** controlar el inventario de la flota de drones, insumos agroquímicos y boquillas, y registrar el mantenimiento preventivo.
+**Responsabilidad:** controlar el inventario de la flota de drones, insumos agroquímicos y boquillas, y registrar el mantenimiento preventivo y correctivo y las fallas de los equipos.
 
-**Conceptos:** dron, insumo agroquímico, boquilla, stock, mantenimiento preventivo y registro de mantenimiento.
+**Conceptos:** dron, horas de vuelo, insumo agroquímico, boquilla, stock, mantenimiento preventivo, mantenimiento correctivo, registro de mantenimiento e incidente de dron (falla y reparación).
 
-**Operaciones:** registrar/actualizar dron, registrar insumo o boquilla, controlar stock, programar mantenimiento preventivo y registrar mantenimiento realizado.
+**Operaciones:** registrar/actualizar dron, registrar insumo o boquilla, controlar stock, cambiar la boquilla de un dron, registrar mantenimiento realizado, reportar una falla y registrar su reparación.
 
-**Eventos:** `DronRegistrado`, `InsumoRegistrado`, `StockActualizado`, `MantenimientoProgramado`, `MantenimientoRegistrado`.
+**Eventos:** `DronRegistrado`, `InsumoRegistrado`, `StockActualizado`, `BoquillaCambiada`, `MantenimientoRegistrado`, `FallaReportada`, `ReparacionRegistrada`.
 
 ### Relación entre Bounded Contexts
 
@@ -2012,8 +2023,21 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 ### 4.6.2. Software Architecture Context Diagram
 El **System Context Diagram de C4** representa el sistema como una única unidad y muestra los usuarios y sistemas externos que interactúan directamente con él. En este nivel no se detallan tecnologías internas.
 
-<img src="assets/chapter4/agridron-context.jpg" alt="Software Architecture Context Diagram" width="2059"/>
+```mermaid
+C4Context
+  title System Context Diagram - AgriDron Solutions
 
+  Person(farmer, "Agricultor / Cliente", "Solicita servicios de fumigación y consulta información de sus operaciones.")
+  Person(operator, "Operador Técnico", "Gestiona parcelas, planifica misiones, monitorea operaciones y registra resultados.")
+
+  System(agridron, "AgriDron Solutions", "Plataforma web para la planificación y monitoreo de operaciones de fumigación agrícola mediante drones.")
+
+  System_Ext(weather, "API Meteorológica", "Servicio externo que proporciona información de condiciones meteorológicas.")
+
+  Rel(farmer, agridron, "Solicita y consulta servicios")
+  Rel(operator, agridron, "Gestiona parcelas, misiones y operaciones")
+  Rel(agridron, weather, "Consulta condiciones meteorológicas")
+```
 
 ### Descripción
 
@@ -2032,8 +2056,31 @@ Los contenedores definidos son:
 4. **Base de Datos Relacional**
 5. **API Meteorológica Externa**
 
-<img src="assets/chapter4/agridron-container.jpg" alt="Software Architecture Container Diagrams" width="3253"/>
+```mermaid
+C4Container
+  title Container Diagram - AgriDron Solutions
 
+  Person(farmer, "Agricultor / Cliente", "Consulta información de sus servicios y operaciones.")
+  Person(operator, "Operador Técnico", "Gestiona parcelas, planifica y monitorea operaciones de fumigación.")
+
+  System_Ext(weather, "API Meteorológica", "API externa para obtener condiciones meteorológicas.")
+
+  System_Boundary(agridron, "AgriDron Solutions") {
+    Container(landing, "Landing Page", "Angular / TypeScript", "Presenta la solución y permite acceder a la plataforma.")
+    Container(frontend, "Frontend Angular", "Angular / TypeScript", "Interfaz web para gestionar parcelas, misiones, monitoreo, historial y reportes.")
+    Container(backend, "Backend Spring Boot", "Java / Spring Boot", "Implementa la lógica de negocio y expone la API REST.")
+    ContainerDb(database, "Base de Datos Relacional", "SQL", "Almacena usuarios, parcelas, misiones, drones, operaciones, incidentes y reportes.")
+  }
+
+  Rel(farmer, landing, "Consulta información")
+  Rel(operator, landing, "Consulta información")
+  Rel(farmer, frontend, "Consulta servicios")
+  Rel(operator, frontend, "Gestiona operaciones")
+  Rel(landing, frontend, "Redirige al acceso de la plataforma")
+  Rel(frontend, backend, "Consume API REST", "HTTPS / JSON")
+  Rel(backend, database, "Lee y almacena información", "SQL")
+  Rel(backend, weather, "Consulta condiciones meteorológicas", "HTTPS / JSON")
+```
 
 ### Descripción de los contenedores
 
@@ -2063,7 +2110,7 @@ Los contenedores definidos son:
 | **Flight Operations**               | Misiones, operaciones e incidentes                             | Frontend + Backend + BD     |
 | **Weather Integration**             | Condiciones y alertas meteorológicas                           | Backend + API Meteorológica |
 | **Analytics & Reporting**           | Historial, métricas y reportes                                 | Frontend + Backend + BD     |
-| **Inventory & Resource Management** | Drones, boquillas, agroquímicos y registros de mantenimiento   | Frontend + Backend + BD     |
+| **Inventory & Resource Management** | Drones, boquillas, agroquímicos, mantenimientos e incidentes    | Frontend + Backend + BD     |
 
 La correspondencia permite mantener trazabilidad entre el análisis de dominio realizado mediante Event Storming y la arquitectura propuesta para AgriDron Solutions.
 
@@ -2075,8 +2122,77 @@ Esta sección presenta el diseño interno de los principales componentes de soft
 
 La API RESTful implementada con Spring Boot concentra la lógica de aplicación y dominio. Se organiza en capas de presentación, aplicación, dominio e infraestructura.
 
-<img src="assets/chapter4/agridron-api.png" alt="RESTful Api" width="3521"/>
-
+```mermaid
+flowchart LR
+  subgraph API["RESTful API - Spring Boot"]
+    subgraph Presentation["API / Presentation Layer"]
+      UC["Users Controller"]
+      AC["Authentication Controller"]
+      FC["Field Controller"]
+      MC["Mission Controller"]
+      WC["Weather Controller"]
+      RC["Report Controller"]
+      DC["Drones Controller"]
+      NC["Nozzles Controller"]
+      AGC["Agrochemicals Controller"]
+      MRC["Maintenance Records Controller"]
+    end
+    subgraph Application["Application Layer"]
+      IS["IAM Service"]
+      FS["Field Service"]
+      MS["Mission Service"]
+      WS["Weather Service"]
+      RS["Report Service"]
+      INS["Inventory Service"]
+    end
+    subgraph Domain["Domain Layer"]
+      ID["Identity & Access Management Domain"]
+      FD["Field Management Domain"]
+      MD["Flight Operations Domain"]
+      WD["Weather Integration Domain"]
+      RD["Analytics & Reporting Domain"]
+      IND["Inventory & Resource Management Domain"]
+    end
+    subgraph Infrastructure["Infrastructure Layer"]
+      UR["User Repository"]
+      FR["Field Repository"]
+      MR["Mission Repository"]
+      RR["Report Repository"]
+      INR["Inventory Repository"]
+      WA["Weather API Adapter"]
+    end
+  end
+  DB[("Relational Database")]
+  Weather["Weather API"]
+  UC --> IS
+  AC --> IS
+  FC --> FS
+  MC --> MS
+  WC --> WS
+  RC --> RS
+  DC --> INS
+  NC --> INS
+  AGC --> INS
+  MRC --> INS
+  IS --> ID
+  FS --> FD
+  MS --> MD
+  WS --> WD
+  RS --> RD
+  INS --> IND
+  IS --> UR
+  FS --> FR
+  MS --> MR
+  RS --> RR
+  INS --> INR
+  WS --> WA
+  UR --> DB
+  FR --> DB
+  MR --> DB
+  RR --> DB
+  INR --> DB
+  WA --> Weather
+```
 
 ### Responsabilidades
 
@@ -2087,15 +2203,67 @@ La API RESTful implementada con Spring Boot concentra la lógica de aplicación 
 | Domain         | Contener reglas y conceptos principales de cada Bounded Context.        |
 | Infrastructure | Implementar persistencia e integración con servicios externos.          |
 
-Los componentes de Identity & Access Management atienden `/api/v1/users` (TU-024) y `/api/v1/authentication/sign-in` (TU-026). Los de Inventory & Resource Management atienden `/api/v1/drones` (TU-020), `/api/v1/nozzles` (TU-021), `/api/v1/agrochemicals` (TU-022) y `/api/v1/maintenance-records` (TU-023).
+Los componentes de Identity & Access Management atienden `/api/v1/users` (TU-024) y `/api/v1/authentication/sign-in` (TU-026). Los de Inventory & Resource Management atienden `/api/v1/drones` (TU-020), `/api/v1/nozzles` (TU-021), `/api/v1/agrochemicals` (TU-022), `/api/v1/maintenance-records` (TU-023) y `/api/v1/drone-incidents` (TU-027).
 
 ## 4.6.4.2. Web Application
 
 La aplicación web utiliza Angular para proporcionar las funcionalidades de operadores y clientes.
 
-<img src="assets/chapter4/agridron-web-application.png" alt="Web Application" width="150" width="4420"/>
-
-
+```mermaid
+flowchart LR
+  subgraph Web["Web Application - Angular"]
+    subgraph IAM["iam"]
+      SignIn["Sign In"]
+      SignUp["Sign Up"]
+      Profile["User Profile"]
+    end
+    subgraph Field["fieldManagement"]
+      Farms["Farms"]
+      Parcels["Parcels"]
+      Crops["Crops"]
+      Zones["Fumigation Areas"]
+    end
+    subgraph Flight["Flight Operations"]
+      Missions["Mission Management (pendiente)"]
+    end
+    subgraph Weather["weather-integration"]
+      WeatherService["Weather Service"]
+    end
+    subgraph Reports["analyticsAndReporting"]
+      ReportsView["Reports"]
+      History["Mission History"]
+      Indicators["Performance Indicators"]
+      Supply["Supply Usage"]
+    end
+    subgraph Inventory["InventoryResourceManagement"]
+      Drones["Drones"]
+      Resources["Nozzles, Agrochemicals and Maintenance Records"]
+    end
+    subgraph Shared["shared"]
+      Layout["Layout and Navigation"]
+      WeatherWidget["Weather Widget"]
+      APIClient["REST API Client"]
+    end
+  end
+  API["RESTful API"]
+  SignIn --> APIClient
+  SignUp --> APIClient
+  Profile --> APIClient
+  Farms --> APIClient
+  Parcels --> APIClient
+  Crops --> APIClient
+  Zones --> APIClient
+  Missions -.-> APIClient
+  WeatherWidget --> WeatherService
+  WeatherService --> APIClient
+  ReportsView --> APIClient
+  History --> APIClient
+  Indicators --> APIClient
+  Supply --> APIClient
+  Drones --> APIClient
+  Resources --> APIClient
+  APIClient --> API
+```
 
 ### Responsabilidades
 
@@ -2104,15 +2272,33 @@ La aplicación web utiliza Angular para proporcionar las funcionalidades de oper
 - **Flight Operations:** crear, programar y monitorear misiones. Es el módulo de misiones pendiente de implementación y aún no tiene carpeta en el frontend.
 - **weather-integration (Weather Integration):** obtener las condiciones y alertas meteorológicas que muestra el Weather Widget.
 - **analyticsAndReporting (Analytics & Reporting):** consultar reportes, historial de misiones, indicadores de rendimiento y uso de insumos.
-- **InventoryResourceManagement (Inventory & Resource Management):** consultar la flota de drones, las boquillas, los agroquímicos y los registros de mantenimiento.
+- **InventoryResourceManagement (Inventory & Resource Management):** consultar la flota de drones, las boquillas, los agroquímicos, los registros de mantenimiento y los incidentes (fallas y reparaciones).
 - **shared:** centralizar el layout, la navegación, el Weather Widget y la clase base del REST API Client, que encapsula la comunicación con el Backend.
 
 ## 4.6.4.3. Weather Integration Component
 
 La integración meteorológica se mantiene aislada para evitar acoplar directamente la lógica de negocio con la API externa.
 
-<img src="assets/chapter4/agridron-weather.png" alt="Weather Integration" width="1232"/>
-
+```mermaid
+flowchart LR
+  Backend["Backend Spring Boot"]
+  subgraph WeatherIntegration["Weather Integration"]
+    WS["Weather Service"]
+    WClient["Weather API Client"]
+    Mapper["Weather Response Mapper"]
+    Evaluator["Weather Condition Evaluator"]
+    Alert["Weather Alert Generator"]
+  end
+  External["External Weather API"]
+  Backend --> WS
+  WS --> WClient
+  WClient --> External
+  External --> WClient
+  WClient --> Mapper
+  Mapper --> Evaluator
+  Evaluator --> Alert
+  Alert --> Backend
+```
 
 El componente permite cambiar o adaptar el proveedor meteorológico sin modificar directamente los componentes de **Flight Operations**.
 
@@ -2129,44 +2315,470 @@ En todos los diagramas, el scope se indica con `+` (público), `-` (privado) y `
 
 ### 4.7.1.1. Overview
 
-<img src="assets/chapter4/class-agridron-overview.png" alt="Class Diagram Overview" width="3908"/>
+```mermaid
+classDiagram
+  namespace IAM {
+    class User
+  }
+  namespace FieldManagement {
+    class Farm
+    class Parcel
+    class FumigationArea
+    class Crop
+  }
+  namespace FlightOperations {
+    class Mission
+    class Incident
+    class OperationStatus
+    class MissionResult
+  }
+  namespace WeatherIntegration {
+    class WeatherCondition
+    class WeatherAlert
+  }
+  namespace AnalyticsReporting {
+    class MissionReport
+    class MissionHistory
+    class OperationalMetric
+    class PerformanceIndicator
+  }
+  namespace InventoryResourceManagement {
+    class Drone
+    class Agrochemical
+    class Nozzle
+    class MaintenanceRecord
+  }
+  namespace Shared {
+    class BaseApi
+    class BaseApiEndpoint
+  }
 
+  Farm "1" *-- "0..*" Parcel : contains
+  Parcel "1" *-- "0..*" FumigationArea : defines
+  Parcel "0..*" --> "1" Crop : has
+  Mission "1" *-- "0..*" Incident : records
+  Mission "1" *-- "0..*" OperationStatus : tracks
+  Mission "1" *-- "0..1" MissionResult : produces
+  WeatherCondition "1" *-- "0..*" WeatherAlert : contains
+  MissionReport "1" *-- "0..*" OperationalMetric : contains
+  Drone "1" *-- "0..*" MaintenanceRecord : has
+  Drone "0..*" --> "1" Nozzle : uses nozzleId
+
+  Farm "0..*" ..> "1" User : ownerId
+  Mission "0..*" ..> "1" Parcel : parcelId
+  Mission "0..*" ..> "1" Agrochemical : agrochemicalId
+  Mission "0..*" ..> "0..1" Drone : droneId
+  Mission "0..*" ..> "0..1" User : operatorId
+  Mission "0..*" ..> "0..*" WeatherAlert : checks before flight
+  WeatherCondition "0..*" ..> "1" Farm : location
+  MissionReport "0..*" ..> "1" Mission : missionId
+  MissionHistory "0..1" ..> "1" Mission : missionId
+  MissionResult "1" ..> "0..*" MissionReport : feeds
+  BaseApi "1" o-- "1..*" BaseApiEndpoint : composes
+```
 
 ### 4.7.1.2. Identity & Access Management
 
-<img src="assets/chapter4/class-agridron-iam.png" alt="Class Diagram Identity and Access Management" width="3368"/>
-
+```mermaid
+classDiagram
+  class User {
+    -Long id
+    -String username
+    -String email
+    -String passwordHash
+    -UserRole role
+    +signUp() void
+    +authenticate() Boolean
+    +updateProfile(username: String, email: String) void
+    +hasRole(role: UserRole) Boolean
+  }
+  class UserRole {
+    <<enumeration>>
+    FARMER
+    OPERATOR
+  }
+  class SignInCommand {
+    -String username
+    -String password
+  }
+  class SignUpCommand {
+    -String username
+    -String email
+    -String password
+    -UserRole role
+  }
+  class AuthenticationService {
+    +signIn(command: SignInCommand) void
+    +signUp(command: SignUpCommand) void
+    +signOut() void
+    +hasAccess(user: User, requiredRole: UserRole) Boolean
+  }
+  User "0..*" --> "1" UserRole : has
+  SignUpCommand "0..*" --> "1" UserRole : selects
+  AuthenticationService "1" --> "0..*" User : authenticates
+  AuthenticationService "1" ..> "1" SignInCommand : handles
+  AuthenticationService "1" ..> "1" SignUpCommand : handles
+```
 
 ### 4.7.1.3. Field Management
 
-<img src="assets/chapter4/class-agridron-field.png" alt="Class Diagram Identity and Access Management" width="4016"/>
-
+```mermaid
+classDiagram
+  class Farm {
+    -Long id
+    -String name
+    -String location
+    -Long ownerId
+    -String image
+    +register() void
+    +update(name: String, location: String) void
+    +getParcels() List~Parcel~
+  }
+  class Parcel {
+    -Long id
+    -String name
+    -Double area
+    -String geometry
+    -Long farmId
+    -Long cropId
+    -String image
+    +defineArea(geometry: String) void
+    +updateCrop(cropId: Long) void
+  }
+  class FumigationArea {
+    -Long id
+    -Long parcelId
+    -String geometry
+    -Double area
+    +calculateArea() Double
+    +updateGeometry(geometry: String) void
+  }
+  class Crop {
+    -Long id
+    -String name
+    -String variety
+    +getInformation() String
+  }
+  Farm "1" *-- "0..*" Parcel : contains
+  Parcel "1" *-- "0..*" FumigationArea : defines
+  Parcel "0..*" --> "1" Crop : has
+```
 
 ### 4.7.1.4. Flight Operations
 
-<img src="assets/chapter4/class-agridron-flight.png" alt="Class Diagram Flight Operations" width="3720"/>
-
+```mermaid
+classDiagram
+  class Mission {
+    -Long id
+    -LocalDate requestedDate
+    -Long parcelId
+    -Long agrochemicalId
+    -Long droneId
+    -Long operatorId
+    -Double flightHeight
+    -Double flightSpeed
+    -Double sprayRate
+    -Double overlap
+    -MissionStatus status
+    +assignResources(droneId: Long, agrochemicalId: Long) void
+    +assignOperator(operatorId: Long) void
+    +configureFlightParameters(flightHeight: Double, flightSpeed: Double, sprayRate: Double, overlap: Double) void
+    +reschedule(requestedDate: LocalDate) void
+    +authorize() void
+    +pause() void
+    +resume() void
+    +complete() void
+    +updateStatus(status: MissionStatus) void
+  }
+  class Incident {
+    -Long id
+    -Long missionId
+    -String type
+    -String description
+    -LocalDateTime occurredAt
+    +register(type: String, description: String) void
+  }
+  class OperationStatus {
+    -Long id
+    -Long missionId
+    -Double latitude
+    -Double longitude
+    -String status
+    -LocalDateTime timestamp
+    +updateLocation(latitude: Double, longitude: Double) void
+  }
+  class MissionResult {
+    -Long id
+    -Long missionId
+    -Double treatedArea
+    -Double appliedVolume
+    -String observations
+    +register(treatedArea: Double, appliedVolume: Double, observations: String) void
+  }
+  class MissionStatus {
+    <<enumeration>>
+    PLANNED
+    AUTHORIZED
+    IN_PROGRESS
+    PAUSED
+    COMPLETED
+    CANCELLED
+  }
+  Mission "0..*" --> "1" MissionStatus : has
+  Mission "1" *-- "0..*" Incident : records
+  Mission "1" *-- "0..*" OperationStatus : tracks
+  Mission "1" *-- "0..1" MissionResult : produces
+```
 
 ### 4.7.1.5. Weather Integration
 
-<img src="assets/chapter4/class-agridron-weather_diagram.png" alt="Class Diagram Weather Integration" width="4504"/>
-
+```mermaid
+classDiagram
+  class WeatherService {
+    -WeatherApiClient apiClient
+    +getCurrentConditions(latitude: Double, longitude: Double) WeatherCondition
+    +getForecast(latitude: Double, longitude: Double) List~WeatherCondition~
+    +evaluateConditions(weather: WeatherCondition) List~WeatherAlert~
+  }
+  class WeatherApiClient {
+    <<interface>>
+    +getCurrentWeather(latitude: Double, longitude: Double) WeatherCondition
+    +getForecast(latitude: Double, longitude: Double) List~WeatherCondition~
+  }
+  class WeatherCondition {
+    -Long id
+    -String location
+    -Double temperature
+    -Double humidity
+    -Double windSpeed
+    -Double precipitation
+    -LocalDateTime observedAt
+    +isSuitable() Boolean
+  }
+  class WeatherAlert {
+    -Long id
+    -AlertSeverity severity
+    -String message
+    -LocalDateTime createdAt
+    +generate() void
+  }
+  class AlertSeverity {
+    <<enumeration>>
+    LOW
+    MEDIUM
+    HIGH
+  }
+  WeatherService "1" --> "1" WeatherApiClient : uses
+  WeatherService "1" ..> "0..*" WeatherCondition : evaluates
+  WeatherService "1" ..> "0..*" WeatherAlert : generates
+  WeatherCondition "1" *-- "0..*" WeatherAlert : contains
+  WeatherAlert "0..*" --> "1" AlertSeverity : has
+```
 
 ### 4.7.1.6. Analytics & Reporting
 
-<img src="assets/chapter4/class-agridron-weather_diagram.png" alt="Class Diagram Analytics and Reporting" width="2568"/>
-
+```mermaid
+classDiagram
+  class MissionReport {
+    -Long id
+    -Long missionId
+    -ReportType type
+    -Double treatedArea
+    -Double appliedVolume
+    -String observations
+    -LocalDateTime generatedAt
+    +generate() void
+    +export(format: String) String
+  }
+  class MissionHistory {
+    -Long id
+    -Long missionId
+    -String finalStatus
+    -LocalDateTime completedAt
+    +register() void
+    +isCompletedOn(date: LocalDate) Boolean
+  }
+  class OperationalMetric {
+    -Long id
+    -Long reportId
+    -String name
+    -Double value
+    -String unit
+    +calculate() Double
+  }
+  class PerformanceIndicator {
+    -Long id
+    -String name
+    -Double value
+    -String unit
+    -String period
+    -LocalDateTime calculatedAt
+    +calculate() Double
+  }
+  class ReportType {
+    <<enumeration>>
+    MISSION_SUMMARY
+    PHYTOSANITARY
+  }
+  MissionReport "0..*" --> "1" ReportType : has
+  MissionReport "0..*" --> "1" MissionHistory : summarizes
+  MissionReport "1" *-- "0..*" OperationalMetric : contains
+```
 
 ### 4.7.1.7. Inventory & Resource Management
 
-<img src="assets/chapter4/class-agridron-inventory.png" alt="Class Diagram Inventory and Resource Management" width="3824"/>
-
+```mermaid
+classDiagram
+  class Drone {
+    -Long id
+    -String serialNumber
+    -String model
+    -Integer batteryLevel
+    -DroneStatus status
+    -Long nozzleId
+    -LocalDate lastMaintenanceDate
+    -LocalDate nextMaintenanceDate
+    +register() void
+    +assignToMission(missionId: Long) void
+    +updateStatus(status: DroneStatus) void
+  }
+  class Agrochemical {
+    -Long id
+    -String name
+    -String type
+    -Double stockLiters
+    -Double minimumStockLiters
+    -LocalDate expirationDate
+    +register() void
+    +decreaseStock(liters: Double) void
+  }
+  class Nozzle {
+    -Long id
+    -String type
+    -Double diameterMm
+    -Integer stockUnits
+    -String status
+    +register() void
+    +updateStatus(status: String) void
+  }
+  class MaintenanceRecord {
+    -Long id
+    -Long droneId
+    -LocalDate date
+    -MaintenanceType type
+    -String description
+    -String technician
+    +register() void
+  }
+  class DroneStatus {
+    <<enumeration>>
+    AVAILABLE
+    IN_FLIGHT
+    MAINTENANCE
+    OUT_OF_SERVICE
+  }
+  class MaintenanceType {
+    <<enumeration>>
+    PREVENTIVE
+    CORRECTIVE
+  }
+  Drone "0..*" --> "1" DroneStatus : has
+  Drone "0..*" --> "1" Nozzle : uses nozzleId
+  Drone "1" *-- "0..*" MaintenanceRecord : has
+  MaintenanceRecord "0..*" --> "1" MaintenanceType : classified as
+```
 
 ### 4.7.1.8. Shared
 
 El contexto Shared reúne las clases base que reutilizan los demás Bounded Contexts del frontend (`src/app/shared`): los contratos de dominio e infraestructura y los componentes de presentación comunes.
 
-<img src="assets/chapter4/class-agridron-shared.png" alt="Class Diagram Shared" width="4528"/>
+```mermaid
+classDiagram
+  class BaseEntity {
+    <<interface>>
+    +Number id
+  }
+  class BaseResource {
+    <<interface>>
+    +Number id
+  }
+  class BaseResponse {
+    <<interface>>
+  }
+  class BaseAssembler~TEntity~ {
+    <<interface>>
+    +toEntityFromResource(resource: TResource) TEntity
+    +toResourceFromEntity(entity: TEntity) TResource
+    +toEntitiesFromResponse(response: TResponse) TEntity[]
+  }
+  class BaseApiEndpoint~TEntity~ {
+    <<abstract>>
+    #HttpClient http
+    #String endpointUrl
+    #TAssembler assembler
+    +getAll() Observable~TEntity[]~
+    +getById(id: Number) Observable~TEntity~
+    +create(entity: TEntity) Observable~TEntity~
+    +update(entity: TEntity, id: Number) Observable~TEntity~
+    +delete(id: Number) Observable~void~
+    #handleError(operation: String) Function
+  }
+  class BaseApi {
+    <<abstract>>
+  }
+  class ErrorHandlingEnabledBaseType {
+    <<abstract>>
+    #handleError(operation: String) Function
+  }
+  class Layout {
+    +Signal~Boolean~ sidebarOpen
+    +toggleSidebar() void
+    +closeSidebar() void
+  }
+  class HeaderContent {
+    +Function menuToggle
+  }
+  class SideNav {
+    +Boolean open
+    +Function close
+    +Array options
+    +onNavigate() void
+  }
+  class LanguageSwitcher {
+    #String currentLang
+    #String[] languages
+    -TranslateService translate
+    +useLanguage(language: String) void
+  }
+  class FooterContent
+  class WeatherWidget {
+    -WeatherService weatherService
+    +Signal~WeatherCondition[]~ weatherConditions
+  }
+  class Home {
+    -AuthenticationService authService
+    -WeatherService weatherService
+    +Array metrics
+    +Array shortcuts
+  }
+  class PageNotFound {
+    #String invalidPath
+    -ActivatedRoute route
+    -Router router
+    +ngOnInit() void
+    #navigateToHome() void
+  }
+  BaseApi "1" o-- "1..*" BaseApiEndpoint : composes
+  BaseApiEndpoint "1" --> "1" BaseAssembler : uses
+  BaseApiEndpoint "1" ..> "0..*" BaseEntity : returns
+  BaseAssembler "1" ..> "0..*" BaseResource : converts
+  BaseAssembler "1" ..> "0..*" BaseResponse : reads
+  Layout "1" *-- "1" HeaderContent : contains
+  Layout "1" *-- "1" SideNav : contains
+  Layout "1" *-- "1" FooterContent : contains
+  HeaderContent "1" *-- "1" LanguageSwitcher : contains
+  Home "1" *-- "1" WeatherWidget : contains
+```
 
 
 ## 4.8. Database Design
@@ -2411,7 +3023,7 @@ erDiagram
     }
 ```
 
-**Restricciones principales:** `DRONE.id`, `NOZZLE.id`, `MAINTENANCE_RECORD.id` y `AGROCHEMICAL.id` son PK. `DRONE.serial_number` es único. `DRONE.nozzle_id` es FK obligatoria hacia `NOZZLE.id` (cada dron tiene una boquilla) y `MAINTENANCE_RECORD.drone_id` es FK obligatoria hacia `DRONE.id`. `DRONE.status` solo admite `AVAILABLE`, `IN_FLIGHT`, `MAINTENANCE` y `OUT_OF_SERVICE`. `MAINTENANCE_RECORD.type` solo admite `PREVENTIVE` y `CORRECTIVE`. `battery_level` va de 0 a 100, y `stock_liters`, `minimum_stock_liters` y `stock_units` no pueden ser negativos.
+**Restricciones principales:** `DRONE.id`, `NOZZLE.id`, `MAINTENANCE_RECORD.id`, `DRONE_INCIDENT.id` y `AGROCHEMICAL.id` son PK. `DRONE.serial_number` es único. `DRONE.nozzle_id` es FK obligatoria hacia `NOZZLE.id` (cada dron tiene una boquilla) y `MAINTENANCE_RECORD.drone_id` y `DRONE_INCIDENT.drone_id` son FK obligatorias hacia `DRONE.id`, y `DRONE_INCIDENT.repair_record_id` es una FK opcional hacia `MAINTENANCE_RECORD.id` (solo se llena al registrar la reparación). Un dron solo puede tener un incidente con estado `REPORTED` a la vez. `DRONE_INCIDENT.status` solo admite `REPORTED` y `RESOLVED`. `DRONE.status` solo admite `AVAILABLE`, `IN_FLIGHT`, `MAINTENANCE` y `OUT_OF_SERVICE`. `MAINTENANCE_RECORD.type` solo admite `PREVENTIVE` y `CORRECTIVE`. `battery_level` va de 0 a 100, y `stock_liters`, `minimum_stock_liters`, `flight_hours` y las unidades de boquilla (`good_units`, `worn_units` y `damaged_units`) no pueden ser negativos.
 
 ### 4.8.1.7. Vista integrada de persistencia
 
@@ -2442,7 +3054,7 @@ El modelo relacional se diseñó aplicando hasta la Tercera Forma Normal (3FN) e
 - Las incidencias, estados de operación y resultados de una misión están en `INCIDENT`, `OPERATION_STATUS` y `MISSION_RESULT`, no dentro de `MISSION`.
 - Las métricas de un reporte están en `OPERATIONAL_METRIC` (FK a `MISSION_REPORT`), no como columnas `metric_1`, `metric_2`, etc.
 - Las alertas de una condición meteorológica están en `WEATHER_ALERT` (FK a `WEATHER_CONDITION`).
-- Cada dron referencia su boquilla con `DRONE.nozzle_id` (FK a `NOZZLE`) y sus mantenimientos están en `MAINTENANCE_RECORD`.
+- Cada dron referencia su boquilla con `DRONE.nozzle_id` (FK a `NOZZLE`) sus mantenimientos están en `MAINTENANCE_RECORD` y sus fallas en `DRONE_INCIDENT`.
 - La geometría de parcelas y zonas de fumigación se guarda como un único valor (`geometry`, en formato GeoJSON), tratado como dato atómico.
 
 **Segunda Forma Normal (2FN).** Todas las tablas usan una PK simple (`id`), por lo que no existen dependencias parciales: cada atributo no clave depende de la clave completa. Las únicas claves compuestas son restricciones UNIQUE, no PK (por ejemplo, `MISSION_REPORT` con (`mission_id`, `type`)).
@@ -2453,7 +3065,7 @@ El modelo relacional se diseñó aplicando hasta la Tercera Forma Normal (3FN) e
 - Los datos del dron (`model`, `battery_level`, `serial_number`) están en `DRONE` y `MISSION` solo guarda `drone_id`.
 - Los datos del agroquímico están en `AGROCHEMICAL` y `MISSION` solo guarda `agrochemical_id`.
 - Los datos de la parcela se consultan desde `PARCEL` mediante `MISSION.parcel_id`.
-- Los datos de la boquilla (`type`, `diameter_mm`) están en `NOZZLE` y `DRONE` solo guarda `nozzle_id`.
+- Los datos de la boquilla (`type`, `diameter_mm`, `good_units`, `worn_units`, `damaged_units`) están en `NOZZLE` y `DRONE` solo guarda `nozzle_id`.
 
 **Desnormalización controlada.** Algunos atributos se duplican a propósito, por trazabilidad o rendimiento de consulta:
 - `MISSION_REPORT.treated_area` y `applied_volume` guardan una copia de lo registrado en `MISSION_RESULT` al momento de generar el reporte, de modo que el reporte sea un registro histórico que no cambie si después se corrige la misión.
@@ -3456,10 +4068,10 @@ En esta sección se registra el trabajo planificado para el Sprint 2 a partir de
 | Sprint 2 | FM-002 | Como agricultor, quiero trazar los límites poligonales de una parcela sobre el mapa, para definir el área exacta de cultivo. | T08 | Calcular superficie de parcela | Implementar el cálculo del área de la parcela y registrar el resultado en hectáreas. | 4 | Alexander Vásquez | To-do |
 | Sprint 2 | FM-004 | Como agricultor, quiero especificar el cultivo y la etapa fenológica de la parcela, para parametrizar las misiones de pulverización. | T09 | Registrar información del cultivo | Implementar el registro del tipo de cultivo y etapa fenológica asociada a una parcela. | 3 | Alexander Vásquez | In-Process |
 | Sprint 2 | FM-005 | Como agricultor, quiero filtrar mis parcelas por tipo de cultivo o superficie, para ubicar rápidamente terrenos específicos. | T10 | Implementar consulta y filtros | Permitir la consulta de parcelas y aplicar filtros según los criterios definidos por el usuario. | 3 | Alexander Vásquez | In-Process |
-| Sprint 2 | DR-001 | Como operador técnico, quiero dar de alta un dron con sus especificaciones físicas, para integrarlo a la flota utilizable. | T11 | Registrar información técnica del dron | Implementar el registro del modelo, número de serie y capacidad del tanque del dron. | 3 | Edwin Nicho | In-Process |
+| Sprint 2 | DR-001 | Como operador técnico, quiero dar de alta un dron con sus especificaciones físicas, para integrarlo a la flota utilizable. | T11 | Registrar información técnica del dron | Implementar el registro del modelo, número de serie y capacidad del tanque del dron. | 3 | Edwin Nicho | Done |
 | Sprint 2 | DR-002 | Como operador técnico, quiero visualizar el estado y disponibilidad de los drones, para planificar las asignaciones de trabajo. | T12 | Mostrar disponibilidad de drones | Implementar la consulta del estado de los drones disponibles, en vuelo, en mantenimiento o fuera de servicio. | 3 | Edwin Nicho | Done |
-| Sprint 2 | DR-003 | Como operador técnico, quiero registrar los productos agroquímicos autorizados, para controlar las dosis aplicadas en las misiones. | T13 | Registrar insumos agrícolas | Implementar el registro de productos agroquímicos y sus principales características. | 3 | Edwin Nicho | In-Process |
-| Sprint 2 | DR-005 | Como operador técnico, quiero registrar las horas de vuelo y fechas de mantenimiento de un dron, para prevenir fallas operativas. | T14 | Registrar mantenimiento de drones | Implementar el registro de fechas y horas de mantenimiento preventivo de los drones. | 3 | Edwin Nicho | In-Process |
+| Sprint 2 | DR-003 | Como operador técnico, quiero registrar los productos agroquímicos autorizados, para controlar las dosis aplicadas en las misiones. | T13 | Registrar insumos agrícolas | Implementar el registro de productos agroquímicos y sus principales características. | 3 | Edwin Nicho | Done |
+| Sprint 2 | DR-005 | Como operador técnico, quiero registrar las horas de vuelo y fechas de mantenimiento de un dron, para prevenir fallas operativas. | T14 | Registrar mantenimiento de drones | Implementar el registro de fechas y horas de mantenimiento preventivo de los drones. | 3 | Edwin Nicho | Done |
 | Sprint 2 | MI-001 | Como agricultor, quiero solicitar una misión de fumigación indicando parcela y fecha estimada, para programar la atención de mi cultivo. | T15 | Crear solicitud de misión | Implementar el flujo para crear una solicitud indicando parcela, fecha estimada y producto a aplicar. | 4 | Alexander Vásquez | To-do |
 | Sprint 2 | MI-002 | Como operador técnico, quiero asignar un dron y la cantidad de producto requerida a una misión, para preparar la logística operativa. | T16 | Asignar recursos a la misión | Implementar la selección de un dron disponible y los insumos requeridos para una misión. | 4 | Alexander Vásquez | To-do |
 | Sprint 2 | MI-003 | Como operador técnico, quiero asignarme una misión solicitada, para hacerme responsable de su ejecución en campo. | T17 | Asignar operador a la misión | Implementar la asignación del operador técnico responsable de ejecutar la misión. | 3 | Alexander Vásquez | To-do |
@@ -3542,7 +4154,7 @@ Durante el sprint se revisaron progresivamente las funcionalidades relacionadas 
 
 ![Evidencia de ejecucion del Sprint 2](assets/chapter5/deployment_sprint_2.png)
 
-**Link de la plataforma:** [https://agridronwebapp.web.app](https://agridronwebapp.web.app) 
+**Link de la plataforma:** [https://agridronwebapp.web.app](https://agridronwebapp.web.app)
 
 **Link de la Landing Page (versión en Angular):** [https://agridronlandingpage.web.app](https://agridronlandingpage.web.app)
 
@@ -3572,8 +4184,12 @@ En el Sprint 2 la Web Application se integró con un Fake RESTful API. En el ent
 | Mission Histories | GET | `/api/v1/mission-histories` | — | Lista el historial de misiones con su estado final. |
 | Operational Metrics | GET | `/api/v1/operational-metrics` | — | Lista las métricas operativas de cada reporte. |
 | Performance Indicators | GET | `/api/v1/performance-indicators` | — | Lista los indicadores de desempeño por periodo. |
-| Drones | GET | `/api/v1/drones` | — | Lista los drones con su estado, batería y fechas de mantenimiento. |
-| Nozzles | GET | `/api/v1/nozzles` | — | Lista las boquillas. |
+| Drones | GET | `/api/v1/drones` | — | Lista los drones con su estado, batería, horas de vuelo y fechas de mantenimiento. |
+| Nozzles | GET | `/api/v1/nozzles` | — | Lista las boquillas con su stock por estado. |
+| Agrochemicals | GET, POST | `/api/v1/agrochemicals` | Body (POST): `name`, `type`, `activeIngredient`, `recommendedDoseLitersPerHa`, `stockLiters`, `minimumStockLiters`, `expirationDate` | Lista o registra agroquímicos. |
+| Maintenance Records | GET, POST | `/api/v1/maintenance-records` | Body (POST): `droneId`, `date`, `type`, `description`, `technician` | Lista o registra mantenimientos de drones. |
+| Drone Incidents | GET, POST | `/api/v1/drone-incidents` | Body (POST): `droneId`, `description`, `reportedAt`, `status` | Lista o registra las fallas de los drones. |
+| Drone Incidents | PUT, DELETE | `/api/v1/drone-incidents/{id}` | `id` del incidente | Cierra el incidente con su reparación (`resolvedAt`, `repairRecordId`, `status`) o lo elimina. |
 
 Ejemplo de llamada y respuesta (`GET /api/v1/farms/1`):
 
@@ -3657,35 +4273,35 @@ La coordinación entre los integrantes permitió relacionar las User Stories con
 <div style="page-break-after: always;"></div>
 
 ## Conclusiones y recomendaciones
- 
+
 <p align="justify">
- 
+
 Esta sección presenta una <strong>primera versión (avance AV1)</strong> de las conclusiones del proyecto. En esta etapa del ciclo de vida, el equipo ha completado el Capítulo I (Introducción y Lean UX Process), el Capítulo II (Requirements Elicitation & Analysis), el Capítulo III (Requirements Specification) y el Capítulo IV (Product Design), además de iniciar el Capítulo V con la configuración del entorno de desarrollo y el primer Sprint. Dado que aún no se han ejecutado las Validation Interviews (5.3) ni se cuenta con una versión funcional completa de la Web Application y el RESTful API, las conclusiones aquí presentadas son de carácter <strong>preliminar y de diseño</strong>, contrastando los artefactos elaborados contra los Problem Statements, Assumptions e Hypothesis Statements definidos en el Lean UX Process (1.2.2), y no todavía contra resultados de uso real. Esta sección se expandirá en las siguientes entregas (TB1, AV2, TB2) con hallazgos provenientes de las entrevistas de validación y del producto desplegado.
- 
+
 </p>
- 
+
 <p align="justify">
- 
+
 Respecto a los <strong>Problem Statements</strong> (1.2.2.1), el proceso de Needfinding (2.2 y 2.3) confirmó que los cuatro problemas planteados —gestión dispersa de fincas y parcelas, ausencia de sustento técnico para decisiones climáticas, falta de visibilidad del estado del dron durante el vuelo y dificultad para consultar el historial de operaciones— corresponden a fricciones reales identificadas en las entrevistas y representadas en el User Journey Map (2.3.3) y el Empathy Map (2.3.4) de Diego Mendoza Ríos. Esto es consistente con la literatura revisada: García-Munguía et al. (2024) documentan que la adopción de drones agrícolas aún enfrenta brechas operativas en la planificación y el control de las aplicaciones de fumigación, mientras que la FAO (s. f.) enmarca la protección vegetal como un proceso que requiere información oportuna para la toma de decisiones, lo cual respalda la necesidad identificada en el Problem Statement 2 sobre la consulta de condiciones meteorológicas antes de una misión.
- 
+
 </p>
- 
+
 <p align="justify">
- 
+
 Respecto a las <strong>Assumptions</strong> (1.2.2.2), estas se mantienen como creencias no validadas al cierre de esta entrega. El equipo tradujo dichas suposiciones en decisiones concretas de diseño: la gestión de fincas y parcelas se refleja en el modelo de dominio de Field Management (4.7.1.1), la consulta meteorológica en el componente de Weather Integration (4.6.4.3), y el monitoreo del dron en el Wireflow y los Mock-ups de la sección 4.4. Sin embargo, ninguna de estas decisiones ha sido puesta a prueba frente a usuarios reales fuera de las entrevistas de needfinding, por lo que la validación formal de estas asunciones queda pendiente para la sección 5.3 (Validation Interviews).
- 
+
 </p>
- 
+
 <p align="justify">
- 
+
 Respecto a los <strong>Hypothesis Statements</strong> (1.2.2.3), los cuatro enunciados definidos —reducción del tiempo y costo de fumigación, menor tiempo de respuesta ante infestaciones, mayor adopción por facilidad de uso, y mejor toma de decisiones a partir de reportes automatizados— dependen de features que a la fecha de esta entrega están diseñadas (User Stories, Wireframes, Mock-ups, Class Diagrams y Database Diagrams) pero no implementadas ni medidas. Cabe precisar que, dado el alcance académico del curso, el monitoreo de drones se sustentará en datos simulados y no en telemetría real, tal como se indicó en las Assumptions (1.2.2.2); por ello, hipótesis como la reducción del 40% en tiempo y costo de fumigación —cifra de referencia contrastada con estudios como el de Safaeinejad et al. (2025), quienes reportan reducciones de huella ambiental y energética al comparar la fumigación con drones frente a métodos convencionales— no podrán validarse con datos operativos reales dentro del ciclo de vida del curso, sino que se tratarán como una meta de referencia para el diseño de las funcionalidades.
- 
+
 </p>
- 
+
 <p align="justify">
- 
+
 En cuanto al <strong>trabajo de diseño</strong> (Capítulos II a IV), se logró trazabilidad entre los distintos artefactos: los hotspots identificados en el Big Picture EventStorming (2.4) se resolvieron como rutas alternativas explícitas en el User Flow Diagram (4.4.4), y el Design-Level EventStorming (4.6.1) junto con los Class Diagrams (4.7.1) se tradujeron de forma consistente en el Database Diagram (4.8.1). Esta trazabilidad de extremo a extremo —desde la necesidad detectada en needfinding hasta el modelo de base de datos— es el principal resultado tangible de esta primera entrega.
- 
+
 </p>
 
 <p align="justify">
@@ -3735,7 +4351,7 @@ Como <strong>recomendaciones para las siguientes entregas</strong>, el equipo co
 
 **Link Repositorio FrontEnd:** [https://github.com/Opensource-UPC/Agridron-frontend](https://github.com/Opensource-UPC/Agridron-frontend)
 
-**Link de la plataforma:** [https://agridronwebapp.web.app](https://agridronwebapp.web.app) 
+**Link de la plataforma:** [https://agridronwebapp.web.app](https://agridronwebapp.web.app)
 
 **Link GitHub:** [https://github.com/Opensource-UPC/1ASI0729-2620-7760-G3-Agridron-Report](https://github.com/Opensource-UPC/1ASI0729-2620-7760-G3-Agridron-Report)
 
