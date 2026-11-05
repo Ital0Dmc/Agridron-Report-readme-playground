@@ -3287,7 +3287,9 @@ En esta sección se registra y explica el avance en términos de producto y trab
 
 **Link del trello:** [https://trello.com/b/6s9LSWfR/agridron-sprint-1](https://trello.com/b/6s9LSWfR/agridron-sprint-1)
 
-<img src="assets/chapter5/sprint_1.png" alt="Sprint 1" width="650"/>
+![Sprint Backlog 1 en Trello](assets/chapter5/sprint-1-trello.png)
+
+*Figura: Sprint Backlog 1 de AgriDron Solutions en Trello.* El tablero organiza las tareas del Sprint 1 en las columnas To-Do, In-Process, To-Review y Done. Al momento de la captura, las 23 tareas del tablero se encuentran en Done.
 
 | Sprint # | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
 |---|---|---|---|---|---|---:|---|---|
@@ -3443,6 +3445,10 @@ En el Sprint 2 los aspectos de trabajo son los seis Bounded Contexts de la soluc
 En esta sección se registra el trabajo planificado para el Sprint 2 a partir de las User Stories seleccionadas del Product Backlog. Las tareas representan las actividades necesarias para cumplir con los criterios de aceptación de cada User Story y se distribuyen entre los integrantes del equipo de acuerdo con los aspectos trabajados durante el sprint.
 
 **Link del trello:** [https://trello.com/b/UPXvwjZS/agridron-sprint-2](https://trello.com/b/UPXvwjZS/agridron-sprint-2)
+
+![Sprint Backlog 2 en Trello](assets/chapter5/sprint-2-trello.png)
+
+*Figura: Sprint Backlog 2 de AgriDron Solutions en Trello.* El tablero organiza las 34 tareas del Sprint 2 en las columnas To-Do, In-Process, To-Review y Done. Al cierre del sprint hay 15 tareas en To-Do, 13 en In-Process y 6 en Done, igual que en la tabla de esta sección.
 
 | Sprint # | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
 |---|---|---|---|---|---|---:|---|---|
