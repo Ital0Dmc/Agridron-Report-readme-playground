@@ -3287,7 +3287,9 @@ En esta sección se registra y explica el avance en términos de producto y trab
 
 **Link del trello:** [https://trello.com/b/6s9LSWfR/agridron-sprint-1](https://trello.com/b/6s9LSWfR/agridron-sprint-1)
 
-<img src="assets/chapter5/sprint_1.png" alt="Sprint 1" width="650"/>
+![Sprint Backlog 1 en Trello](assets/chapter5/sprint-1-trello.png)
+
+*Figura: Sprint Backlog 1 de AgriDron Solutions en Trello.* El tablero organiza las tareas del Sprint 1 en las columnas To-Do, In-Process, To-Review y Done. Al momento de la captura, las 23 tareas del tablero se encuentran en Done.
 
 | Sprint # | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
 |---|---|---|---|---|---|---:|---|---|
