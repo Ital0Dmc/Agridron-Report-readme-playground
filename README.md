@@ -3444,6 +3444,10 @@ En esta sección se registra el trabajo planificado para el Sprint 2 a partir de
 
 **Link del trello:** [https://trello.com/b/UPXvwjZS/agridron-sprint-2](https://trello.com/b/UPXvwjZS/agridron-sprint-2)
 
+![Sprint Backlog 2 en Trello](assets/chapter5/sprint-2-trello.png)
+
+*Figura: Sprint Backlog 2 de AgriDron Solutions en Trello.* El tablero organiza las 34 tareas del Sprint 2 en las columnas To-Do, In-Process, To-Review y Done. Al cierre del sprint hay 15 tareas en To-Do, 13 en In-Process y 6 en Done, igual que en la tabla de esta sección.
+
 | Sprint # | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status |
 |---|---|---|---|---|---|---:|---|---|
 | Sprint 2 | AU-001 | Como agricultor, quiero registrar una cuenta en la plataforma, para gestionar mis terrenos y solicitar misiones de fumigación. | T01 | Definir los datos e implementar el flujo de registro | Identificar los datos personales necesarios para registrar un usuario con rol de agricultor e implementar el flujo de registro y la validación de esos datos. | 6 | Gabriel Ramírez | Done |
