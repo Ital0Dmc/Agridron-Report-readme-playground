@@ -179,7 +179,7 @@ Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones deriv
       - [4.6.1.1. Bounded Contexts](#4611-bounded-contexts)
     - [4.6.2. Software Architecture Context Diagram](#462-software-architecture-context-diagram)
     - [4.6.3. Software Architecture Container Diagrams](#463-software-architecture-container-diagrams)
-    - [Trazabilidad entre dominio y arquitectura](#trazabilidad-entre-dominio-y-arquitectura)
+      - [Trazabilidad entre dominio y arquitectura](#trazabilidad-entre-dominio-y-arquitectura)
     - [4.6.4. Software Architecture Components Diagrams](#464-software-architecture-components-diagrams)
       - [4.6.4.1. RESTful API](#4641-restful-api)
       - [4.6.4.2. Web Application](#4642-web-application)
@@ -1865,9 +1865,21 @@ User Goal 1: Planificar y ejecutar una misión de fumigación de precisión.
 
 ## 4.5. Web Applications Prototyping
 
+Los prototipos de AgriDron Solutions simulan en Figma la interacción y la navegación de la Web Application en Desktop y en Mobile Web Browser, siguiendo los recorridos de los User Flow Diagrams (4.4.4). Las decisiones de interacción se basan en tres criterios.
+
+- **Navegación consistente:** el prototipo usa el sistema de navegación definido en la Information Architecture (4.2.5). En Desktop, el menú lateral queda siempre visible y resalta el módulo activo. En Mobile, el menú se oculta y se abre con el botón de menú, para dejar el ancho de la pantalla al contenido.
+- **Acciones visibles en su contexto:** cada listado muestra su botón de creación (por ejemplo, Nueva finca) y cada tarjeta sus acciones (Ver, Editar y Eliminar), para que el usuario actúe sin salir de la vista en la que está.
+- **Pasos guiados en las tareas largas:** la planificación de una misión se divide en un asistente de cuatro pasos (parcela, fecha y hora, insumos y resumen), que reduce los errores y muestra en qué paso está el usuario.
+
 <img src="assets/chapter4/VersionMobile.png" alt="VersionMobile" width="650"/>
 
+*Figura: Prototipo Mobile, vista Mis Fincas.* En Mobile el menú lateral se reemplaza por el botón de menú de la barra superior, y las fincas se muestran en una sola columna, con el botón Ver en cada tarjeta y el botón Nueva Finca arriba.
+
 <img src="assets/chapter4/VersionDesktop.png" alt="VersionDesktop" width="650"/>
+
+*Figura: Prototipo Desktop, Landing Page.* La barra de navegación enlaza las secciones de la página y el botón Solicitar Demo, y el Hero presenta los botones Empieza tu prueba gratis y Ver cómo funciona.
+
+**Enlace del Figma:** https://www.figma.com/design/gIhPSpNHHNel3RMWLQSl8a/Sin-t%C3%ADtulo?node-id=0-1&t=LmubQnBsex2NasC8-1
 
 ---
 
@@ -1881,6 +1893,8 @@ El **Design-Level Event Storming** permite representar el flujo principal del do
 El flujo comienza cuando un agricultor solicita un servicio de fumigación y termina con el registro de los resultados y la generación de información histórica para consulta.
 
 <img src="assets/chapter4/flujo_dominio.png" alt="Flujo principal del dominio" width="650"/>
+
+*Figura: Flujo principal del dominio de AgriDron Solutions.* Recorre el flujo desde que el agricultor registra la parcela hasta que se genera el reporte. Incluye las dos políticas meteorológicas, que generan una alerta si las condiciones son desfavorables o autorizan la misión si son favorables, y el ciclo de monitoreo en el que se registran los incidentes hasta finalizar la operación.
 
 **Link de Lucidchart:** https://lucid.app/lucidchart/e8a59167-4148-4d11-ab49-19abe080e585/edit?view_items=J4zqxcoJNdUQq%2BczQQMJK5LES6g%3D&page=0_0&invitationId=inv_ac46e8d4-1e8b-4dcd-b431-e285187b3edc
 
@@ -1954,7 +1968,7 @@ El flujo comienza cuando un agricultor solicita un servicio de fumigación y ter
 
 La partición del dominio se realiza considerando las responsabilidades y conceptos principales de la solución, y se alinea con los seis Bounded Contexts identificados en el diagrama de EventStorming.
 
-## Bounded Context 1: Identity & Access Management
+##### Bounded Context 1: Identity & Access Management
 
 **Responsabilidad:** gestionar el registro de usuarios, la autenticación segura, el control de acceso y la administración de roles.
 
@@ -1964,7 +1978,7 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 
 **Eventos:** `UsuarioRegistrado`, `UsuarioAutenticado`, `RolAsignado`, `AccesoDenegado`, `SesionCerrada`.
 
-## Bounded Context 2: Field Management
+##### Bounded Context 2: Field Management
 
 **Responsabilidad:** administrar la información territorial, la delimitación de parcelas en mapa y la asociación de tipos de cultivo para planificar servicios.
 
@@ -1974,7 +1988,7 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 
 **Eventos:** `ParcelaRegistrada`, `AreaFumigacionDelimitada`, `InformacionCultivoRegistrada`.
 
-## Bounded Context 3: Flight Operations (Core Domain)
+##### Bounded Context 3: Flight Operations (Core Domain)
 
 **Responsabilidad:** dominio principal del negocio; gestiona la planificación, programación, seguimiento en tiempo real y registro de resultados de las misiones de fumigación.
 
@@ -1984,7 +1998,7 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 
 **Eventos:** `MisionCreada`, `MisionProgramada`, `OperacionIniciada`, `EstadoOperacionActualizado`, `IncidenteRegistrado`, `OperacionFinalizada`.
 
-## Bounded Context 4: Weather Integration
+##### Bounded Context 4: Weather Integration
 
 **Responsabilidad:** consultar servicios meteorológicos externos, evaluar las condiciones ambientales en campo y emitir alertas climáticas.
 
@@ -1994,7 +2008,7 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 
 **Eventos:** `CondicionesMeteorologicasObtenidas`, `CondicionesEvaluadas`, `AlertaMeteorologicaGenerada`.
 
-## Bounded Context 5: Analytics & Reporting
+##### Bounded Context 5: Analytics & Reporting
 
 **Responsabilidad:** procesar la información histórica de las operaciones, calcular indicadores de rendimiento y generar reportes fitosanitarios.
 
@@ -2004,7 +2018,7 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 
 **Eventos:** `ResultadoMisionRegistrado`, `HistorialActualizado`, `IndicadorCalculado`, `ReporteGenerado`.
 
-## Bounded Context 6: Inventory & Resource Management
+##### Bounded Context 6: Inventory & Resource Management
 
 **Responsabilidad:** controlar el inventario de la flota de drones, insumos agroquímicos y boquillas, y registrar el mantenimiento preventivo y correctivo y las fallas de los equipos.
 
@@ -2018,6 +2032,8 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 
 <img src="assets/chapter4/DDD-BoundedContext.jpg" alt="DDD Bounded Context" width="650"/>
 
+*Figura: Event Storming por Bounded Context.* Agrupa los eventos de dominio, comandos, actores, políticas y sistemas externos de los seis Bounded Contexts: Identity & Access Management, Field Management, Flight Operations (Core Domain), Weather Integration, Analytics & Reporting e Inventory & Resource Management.
+
 **link de mmiro:** https://miro.com/app/board/uXjVHl_E4nc=/?share_link_id=823387251080
 
 ### 4.6.2. Software Architecture Context Diagram
@@ -2026,6 +2042,8 @@ El **System Context Diagram de C4** representa el sistema como una única unidad
 <div align="center">
 <img src="assets/chapter4/SystemContext.png" alt="SystemContext" width="600" style="max-width: 100%; height: auto;"/>
 </div>
+
+*Figura: System Context Diagram de AgriDron Solutions.* El Agricultor / Cliente y el Operador Técnico usan la plataforma, y la plataforma consulta las condiciones meteorológicas en una API Meteorológica externa.
 
 
 
@@ -2049,6 +2067,8 @@ Los contenedores definidos son:
 <img src="assets/chapter4/Containers.png" alt="Containers" width="600" style="max-width: 100%; height: auto;"/>
 </div>
 
+*Figura: Container Diagram de AgriDron Solutions.* Muestra la Landing Page, el Frontend Angular, el Backend Spring Boot que expone la API REST, la base de datos relacional PostgreSQL y la API Meteorológica externa, con la tecnología de cada contenedor y el protocolo de cada relación.
+
 ### Descripción de los contenedores
 
 | Contenedor                   | Tecnología              | Responsabilidad                                                                                  |
@@ -2065,17 +2085,19 @@ Los contenedores definidos son:
 2. El usuario utiliza el **Frontend Angular** para gestionar o consultar información.
 3. El **Frontend Angular** consume el **Backend Spring Boot** mediante API REST.
 4. El **Backend Spring Boot** consulta y actualiza la **Base de Datos Relacional**.
-5. El **Backend Spring Boot** consulta la **API Meteorológica** cuando se requiere información climática.
+5. El **Weather Service** del **Frontend Angular** consulta directamente la **API Meteorológica** externa (Open-Meteo) cuando se requiere información climática.
 6. La información procesada se presenta mediante el **Frontend Angular**.
 
-## Trazabilidad entre dominio y arquitectura
+En la implementación actual, el **Weather Service** de la Web Application consulta directamente la **API Meteorológica** externa (Open-Meteo) y obtiene el nombre de la ubicación con BigDataCloud. La consulta a través del **Backend Spring Boot** que muestra el diagrama corresponde al diseño previsto para la RESTful API (TU-005 y TU-015).
+
+#### Trazabilidad entre dominio y arquitectura
 
 | Bounded Context                     | Responsabilidad                                                | Soporte arquitectónico      |
 |-------------------------------------|----------------------------------------------------------------|-----------------------------|
 | **Identity & Access Management**    | Usuarios, roles, registro e inicio de sesión                   | Frontend + Backend + BD     |
 | **Field Management**                | Campos, parcelas y zonas de fumigación                         | Frontend + Backend + BD     |
 | **Flight Operations**               | Misiones, operaciones e incidentes                             | Frontend + Backend + BD     |
-| **Weather Integration**             | Condiciones y alertas meteorológicas                           | Backend + API Meteorológica |
+| **Weather Integration**             | Condiciones y alertas meteorológicas                           | Frontend + API Meteorológica (Open-Meteo) |
 | **Analytics & Reporting**           | Historial, métricas y reportes                                 | Frontend + Backend + BD     |
 | **Inventory & Resource Management** | Drones, boquillas, agroquímicos, mantenimientos e incidentes    | Frontend + Backend + BD     |
 
@@ -2085,13 +2107,15 @@ La correspondencia permite mantener trazabilidad entre el análisis de dominio r
 Esta sección presenta el diseño interno de los principales componentes de software de **AgriDron Solutions**. Se mantiene la separación entre la aplicación web, los servicios REST y las integraciones externas, alineándolos con los Bounded Contexts definidos en la arquitectura.
 
 
-## 4.6.4.1. RESTful API
+#### 4.6.4.1. RESTful API
 
 La API RESTful implementada con Spring Boot concentra la lógica de aplicación y dominio. Se organiza en capas de presentación, aplicación, dominio e infraestructura.
 
 <div align="center">
 <img src="assets/chapter4/RestfulApi.png" alt="RestfulApi" width="600" style="max-width: 100%; height: auto;"/>
 </div>
+
+*Figura: Component Diagram de la RESTful API.* Organiza los componentes del backend en cuatro capas: los controllers de cada recurso en la capa de presentación, los services en la de aplicación, los modelos de cada Bounded Context en la de dominio, y los repositories y el Weather API Adapter en la de infraestructura, que se conectan con la base de datos y con la API Meteorológica.
 
 ### Responsabilidades
 
@@ -2104,7 +2128,7 @@ La API RESTful implementada con Spring Boot concentra la lógica de aplicación 
 
 Los componentes de Identity & Access Management atienden `/api/v1/users` (TU-024) y `/api/v1/authentication/sign-in` (TU-026). Los de Inventory & Resource Management atienden `/api/v1/drones` (TU-020), `/api/v1/nozzles` (TU-021), `/api/v1/agrochemicals` (TU-022), `/api/v1/maintenance-records` (TU-023) y `/api/v1/drone-incidents` (TU-027).
 
-## 4.6.4.2. Web Application
+#### 4.6.4.2. Web Application
 
 La aplicación web utiliza Angular para proporcionar las funcionalidades de operadores y clientes.
 
@@ -2113,6 +2137,8 @@ La aplicación web utiliza Angular para proporcionar las funcionalidades de oper
 <div align="center">
 <img src="assets/chapter4/WebApplication-IAM-Field.png" alt="WebApplication-IAM-Field" width="600" style="max-width: 100%; height: auto;"/>
 </div>
+
+*Figura: Component Diagram de la Web Application (iam, fieldManagement y Flight Operations).*
 
 El diagrama muestra los componentes de la **Web Application** (Angular / TypeScript) correspondientes a los módulos de Identity & Access Management, Field Management y Flight Operations. El módulo **iam** agrupa Sign In, Sign Up y User Profile, para iniciar sesión, registrar usuarios con su rol y consultar el perfil. El módulo **fieldManagement** agrupa Farms, Parcels, Crops y Fumigation Areas, para administrar fincas, parcelas, cultivos y zonas de fumigación. El módulo **Flight Operations** que incluye Mission Management.
 
@@ -2123,6 +2149,8 @@ El diagrama muestra los componentes de la **Web Application** (Angular / TypeScr
 <img src="assets/chapter4/WebApplication-Inventory.png" alt="Web-Inventory" width="600" style="max-width: 100%; height: auto;"/>
 </div>
 
+*Figura: Component Diagram de la Web Application (InventoryResourceManagement).*
+
 
 El diagrama muestra los componentes de la **Web Application** (Angular / TypeScript) del bounded context **Inventory & Resource Management**, en el módulo `InventoryResourceManagement`. **Drones** presenta la flota, el detalle y el formulario de cada dron. **Nozzles** gestiona el catálogo y el stock de boquillas, y el cambio de boquilla de un dron. **Agrochemicals** registra y consulta los agroquímicos. **Maintenance Records** muestra el historial y permite registrar mantenimientos. **Drone Incidents** permite reportar fallas y registrar sus reparaciones.
 
@@ -2132,9 +2160,13 @@ El diagrama muestra los componentes de la **Web Application** (Angular / TypeScr
 <img src="assets/chapter4/WebApplication-Weather-Analytics.png" alt="WebApplication-Weather-Analytics" width="600" style="max-width: 100%; height: auto;"/>
 </div>
 
+*Figura: Component Diagram de la Web Application (weather-integration y analyticsAndReporting).*
+
 El diagrama muestra los componentes de la **Web Application** (Angular / TypeScript) de los módulos de Weather Integration y Analytics & Reporting. En `weather-integration`, el **Weather Service** obtiene las condiciones y alertas meteorológicas, y el **Weather Widget**, del módulo `shared`, lo usa para mostrar el clima en la vista Inicio. En `analyticsAndReporting`, **Reports** presenta los reportes de misiones, **Mission History** el historial de misiones, **Performance Indicators** los indicadores de rendimiento y **Supply Usage** el uso de insumos.
 
-Todos los componentes se comunican con el **REST API Client**, ubicado en el módulo `shared`, que encapsula las llamadas HTTP y es el único punto de acceso hacia el contenedor **RESTful API** (Java / Spring Boot), mediante HTTPS / JSON. De esta forma, los componentes de pantalla no conocen los detalles de la comunicación con el Backend.
+Los componentes de `analyticsAndReporting` se comunican con el **REST API Client**, ubicado en el módulo `shared`, que encapsula las llamadas HTTP y es el único punto de acceso hacia el contenedor **RESTful API** (Java / Spring Boot), mediante HTTPS / JSON. De esta forma, los componentes de pantalla no conocen los detalles de la comunicación con el Backend.
+
+En la implementación actual, el **Weather Service** de la Web Application consulta directamente la **API Meteorológica** externa (Open-Meteo) y obtiene el nombre de la ubicación con BigDataCloud. La consulta a través del **Backend Spring Boot** que muestra el diagrama corresponde al diseño previsto para la RESTful API (TU-005 y TU-015).
 
 ### Responsabilidades
 
@@ -2146,7 +2178,7 @@ Todos los componentes se comunican con el **REST API Client**, ubicado en el mó
 - **InventoryResourceManagement (Inventory & Resource Management):** consultar la flota de drones, las boquillas, los agroquímicos, los registros de mantenimiento y los incidentes (fallas y reparaciones).
 - **shared:** centralizar el layout, la navegación, el Weather Widget y la clase base del REST API Client, que encapsula la comunicación con el Backend.
 
-## 4.6.4.3. Weather Integration Component
+#### 4.6.4.3. Weather Integration Component
 
 La integración meteorológica se mantiene aislada para evitar acoplar directamente la lógica de negocio con la API externa.
 
@@ -2155,6 +2187,8 @@ La integración meteorológica se mantiene aislada para evitar acoplar directame
 <div align="center">
 <img src="assets/chapter4/Api-Weather-IntegrationComponent.png" alt="Api-Weather-IntegrationComponent" width="600" style="max-width: 100%; height: auto;"/>
 </div>
+
+*Figura: Component Diagram de Weather Integration en la RESTful API.*
 
 El diagrama muestra cómo la **RESTful API** (Java / Spring Boot) aísla la integración con el servicio meteorológico externo. El **Weather Controller**, en la capa de presentación, recibe la solicitud y la delega al **Weather Service**, en la capa de aplicación. Este consulta al **Weather API Client**, en infraestructura, que consume la **API Meteorológica** externa mediante HTTPS / JSON. La respuesta pasa por el **Weather Response Mapper**, que la convierte al modelo del dominio, y luego al **Weather Condition Evaluator**, que evalúa si las condiciones son aptas para fumigar. Si no lo son, el **Weather Alert Generator** genera las alertas, que se devuelven al Weather Service.
 
