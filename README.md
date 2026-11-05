@@ -179,7 +179,7 @@ Entre el 30/09/2026 y el 06/10/2026, el equipo incorporó las correcciones deriv
       - [4.6.1.1. Bounded Contexts](#4611-bounded-contexts)
     - [4.6.2. Software Architecture Context Diagram](#462-software-architecture-context-diagram)
     - [4.6.3. Software Architecture Container Diagrams](#463-software-architecture-container-diagrams)
-    - [Trazabilidad entre dominio y arquitectura](#trazabilidad-entre-dominio-y-arquitectura)
+      - [Trazabilidad entre dominio y arquitectura](#trazabilidad-entre-dominio-y-arquitectura)
     - [4.6.4. Software Architecture Components Diagrams](#464-software-architecture-components-diagrams)
       - [4.6.4.1. RESTful API](#4641-restful-api)
       - [4.6.4.2. Web Application](#4642-web-application)
@@ -1968,7 +1968,7 @@ El flujo comienza cuando un agricultor solicita un servicio de fumigación y ter
 
 La partición del dominio se realiza considerando las responsabilidades y conceptos principales de la solución, y se alinea con los seis Bounded Contexts identificados en el diagrama de EventStorming.
 
-## Bounded Context 1: Identity & Access Management
+##### Bounded Context 1: Identity & Access Management
 
 **Responsabilidad:** gestionar el registro de usuarios, la autenticación segura, el control de acceso y la administración de roles.
 
@@ -1978,7 +1978,7 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 
 **Eventos:** `UsuarioRegistrado`, `UsuarioAutenticado`, `RolAsignado`, `AccesoDenegado`, `SesionCerrada`.
 
-## Bounded Context 2: Field Management
+##### Bounded Context 2: Field Management
 
 **Responsabilidad:** administrar la información territorial, la delimitación de parcelas en mapa y la asociación de tipos de cultivo para planificar servicios.
 
@@ -1988,7 +1988,7 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 
 **Eventos:** `ParcelaRegistrada`, `AreaFumigacionDelimitada`, `InformacionCultivoRegistrada`.
 
-## Bounded Context 3: Flight Operations (Core Domain)
+##### Bounded Context 3: Flight Operations (Core Domain)
 
 **Responsabilidad:** dominio principal del negocio; gestiona la planificación, programación, seguimiento en tiempo real y registro de resultados de las misiones de fumigación.
 
@@ -1998,7 +1998,7 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 
 **Eventos:** `MisionCreada`, `MisionProgramada`, `OperacionIniciada`, `EstadoOperacionActualizado`, `IncidenteRegistrado`, `OperacionFinalizada`.
 
-## Bounded Context 4: Weather Integration
+##### Bounded Context 4: Weather Integration
 
 **Responsabilidad:** consultar servicios meteorológicos externos, evaluar las condiciones ambientales en campo y emitir alertas climáticas.
 
@@ -2008,7 +2008,7 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 
 **Eventos:** `CondicionesMeteorologicasObtenidas`, `CondicionesEvaluadas`, `AlertaMeteorologicaGenerada`.
 
-## Bounded Context 5: Analytics & Reporting
+##### Bounded Context 5: Analytics & Reporting
 
 **Responsabilidad:** procesar la información histórica de las operaciones, calcular indicadores de rendimiento y generar reportes fitosanitarios.
 
@@ -2018,7 +2018,7 @@ La partición del dominio se realiza considerando las responsabilidades y concep
 
 **Eventos:** `ResultadoMisionRegistrado`, `HistorialActualizado`, `IndicadorCalculado`, `ReporteGenerado`.
 
-## Bounded Context 6: Inventory & Resource Management
+##### Bounded Context 6: Inventory & Resource Management
 
 **Responsabilidad:** controlar el inventario de la flota de drones, insumos agroquímicos y boquillas, y registrar el mantenimiento preventivo y correctivo y las fallas de los equipos.
 
@@ -2085,17 +2085,19 @@ Los contenedores definidos son:
 2. El usuario utiliza el **Frontend Angular** para gestionar o consultar información.
 3. El **Frontend Angular** consume el **Backend Spring Boot** mediante API REST.
 4. El **Backend Spring Boot** consulta y actualiza la **Base de Datos Relacional**.
-5. El **Backend Spring Boot** consulta la **API Meteorológica** cuando se requiere información climática.
+5. El **Weather Service** del **Frontend Angular** consulta directamente la **API Meteorológica** externa (Open-Meteo) cuando se requiere información climática.
 6. La información procesada se presenta mediante el **Frontend Angular**.
 
-## Trazabilidad entre dominio y arquitectura
+En la implementación actual, el **Weather Service** de la Web Application consulta directamente la **API Meteorológica** externa (Open-Meteo) y obtiene el nombre de la ubicación con BigDataCloud. La consulta a través del **Backend Spring Boot** que muestra el diagrama corresponde al diseño previsto para la RESTful API (TU-005 y TU-015).
+
+#### Trazabilidad entre dominio y arquitectura
 
 | Bounded Context                     | Responsabilidad                                                | Soporte arquitectónico      |
 |-------------------------------------|----------------------------------------------------------------|-----------------------------|
 | **Identity & Access Management**    | Usuarios, roles, registro e inicio de sesión                   | Frontend + Backend + BD     |
 | **Field Management**                | Campos, parcelas y zonas de fumigación                         | Frontend + Backend + BD     |
 | **Flight Operations**               | Misiones, operaciones e incidentes                             | Frontend + Backend + BD     |
-| **Weather Integration**             | Condiciones y alertas meteorológicas                           | Backend + API Meteorológica |
+| **Weather Integration**             | Condiciones y alertas meteorológicas                           | Frontend + API Meteorológica (Open-Meteo) |
 | **Analytics & Reporting**           | Historial, métricas y reportes                                 | Frontend + Backend + BD     |
 | **Inventory & Resource Management** | Drones, boquillas, agroquímicos, mantenimientos e incidentes    | Frontend + Backend + BD     |
 
@@ -2105,7 +2107,7 @@ La correspondencia permite mantener trazabilidad entre el análisis de dominio r
 Esta sección presenta el diseño interno de los principales componentes de software de **AgriDron Solutions**. Se mantiene la separación entre la aplicación web, los servicios REST y las integraciones externas, alineándolos con los Bounded Contexts definidos en la arquitectura.
 
 
-## 4.6.4.1. RESTful API
+#### 4.6.4.1. RESTful API
 
 La API RESTful implementada con Spring Boot concentra la lógica de aplicación y dominio. Se organiza en capas de presentación, aplicación, dominio e infraestructura.
 
@@ -2126,7 +2128,7 @@ La API RESTful implementada con Spring Boot concentra la lógica de aplicación 
 
 Los componentes de Identity & Access Management atienden `/api/v1/users` (TU-024) y `/api/v1/authentication/sign-in` (TU-026). Los de Inventory & Resource Management atienden `/api/v1/drones` (TU-020), `/api/v1/nozzles` (TU-021), `/api/v1/agrochemicals` (TU-022), `/api/v1/maintenance-records` (TU-023) y `/api/v1/drone-incidents` (TU-027).
 
-## 4.6.4.2. Web Application
+#### 4.6.4.2. Web Application
 
 La aplicación web utiliza Angular para proporcionar las funcionalidades de operadores y clientes.
 
@@ -2162,7 +2164,9 @@ El diagrama muestra los componentes de la **Web Application** (Angular / TypeScr
 
 El diagrama muestra los componentes de la **Web Application** (Angular / TypeScript) de los módulos de Weather Integration y Analytics & Reporting. En `weather-integration`, el **Weather Service** obtiene las condiciones y alertas meteorológicas, y el **Weather Widget**, del módulo `shared`, lo usa para mostrar el clima en la vista Inicio. En `analyticsAndReporting`, **Reports** presenta los reportes de misiones, **Mission History** el historial de misiones, **Performance Indicators** los indicadores de rendimiento y **Supply Usage** el uso de insumos.
 
-Todos los componentes se comunican con el **REST API Client**, ubicado en el módulo `shared`, que encapsula las llamadas HTTP y es el único punto de acceso hacia el contenedor **RESTful API** (Java / Spring Boot), mediante HTTPS / JSON. De esta forma, los componentes de pantalla no conocen los detalles de la comunicación con el Backend.
+Los componentes de `analyticsAndReporting` se comunican con el **REST API Client**, ubicado en el módulo `shared`, que encapsula las llamadas HTTP y es el único punto de acceso hacia el contenedor **RESTful API** (Java / Spring Boot), mediante HTTPS / JSON. De esta forma, los componentes de pantalla no conocen los detalles de la comunicación con el Backend.
+
+En la implementación actual, el **Weather Service** de la Web Application consulta directamente la **API Meteorológica** externa (Open-Meteo) y obtiene el nombre de la ubicación con BigDataCloud. La consulta a través del **Backend Spring Boot** que muestra el diagrama corresponde al diseño previsto para la RESTful API (TU-005 y TU-015).
 
 ### Responsabilidades
 
@@ -2174,7 +2178,7 @@ Todos los componentes se comunican con el **REST API Client**, ubicado en el mó
 - **InventoryResourceManagement (Inventory & Resource Management):** consultar la flota de drones, las boquillas, los agroquímicos, los registros de mantenimiento y los incidentes (fallas y reparaciones).
 - **shared:** centralizar el layout, la navegación, el Weather Widget y la clase base del REST API Client, que encapsula la comunicación con el Backend.
 
-## 4.6.4.3. Weather Integration Component
+#### 4.6.4.3. Weather Integration Component
 
 La integración meteorológica se mantiene aislada para evitar acoplar directamente la lógica de negocio con la API externa.
 
